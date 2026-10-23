@@ -11,7 +11,14 @@ let total = 0;
 for (const f of files) {
   const day = f.slice(8, 18);
   try {
-    const { added, warnings } = publishNewStories(JSON.parse(fs.readFileSync(path.join(DIR, f), "utf8")));
+    const stories = JSON.parse(fs.readFileSync(path.join(DIR, f), "utf8")) as { date: string; sources: { url: string }[] }[];
+    // Parallel writers: make sure this file really holds this day's stories, built from this day's sources.
+    const candFile = path.join(DIR, `candidates-${day}.json`);
+    const allowed = fs.existsSync(candFile) ? new Set((JSON.parse(fs.readFileSync(candFile, "utf8")).government as { url: string }[]).map((g) => g.url)) : null;
+    const wrongDate = stories.filter((s) => s.date !== day).length;
+    const foreign = allowed ? stories.flatMap((s) => s.sources).filter((src) => !allowed.has(src.url)).length : 0;
+    if (wrongDate || foreign) throw new Error(`${wrongDate} stories with another date, ${foreign} sources not in this day's candidates`);
+    const { added, warnings } = publishNewStories(stories);
     const skippedFile = path.join(DIR, `skipped-${day}.json`);
     if (fs.existsSync(skippedFile)) recordSkipped(JSON.parse(fs.readFileSync(skippedFile, "utf8")));
     for (const w of warnings) console.warn(`  ! ${w}`);
