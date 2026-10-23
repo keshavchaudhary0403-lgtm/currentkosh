@@ -1,0 +1,59 @@
+import type { Metadata } from "next";
+import { redirect } from "next/navigation";
+import { QuizRunner } from "@/components/quiz-runner";
+import { addDays, istDate } from "@/lib/dates";
+import { currentProfile } from "@/lib/profile";
+import { latestStoryDate, mcqsByIds, pickMcqs } from "@/lib/store";
+import { CATEGORY_IDS } from "@/lib/taxonomy";
+
+export const metadata: Metadata = { title: "Test" };
+
+const KINDS = {
+  daily: { title: "Daily quiz", count: 10, days: 1, timed: false, negative: 0 },
+  weekly: { title: "Weekly revision test", count: 25, days: 7, timed: false, negative: 0 },
+  monthly: { title: "Monthly revision test", count: 50, days: 31, timed: false, negative: 0 },
+  mock: { title: "Timed mock test", count: 50, days: 60, timed: true, negative: 1 / 3 },
+  weak: { title: "Weak-area drill", count: 15, days: 60, timed: false, negative: 0 },
+  thread: { title: "Storyline test", count: 20, days: 365, timed: false, negative: 0 },
+  custom: { title: "Custom test", count: 25, days: 30, timed: false, negative: 0 },
+} as const;
+type Kind = keyof typeof KINDS;
+
+const str = (v: string | string[] | undefined) => (typeof v === "string" && v ? v : undefined);
+const isDate = (v?: string) => !!v && /^\d{4}-\d{2}-\d{2}$/.test(v);
+const newSeed = () => Math.floor(Math.random() * 1e9) + 1;
+
+/**
+ * A test is fully described by its URL (kind, period, topics, count, seed), so it can be
+ * refreshed or shared and always yields the same paper.
+ */
+export default async function RunTest({ searchParams }: PageProps<"/practice/run">) {
+  const profile = await currentProfile();
+  if (!profile) redirect("/welcome");
+  const sp = await searchParams;
+  const kind: Kind = (str(sp.kind) as Kind) in KINDS ? (str(sp.kind) as Kind) : "custom";
+  const preset = KINDS[kind];
+
+  const seed = Number(str(sp.seed));
+  if (!Number.isFinite(seed) || seed <= 0) {
+    const qs = new URLSearchParams(Object.entries(sp).flatMap(([k, v]) => (typeof v === "string" ? [[k, v]] : [])));
+    qs.set("seed", String(newSeed()));
+    redirect(`/practice/run?${qs}`);
+  }
+
+  const latest = latestStoryDate() ?? istDate();
+  const to = isDate(str(sp.to)) ? str(sp.to)! : latest;
+  const from = isDate(str(sp.from)) ? str(sp.from)! : addDays(to, -(preset.days - 1));
+  const categories = (str(sp.cats)?.split(",") ?? []).filter((c) => (CATEGORY_IDS as string[]).includes(c));
+  const storyIds = str(sp.stories)?.split(",");
+  const count = Math.min(Math.max(Number(str(sp.count)) || preset.count, 5), 100);
+  const timed = str(sp.timed) ? str(sp.timed) === "1" : preset.timed;
+  const negative = str(sp.neg) !== undefined ? Math.min(Math.max(Number(str(sp.neg)) || 0, 0), 1) : preset.negative;
+  const title = str(sp.title) ?? (kind === "monthly" ? `${preset.title} · ${from.slice(0, 7)}` : preset.title);
+
+  const ids = pickMcqs(profile, { from, to, categories, count, storyIds, seed });
+  if (!ids.length) redirect("/practice?empty=1");
+  const questions = mcqsByIds(ids).map((m) => ({ id: m.id, storyId: m.storyId, category: m.category, content: m.content }));
+
+  return <QuizRunner key={seed} kind={kind} title={title} questions={questions} lang={profile.lang} timed={timed} seconds={timed ? questions.length * 60 : 0} negative={negative} />;
+}

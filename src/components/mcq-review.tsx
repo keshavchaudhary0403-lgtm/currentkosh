@@ -1,0 +1,36 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+import type { McqContent } from "@/lib/content";
+import type { Lang } from "@/lib/taxonomy";
+import { McqView } from "./mcq";
+
+type Item = { id: string; storyId: string; content: McqContent; selected: number | null };
+
+export function McqReview({ items, lang }: { items: Item[]; lang: Lang }) {
+  const [filter, setFilter] = useState<"all" | "wrong">("wrong");
+  const shown = items.map((it, i) => ({ ...it, n: i + 1 })).filter((it) => filter === "all" || it.selected !== it.content.answer);
+  return (
+    <div>
+      <div className="mb-4 flex gap-2">
+        {(["wrong", "all"] as const).map((f) => (
+          <button key={f} onClick={() => setFilter(f)} className={`rounded-full px-3 py-1.5 text-sm font-medium ${filter === f ? "bg-ink text-bg" : "border border-line bg-surface text-ink-2"}`}>
+            {f === "wrong" ? "Missed" : "All questions"}
+          </button>
+        ))}
+      </div>
+      {shown.length === 0 && <p className="text-sm text-ink-2">Nothing missed. Clean sweep! 🎯</p>}
+      <div className="space-y-4">
+        {shown.map((it) => (
+          <div key={it.id} className="rounded-2xl border border-line bg-surface p-4 sm:p-5">
+            <McqView mcq={it.content} lang={lang} selected={it.selected} reveal number={it.n} />
+            <Link href={`/story/${it.storyId}`} className="mt-3 inline-block text-sm font-medium text-accent">
+              Read the story →
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

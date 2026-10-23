@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CurrentKosh · करंट कोश
 
-## Getting Started
+Current affairs for Indian government exam aspirants (UPSC, State PSC, SSC, Banking, Railways, Defence): one calm, source-cited daily brief in English and Hindi, exam-style tests, and spaced-repetition revision.
 
-First, run the development server:
+## What's inside
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+| Area | What it does |
+|---|---|
+| **Today** | A fixed, finishable brief (10 stories) ranked by relevance to *your* exams and home state, plus lower-priority stories. A date strip to go back in time. |
+| **Story** | 80–120 word summary, key facts, "why it matters", Mains angle, static-GK link, Hindi glossary, official sources + "Also covered by" links, 3 exam-style MCQs, storyline timeline. EN / हिं / bilingual. |
+| **Practice** | Daily quiz, weekly test, monthly tests, timed mock (−⅓), weak-area drill, custom test builder. Results by topic, full review, history. |
+| **Revise** | Spaced repetition (≈1 → 3 → 7 → 21 → 60 days). Reading a story queues its flashcards; wrong answers queue the question. Weekly and monthly one-liner recaps, exam countdown. |
+| **Storylines** | Every update on one issue on a single timeline, with a storyline test. |
+| **Archive** | Search in English or Hindi; filter by month, topic, exam importance, state. |
+| **Progress** | Streak, 18-week heatmap, accuracy by topic, facts mastered. |
+
+## How it works
+
+```
+Claude routine (daily, cloud)                     GitHub                 Vercel
+  npm run news:fetch   ── PIB · AIR · DD · RBI      │                      │
+  write story packs (ROUTINE.md)                    │                      │
+  npm run news:publish ── validate, merge ───────▶ content/*.json ──push──▶ redeploy ──▶ site
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Content** is JSON in `content/`: one file per day in `content/stories/`, plus `threads.json` and `skipped.json`. No database and no API key: a scheduled Claude routine writes the stories, using your Claude plan, by following [`ROUTINE.md`](ROUTINE.md).
+- **Your profile** (exams, state, language) is stored in a cookie. **Your progress** (stories read, tests, revision schedule) is stored in your browser's localStorage. It doesn't sync across devices until accounts are added.
+- **Notes and questions come only from government text** (PIB, AIR, DD News, RBI). The Hindu and Indian Express block AI crawlers in their robots.txt, and coaching content is copyrighted, so those sources appear only as headline links. See [`docs/sources.md`](docs/sources.md).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Run locally
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Requires Node 22.5+.
 
-## Learn More
+```bash
+npm install
+npm run dev          # http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+Run a content update by hand. The `news:fetch` and `news:publish` steps are what the routine runs:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run news:fetch   # → content/inbox/candidates.json
+# write content/inbox/new-stories.json (+ skipped.json) as described in ROUTINE.md
+npm run news:publish # validate + merge into content/
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
+1. Import the GitHub repo in Vercel. Use the Next.js preset and default settings.
+2. Each push to `main`, including the routine's daily content commits, redeploys the site.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Code map
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+content/                 published stories (JSON), storylines, skipped URLs
+ROUTINE.md               instructions the daily Claude routine follows
+scripts/news-fetch.mts   fetch allowed sources → inbox
+scripts/news-publish.mts validate + merge inbox → content/
+src/lib/content.ts       zod schema for a story pack
+src/lib/store.ts         reads content/, feed ranking, test selection
+src/lib/progress-store.ts browser-side progress + spaced repetition
+src/lib/sources.ts       allowed sources and how each may be used
+src/app/(app)/           Today, story, practice, revise, storylines, archive, progress, saved, sources, settings
+```
+
+## Known gaps / next steps
+
+- **PIB returns HTTP 403 to automated requests** from some networks (Akamai). The fetch carries on with the other sources.
+- PRS (CC-BY bill tracker) and Yojana/Kurukshetra monthly issues are listed but not ingested yet.
+- Accounts (phone OTP) and cloud sync for progress.
+- Planned: "Ask this story", Mains answer evaluation, PDF monthly compilations, an audio brief, offline/PWA.
+
+Research behind the design: [`docs/research.md`](docs/research.md).

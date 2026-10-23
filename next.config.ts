@@ -1,9 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  // Stories are JSON files read at request time; ship them with every server function.
+  outputFileTracingIncludes: { "/**": ["./content/**/*.json"] },
   turbopack: {
     rules: {
       "*.css": {
