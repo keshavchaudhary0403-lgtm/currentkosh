@@ -30,12 +30,15 @@ type ThreadRow = { key: string; title: Bi; updatedAt: string };
 type Library = { stories: Story[]; byId: Map<string, Story>; mcqs: Map<string, Mcq>; cards: Map<string, Card>; threads: Map<string, ThreadRow> };
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
-let cache: Library | null = null;
+let cache: { lib: Library; stamp: string } | null = null;
 
 function load(): Library {
-  if (cache && process.env.NODE_ENV === "production") return cache;
+  if (cache && process.env.NODE_ENV === "production") return cache.lib;
   const dir = path.join(CONTENT_DIR, "stories");
   const files = fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)) : [];
+  // In development, re-read only when a content file has changed.
+  const stamp = files.map((f) => `${f}:${fs.statSync(path.join(dir, f)).mtimeMs}`).join("|") + (fs.existsSync(path.join(CONTENT_DIR, "threads.json")) ? fs.statSync(path.join(CONTENT_DIR, "threads.json")).mtimeMs : 0);
+  if (cache && cache.stamp === stamp) return cache.lib;
   const stories: Story[] = [];
   const mcqs = new Map<string, Mcq>();
   const cards = new Map<string, Card>();
@@ -48,8 +51,9 @@ function load(): Library {
   const threads = new Map<string, ThreadRow>(
     (fs.existsSync(threadsFile) ? (JSON.parse(fs.readFileSync(threadsFile, "utf8")) as ThreadRow[]) : []).map((t) => [t.key, t]),
   );
-  cache = { stories, byId: new Map(stories.map((s) => [s.id, s])), mcqs, cards, threads };
-  return cache;
+  const lib = { stories, byId: new Map(stories.map((s) => [s.id, s])), mcqs, cards, threads };
+  cache = { lib, stamp };
+  return lib;
 }
 
 function toStory(s: StoredStory, mcqs: Map<string, Mcq>, cards: Map<string, Card>): Story {
