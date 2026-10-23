@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Brain, Newspaper, ShieldCheck, Target } from "lucide-react";
+import Link from "next/link";
 import { Wordmark } from "@/components/nav";
 import { ProfileForm } from "@/components/profile-form";
 import { currentProfile } from "@/lib/profile";
@@ -19,18 +20,18 @@ export default async function Welcome() {
     <div className="relative min-h-dvh overflow-hidden">
       <div className="aurora" />
       <div className="relative mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-16">
-        <div className="mb-12 flex items-center gap-2.5">
+        <Link href="/" aria-label="CurrentKosh home" className="mb-10 flex w-fit items-center gap-2.5 sm:mb-12">
           <Wordmark size={32} />
           <span lang="hi" className="text-sm text-ink-3">
             · करंट कोश
           </span>
-        </div>
+        </Link>
         <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div className="rise">
             <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-ink-2">
               <span className="live-dot" /> Updated daily from official sources
             </p>
-            <h1 className="font-display text-5xl leading-[1.02] tracking-tight sm:text-6xl">
+            <h1 className="font-display text-[40px] leading-[1.05] sm:text-6xl">
               Current affairs,
               <br />
               <span className="bg-gradient-to-r from-accent to-accent-2 bg-clip-text text-transparent">without the clutter.</span>

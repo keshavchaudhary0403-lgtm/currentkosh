@@ -25,7 +25,7 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
           <div className="text-xs font-semibold tracking-wider text-ink-3 uppercase">
             Storyline · {thread.stories.length} {thread.stories.length === 1 ? "update" : "updates"}
           </div>
-          <BiText v={thread.title} lang={lang} as="h1" className="mt-1 font-display text-5xl leading-tight" hiClassName="font-sans text-xl" />
+          <BiText v={thread.title} lang={lang} as="h1" className="mt-1 font-display text-3xl leading-tight sm:text-5xl" hiClassName="font-sans text-xl" />
         </div>
         <Link
           href={`/practice/run?kind=thread&from=${thread.stories[0].date}&to=${thread.stories.at(-1)!.date}&stories=${thread.stories.map((s) => s.id).join(",")}&title=${encodeURIComponent(`Storyline test · ${thread.title.en}`)}`}

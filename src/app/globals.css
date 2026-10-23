@@ -23,7 +23,7 @@
   color-scheme: light;
 }
 
-/* Light is the default. Dark applies when chosen, or when "System" is chosen and the OS is dark. */
+/* Light is the default; dark applies only when the reader picks it. */
 :root[data-theme="dark"] {
   --bg: #0b0b0f;
   --surface: #14141a;
@@ -43,29 +43,6 @@
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 32px -16px rgb(0 0 0 / 0.6);
   --cat-l: 0.78;
   color-scheme: dark;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root[data-theme="system"] {
-    --bg: #0b0b0f;
-    --surface: #14141a;
-    --surface-2: #1c1c24;
-    --ink: #f1f0f6;
-    --ink-2: #b0aebb;
-    --ink-3: #75727f;
-    --line: rgb(255 255 255 / 0.07);
-    --line-strong: rgb(255 255 255 / 0.13);
-    --accent: #8f82ff;
-    --accent-2: #ff935f;
-    --accent-soft: rgb(143 130 255 / 0.13);
-    --good: #3ccf9b;
-    --bad: #ff6b70;
-    --warn: #f5b13d;
-    --glass: rgb(20 20 26 / 0.72);
-    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 32px -16px rgb(0 0 0 / 0.6);
-    --cat-l: 0.78;
-    color-scheme: dark;
-  }
 }
 
 @theme inline {

@@ -26,7 +26,7 @@ export const viewport: Viewport = {
 };
 
 // Applies the saved theme (light by default) before first paint so there is no flash.
-const themeScript = `try{var t=localStorage.getItem("theme");document.documentElement.dataset.theme=t==="dark"||t==="system"?t:"light"}catch(e){}`;
+const themeScript = `try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){}`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

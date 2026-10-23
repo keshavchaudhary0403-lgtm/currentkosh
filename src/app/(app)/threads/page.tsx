@@ -16,7 +16,7 @@ export default async function Threads() {
   return (
     <div className="space-y-8">
       <header>
-        <h1 className="font-display text-5xl">{ui === "hi" ? "कहानी-क्रम" : "Storylines"}</h1>
+        <h1 className="font-display text-3xl sm:text-5xl">{ui === "hi" ? "कहानी-क्रम" : "Storylines"}</h1>
         <p className="mt-2 max-w-2xl text-ink-2">News rarely happens once. Each storyline collects every update on one issue — a trade deal, a bill, a mission — so you can revise how it evolved, not just the latest headline.</p>
       </header>
       {threads.length ? (

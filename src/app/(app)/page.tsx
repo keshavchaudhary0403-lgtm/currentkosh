@@ -6,7 +6,7 @@ import { daysUntil, istDate } from "@/lib/dates";
 import { t } from "@/lib/i18n";
 import { currentProfile } from "@/lib/profile";
 import { activeThreads, feedFor, latestStoryDate, relevanceFor, storyDates } from "@/lib/store";
-import { pick } from "@/lib/taxonomy";
+
 
 export default async function Today({ searchParams }: PageProps<"/">) {
   const profile = await currentProfile();
@@ -29,7 +29,7 @@ export default async function Today({ searchParams }: PageProps<"/">) {
     <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]">
       <div className="min-w-0 space-y-8">
         <div>
-          <TodayHeader date={date} briefIds={briefIds} countdown={countdown} lang={lang} />
+          <TodayHeader date={date} briefIds={briefIds} lang={lang} />
           {dates.length > 1 && (
             <nav className="no-scrollbar -mx-4 mb-6 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:px-0" aria-label="Choose a day">
               {dates.map((d) => (
@@ -60,24 +60,6 @@ export default async function Today({ searchParams }: PageProps<"/">) {
           <section>
             <SectionTitle eyebrow={ui === "hi" ? "और भी" : "Also today"} title={ui === "hi" ? "कम प्राथमिकता वाली ख़बरें" : "Lower priority for your exams"} />
             <StoryList items={more} lang={lang} compact grid />
-          </section>
-        )}
-
-        {threads.length > 0 && (
-          <section className="lg:hidden">
-            <SectionTitle eyebrow={t("threads", ui)} title={ui === "hi" ? "चल रही कहानियाँ" : "Follow the storylines"} right={<Link href="/threads" className="text-sm font-medium text-accent">{ui === "hi" ? "सभी" : "All"} →</Link>} />
-            <div className="no-scrollbar -mx-4 flex gap-3 overflow-x-auto px-4 pb-1">
-              {threads.map((th) => (
-                <Link key={th.key} href={`/thread/${th.key}`} className="min-w-52 rounded-2xl border border-line bg-surface p-4 shadow-card">
-                  <div className="text-[11px] font-semibold tracking-wider text-ink-3 uppercase">
-                    {th.count} {ui === "hi" ? "अपडेट" : th.count === 1 ? "update" : "updates"} · {fmtDate(th.lastDate, ui)}
-                  </div>
-                  <div lang={ui === "hi" ? "hi" : undefined} className="mt-1 font-semibold">
-                    {pick(th.title, ui)}
-                  </div>
-                </Link>
-              ))}
-            </div>
           </section>
         )}
 

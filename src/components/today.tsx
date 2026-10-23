@@ -13,14 +13,8 @@ import { ProgressRing, cx, fmtDate } from "./ui";
 
 type Item = { story: Story; relevance: number };
 
-function greeting(ui: "en" | "hi") {
-  const h = new Date().getHours();
-  if (ui === "hi") return h < 12 ? "सुप्रभात" : h < 17 ? "नमस्ते" : "शुभ संध्या";
-  return h < 12 ? "Good morning" : h < 17 ? "Good afternoon" : "Good evening";
-}
-
 /** Compact header: greeting, date and a progress bar for the day's brief. */
-export function TodayHeader({ date, briefIds, countdown, lang }: { date: string; briefIds: string[]; countdown: number | null; lang: Lang }) {
+export function TodayHeader({ date, briefIds, lang }: { date: string; briefIds: string[]; lang: Lang }) {
   const p = useProgress();
   const ui = lang === "bi" ? "en" : lang;
   const read = briefIds.filter((id) => p.reads[id]).length;
@@ -28,14 +22,18 @@ export function TodayHeader({ date, briefIds, countdown, lang }: { date: string;
   const done = total > 0 && read === total;
   const days = streak(p);
   return (
-    <header className="mb-6">
-      <div className="flex items-center gap-2 text-sm text-ink-3">
+    <header className="mb-5 sm:mb-6">
+      <div className="flex items-center gap-2 text-[13px] text-ink-3">
         <span className="live-dot" />
-        <span suppressHydrationWarning>{greeting(ui)}</span>
-        <span>·</span>
-        <span>{fmtDate(date, ui, { weekday: "long", day: "numeric", month: "long" })}</span>
+        {fmtDate(date, ui, { weekday: "short", day: "numeric", month: "short" })}
+        {total > 0 && (
+          <>
+            <span>·</span>
+            {ui === "hi" ? `${total} ख़बरें · ${total * 2} मिनट` : `${total} stories · ${total * 2} min`}
+          </>
+        )}
       </div>
-      <h1 className="mt-1 font-display text-4xl leading-tight sm:text-5xl">
+      <h1 className="mt-1 font-display text-[32px] leading-tight sm:text-5xl">
         {done ? (
           t("done", ui)
         ) : (
@@ -45,37 +43,18 @@ export function TodayHeader({ date, briefIds, countdown, lang }: { date: string;
           </>
         )}
       </h1>
-      <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3">
-        <div className="flex min-w-48 flex-1 items-center gap-3">
-          <div className="h-2 flex-1 overflow-hidden rounded-full bg-line-strong">
-            <div className="h-full rounded-full bg-gradient-to-r from-accent to-accent-2 transition-all duration-700" style={{ width: `${total ? (read / total) * 100 : 0}%` }} />
-          </div>
-          <span className="text-sm font-semibold whitespace-nowrap tabular-nums">
-            {read}/{total} <span className="font-normal text-ink-3">{ui === "hi" ? "पढ़े" : "read"}</span>
-          </span>
+      <div className="mt-3 flex items-center gap-3">
+        <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-line-strong">
+          <div className="h-full rounded-full bg-gradient-to-r from-accent to-accent-2 transition-all duration-700" style={{ width: `${total ? (read / total) * 100 : 0}%` }} />
         </div>
-        <div className="flex items-center gap-4 text-sm lg:hidden">
-          <span className="inline-flex items-center gap-1.5">
-            <Flame className="size-4 text-accent-2" />
-            <b>{days}</b> <span className="text-ink-3">{t("streak", ui)}</span>
-          </span>
-          {countdown !== null && countdown >= 0 && (
-            <span className="inline-flex items-center gap-1.5">
-              <CalendarDays className="size-4 text-accent" />
-              <b>{countdown}</b> <span className="text-ink-3">{ui === "hi" ? "दिन बाकी" : "days to exam"}</span>
-            </span>
-          )}
-        </div>
+        <span className="text-sm font-semibold tabular-nums">
+          {read}/{total}
+        </span>
+        <span className="inline-flex items-center gap-1 text-sm font-semibold lg:hidden" title={t("streak", ui)}>
+          <Flame className="size-4 text-accent-2" />
+          {days}
+        </span>
       </div>
-      <p className="mt-2 text-sm text-ink-2">
-        {total
-          ? ui === "hi"
-            ? `आपकी परीक्षाओं के लिए ${total} सबसे ज़रूरी ख़बरें · लगभग ${total * 2} मिनट`
-            : `The ${total} stories that matter most for your exams · about ${total * 2} min`
-          : ui === "hi"
-            ? "इस दिन के लिए कोई ख़बर नहीं"
-            : "No stories for this day yet"}
-      </p>
     </header>
   );
 }
@@ -93,7 +72,7 @@ export function Brief({ items, lang }: { items: Item[]; lang: Lang }) {
   return (
     <div>
       {counts.size > 1 && (
-        <div className="no-scrollbar -mx-4 mb-4 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:flex-wrap sm:px-0">
+        <div className="mb-4 hidden flex-wrap gap-2 sm:flex">
           <Chip active={!topic} onClick={() => setTopic(null)}>
             {ui === "hi" ? "सभी" : "All"} <span className="opacity-60">{items.length}</span>
           </Chip>
@@ -109,7 +88,7 @@ export function Brief({ items, lang }: { items: Item[]; lang: Lang }) {
           <FeaturedStory story={first.story} lang={lang} relevance={first.relevance} read={!!p.reads[first.story.id]} />
         </div>
       )}
-      <div className="mt-3 space-y-3">
+      <div className="mt-3 space-y-2.5 sm:space-y-3">
         {rest.map(({ story, relevance }, i) => (
           <div key={story.id} className="rise" style={{ animationDelay: `${Math.min(i + 1, 10) * 40}ms` }}>
             <StoryCard story={story} lang={lang} relevance={relevance} read={!!p.reads[story.id]} />

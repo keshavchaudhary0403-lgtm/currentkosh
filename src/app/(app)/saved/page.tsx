@@ -12,7 +12,7 @@ export default function Saved() {
   const items = useItems(ids.length ? { stories: ids } : null);
   return (
     <div className="space-y-8">
-      <h1 className="font-display text-5xl">{lang === "hi" ? "सहेजे गए" : "Saved"}</h1>
+      <h1 className="font-display text-3xl sm:text-5xl">{lang === "hi" ? "सहेजे गए" : "Saved"}</h1>
       {!ids.length ? (
         <Empty title="Nothing saved yet">Tap the bookmark on any story to keep it here for last-minute revision.</Empty>
       ) : !items ? (

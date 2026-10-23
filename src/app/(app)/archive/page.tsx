@@ -30,7 +30,7 @@ export default async function Archive({ searchParams }: PageProps<"/archive">) {
   return (
     <div className="space-y-8">
       <header>
-        <h1 className="font-display text-5xl">{ui === "hi" ? "संग्रह" : "Archive"}</h1>
+        <h1 className="font-display text-3xl sm:text-5xl">{ui === "hi" ? "संग्रह" : "Archive"}</h1>
         <p className="mt-2 text-ink-2">Every story, searchable in English or Hindi. Filter by month, topic, exam or state.</p>
       </header>
 

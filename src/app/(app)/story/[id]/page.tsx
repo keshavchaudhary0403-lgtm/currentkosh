@@ -31,7 +31,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
 
   return (
     <article className="mx-auto max-w-3xl pb-24">
-      <Link href={story.date ? `/?date=${story.date}` : "/"} className="mb-6 inline-flex items-center gap-1.5 text-sm text-ink-2 hover:text-ink">
+      <Link href={story.date ? `/?date=${story.date}` : "/"} className="mb-4 inline-flex sm:mb-6 items-center gap-1.5 text-sm text-ink-2 hover:text-ink">
         <ArrowLeft className="size-4" /> {fmtDate(story.date, ui, { day: "numeric", month: "long" })}
       </Link>
 
@@ -48,17 +48,17 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
             </div>
           </div>
         </div>
-        <BiText v={c.title} lang={lang} as="h1" className="font-display text-3xl leading-[1.12] sm:text-[44px]" hiClassName="font-sans text-xl sm:text-2xl font-medium tracking-normal mt-3" />
-        <div className="mt-5 flex flex-wrap gap-2">
+        <BiText v={c.title} lang={lang} as="h1" className="font-display text-[28px] leading-[1.15] sm:text-[44px]" hiClassName="font-sans text-xl sm:text-2xl font-medium tracking-normal mt-3" />
+        <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5">
           {profile.exams.map((e) => (
-            <span key={e} className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-medium text-ink-2">
+            <span key={e} className="inline-flex items-center gap-1.5 text-xs text-ink-2">
               {pick(examById(e)?.label, ui)} <RelevanceBadge level={story.relevance[e] ?? 0} lang={ui} />
             </span>
           ))}
         </div>
       </header>
 
-      <section className="mt-8 rounded-3xl border border-line bg-surface p-5 shadow-card sm:p-7">
+      <section className="mt-6 sm:mt-8 sm:rounded-3xl sm:border sm:border-line sm:bg-surface sm:p-7 sm:shadow-card">
         <BiText v={c.summary} lang={lang} as="p" className="text-[17px] leading-[1.75]" hiClassName="mt-4 text-base" />
       </section>
 
@@ -133,7 +133,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
         </p>
       </section>
 
-      <div className="fixed inset-x-0 bottom-[calc(68px+env(safe-area-inset-bottom))] z-30 flex justify-center px-4 lg:bottom-6 lg:pl-64">
+      <div className="fixed inset-x-0 bottom-[calc(62px+env(safe-area-inset-bottom))] z-30 flex justify-center px-4 lg:bottom-6 lg:pl-64">
         <div className="flex w-full items-center gap-2 rounded-2xl border border-line-strong bg-surface p-1.5 shadow-[0_12px_40px_-12px_rgb(0_0_0/0.35)] sm:w-auto">
           <ReadButton storyId={story.id} cardIds={story.cardIds} labels={{ mark: t("markRead", ui), done: ui === "hi" ? "पढ़ लिया · दोहराव में जुड़ा" : "Read · added to revision" }} />
           <BookmarkButton storyId={story.id} />

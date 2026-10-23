@@ -27,7 +27,7 @@ export default async function Revise({ searchParams }: PageProps<"/revise">) {
   return (
     <div className="space-y-10">
       <header>
-        <h1 className="font-display text-5xl">{ui === "hi" ? "दोहराएँ" : "Revise"}</h1>
+        <h1 className="font-display text-3xl sm:text-5xl">{ui === "hi" ? "दोहराएँ" : "Revise"}</h1>
         <p className="mt-2 text-ink-2">Spaced repetition brings each fact back just before you&apos;d forget it: tomorrow, then 3, 7, 21 days and beyond.</p>
       </header>
 

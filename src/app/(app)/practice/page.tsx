@@ -28,7 +28,7 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
   return (
     <div className="space-y-10">
       <header>
-        <h1 className="font-display text-5xl">{ui === "hi" ? "अभ्यास" : "Practice"}</h1>
+        <h1 className="font-display text-3xl sm:text-5xl">{ui === "hi" ? "अभ्यास" : "Practice"}</h1>
         <p className="mt-2 text-ink-2">Every question is written from an official source and tagged to your exams. Missed questions automatically return in Revise.</p>
       </header>
 
