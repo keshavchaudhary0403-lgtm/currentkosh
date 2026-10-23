@@ -6,7 +6,13 @@ import path from "node:path";
 import { INBOX_DIR, publishNewStories, recordSkipped } from "../src/lib/publish";
 
 const DIR = path.join(INBOX_DIR, "backfill");
-const files = fs.existsSync(DIR) ? fs.readdirSync(DIR).filter((f) => /^stories-\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort() : [];
+// Only publish the days named on the command line (days whose writer has finished).
+const only = new Set(process.argv.slice(2));
+if (!only.size) {
+  console.error("Usage: npm run backfill:publish -- <YYYY-MM-DD> [...]  (only days whose agent has finished)");
+  process.exit(1);
+}
+const files = fs.existsSync(DIR) ? fs.readdirSync(DIR).filter((f) => /^stories-\d{4}-\d{2}-\d{2}\.json$/.test(f) && only.has(f.slice(8, 18))).sort() : [];
 let total = 0;
 for (const f of files) {
   const day = f.slice(8, 18);
