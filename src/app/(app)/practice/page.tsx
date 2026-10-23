@@ -20,9 +20,9 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
   const months = storyMonths();
 
   const quick = [
-    { href: `/practice/run?kind=daily&from=${latest}&to=${latest}`, icon: <Zap className="size-5" />, title: "Daily quiz", body: "10 questions from the latest day" },
-    { href: "/practice/run?kind=weekly", icon: <CalendarRange className="size-5" />, title: "Weekly test", body: "25 questions from the last 7 days" },
-    { href: "/practice/run?kind=mock", icon: <Timer className="size-5" />, title: "Timed mock", body: "50 Qs · 1 min each · −⅓ negative" },
+    { href: `/practice/run?kind=daily&from=${latest}&to=${latest}`, hue: 262, icon: <Zap className="size-5" />, title: "Daily quiz", body: "10 questions from the latest day" },
+    { href: "/practice/run?kind=weekly", hue: 200, icon: <CalendarRange className="size-5" />, title: "Weekly test", body: "25 questions from the last 7 days" },
+    { href: "/practice/run?kind=mock", hue: 25, icon: <Timer className="size-5" />, title: "Timed mock", body: "50 Qs · 1 min each · −⅓ negative" },
   ];
 
   return (
@@ -39,7 +39,9 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
       <section className="grid gap-3 sm:grid-cols-2">
         {quick.map((q) => (
           <Link key={q.href} href={q.href} className="group flex w-full items-start gap-4 rounded-2xl border border-line bg-surface p-5 text-left shadow-card transition hover:-translate-y-0.5 hover:border-line-strong">
-            <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent">{q.icon}</span>
+            <span className="cat grid size-11 shrink-0 place-items-center rounded-xl bg-(--cat-tint) text-(--cat-ink)" style={{ "--h": q.hue } as React.CSSProperties}>
+              {q.icon}
+            </span>
             <span>
               <span className="block font-semibold">{q.title}</span>
               <span className="block text-sm text-ink-2">{q.body}</span>

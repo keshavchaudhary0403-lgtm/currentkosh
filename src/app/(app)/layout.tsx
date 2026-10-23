@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { LangProvider } from "@/components/lang-context";
-import { BottomNav, LangToggle, Sidebar, ThemeToggle, Wordmark } from "@/components/nav";
+import { BottomNav, LangToggle, Sidebar, ThemeSwitch, Wordmark } from "@/components/nav";
 import { t } from "@/lib/i18n";
 import { currentProfile } from "@/lib/profile";
 import { examById, pick, stateById } from "@/lib/taxonomy";
@@ -28,7 +28,7 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
       <Sidebar labels={labels} youLabel={ui === "hi" ? "आप" : "You"} />
       <div className="min-w-0 flex-1">
         <header className="sticky top-0 z-30 border-b border-line bg-(--glass) backdrop-blur-xl">
-          <div className="mx-auto flex h-14 max-w-5xl items-center gap-3 px-4 sm:px-6">
+          <div className="mx-auto flex h-14 max-w-6xl items-center gap-2 px-4 sm:gap-3 sm:px-6">
             <Link href="/" className="lg:hidden">
               <Wordmark size={24} />
             </Link>
@@ -44,11 +44,11 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
             </Link>
             <div className="ml-auto flex items-center gap-2">
               <LangToggle lang={lang} />
-              <ThemeToggle />
+              <ThemeSwitch />
             </div>
           </div>
         </header>
-        <main className="mx-auto max-w-5xl px-4 pt-6 pb-28 sm:px-6 lg:pb-16">
+        <main className="mx-auto max-w-6xl px-4 pt-5 pb-28 sm:px-6 sm:pt-8 lg:pb-16">
           <LangProvider lang={lang}>{children}</LangProvider>
         </main>
       </div>

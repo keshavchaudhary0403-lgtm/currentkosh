@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTransition } from "react";
-import { BarChart3, BookOpen, Bookmark, Brain, Library, Moon, Newspaper, Settings, Sun, Target, Waypoints } from "lucide-react";
+import { useId, useTransition } from "react";
+import { BarChart3, BookOpen, Bookmark, Brain, Library, Monitor, Moon, Newspaper, Settings, Sun, Target, Waypoints } from "lucide-react";
 import { setLang } from "@/app/actions";
 import { dueCount, useProgress } from "@/lib/progress-store";
+import { setTheme, useTheme, type Theme } from "@/lib/theme";
 import type { Lang } from "@/lib/taxonomy";
 
 type Labels = Record<"today" | "revise" | "practice" | "threads" | "archive" | "progress" | "saved" | "sources" | "settings", string>;
@@ -31,35 +32,42 @@ export function Sidebar({ labels, youLabel }: { labels: Labels; youLabel: string
   const path = usePathname();
   const due = dueCount(useProgress());
   return (
-    <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-line px-4 py-6 lg:flex">
+    <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-line bg-surface/60 px-4 py-6 lg:flex">
       <Link href="/" className="mb-8 px-2">
         <Wordmark />
       </Link>
       <nav className="flex flex-col gap-1">
-        {MAIN.map(({ href, key, icon: Icon }) => (
-          <Link
-            key={href}
-            href={href}
-            className={`group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition ${isActive(path, href) ? "bg-surface text-ink shadow-card" : "text-ink-2 hover:bg-surface/60 hover:text-ink"}`}
-          >
-            <Icon className="size-[18px]" strokeWidth={isActive(path, href) ? 2.2 : 1.8} />
-            {labels[key]}
-            {key === "revise" && due > 0 && <span className="ml-auto rounded-full bg-accent px-2 py-0.5 text-[11px] font-semibold text-white">{due}</span>}
-          </Link>
-        ))}
+        {MAIN.map(({ href, key, icon: Icon }) => {
+          const active = isActive(path, href);
+          return (
+            <Link
+              key={href}
+              href={href}
+              className={`group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition ${active ? "bg-accent-soft text-accent" : "text-ink-2 hover:bg-surface-2 hover:text-ink"}`}
+            >
+              {active && <span className="absolute top-2 bottom-2 left-0 w-1 rounded-full bg-accent" />}
+              <Icon className="size-[18px]" strokeWidth={active ? 2.3 : 1.8} />
+              {labels[key]}
+              {key === "revise" && due > 0 && <span className="ml-auto rounded-full bg-accent-2 px-2 py-0.5 text-[11px] font-bold text-white">{due}</span>}
+            </Link>
+          );
+        })}
       </nav>
       <div className="mt-8 mb-2 px-3 text-[11px] font-semibold tracking-[0.14em] text-ink-3 uppercase">{youLabel}</div>
       <nav className="flex flex-col gap-1">
-        {MORE.map(({ href, key, icon: Icon }) => (
-          <Link key={href} href={href} className={`flex items-center gap-3 rounded-xl px-3 py-2 text-sm transition ${isActive(path, href) ? "bg-surface text-ink shadow-card" : "text-ink-2 hover:text-ink"}`}>
-            <Icon className="size-4" strokeWidth={1.8} />
-            {labels[key]}
-          </Link>
-        ))}
+        {MORE.map(({ href, key, icon: Icon }) => {
+          const active = isActive(path, href);
+          return (
+            <Link key={href} href={href} className={`flex items-center gap-3 rounded-xl px-3 py-2 text-sm transition ${active ? "bg-accent-soft font-medium text-accent" : "text-ink-2 hover:bg-surface-2 hover:text-ink"}`}>
+              <Icon className="size-4" strokeWidth={1.8} />
+              {labels[key]}
+            </Link>
+          );
+        })}
       </nav>
-      <div className="mt-auto rounded-2xl border border-line bg-surface p-4 text-xs leading-relaxed text-ink-2">
-        <div className="mb-1 font-semibold text-ink">No ads. No pop-ups. Ever.</div>
-        Every note links to its official source.
+      <div className="mt-auto overflow-hidden rounded-2xl bg-gradient-to-br from-accent to-accent-2 p-4 text-xs leading-relaxed text-white">
+        <div className="mb-1 text-sm font-semibold">No ads. No pop-ups. Ever.</div>
+        <span className="opacity-90">Every note links to its official source.</span>
       </div>
     </aside>
   );
@@ -71,14 +79,18 @@ export function BottomNav({ labels }: { labels: Labels }) {
   const items = [...MAIN.slice(0, 3), MAIN[4], MORE[0]];
   return (
     <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-(--glass) pb-[env(safe-area-inset-bottom)] backdrop-blur-xl lg:hidden">
-      <div className="mx-auto grid max-w-lg grid-cols-5">
+      <div className="mx-auto grid max-w-lg grid-cols-5 px-2 py-1.5">
         {items.map(({ href, key, icon: Icon }) => {
           const active = isActive(path, href);
           return (
-            <Link key={href} href={href} className={`relative flex flex-col items-center gap-1 py-2.5 text-[11px] font-medium ${active ? "text-ink" : "text-ink-3"}`}>
-              <Icon className="size-5" strokeWidth={active ? 2.2 : 1.8} />
+            <Link key={href} href={href} className={`relative flex flex-col items-center gap-0.5 py-1 text-[11px] font-medium ${active ? "text-accent" : "text-ink-3"}`}>
+              <span className={`grid h-7 w-12 place-items-center rounded-full transition ${active ? "bg-accent-soft" : ""}`}>
+                <Icon className="size-5" strokeWidth={active ? 2.3 : 1.8} />
+              </span>
               {labels[key]}
-              {key === "revise" && due > 0 && <span className="absolute top-1.5 left-1/2 ml-2 size-2 rounded-full bg-accent-2" />}
+              {key === "revise" && due > 0 && (
+                <span className="absolute top-0 left-1/2 ml-2.5 grid min-w-4 place-items-center rounded-full bg-accent-2 px-1 text-[10px] leading-4 font-bold text-white">{due}</span>
+              )}
             </Link>
           );
         })}
@@ -95,7 +107,7 @@ export function LangToggle({ lang }: { lang: Lang }) {
     { v: "bi", label: "EN+हिं" },
   ];
   return (
-    <div className={`flex rounded-full border border-line bg-surface p-0.5 text-xs font-semibold ${pending ? "opacity-60" : ""}`}>
+    <div className={`flex rounded-full border border-line bg-surface p-0.5 text-xs font-semibold ${pending ? "opacity-60" : ""}`} role="group" aria-label="Reading language">
       {opts.map((o) => (
         <button
           key={o.v}
@@ -110,35 +122,46 @@ export function LangToggle({ lang }: { lang: Lang }) {
   );
 }
 
-export function ThemeToggle() {
-  const toggle = () => {
-    const root = document.documentElement;
-    const current = root.dataset.theme ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    const next = current === "dark" ? "light" : "dark";
-    root.dataset.theme = next;
-    try {
-      localStorage.setItem("theme", next);
-    } catch {}
-  };
+const THEMES: { v: Theme; label: string; icon: typeof Sun }[] = [
+  { v: "light", label: "Light", icon: Sun },
+  { v: "dark", label: "Dark", icon: Moon },
+  { v: "system", label: "System", icon: Monitor },
+];
+
+/** Light / Dark switch for the header; `full` adds "System" and text labels (Settings page). */
+export function ThemeSwitch({ full }: { full?: boolean }) {
+  const theme = useTheme();
+  const opts = full ? THEMES : THEMES.slice(0, 2);
   return (
-    <button onClick={toggle} aria-label="Toggle theme" className="grid size-8 place-items-center rounded-full border border-line bg-surface text-ink-2 hover:text-ink">
-      <Sun className="hidden size-4 dark:block" />
-      <Moon className="size-4 dark:hidden" />
-    </button>
+    <div className="flex rounded-full border border-line bg-surface p-0.5" role="group" aria-label="Theme">
+      {opts.map(({ v, label, icon: Icon }) => (
+        <button
+          key={v}
+          onClick={() => setTheme(v)}
+          aria-pressed={theme === v}
+          title={`${label} theme`}
+          className={`flex items-center gap-1.5 rounded-full px-2 py-1 text-xs font-semibold transition ${full ? "px-3.5 py-1.5" : ""} ${theme === v ? "bg-ink text-bg" : "text-ink-2 hover:text-ink"}`}
+        >
+          <Icon className="size-3.5" />
+          <span className={full ? "" : "hidden sm:inline"}>{label}</span>
+        </button>
+      ))}
+    </div>
   );
 }
 
 /** CurrentKosh mark: an open book (kosh, a treasury of knowledge) with a live dot (current). */
 export function Logo({ size = 28 }: { size?: number }) {
+  const id = useId();
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden className="shrink-0">
       <defs>
-        <linearGradient id="ck-logo" x1="0" y1="0" x2="1" y2="1">
+        <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor="#5a48f5" />
           <stop offset="1" stopColor="#ff7a3d" />
         </linearGradient>
       </defs>
-      <rect width="32" height="32" rx="9" fill="url(#ck-logo)" />
+      <rect width="32" height="32" rx="9" fill={`url(#${id})`} />
       <path d="M7 11.2c3-1.4 6.1-1.2 9 .9 2.9-2.1 6-2.3 9-.9v11.1c-3-1.4-6.1-1.2-9 .9-2.9-2.1-6-2.3-9-.9z" fill="none" stroke="#fff" strokeWidth="2" strokeLinejoin="round" />
       <path d="M16 12.2v10.9" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
       <circle cx="25" cy="7" r="3" fill="#fff" />
@@ -149,9 +172,9 @@ export function Logo({ size = 28 }: { size?: number }) {
 
 export function Wordmark({ size = 28 }: { size?: number }) {
   return (
-    <span className="flex items-center gap-2.5">
+    <span className="flex items-center gap-2">
       <Logo size={size} />
-      <span className="font-display leading-none tracking-tight" style={{ fontSize: size * 0.86 }}>
+      <span className="font-display leading-none" style={{ fontSize: size * 0.72 }}>
         Current<span className="bg-gradient-to-r from-accent to-accent-2 bg-clip-text text-transparent">Kosh</span>
       </span>
     </span>

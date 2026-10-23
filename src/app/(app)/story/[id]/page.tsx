@@ -3,12 +3,13 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { ArrowLeft, ExternalLink, Landmark, Lightbulb, PenLine, ShieldCheck, Sparkles } from "lucide-react";
 import { BookmarkButton, QuickCheck, ReadButton } from "@/components/story-actions";
-import { BiText, CategoryPill, RelevanceBadge, fmtDate } from "@/components/ui";
+import { CategoryIcon, catStyle } from "@/components/category-icon";
+import { BiText, RelevanceBadge, fmtDate } from "@/components/ui";
 import { t } from "@/lib/i18n";
 import { currentProfile } from "@/lib/profile";
 import { getStory, getThread, mcqsForStory } from "@/lib/store";
 import { sourceById } from "@/lib/sources";
-import { examById, pick } from "@/lib/taxonomy";
+import { categoryById, examById, pick } from "@/lib/taxonomy";
 
 export async function generateMetadata({ params }: PageProps<"/story/[id]">): Promise<Metadata> {
   const story = getStory(decodeURIComponent((await params).id));
@@ -29,20 +30,28 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
   const alsoCovered = story.sources.filter((s) => sourceById(s.sourceId)?.mode !== "ai");
 
   return (
-    <article className="mx-auto max-w-3xl">
+    <article className="mx-auto max-w-3xl pb-24">
       <Link href={story.date ? `/?date=${story.date}` : "/"} className="mb-6 inline-flex items-center gap-1.5 text-sm text-ink-2 hover:text-ink">
         <ArrowLeft className="size-4" /> {fmtDate(story.date, ui, { day: "numeric", month: "long" })}
       </Link>
 
       <header className="rise">
-        <div className="mb-4 flex flex-wrap items-center gap-2">
-          <CategoryPill id={story.category} lang={lang} />
-          {story.gsPaper !== "none" && <span className="rounded-full border border-line px-2.5 py-1 text-xs font-medium text-ink-2">UPSC {story.gsPaper}</span>}
+        <div className="mb-4 flex items-center gap-3">
+          <CategoryIcon id={story.category} />
+          <div className="text-sm">
+            <div className="cat font-semibold text-(--cat-ink)" style={catStyle(story.category)}>
+              {pick(categoryById(story.category)?.label, ui)}
+            </div>
+            <div className="text-ink-3">
+              {fmtDate(story.date, ui, { day: "numeric", month: "long", year: "numeric" })}
+              {story.gsPaper !== "none" && ` · UPSC ${story.gsPaper}`}
+            </div>
+          </div>
         </div>
-        <BiText v={c.title} lang={lang} as="h1" className="font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl" hiClassName="font-sans text-xl sm:text-2xl font-medium mt-3" />
-        <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+        <BiText v={c.title} lang={lang} as="h1" className="font-display text-3xl leading-[1.12] sm:text-[44px]" hiClassName="font-sans text-xl sm:text-2xl font-medium tracking-normal mt-3" />
+        <div className="mt-5 flex flex-wrap gap-2">
           {profile.exams.map((e) => (
-            <span key={e} className="inline-flex items-center gap-2 text-xs text-ink-2">
+            <span key={e} className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-medium text-ink-2">
               {pick(examById(e)?.label, ui)} <RelevanceBadge level={story.relevance[e] ?? 0} lang={ui} />
             </span>
           ))}
@@ -58,14 +67,14 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
           <h2 className="mb-3 flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-ink-3 uppercase">
             <Sparkles className="size-4 text-accent" /> {t("keyFacts", ui)}
           </h2>
-          <ul className="space-y-3">
+          <ol className="space-y-3">
             {c.key_facts.map((f, i) => (
               <li key={i} className="flex gap-3 text-[15px] leading-snug">
-                <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" />
-                <BiText v={f} lang={lang} hiClassName="text-sm" />
+                <span className="grid size-6 shrink-0 place-items-center rounded-full bg-accent-soft text-xs font-bold text-accent">{i + 1}</span>
+                <BiText v={f} lang={lang} className="pt-0.5" hiClassName="text-sm" />
               </li>
             ))}
-          </ul>
+          </ol>
         </div>
         <div className="space-y-4">
           <Callout icon={<Lightbulb className="size-4 text-accent-2" />} title={t("whyItMatters", ui)}>
@@ -124,13 +133,20 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
         </p>
       </section>
 
-      <div className="sticky bottom-20 z-20 mt-8 flex items-center gap-2 rounded-2xl border border-line bg-(--glass) p-2 backdrop-blur-xl lg:bottom-4">
-        <ReadButton storyId={story.id} cardIds={story.cardIds} labels={{ mark: t("markRead", ui), done: ui === "hi" ? "पढ़ लिया · कार्ड दोहराव में जुड़े" : "Read · cards added to revision" }} />
-        <BookmarkButton storyId={story.id} />
+      <div className="fixed inset-x-0 bottom-[calc(68px+env(safe-area-inset-bottom))] z-30 flex justify-center px-4 lg:bottom-6 lg:pl-64">
+        <div className="flex w-full items-center gap-2 rounded-2xl border border-line-strong bg-surface p-1.5 shadow-[0_12px_40px_-12px_rgb(0_0_0/0.35)] sm:w-auto">
+          <ReadButton storyId={story.id} cardIds={story.cardIds} labels={{ mark: t("markRead", ui), done: ui === "hi" ? "पढ़ लिया · दोहराव में जुड़ा" : "Read · added to revision" }} />
+          <BookmarkButton storyId={story.id} />
+          {mcqs.length > 0 && (
+            <a href="#quick-check" className="ml-auto rounded-xl px-3 py-2.5 text-sm font-semibold text-accent hover:bg-accent-soft">
+              {ui === "hi" ? "क्विज़ ↓" : "Quiz ↓"}
+            </a>
+          )}
+        </div>
       </div>
 
       {mcqs.length > 0 && (
-        <section className="mt-10">
+        <section id="quick-check" className="mt-10 scroll-mt-20">
           <h2 className="mb-4 font-display text-3xl">{t("quickCheck", ui)}</h2>
           <QuickCheck mcqs={mcqs.map((m) => m.content)} lang={lang} />
         </section>

@@ -15,7 +15,7 @@ export function WeakDrillCard() {
   const ui = lang === "bi" ? "en" : lang;
   return (
     <Link id="weak" href={href} className="group flex w-full items-start gap-4 rounded-2xl border border-line bg-surface p-5 text-left shadow-card transition hover:-translate-y-0.5 hover:border-line-strong">
-      <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent">
+      <span className="cat grid size-11 shrink-0 place-items-center rounded-xl bg-(--cat-tint) text-(--cat-ink)" style={{ "--h": 340 } as React.CSSProperties}>
         <Crosshair className="size-5" />
       </span>
       <span>

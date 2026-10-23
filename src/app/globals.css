@@ -3,9 +3,9 @@
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 :root {
-  --bg: #f6f5f1;
+  --bg: #f7f7fb;
   --surface: #ffffff;
-  --surface-2: #efede7;
+  --surface-2: #f0f0f6;
   --ink: #15141b;
   --ink-2: #4f4c59;
   --ink-3: #8a8794;
@@ -19,31 +19,11 @@
   --warn: #d98a00;
   --glass: rgb(255 255 255 / 0.72);
   --shadow: 0 1px 2px rgb(21 20 27 / 0.04), 0 8px 24px -12px rgb(21 20 27 / 0.12);
+  --cat-l: 0.55;
   color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0b0b0f;
-    --surface: #14141a;
-    --surface-2: #1c1c24;
-    --ink: #f1f0f6;
-    --ink-2: #b0aebb;
-    --ink-3: #75727f;
-    --line: rgb(255 255 255 / 0.07);
-    --line-strong: rgb(255 255 255 / 0.13);
-    --accent: #8f82ff;
-    --accent-2: #ff935f;
-    --accent-soft: rgb(143 130 255 / 0.13);
-    --good: #3ccf9b;
-    --bad: #ff6b70;
-    --warn: #f5b13d;
-    --glass: rgb(20 20 26 / 0.72);
-    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 32px -16px rgb(0 0 0 / 0.6);
-    color-scheme: dark;
-  }
-}
-
+/* Light is the default. Dark applies when chosen, or when "System" is chosen and the OS is dark. */
 :root[data-theme="dark"] {
   --bg: #0b0b0f;
   --surface: #14141a;
@@ -61,7 +41,31 @@
   --warn: #f5b13d;
   --glass: rgb(20 20 26 / 0.72);
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 32px -16px rgb(0 0 0 / 0.6);
+  --cat-l: 0.78;
   color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="system"] {
+    --bg: #0b0b0f;
+    --surface: #14141a;
+    --surface-2: #1c1c24;
+    --ink: #f1f0f6;
+    --ink-2: #b0aebb;
+    --ink-3: #75727f;
+    --line: rgb(255 255 255 / 0.07);
+    --line-strong: rgb(255 255 255 / 0.13);
+    --accent: #8f82ff;
+    --accent-2: #ff935f;
+    --accent-soft: rgb(143 130 255 / 0.13);
+    --good: #3ccf9b;
+    --bad: #ff6b70;
+    --warn: #f5b13d;
+    --glass: rgb(20 20 26 / 0.72);
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 32px -16px rgb(0 0 0 / 0.6);
+    --cat-l: 0.78;
+    color-scheme: dark;
+  }
 }
 
 @theme inline {
@@ -80,7 +84,7 @@
   --color-bad: var(--bad);
   --color-warn: var(--warn);
   --font-sans: var(--font-geist-sans), var(--font-deva), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-display-serif), var(--font-deva), Georgia, serif;
+  --font-display: var(--font-display-sans), var(--font-deva), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --shadow-card: var(--shadow);
 }
@@ -100,6 +104,18 @@ body {
 :lang(hi),
 .hi {
   line-height: 1.7;
+}
+
+.font-display {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* Category colour from a hue: text, tint and solid variants that work in both themes. */
+.cat {
+  --cat-ink: oklch(var(--cat-l) 0.15 var(--h));
+  --cat-solid: oklch(0.62 0.17 var(--h));
+  --cat-tint: oklch(0.62 0.15 var(--h) / 0.12);
 }
 
 ::selection {
