@@ -28,12 +28,12 @@ export function TestBuilder({ latest, lang }: { latest: string; lang: Lang }) {
     router.push(`/practice/run?${qs}`);
   };
 
-  const chip = (on: boolean) => `rounded-full border px-3 py-1.5 text-sm transition ${on ? "border-ink bg-ink text-bg" : "border-line bg-surface text-ink-2 hover:border-line-strong"}`;
+  const chip = (on: boolean) => `rounded-full border-2 px-3.5 py-1.5 text-sm font-bold transition active:scale-95 ${on ? "border-accent-2 bg-accent-2-soft text-accent-2" : "border-line bg-surface text-ink-2 hover:border-line-strong"}`;
 
   return (
     <div className="space-y-5">
       <div>
-        <div className="mb-2 text-xs font-semibold tracking-wider text-ink-3 uppercase">Period</div>
+        <div className="mb-2 text-sm font-extrabold text-ink">Period</div>
         <div className="flex flex-wrap gap-2">
           {RANGES.map((r) => (
             <button key={r.id} className={chip(range === r.id)} onClick={() => setRange(r.id)}>
@@ -43,7 +43,7 @@ export function TestBuilder({ latest, lang }: { latest: string; lang: Lang }) {
         </div>
       </div>
       <div>
-        <div className="mb-2 text-xs font-semibold tracking-wider text-ink-3 uppercase">Topics {cats.length === 0 && <span className="normal-case tracking-normal">· all</span>}</div>
+        <div className="mb-2 text-sm font-extrabold text-ink">Topics {cats.length === 0 && <span className="font-semibold text-ink-3">· all</span>}</div>
         <div className="flex flex-wrap gap-2">
           {CATEGORIES.map((c) => (
             <button key={c.id} className={chip(cats.includes(c.id))} onClick={() => setCats((xs) => (xs.includes(c.id) ? xs.filter((x) => x !== c.id) : [...xs, c.id]))}>
@@ -54,7 +54,7 @@ export function TestBuilder({ latest, lang }: { latest: string; lang: Lang }) {
       </div>
       <div className="grid gap-5 sm:grid-cols-3">
         <div>
-          <div className="mb-2 text-xs font-semibold tracking-wider text-ink-3 uppercase">Questions</div>
+          <div className="mb-2 text-sm font-extrabold text-ink">Questions</div>
           <div className="flex gap-2">
             {[10, 25, 50, 100].map((n) => (
               <button key={n} className={chip(count === n)} onClick={() => setCount(n)}>
@@ -64,7 +64,7 @@ export function TestBuilder({ latest, lang }: { latest: string; lang: Lang }) {
           </div>
         </div>
         <div>
-          <div className="mb-2 text-xs font-semibold tracking-wider text-ink-3 uppercase">Mode</div>
+          <div className="mb-2 text-sm font-extrabold text-ink">Mode</div>
           <div className="flex gap-2">
             <button className={chip(!timed)} onClick={() => setTimed(false)}>
               Practice
@@ -75,7 +75,7 @@ export function TestBuilder({ latest, lang }: { latest: string; lang: Lang }) {
           </div>
         </div>
         <div>
-          <div className="mb-2 text-xs font-semibold tracking-wider text-ink-3 uppercase">Negative marking</div>
+          <div className="mb-2 text-sm font-extrabold text-ink">Negative marking</div>
           <div className="flex gap-2">
             {[
               [0, "None"],
@@ -89,7 +89,7 @@ export function TestBuilder({ latest, lang }: { latest: string; lang: Lang }) {
           </div>
         </div>
       </div>
-      <button onClick={go} className="inline-flex items-center gap-2 rounded-xl bg-ink px-5 py-3 text-sm font-semibold text-bg">
+      <button onClick={go} className="btn btn-orange w-full px-6 py-3.5 text-[15px] sm:w-auto">
         Start test
       </button>
     </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Flame, TrendingUp } from "lucide-react";
 import { CATEGORIES, categoryById, pick, type Bi, type Lang } from "@/lib/taxonomy";
 import { sourceById } from "@/lib/sources";
 import { t } from "@/lib/i18n";
@@ -31,7 +32,7 @@ export function CategoryPill({ id, lang, size = "sm" }: { id: string; lang: Lang
   const c = categoryById(id) ?? CATEGORIES[0];
   return (
     <span
-      className={cx("cat inline-flex items-center gap-1.5 rounded-md bg-(--cat-tint) font-medium whitespace-nowrap text-(--cat-ink)", size === "sm" ? "px-2 py-0.5 text-xs" : "px-1.5 py-0.5 text-[11px]")}
+      className={cx("cat inline-flex items-center gap-1.5 rounded-full bg-(--cat-tint) font-bold whitespace-nowrap text-(--cat-ink)", size === "sm" ? "px-2.5 py-1 text-xs" : "px-2 py-0.5 text-[11px]")}
       style={{ "--h": c.hue } as React.CSSProperties}
     >
       {pick(c.label, lang === "bi" ? "en" : lang)}
@@ -39,17 +40,14 @@ export function CategoryPill({ id, lang, size = "sm" }: { id: string; lang: Lang
   );
 }
 
+/** How much a story matters for the reader's exams: a coloured pill. */
 export function RelevanceBadge({ level, lang }: { level: number; lang: Lang }) {
-  if (level <= 0) return null;
-  const label = level >= 3 ? t("mustKnow", lang) : level === 2 ? t("likely", lang) : t("low", lang);
+  if (level <= 1) return null;
+  const must = level >= 3;
   return (
-    <span className={cx("inline-flex items-center gap-1 text-[11px] font-semibold tracking-wide uppercase", level >= 3 ? "text-accent-2" : level === 2 ? "text-ink-2" : "text-ink-3")}>
-      <span className="flex gap-0.5">
-        {[1, 2, 3].map((i) => (
-          <span key={i} className={cx("h-2.5 w-1 rounded-full", i <= level ? "bg-current" : "bg-line-strong")} />
-        ))}
-      </span>
-      {label}
+    <span className={cx("inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-bold", must ? "bg-accent-2-soft text-accent-2" : "bg-accent-soft text-accent")}>
+      {must ? <Flame className="size-3" strokeWidth={2.5} /> : <TrendingUp className="size-3" strokeWidth={2.5} />}
+      {must ? t("mustKnow", lang) : t("likely", lang)}
     </span>
   );
 }
@@ -59,7 +57,7 @@ export function SourceChips({ sources, max = 3 }: { sources: { sourceId: string;
   return (
     <span className="flex flex-wrap items-center gap-1.5">
       {unique.slice(0, max).map((s) => (
-        <span key={s.sourceId} className="rounded-md border border-line bg-surface-2 px-1.5 py-0.5 text-[11px] font-medium text-ink-2">
+        <span key={s.sourceId} className="rounded-full bg-surface-2 px-2 py-0.5 text-[11px] font-semibold text-ink-2">
           {sourceById(s.sourceId)?.short ?? s.sourceId}
         </span>
       ))}
@@ -68,20 +66,36 @@ export function SourceChips({ sources, max = 3 }: { sources: { sourceId: string;
   );
 }
 
-export function ProgressRing({ value, max, size = 64, stroke = 6, children }: { value: number; max: number; size?: number; stroke?: number; children?: React.ReactNode }) {
+export function ProgressRing({
+  value,
+  max,
+  size = 64,
+  stroke = 6,
+  color = "var(--accent)",
+  track = "var(--line)",
+  children,
+}: {
+  value: number;
+  max: number;
+  size?: number;
+  stroke?: number;
+  color?: string;
+  track?: string;
+  children?: React.ReactNode;
+}) {
   const r = (size - stroke) / 2;
   const c = 2 * Math.PI * r;
   const pct = max ? Math.min(value / max, 1) : 0;
   return (
-    <div className="relative grid place-items-center" style={{ width: size, height: size }}>
+    <div className="relative grid shrink-0 place-items-center" style={{ width: size, height: size }}>
       <svg width={size} height={size} className="-rotate-90">
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--line-strong)" strokeWidth={stroke} />
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={track} strokeWidth={stroke} />
         <circle
           cx={size / 2}
           cy={size / 2}
           r={r}
           fill="none"
-          stroke="var(--accent)"
+          stroke={color}
           strokeWidth={stroke}
           strokeLinecap="round"
           strokeDasharray={c}
@@ -94,42 +108,79 @@ export function ProgressRing({ value, max, size = 64, stroke = 6, children }: { 
   );
 }
 
-export function Card({ className, children }: { className?: string; children: React.ReactNode }) {
-  return <div className={cx("rounded-xl border border-line bg-surface", className)}>{children}</div>;
+/** A thick, rounded progress bar. */
+export function Bar({ value, max, color = "bg-accent", track = "bg-line", className }: { value: number; max: number; color?: string; track?: string; className?: string }) {
+  return (
+    <div className={cx("h-3 overflow-hidden rounded-full", track, className)}>
+      <div className={cx("h-full rounded-full transition-all duration-700", color)} style={{ width: `${max ? Math.min(100, (value / max) * 100) : 0}%` }} />
+    </div>
+  );
 }
 
-export function ButtonLink({ href, children, variant = "primary", className }: { href: string; children: React.ReactNode; variant?: "primary" | "ghost"; className?: string }) {
+const CONFETTI_COLORS = ["#4f46e5", "#f97316", "#16a34a", "#ec4899", "#f59e0b", "#0ea5a4", "#8b5cf6"];
+
+/** A one-shot confetti burst. Mount it (e.g. with a changing key) to fire. */
+export function Confetti({ pieces = 36 }: { pieces?: number }) {
   return (
-    <Link
-      href={href}
-      className={cx(
-        "inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition active:scale-[.98]",
-        variant === "primary" ? "bg-ink text-bg hover:opacity-90" : "border border-line-strong bg-surface text-ink hover:bg-surface-2",
-        className,
-      )}
-    >
+    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-visible">
+      {Array.from({ length: pieces }, (_, i) => {
+        // Deterministic spread so renders stay pure.
+        const angle = (i / pieces) * Math.PI * 2 + (i % 3) * 0.4;
+        const dist = 110 + ((i * 47) % 120);
+        return (
+          <span
+            key={i}
+            className="confetti"
+            style={
+              {
+                background: CONFETTI_COLORS[i % CONFETTI_COLORS.length],
+                "--x": `${Math.cos(angle) * dist}px`,
+                "--y": `${Math.sin(angle) * dist - 60}px`,
+                "--r": `${(i * 83) % 720 - 360}deg`,
+                "--d": `${(i % 6) * 25}ms`,
+              } as React.CSSProperties
+            }
+          />
+        );
+      })}
+    </div>
+  );
+}
+
+export function Card({ className, children }: { className?: string; children: React.ReactNode }) {
+  return <div className={cx("rounded-2xl border-2 border-line bg-surface", className)}>{children}</div>;
+}
+
+export function ButtonLink({ href, children, variant = "primary", className }: { href: string; children: React.ReactNode; variant?: "primary" | "orange" | "green" | "violet" | "ghost"; className?: string }) {
+  const v = variant === "primary" ? "" : `btn-${variant}`;
+  return (
+    <Link href={href} className={cx("btn px-5 py-3 text-sm", v, className)}>
       {children}
     </Link>
   );
 }
 
-export function SectionTitle({ eyebrow, title, right }: { eyebrow?: string; title: React.ReactNode; right?: React.ReactNode }) {
+export function SectionTitle({ eyebrow, title, right, icon }: { eyebrow?: string; title: React.ReactNode; right?: React.ReactNode; icon?: React.ReactNode }) {
   return (
-    <div className="mb-4 flex items-end justify-between gap-4">
-      <div>
-        {eyebrow && <div className="mb-1 text-xs font-semibold tracking-[0.14em] text-ink-3 uppercase">{eyebrow}</div>}
-        <h2 className="font-display text-xl leading-tight sm:text-2xl">{title}</h2>
+    <div className="mb-3 flex items-center justify-between gap-4">
+      <div className="flex items-center gap-2.5">
+        {icon}
+        <div>
+          <h2 className="font-display text-lg leading-tight sm:text-xl">{title}</h2>
+          {eyebrow && <div className="text-xs font-medium text-ink-3">{eyebrow}</div>}
+        </div>
       </div>
       {right}
     </div>
   );
 }
 
-export function Empty({ title, children }: { title: string; children?: React.ReactNode }) {
+export function Empty({ title, children, icon }: { title: string; children?: React.ReactNode; icon?: React.ReactNode }) {
   return (
-    <div className="rounded-xl border border-dashed border-line-strong px-6 py-12 text-center">
-      <div className="font-display text-xl">{title}</div>
-      {children && <div className="mx-auto mt-2 max-w-md text-sm text-ink-2">{children}</div>}
+    <div className="rounded-2xl border-2 border-dashed border-line-strong bg-surface px-6 py-10 text-center">
+      {icon && <div className="mx-auto mb-3 grid size-14 place-items-center rounded-2xl bg-accent-soft text-accent">{icon}</div>}
+      <div className="font-display text-lg">{title}</div>
+      {children && <div className="mx-auto mt-1.5 max-w-md text-sm text-ink-2">{children}</div>}
     </div>
   );
 }

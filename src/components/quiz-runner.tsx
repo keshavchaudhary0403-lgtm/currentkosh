@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Clock, Flag } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronDown, Clock, Flag, Flame, LayoutGrid, X } from "lucide-react";
 import type { McqContent } from "@/lib/content";
 import { saveAttempt, type Attempt } from "@/lib/progress-store";
 import { categoryById, pick, type Lang } from "@/lib/taxonomy";
 import { McqView } from "./mcq";
 import { ResultView } from "./result-view";
+import { catStyle } from "./category-icon";
+import { Bar, Confetti } from "./ui";
 
 export type Question = { id: string; storyId: string; category: string; content: McqContent };
 
@@ -72,77 +74,92 @@ export function QuizRunner({
   const q = questions[i];
   const answered = answers.filter((a) => a !== null).length;
   const ui = lang === "bi" ? "en" : lang;
+  const last = i === questions.length - 1;
+  const isRight = (j: number) => answers[j] === questions[j].content.answer;
+  // Correct answers in a row, counting back from the current question (practice mode only).
+  let combo = 0;
+  if (!timed) for (let j = i; j >= 0 && revealed[j] && isRight(j); j--) combo++;
 
   const select = (a: number) => {
     setAnswers((xs) => xs.map((x, j) => (j === i ? a : x)));
     if (!timed) setRevealed((xs) => xs.map((x, j) => (j === i ? true : x)));
   };
+  const next = () => (last ? finish() : setI((x) => x + 1));
 
   return (
-    <div className="mx-auto max-w-3xl">
-      <div className="mb-6 flex items-center gap-3">
-        <Link href="/practice" className="grid size-9 place-items-center rounded-xl border border-line bg-surface text-ink-2 hover:text-ink" aria-label="Back">
-          <ArrowLeft className="size-4" />
+    <div className="mx-auto max-w-2xl pb-16">
+      <div className="mb-5 flex items-center gap-3">
+        <Link href="/practice" className="grid size-10 shrink-0 place-items-center rounded-full text-ink-3 hover:bg-surface-2 hover:text-ink" aria-label="Quit test">
+          <X className="size-6" strokeWidth={2.6} />
         </Link>
-        <div className="min-w-0 flex-1">
-          <div className="truncate font-semibold">{title}</div>
-          <div className="text-xs text-ink-3">
-            {answered}/{questions.length} answered{negative > 0 && ` · −${Math.abs(negative - 1 / 3) < 0.01 ? "⅓" : negative === 0.25 ? "¼" : negative} per wrong answer`}
-          </div>
-        </div>
-        {timed && (
-          <div className={`flex items-center gap-1.5 rounded-xl px-3 py-2 font-mono text-sm font-semibold tabular-nums ${remaining < 60 ? "bg-bad/10 text-bad" : "bg-surface-2"}`}>
+        <Bar value={i + (revealed[i] || answers[i] !== null ? 1 : 0)} max={questions.length} color="bg-accent-2" className="h-4 flex-1" />
+        {timed ? (
+          <div className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 font-mono text-sm font-bold tabular-nums ${remaining < 60 ? "bg-bad-soft text-bad" : "bg-surface-2 text-ink-2"}`}>
             <Clock className="size-4" />
             {String(Math.floor(remaining / 60)).padStart(2, "0")}:{String(remaining % 60).padStart(2, "0")}
           </div>
+        ) : (
+          <span key={combo} className={`pop flex items-center gap-1 rounded-full px-2.5 py-1 text-sm font-extrabold ${combo >= 2 ? "bg-accent-2-soft text-accent-2" : "text-ink-3"}`}>
+            <Flame className="size-4" strokeWidth={2.6} /> {combo}
+          </span>
         )}
       </div>
 
-      <div className="mb-5 h-1 overflow-hidden rounded-full bg-line-strong">
-        <div className="h-full rounded-full bg-accent transition-all" style={{ width: `${((i + 1) / questions.length) * 100}%` }} />
+      <div className="mb-3 flex items-center justify-between">
+        <div className="min-w-0">
+          <div className="truncate text-xs font-bold text-ink-3">{title}</div>
+          <div className="font-display text-lg">
+            {ui === "hi" ? "प्रश्न" : "Question"} {i + 1}
+            <span className="text-ink-3"> / {questions.length}</span>
+          </div>
+        </div>
+        <button
+          onClick={() => setFlags((f) => f.map((x, j) => (j === i ? !x : x)))}
+          className={`inline-flex items-center gap-1.5 rounded-full border-2 px-3 py-1 text-xs font-bold transition ${flags[i] ? "border-warn bg-warn-soft text-warn" : "border-line text-ink-3 hover:text-ink"}`}
+        >
+          <Flag className="size-3.5" strokeWidth={2.5} /> {flags[i] ? "Flagged" : "Flag"}
+        </button>
       </div>
 
-      <div key={q.id} className="rise rounded-xl border border-line bg-surface p-5 sm:p-7">
-        <div className="mb-4 flex items-center justify-between text-xs text-ink-3">
-          <span className="font-semibold tracking-wider uppercase">
-            Q{i + 1} · {pick(categoryById(q.category)?.label, ui)}
-          </span>
-          <button onClick={() => setFlags((f) => f.map((x, j) => (j === i ? !x : x)))} className={`inline-flex items-center gap-1 ${flags[i] ? "text-warn" : "hover:text-ink"}`}>
-            <Flag className="size-3.5" /> {flags[i] ? "Flagged" : "Flag"}
-          </button>
+      {combo >= 3 && revealed[i] && (
+        <div key={`c${i}`} className="pop mb-3 rounded-2xl bg-accent-2 px-4 py-2 text-center text-sm font-extrabold text-white">
+          🔥 {combo} in a row! Keep going!
+        </div>
+      )}
+
+      <div key={q.id} className="rise relative rounded-3xl border-2 border-line bg-surface p-4 sm:p-6">
+        {revealed[i] && isRight(i) && <Confetti key={`f${i}`} pieces={18} />}
+        <div className="cat mb-3 inline-flex rounded-full bg-(--cat-tint) px-2.5 py-0.5 text-xs font-bold text-(--cat-ink)" style={catStyle(q.category)}>
+          {pick(categoryById(q.category)?.label, ui)}
         </div>
         <McqView mcq={q.content} lang={lang} selected={answers[i]} reveal={revealed[i]} onSelect={revealed[i] ? undefined : select} />
         {revealed[i] && (
-          <Link href={`/story/${q.storyId}`} className="mt-3 inline-block text-sm font-medium text-accent">
-            Read the story →
+          <Link href={`/story/${q.storyId}`} className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-accent">
+            Read the story <ArrowRight className="size-4" />
           </Link>
         )}
       </div>
 
-      <div className="mt-5 flex items-center gap-2">
-        <button onClick={() => setI((x) => Math.max(0, x - 1))} disabled={i === 0} className="rounded-xl border border-line bg-surface px-4 py-2.5 text-sm font-medium disabled:opacity-40">
-          Previous
-        </button>
-        {i < questions.length - 1 ? (
-          <button onClick={() => setI((x) => x + 1)} className="ml-auto inline-flex items-center gap-2 rounded-xl bg-ink px-5 py-2.5 text-sm font-semibold text-bg">
-            Next <ArrowRight className="size-4" />
-          </button>
-        ) : (
-          <button onClick={finish} className="ml-auto inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-white">
-            Submit test
-          </button>
-        )}
-      </div>
-
-      <div className="mt-8">
-        <div className="mb-2 text-xs font-semibold tracking-wider text-ink-3 uppercase">Question palette</div>
-        <div className="flex flex-wrap gap-1.5">
+      <details className="group mt-6">
+        <summary className="flex cursor-pointer list-none items-center gap-2 text-sm font-bold text-ink-2">
+          <LayoutGrid className="size-4" /> All questions · {answered}/{questions.length} answered
+          <ChevronDown className="size-4 transition group-open:rotate-180" />
+        </summary>
+        <div className="mt-3 grid grid-cols-8 gap-1.5 sm:grid-cols-10">
           {questions.map((_, j) => (
             <button
               key={j}
               onClick={() => setI(j)}
-              className={`size-9 rounded-lg text-xs font-semibold transition ${j === i ? "ring-2 ring-accent ring-offset-2 ring-offset-bg" : ""} ${
-                flags[j] ? "bg-warn/20 text-warn" : answers[j] !== null ? "bg-ink text-bg" : "border border-line bg-surface text-ink-2"
+              className={`aspect-square rounded-xl border-2 text-xs font-extrabold transition active:scale-90 ${j === i ? "border-accent" : "border-transparent"} ${
+                flags[j]
+                  ? "bg-warn-soft text-warn"
+                  : revealed[j]
+                    ? isRight(j)
+                      ? "bg-good text-white"
+                      : "bg-bad text-white"
+                    : answers[j] !== null
+                      ? "bg-accent text-white"
+                      : "bg-surface-2 text-ink-2"
               }`}
             >
               {j + 1}
@@ -150,10 +167,27 @@ export function QuizRunner({
           ))}
         </div>
         {answered < questions.length && (
-          <button onClick={finish} className="mt-4 text-sm text-ink-3 underline hover:text-ink">
+          <button onClick={finish} className="mt-3 text-sm font-semibold text-ink-3 underline hover:text-ink">
             Submit now with {questions.length - answered} unanswered
           </button>
         )}
+      </details>
+
+      <div className="fixed inset-x-0 bottom-0 z-30 border-t-2 border-line bg-surface px-4 pt-3 pb-[calc(12px+env(safe-area-inset-bottom))] lg:pl-68">
+        <div className="mx-auto flex max-w-2xl items-center gap-2">
+          <button onClick={() => setI((x) => Math.max(0, x - 1))} disabled={i === 0} className="btn btn-ghost size-12 shrink-0" aria-label="Previous question">
+            <ArrowLeft className="size-5" strokeWidth={2.6} />
+          </button>
+          {!timed && !revealed[i] ? (
+            <button onClick={next} className="btn btn-ghost h-12 flex-1 text-[15px]">
+              {last ? "Submit test" : "Skip"}
+            </button>
+          ) : (
+            <button onClick={next} className={`btn h-12 flex-1 text-[15px] ${timed ? (last ? "btn-orange" : "") : isRight(i) ? "btn-green" : "btn-red"}`}>
+              {last ? "Submit test" : "Continue"} <ArrowRight className="size-5" strokeWidth={2.6} />
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

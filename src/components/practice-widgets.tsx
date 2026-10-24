@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronRight, Crosshair } from "lucide-react";
+import { Crosshair } from "lucide-react";
 import { useProgress, weakCategories } from "@/lib/progress-store";
 import { categoryById, pick } from "@/lib/taxonomy";
 import { useLang } from "./lang-context";
@@ -14,15 +14,12 @@ export function WeakDrillCard() {
   const href = weak.length ? `/practice/run?kind=weak&cats=${weak.join(",")}` : "/practice/run?kind=weak";
   const ui = lang === "bi" ? "en" : lang;
   return (
-    <Link id="weak" href={href} className="group flex items-center gap-3 px-4 py-3.5 transition hover:bg-surface-2 sm:px-5">
-      <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-accent-soft text-accent">
-        <Crosshair className="size-5" />
+    <Link id="weak" href={href} className="group scroll-mt-24 rounded-3xl bg-pink-soft p-4 transition active:scale-[.97]">
+      <span className="grid size-12 place-items-center rounded-2xl bg-pink text-white shadow-[0_3px_0_0_rgb(0_0_0/0.15)] transition group-hover:-rotate-6">
+        <Crosshair className="size-6" strokeWidth={2.4} />
       </span>
-      <span className="min-w-0 flex-1">
-        <span className="block text-[15px] font-medium">Weak-area drill</span>
-        <span className="block text-xs text-ink-3">{weak.length ? `15 Qs · ${weak.map((c) => pick(categoryById(c)?.label, ui)).join(", ")}` : "Unlocks after a few tests"}</span>
-      </span>
-      <ChevronRight className="size-4 text-ink-3" />
+      <span className="mt-3 block font-display text-[17px] leading-tight text-pink">Weak-area drill</span>
+      <span className="mt-0.5 line-clamp-2 block text-xs font-semibold text-ink-2">{weak.length ? `15 Qs · ${weak.map((c) => pick(categoryById(c)?.label, ui)).join(", ")}` : "Unlocks after a few tests"}</span>
     </Link>
   );
 }
@@ -32,18 +29,22 @@ export function RecentAttempts() {
   if (!attempts.length) return null;
   return (
     <section>
-      <SectionTitle eyebrow="History · saved in this browser" title="Recent tests" />
-      <div className="divide-y divide-line overflow-hidden rounded-xl border border-line bg-surface">
+      <SectionTitle title="Recent tests" eyebrow="Saved in this browser" />
+      <div className="divide-y-2 divide-line overflow-hidden rounded-3xl border-2 border-line bg-surface">
         {attempts.map((a) => (
           <Link key={a.id} href={`/practice/result?id=${a.id}`} className="flex items-center gap-4 px-4 py-3 hover:bg-surface-2">
             <span className="min-w-0 flex-1">
-              <span className="block truncate text-sm font-medium">{a.title}</span>
+              <span className="block truncate text-sm font-bold">{a.title}</span>
               <span className="block text-xs text-ink-3">{new Date(a.finishedAt).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })}</span>
             </span>
-            <span className="font-display text-2xl tabular-nums">
-              {a.score.toFixed(a.config.negative ? 1 : 0)}
-              <span className="text-base text-ink-3">/{a.mcqIds.length}</span>
-            </span>
+            {(() => {
+              const pct = Math.round((a.correct / Math.max(1, a.mcqIds.length)) * 100);
+              return (
+                <span className={`rounded-full px-3 py-1 font-display text-sm tabular-nums ${pct >= 70 ? "bg-good-soft text-good" : pct >= 40 ? "bg-accent-2-soft text-accent-2" : "bg-bad-soft text-bad"}`}>
+                  {a.score.toFixed(a.config.negative ? 1 : 0)}/{a.mcqIds.length}
+                </span>
+              );
+            })()}
           </Link>
         ))}
       </div>

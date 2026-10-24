@@ -8,10 +8,10 @@ import { currentProfile } from "@/lib/profile";
 export const metadata: Metadata = { title: "Welcome" };
 
 const PILLARS = [
-  { icon: Newspaper, title: "One calm daily brief", body: "Government updates, deduplicated and ranked for your exam. A fixed set you can finish." },
-  { icon: Target, title: "Tests in real exam style", body: "UPSC statement questions, SSC one-liners, timed mocks with negative marking." },
-  { icon: Brain, title: "Revision that sticks", body: "Missed a fact? It comes back tomorrow, then in 3, 7 and 21 days." },
-  { icon: ShieldCheck, title: "Every fact sourced", body: "PIB, AIR, DD News, RBI — linked on every card. No ads, no pop-ups." },
+  { icon: Newspaper, title: "A daily mission", body: "10 ranked stories for your exam. Finish, tick, done.", cls: "bg-accent-soft", ink: "bg-accent" },
+  { icon: Target, title: "Real exam-style tests", body: "UPSC statements, SSC one-liners, timed mocks.", cls: "bg-accent-2-soft", ink: "bg-accent-2" },
+  { icon: Brain, title: "Revision that sticks", body: "Flashcards return right before you forget.", cls: "bg-violet-soft", ink: "bg-violet" },
+  { icon: ShieldCheck, title: "Every fact sourced", body: "PIB, AIR, DD News, RBI. No ads, no pop-ups.", cls: "bg-good-soft", ink: "bg-good" },
 ];
 
 export default async function Welcome() {
@@ -27,32 +27,37 @@ export default async function Welcome() {
         </Link>
         <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div className="rise">
-            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-ink-2">
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-good-soft px-3 py-1 text-xs font-bold text-good">
               <span className="live-dot" /> Updated daily from official sources
             </p>
             <h1 className="font-display text-[40px] leading-[1.05] sm:text-6xl">
-              Current affairs,
+              Crack current affairs,
               <br />
-              <span className="text-accent">without the clutter.</span>
+              <span className="text-accent">one day at a time.</span>
             </h1>
-            <p className="mt-5 max-w-md text-lg leading-relaxed text-ink-2">
+            <p className="mt-5 max-w-md text-lg leading-relaxed font-medium text-ink-2">
               One feed for UPSC, State PSC, SSC, Banking, Railways and Defence. Read it, test yourself, and let spaced revision do the remembering.
             </p>
             <p lang="hi" className="mt-2 max-w-md text-ink-3">
               सभी सरकारी परीक्षाओं के लिए एक साफ़-सुथरा करंट अफ़ेयर्स मंच — हिंदी और अंग्रेज़ी में।
             </p>
-            <div className="mt-10 grid gap-3 sm:grid-cols-2">
-              {PILLARS.map(({ icon: Icon, title, body }) => (
-                <div key={title} className="rounded-xl border border-line bg-surface/70 p-4 backdrop-blur">
-                  <Icon className="mb-2 size-5 text-accent" />
-                  <div className="text-sm font-semibold">{title}</div>
-                  <div className="mt-1 text-sm leading-relaxed text-ink-2">{body}</div>
+            <div className="mt-10 hidden gap-3 sm:grid sm:grid-cols-2">
+              {PILLARS.map(({ icon: Icon, title, body, cls, ink }) => (
+                <div key={title} className={`flex gap-3 rounded-3xl p-4 ${cls}`}>
+                  <span className={`grid size-11 shrink-0 place-items-center rounded-2xl text-white ${ink}`}>
+                    <Icon className="size-5" strokeWidth={2.4} />
+                  </span>
+                  <span>
+                    <span className="block font-display text-base">{title}</span>
+                    <span className="mt-0.5 block text-sm leading-snug font-medium text-ink-2">{body}</span>
+                  </span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="rise rounded-xl border border-line bg-surface p-6 sm:p-8" style={{ animationDelay: "120ms" }}>
-            <h2 className="mb-6 font-display text-3xl">Set up your feed</h2>
+          <div className="rise rounded-3xl border-2 border-line bg-surface p-5 shadow-[0_5px_0_0_var(--line)] sm:p-8" style={{ animationDelay: "120ms" }}>
+            <h2 className="font-display text-2xl sm:text-3xl">Set up in 30 seconds</h2>
+            <p className="mb-6 text-sm font-medium text-ink-2">Free. No sign-up needed to start.</p>
             <ProfileForm initial={profile ?? undefined} submitLabel="Start preparing →" />
           </div>
         </div>

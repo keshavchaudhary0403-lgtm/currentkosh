@@ -5,6 +5,7 @@ import type { McqContent } from "@/lib/content";
 import type { Lang } from "@/lib/taxonomy";
 
 const LETTERS = ["A", "B", "C", "D"];
+const PRAISE = ["Correct! 🎯", "Spot on! ✨", "Nailed it! 💪", "Great recall! 🧠"];
 
 function Text({ en, hi, lang, className }: { en: string; hi: string; lang: Lang; className?: string }) {
   const lines = (s: string) => s.split("\n").map((l, i) => <span key={i} className="block">{l}</span>);
@@ -43,10 +44,11 @@ export function McqView({
   onSelect?: (i: number) => void;
   number?: number;
 }) {
+  const right = selected === mcq.answer;
   return (
     <div>
-      <Text en={mcq.question.en} hi={mcq.question.hi} lang={lang} className="text-[15px] leading-relaxed font-medium sm:text-base" />
-      <div className="mt-4 grid gap-2">
+      <Text en={mcq.question.en} hi={mcq.question.hi} lang={lang} className="text-base leading-relaxed font-semibold sm:text-[17px]" />
+      <div className="mt-4 grid gap-2.5">
         {mcq.options.en.map((opt, i) => {
           const isAnswer = i === mcq.answer;
           const isPicked = i === selected;
@@ -57,22 +59,30 @@ export function McqView({
               type="button"
               disabled={reveal || !onSelect}
               onClick={() => onSelect?.(i)}
-              className={`flex items-start gap-3 rounded-xl border px-3.5 py-3 text-left text-sm transition ${
+              className={`flex items-start gap-3 rounded-2xl border-2 px-3.5 py-3 text-left text-[15px] font-medium transition ${
                 state === "right"
-                  ? "border-good bg-good/10"
+                  ? "pop border-good bg-good-soft shadow-[0_3px_0_0_var(--good)]"
                   : state === "wrong"
-                    ? "border-bad bg-bad/10"
+                    ? "shake border-bad bg-bad-soft shadow-[0_3px_0_0_var(--bad)]"
                     : state === "picked"
-                      ? "border-accent bg-accent-soft"
-                      : "border-line bg-surface hover:border-line-strong disabled:hover:border-line"
+                      ? "border-accent bg-accent-soft shadow-[0_3px_0_0_var(--accent)]"
+                      : reveal || !onSelect
+                        ? "border-line bg-surface opacity-70"
+                        : "border-line bg-surface shadow-[0_3px_0_0_var(--line)] hover:border-line-strong active:translate-y-[3px] active:shadow-none"
               }`}
             >
               <span
-                className={`grid size-6 shrink-0 place-items-center rounded-lg text-xs font-bold ${
-                  state === "right" ? "bg-good text-white" : state === "wrong" ? "bg-bad text-white" : state === "picked" ? "bg-accent text-white" : "bg-surface-2 text-ink-2"
+                className={`grid size-7 shrink-0 place-items-center rounded-lg border-2 text-xs font-extrabold ${
+                  state === "right"
+                    ? "border-good bg-good text-white"
+                    : state === "wrong"
+                      ? "border-bad bg-bad text-white"
+                      : state === "picked"
+                        ? "border-accent bg-accent text-white"
+                        : "border-line-strong text-ink-3"
                 }`}
               >
-                {state === "right" ? <Check className="size-3.5" strokeWidth={3} /> : state === "wrong" ? <X className="size-3.5" strokeWidth={3} /> : LETTERS[i]}
+                {state === "right" ? <Check className="size-4" strokeWidth={3.5} /> : state === "wrong" ? <X className="size-4" strokeWidth={3.5} /> : LETTERS[i]}
               </span>
               <Text en={opt} hi={mcq.options.hi[i] ?? opt} lang={lang} className="pt-0.5" />
             </button>
@@ -80,12 +90,12 @@ export function McqView({
         })}
       </div>
       {reveal && (
-        <div className="mt-4 rounded-xl bg-surface-2 p-4 text-sm leading-relaxed">
-          <div className="mb-1 text-xs font-semibold tracking-wider text-ink-3 uppercase">
-            {selected === mcq.answer ? "✓ Correct" : selected === null ? "Skipped" : "✗ Not quite"}
-            {number !== undefined && ` · Q${number}`}
+        <div className={`rise mt-4 rounded-2xl p-4 text-sm leading-relaxed ${selected === null ? "bg-surface-2" : right ? "bg-good-soft" : "bg-bad-soft"}`}>
+          <div className={`mb-1.5 flex items-center gap-2 font-display text-base ${selected === null ? "text-ink-2" : right ? "text-good" : "text-bad"}`}>
+            {selected === null ? "Skipped" : right ? PRAISE[(number ?? mcq.answer) % PRAISE.length] : "Not quite. Here's why:"}
+            {number !== undefined && <span className="text-xs font-bold text-ink-3">Q{number}</span>}
           </div>
-          <Text en={mcq.explanation.en} hi={mcq.explanation.hi} lang={lang} className="text-ink-2" />
+          <Text en={mcq.explanation.en} hi={mcq.explanation.hi} lang={lang} className="text-ink" />
         </div>
       )}
     </div>

@@ -27,7 +27,7 @@ export default function Sources() {
       </header>
       <div className="grid gap-3 sm:grid-cols-3">
         {Object.entries(MODE).map(([k, m]) => (
-          <div key={k} className="rounded-xl border border-line bg-surface p-4">
+          <div key={k} className="rounded-2xl border-2 border-line bg-surface p-4">
             <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${m.cls}`}>{m.label}</span>
             <p className="mt-2 text-sm text-ink-2">{m.desc}</p>
           </div>
@@ -36,7 +36,7 @@ export default function Sources() {
       {groups.map((g) => (
         <section key={g.title}>
           <SectionTitle title={g.title} />
-          <div className="divide-y divide-line overflow-hidden rounded-xl border border-line bg-surface">
+          <div className="divide-y divide-line overflow-hidden rounded-2xl border-2 border-line bg-surface">
             {g.ids.map((s) => {
               return (
                 <div key={s.id} className="flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-3.5">

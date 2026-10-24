@@ -1,7 +1,7 @@
 "use client";
 
 import { useLang } from "@/components/lang-context";
-import { Card, Empty, SectionTitle } from "@/components/ui";
+import { Bar, Card, Empty, SectionTitle } from "@/components/ui";
 import { addDays, istDate } from "@/lib/dates";
 import { accuracyByCategory, activityDays, streak, totals, useProgress } from "@/lib/progress-store";
 import { categoryById, pick } from "@/lib/taxonomy";
@@ -22,15 +22,15 @@ export default function Progress() {
   const level = (n: number) => (n === 0 ? 0 : n < 5 ? 1 : n < 15 ? 2 : n < 30 ? 3 : 4);
 
   const stats = [
-    { label: "Day streak", value: streak(p) },
-    { label: "Stories read", value: tot.read },
-    { label: "Questions answered", value: tot.answered },
-    { label: "Accuracy", value: tot.answered ? `${Math.round((tot.correct / tot.answered) * 100)}%` : "—" },
-    { label: "Facts mastered", value: tot.mastered, hint: "interval ≥ 21 days" },
+    { label: "Day streak", value: streak(p), cls: "bg-accent-2-soft text-accent-2" },
+    { label: "Stories read", value: tot.read, cls: "bg-accent-soft text-accent" },
+    { label: "Questions answered", value: tot.answered, cls: "bg-teal-soft text-teal" },
+    { label: "Accuracy", value: tot.answered ? `${Math.round((tot.correct / tot.answered) * 100)}%` : "—", cls: "bg-good-soft text-good" },
+    { label: "Facts mastered", value: tot.mastered, hint: "interval ≥ 21 days", cls: "bg-violet-soft text-violet" },
   ];
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-7">
       <header>
         <h1 className="font-display text-[28px] sm:text-4xl">{ui === "hi" ? "प्रगति" : "Progress"}</h1>
         <p className="mt-2 text-sm text-ink-3">Saved privately in this browser.</p>
@@ -38,16 +38,16 @@ export default function Progress() {
 
       <section className="grid grid-cols-2 gap-3 sm:grid-cols-5">
         {stats.map((x) => (
-          <Card key={x.label} className="p-4">
+          <div key={x.label} className={`rounded-3xl p-4 ${x.cls}`}>
             <div className="font-display text-4xl leading-none">{x.value}</div>
-            <div className="mt-2 text-xs text-ink-2">{x.label}</div>
-            {x.hint && <div className="text-[11px] text-ink-3">{x.hint}</div>}
-          </Card>
+            <div className="mt-2 text-xs font-bold">{x.label}</div>
+            {x.hint && <div className="text-[11px] font-semibold opacity-70">{x.hint}</div>}
+          </div>
         ))}
       </section>
 
       <section>
-        <SectionTitle eyebrow="Consistency" title="Last 18 weeks" />
+        <SectionTitle title="Your consistency" eyebrow="Last 18 weeks" />
         <Card className="overflow-x-auto p-5">
           <div className="flex gap-1">
             {weeks.map((w, i) => (
@@ -59,7 +59,7 @@ export default function Progress() {
                       key={d}
                       title={`${d}: ${days.get(d) ?? 0} actions`}
                       className="size-3.5 rounded-[4px]"
-                      style={{ background: l < 0 ? "transparent" : l === 0 ? "var(--line-strong)" : `color-mix(in oklab, var(--accent) ${l * 25}%, transparent)` }}
+                      style={{ background: l < 0 ? "transparent" : l === 0 ? "var(--line)" : `color-mix(in oklab, var(--good) ${l * 25}%, var(--line))` }}
                     />
                   );
                 })}
@@ -70,17 +70,15 @@ export default function Progress() {
       </section>
 
       <section>
-        <SectionTitle eyebrow="Where to focus" title="Accuracy by topic" />
+        <SectionTitle title="Accuracy by topic" eyebrow="Red bars are where to focus" />
         {acc.length ? (
           <Card className="divide-y divide-line">
             {acc.map((a) => {
               const pct = Math.round((a.correct / a.total) * 100);
               return (
                 <div key={a.category} className="flex items-center gap-4 px-5 py-3.5">
-                  <span className="w-36 shrink-0 text-sm sm:w-56">{pick(categoryById(a.category)?.label, ui)}</span>
-                  <div className="h-2 flex-1 overflow-hidden rounded-full bg-line-strong">
-                    <div className={`h-full rounded-full ${pct >= 70 ? "bg-good" : pct >= 40 ? "bg-warn" : "bg-bad"}`} style={{ width: `${pct}%` }} />
-                  </div>
+                  <span className="w-32 shrink-0 text-sm font-bold sm:w-56">{pick(categoryById(a.category)?.label, ui)}</span>
+                  <Bar value={pct} max={100} color={pct >= 70 ? "bg-good" : pct >= 40 ? "bg-warn" : "bg-bad"} className="h-2.5 flex-1" />
                   <span className="w-20 text-right text-sm tabular-nums">
                     {pct}% <span className="text-ink-3">· {a.total}</span>
                   </span>

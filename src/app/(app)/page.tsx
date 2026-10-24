@@ -27,21 +27,21 @@ export default async function Today({ searchParams }: PageProps<"/">) {
 
   return (
     <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]">
-      <div className="min-w-0 space-y-8">
+      <div className="min-w-0 space-y-6">
         <div>
           <TodayHeader date={date} briefIds={briefIds} lang={lang} />
           {dates.length > 1 && (
-            <nav className="no-scrollbar -mx-4 mb-6 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:px-0" aria-label="Choose a day">
+            <nav className="no-scrollbar -mx-4 mb-5 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:px-0" aria-label="Choose a day">
               {dates.map((d) => (
                 <Link
                   key={d.date}
                   href={d.date === latest ? "/" : `/?date=${d.date}`}
                   className={cx(
-                    "flex min-w-14 flex-col items-center rounded-xl border px-2.5 py-1.5 text-center transition",
-                    d.date === date ? "border-transparent bg-ink text-bg" : "border-line bg-surface hover:border-line-strong",
+                    "flex min-w-[54px] flex-col items-center rounded-2xl border-2 px-2 py-1.5 text-center transition active:scale-95",
+                    d.date === date ? "border-accent bg-accent-soft text-accent" : "border-line bg-surface text-ink-2 hover:border-line-strong",
                   )}
                 >
-                  <span className="text-[10px] font-semibold uppercase opacity-70">{fmtDate(d.date, ui, { weekday: "short" })}</span>
+                  <span className="text-[10px] font-extrabold uppercase">{fmtDate(d.date, ui, { weekday: "short" })}</span>
                   <span className="font-display text-lg leading-tight">{fmtDate(d.date, ui, { day: "numeric" })}</span>
                 </Link>
               ))}
@@ -58,7 +58,7 @@ export default async function Today({ searchParams }: PageProps<"/">) {
 
         {more.length > 0 && (
           <section>
-            <SectionTitle eyebrow={ui === "hi" ? "और भी" : "Also today"} title={ui === "hi" ? "कम प्राथमिकता वाली ख़बरें" : "Lower priority for your exams"} />
+            <SectionTitle title={ui === "hi" ? "और भी आज" : "Also today"} eyebrow={ui === "hi" ? "आपकी परीक्षाओं के लिए कम प्राथमिकता" : "Lower priority for your exams"} />
             <StoryList items={more} lang={lang} compact grid />
           </section>
         )}

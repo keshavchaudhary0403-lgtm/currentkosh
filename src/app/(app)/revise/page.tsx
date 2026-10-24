@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { CalendarClock, ListChecks } from "lucide-react";
+import { ListChecks } from "lucide-react";
 import { RevisionHero } from "@/components/revision-hero";
 import { CategoryPill, Empty, SectionTitle, fmtDate } from "@/components/ui";
 import { addDays, daysUntil, istDate } from "@/lib/dates";
@@ -25,60 +25,63 @@ export default async function Revise({ searchParams }: PageProps<"/revise">) {
   const countdown = profile.examDate ? daysUntil(profile.examDate) : null;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <header>
         <h1 className="font-display text-[28px] sm:text-4xl">{ui === "hi" ? "दोहराएँ" : "Revise"}</h1>
-        <p className="mt-1 text-sm text-ink-2">Each fact comes back just before you&apos;d forget it: tomorrow, then 3, 7 and 21 days later.</p>
+        <p className="mt-1 text-sm font-medium text-ink-2">Facts come back right before you&apos;d forget them.</p>
       </header>
 
       <RevisionHero />
 
       {countdown !== null && countdown > 0 && (
-        <section className="flex flex-col gap-4 rounded-xl border border-accent/30 bg-accent-soft p-5 sm:flex-row sm:items-center sm:p-6">
-          <CalendarClock className="size-8 shrink-0 text-accent" strokeWidth={1.6} />
-          <div className="flex-1">
-            <div className="font-semibold">{countdown} days to your exam</div>
-            <div className="text-sm text-ink-2">
-              Countdown plan: clear your due cards daily, take one monthly test each week (oldest month first), and drill your weakest topics.
+        <section className="flex items-center gap-4 rounded-3xl bg-pink-soft p-4 sm:p-5">
+          <div className="grid size-14 shrink-0 place-items-center rounded-2xl bg-pink text-white">
+            <div className="text-center leading-none">
+              <div className="font-display text-xl">{countdown}</div>
+              <div className="text-[9px] font-extrabold uppercase">days</div>
             </div>
           </div>
-          <Link href="/practice#weak" className="rounded-xl bg-ink px-4 py-2.5 text-sm font-semibold text-bg">
-            Drill weak topics
+          <div className="min-w-0 flex-1">
+            <div className="font-display text-base">Exam countdown</div>
+            <div className="text-xs font-medium text-ink-2">Clear due cards daily, one monthly test a week, drill weak topics.</div>
+          </div>
+          <Link href="/practice#weak" className="hidden shrink-0 text-sm font-extrabold text-pink sm:block">
+            Drill →
           </Link>
         </section>
       )}
 
       <section>
         <SectionTitle
-          eyebrow={month ? "Monthly recap" : "Weekly recap"}
-          title={month ? fmtDate(`${month}-01`, ui, { month: "long", year: "numeric" }) : "This week in one-liners"}
+          eyebrow={month ? "Monthly recap · one-liners" : "Weekly recap · one-liners"}
+          title={month ? fmtDate(`${month}-01`, ui, { month: "long", year: "numeric" }) : "This week"}
           right={
             <Link
               href={month ? `/practice/run?kind=monthly&from=${from}&to=${to}` : "/practice/run?kind=weekly"}
-              className="inline-flex items-center gap-2 rounded-xl border border-line-strong bg-surface px-3.5 py-2 text-sm font-semibold"
+              className="btn btn-orange shrink-0 px-3.5 py-2 text-sm"
             >
-              <ListChecks className="size-4" /> Test {month ? "this month" : "this week"}
+              <ListChecks className="size-4" strokeWidth={2.6} /> Test it
             </Link>
           }
         />
         <div className="no-scrollbar -mx-4 mb-4 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:px-0">
-          <Link href="/revise" className={`rounded-full border px-3 py-1.5 text-sm whitespace-nowrap ${!month ? "border-ink bg-ink text-bg" : "border-line bg-surface text-ink-2"}`}>
+          <Link href="/revise" className={`rounded-full border-2 px-3.5 py-1.5 text-sm font-bold whitespace-nowrap ${!month ? "border-violet bg-violet-soft text-violet" : "border-line bg-surface text-ink-2"}`}>
             Last 7 days
           </Link>
           {months.map((m) => (
-            <Link key={m} href={`/revise?month=${m}`} className={`rounded-full border px-3 py-1.5 text-sm whitespace-nowrap ${month === m ? "border-ink bg-ink text-bg" : "border-line bg-surface text-ink-2"}`}>
+            <Link key={m} href={`/revise?month=${m}`} className={`rounded-full border-2 px-3.5 py-1.5 text-sm font-bold whitespace-nowrap ${month === m ? "border-violet bg-violet-soft text-violet" : "border-line bg-surface text-ink-2"}`}>
               {fmtDate(`${m}-01`, ui, { month: "short", year: "numeric" })}
             </Link>
           ))}
         </div>
         {oneLiners.length ? (
-          <ol className="divide-y divide-line overflow-hidden rounded-xl border border-line bg-surface">
+          <ol className="divide-y-2 divide-line overflow-hidden rounded-3xl border-2 border-line bg-surface">
             {oneLiners.map((s, i) => (
               <li key={s.id}>
                 <Link href={`/story/${s.id}`} className="flex gap-4 px-4 py-3.5 hover:bg-surface-2">
-                  <span className="w-6 shrink-0 pt-0.5 text-right font-display text-lg text-ink-3">{i + 1}</span>
+                  <span className="grid size-7 shrink-0 place-items-center rounded-full bg-violet-soft text-xs font-extrabold text-violet">{i + 1}</span>
                   <span className="min-w-0 flex-1">
-                    <span lang={ui === "hi" ? "hi" : undefined} className="block font-medium">
+                    <span lang={ui === "hi" ? "hi" : undefined} className="block font-bold">
                       {pick(s.content.title, ui)}
                     </span>
                     <span lang={ui === "hi" ? "hi" : undefined} className="mt-0.5 block text-sm text-ink-2">

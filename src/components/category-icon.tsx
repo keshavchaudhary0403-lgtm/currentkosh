@@ -41,13 +41,13 @@ export const categoryHue = (id: string) => (categoryById(id) ?? CATEGORIES[0]).h
 /** Style object that sets the category hue for `.cat` colour variables. */
 export const catStyle = (id: string) => ({ "--h": categoryHue(id) }) as React.CSSProperties;
 
-export function CategoryIcon({ id, size = "md" }: { id: string; size?: "sm" | "md" | "lg" }) {
+export function CategoryIcon({ id, size = "md", solid }: { id: string; size?: "sm" | "md" | "lg"; solid?: boolean }) {
   const Icon = ICONS[id] ?? ScrollText;
-  const box = size === "lg" ? "size-12 rounded-xl" : size === "sm" ? "size-8 rounded-lg" : "size-10 rounded-xl";
+  const box = size === "lg" ? "size-12 rounded-2xl" : size === "sm" ? "size-8 rounded-xl" : "size-10 rounded-xl";
   const icon = size === "lg" ? "size-6" : size === "sm" ? "size-4" : "size-5";
   return (
-    <span className={`cat grid shrink-0 place-items-center bg-(--cat-tint) text-(--cat-ink) ${box}`} style={catStyle(id)}>
-      <Icon className={icon} strokeWidth={2} />
+    <span className={`cat grid shrink-0 place-items-center ${solid ? "bg-(--cat-solid) text-white" : "bg-(--cat-tint) text-(--cat-ink)"} ${box}`} style={catStyle(id)}>
+      <Icon className={icon} strokeWidth={2.3} />
     </span>
   );
 }

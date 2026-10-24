@@ -28,19 +28,19 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
     <div className="flex min-h-dvh">
       <Sidebar labels={labels} youLabel={ui === "hi" ? "आप" : "You"} />
       <div className="min-w-0 flex-1">
-        <header className="sticky top-0 z-30 border-b border-line bg-(--glass) backdrop-blur-xl">
+        <header className="sticky top-0 z-30 border-b-2 border-line bg-(--glass) backdrop-blur-xl">
           <div className="mx-auto flex h-14 max-w-6xl items-center gap-2 px-4 sm:gap-3 sm:px-6">
             <Link href="/" className="lg:hidden" aria-label="CurrentKosh home">
               <Wordmark size={24} />
             </Link>
             <Link href="/settings" className="no-scrollbar hidden min-w-0 items-center gap-1.5 overflow-x-auto sm:flex">
               {profile.exams.map((e) => (
-                <span key={e} className="rounded-full border border-line bg-surface px-2.5 py-1 text-xs font-medium whitespace-nowrap text-ink-2">
+                <span key={e} className="rounded-full bg-accent-soft px-2.5 py-1 text-xs font-bold whitespace-nowrap text-accent">
                   {pick(examById(e)?.label, ui)}
                 </span>
               ))}
               {profile.state && (
-                <span className="rounded-full border border-dashed border-line-strong px-2.5 py-1 text-xs whitespace-nowrap text-ink-3">{pick(stateById(profile.state)?.label, ui)}</span>
+                <span className="rounded-full bg-teal-soft px-2.5 py-1 text-xs font-bold whitespace-nowrap text-teal">{pick(stateById(profile.state)?.label, ui)}</span>
               )}
             </Link>
             <div className="ml-auto flex items-center gap-2">
@@ -49,7 +49,7 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
             </div>
           </div>
         </header>
-        <main className="mx-auto max-w-6xl px-4 pt-5 pb-28 sm:px-6 sm:pt-8 lg:pb-16">
+        <main className="mx-auto max-w-6xl px-4 pt-4 pb-28 sm:px-6 sm:pt-8 lg:pb-16">
           <LangProvider lang={lang}>{children}</LangProvider>
         </main>
       </div>

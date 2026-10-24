@@ -26,7 +26,7 @@ export function ProfileForm({ initial, submitLabel }: { initial?: Initial; submi
   return (
     <div className="space-y-8">
       <fieldset>
-        <legend className="mb-1 text-sm font-semibold">Which exams are you preparing for?</legend>
+        <legend className="mb-1 font-display text-base">Which exams are you preparing for?</legend>
         <p className="mb-3 text-sm text-ink-2">Pick all that apply. Current affairs overlap a lot — we rank each story by how much it matters to your exams.</p>
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
           {EXAMS.map((e) => {
@@ -37,11 +37,11 @@ export function ProfileForm({ initial, submitLabel }: { initial?: Initial; submi
                 key={e.id}
                 onClick={() => toggle(e.id)}
                 aria-pressed={on}
-                className={`flex items-center gap-3 rounded-xl border p-3.5 text-left transition ${on ? "border-accent bg-accent-soft" : "border-line bg-surface hover:border-line-strong"}`}
+                className={`flex items-center gap-3 rounded-2xl border-2 p-3.5 text-left transition active:translate-y-[3px] active:shadow-none ${on ? "border-accent bg-accent-soft shadow-[0_3px_0_0_var(--accent)]" : "border-line bg-surface shadow-[0_3px_0_0_var(--line)] hover:border-line-strong"}`}
               >
-                <span className={`grid size-5 shrink-0 place-items-center rounded-md border ${on ? "border-accent bg-accent text-white" : "border-line-strong"}`}>{on && <Check className="size-3.5" strokeWidth={3} />}</span>
+                <span className={`grid size-6 shrink-0 place-items-center rounded-lg border-2 ${on ? "pop border-accent bg-accent text-white" : "border-line-strong"}`}>{on && <Check className="size-4" strokeWidth={3.5} />}</span>
                 <span>
-                  <span className="block text-sm font-semibold">{e.label.en}</span>
+                  <span className="block text-sm font-extrabold">{e.label.en}</span>
                   <span lang="hi" className="block text-xs text-ink-3">
                     {e.label.hi}
                   </span>
@@ -55,9 +55,9 @@ export function ProfileForm({ initial, submitLabel }: { initial?: Initial; submi
 
       <div className="grid gap-6 sm:grid-cols-2">
         <label className="block">
-          <span className="mb-1 block text-sm font-semibold">Your state</span>
+          <span className="mb-1 block font-display text-base">Your state</span>
           <span className="mb-2 block text-xs text-ink-2">Adds state-specific news (e.g. UP for UPPSC) to your feed.</span>
-          <select value={state} onChange={(e) => setState(e.target.value)} className="w-full rounded-xl border border-line bg-surface px-3 py-2.5 text-sm">
+          <select value={state} onChange={(e) => setState(e.target.value)} className="w-full rounded-xl border-2 border-line bg-surface px-3 py-2.5 text-sm font-semibold">
             <option value="">No state focus</option>
             {STATES.map((s) => (
               <option key={s.id} value={s.id}>
@@ -67,14 +67,14 @@ export function ProfileForm({ initial, submitLabel }: { initial?: Initial; submi
           </select>
         </label>
         <label className="block">
-          <span className="mb-1 block text-sm font-semibold">Exam date (optional)</span>
+          <span className="mb-1 block font-display text-base">Exam date (optional)</span>
           <span className="mb-2 block text-xs text-ink-2">We&apos;ll show a countdown and plan revision around it.</span>
-          <input type="date" value={examDate} onChange={(e) => setExamDate(e.target.value)} className="w-full rounded-xl border border-line bg-surface px-3 py-2 text-sm" />
+          <input type="date" value={examDate} onChange={(e) => setExamDate(e.target.value)} className="w-full rounded-xl border-2 border-line bg-surface px-3 py-2 text-sm font-semibold" />
         </label>
       </div>
 
       <fieldset>
-        <legend className="mb-2 text-sm font-semibold">Read in</legend>
+        <legend className="mb-2 font-display text-base">Read in</legend>
         <div className="flex flex-wrap gap-2">
           {(
             [
@@ -88,7 +88,7 @@ export function ProfileForm({ initial, submitLabel }: { initial?: Initial; submi
               key={v}
               onClick={() => setLang(v)}
               aria-pressed={lang === v}
-              className={`rounded-full border px-4 py-2 text-sm font-medium transition ${lang === v ? "border-ink bg-ink text-bg" : "border-line bg-surface text-ink-2"}`}
+              className={`rounded-full border-2 px-4 py-2 text-sm font-bold transition active:scale-95 ${lang === v ? "border-accent bg-accent-soft text-accent" : "border-line bg-surface text-ink-2"}`}
             >
               {label}
             </button>
@@ -96,11 +96,11 @@ export function ProfileForm({ initial, submitLabel }: { initial?: Initial; submi
         </div>
       </fieldset>
 
-      {error && <p className="text-sm text-bad">{error}</p>}
+      {error && <p className="shake rounded-xl bg-bad-soft px-3 py-2 text-sm font-bold text-bad">{error}</p>}
       <button
         onClick={submit}
         disabled={pending}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-ink px-6 py-3.5 text-sm font-semibold text-bg transition hover:opacity-90 active:scale-[.99] disabled:opacity-60 sm:w-auto"
+        className="btn w-full px-6 py-4 text-base sm:w-auto"
       >
         {pending && <Loader2 className="size-4 animate-spin" />}
         {submitLabel}
