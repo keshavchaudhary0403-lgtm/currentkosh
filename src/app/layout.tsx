@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Noto_Sans_Devanagari, Plus_Jakarta_Sans } from "next/font/google";
+import { PwaSetup } from "@/components/install";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({ variable: "--font-jakarta", subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] });
@@ -11,6 +12,8 @@ export const metadata: Metadata = {
   description:
     "One calm, source-cited feed of current affairs for UPSC, State PSC, SSC, Banking, Railways and Defence aspirants, with daily quizzes and spaced revision. English + हिंदी.",
   applicationName: "CurrentKosh",
+  appleWebApp: { capable: true, title: "CurrentKosh", statusBarStyle: "default" },
+  formatDetection: { telephone: false },
   openGraph: {
     title: "CurrentKosh — Current affairs, made exam-ready",
     description: "Daily current affairs from official sources, exam-style tests and spaced revision. English + हिंदी.",
@@ -21,7 +24,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#4f46e5",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#151a2e" },
+  ],
+  viewportFit: "cover",
 };
 
 // Applies the saved theme (light by default) before first paint so there is no flash.
@@ -38,7 +45,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        {children}
+        <PwaSetup />
+      </body>
     </html>
   );
 }

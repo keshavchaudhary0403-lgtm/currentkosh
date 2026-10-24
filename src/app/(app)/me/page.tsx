@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { BarChart3, BookOpen, Bookmark, ChevronRight, GraduationCap, Settings, Waypoints } from "lucide-react";
+import { InstallCard } from "@/components/install";
 import { MyStats } from "@/components/my-stats";
 import { LangPicker, ThemeToggle } from "@/components/nav";
 import { daysUntil } from "@/lib/dates";
@@ -48,6 +49,8 @@ export default async function Me() {
       </header>
 
       <MyStats />
+
+      <InstallCard />
 
       <nav className="divide-y-2 divide-line overflow-hidden rounded-3xl border-2 border-line bg-surface">
         {links.map(({ href, icon: Icon, label, hint, tone }) => (

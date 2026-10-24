@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Offline · CurrentKosh</title>
+    <style>
+      body { margin: 0; min-height: 100dvh; display: grid; place-items: center; background: #f3f5fb; color: #111827; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; padding: 24px; box-sizing: border-box; }
+      .card { max-width: 360px; text-align: center; background: #fff; border: 2px solid #e3e7f0; border-radius: 24px; padding: 32px 24px; }
+      img { width: 64px; height: 64px; }
+      h1 { font-size: 22px; margin: 16px 0 6px; }
+      p { color: #4b5567; line-height: 1.5; margin: 0 0 20px; }
+      button { background: #4f46e5; color: #fff; border: 0; border-radius: 14px; padding: 12px 22px; font-weight: 700; font-size: 15px; }
+      @media (prefers-color-scheme: dark) { body { background: #0c1020; color: #eef1fa; } .card { background: #151a2e; border-color: #262d4a; } p { color: #aab2c8; } }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img src="/icons/icon-192.png" alt="" />
+      <h1>You're offline</h1>
+      <p>This page hasn't been saved on your phone yet. Stories you've already opened still work. Reconnect to get today's news.</p>
+      <button onclick="location.reload()">Try again</button>
+    </div>
+  </body>
+</html>

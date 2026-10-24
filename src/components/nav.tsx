@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, useTransition } from "react";
 import { BarChart3, BookOpen, Bookmark, Brain, Check, ChevronDown, Flame, Library, Moon, Newspaper, Settings, Sun, Target, UserRound, Waypoints } from "lucide-react";
 import { setLang } from "@/app/actions";
+import { InstallSidebarButton } from "./install";
 import { dueCount, streak, useProgress } from "@/lib/progress-store";
 import { setTheme, useTheme } from "@/lib/theme";
 import type { Lang } from "@/lib/taxonomy";
@@ -86,7 +87,10 @@ export function Sidebar({ labels, youLabel }: { labels: Labels; youLabel: string
           );
         })}
       </nav>
-      <div className="mt-auto flex items-center gap-3 rounded-2xl bg-accent-2-soft p-4">
+      <div className="mt-auto">
+        <InstallSidebarButton />
+      </div>
+      <div className="flex items-center gap-3 rounded-2xl bg-accent-2-soft p-4">
         <Flame className={`size-8 shrink-0 text-accent-2 ${days > 0 ? "wiggle" : ""}`} strokeWidth={2.4} />
         <div>
           <div className="font-display text-xl leading-none text-accent-2">

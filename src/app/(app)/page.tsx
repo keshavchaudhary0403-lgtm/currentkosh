@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { InstallBanner } from "@/components/install";
 import { Brief, NextSteps, StoryList, TodayHeader, TodayRail } from "@/components/today";
 import { Empty, SectionTitle, cx, fmtDate } from "@/components/ui";
 import { daysUntil, istDate } from "@/lib/dates";
@@ -53,6 +54,8 @@ export default async function Today({ searchParams }: PageProps<"/">) {
             <Empty title={t("noStories", ui)}>{ui === "hi" ? "नई ख़बरें रोज़ जोड़ी जाती हैं।" : "New stories are added every day from PIB, AIR, DD News and RBI."}</Empty>
           )}
         </div>
+
+        <InstallBanner />
 
         {brief.length > 0 && <NextSteps date={date} lang={lang} />}
 
