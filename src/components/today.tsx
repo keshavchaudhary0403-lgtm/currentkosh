@@ -14,19 +14,20 @@ import { Confetti, ProgressRing, cx, fmtDate } from "./ui";
 
 type Item = { story: Story; relevance: number };
 
-function useMission(date: string, briefIds: string[]) {
+function useMission(date: string, briefIds: string[], isLatest = true) {
   const p = useProgress();
   const read = briefIds.filter((id) => p.reads[id]).length;
-  const quizDone = p.attempts.some((a) => a.kind === "daily" && istDate(new Date(a.finishedAt)) === istDate());
+  // A daily quiz records only when it was taken, so "done" applies to the latest day's mission.
+  const quizDone = isLatest && p.attempts.some((a) => a.kind === "daily" && istDate(new Date(a.finishedAt)) === istDate());
   const due = dueCount(p);
   const steps = [read === briefIds.length && briefIds.length > 0, quizDone, due === 0 && read > 0];
   return { p, read, quizDone, due, steps, done: steps.filter(Boolean).length };
 }
 
 /** The daily mission: read the brief, take the quiz, clear revision. */
-export function TodayHeader({ date, briefIds, lang }: { date: string; briefIds: string[]; lang: Lang }) {
+export function TodayHeader({ date, briefIds, lang, isLatest = true }: { date: string; briefIds: string[]; lang: Lang; isLatest?: boolean }) {
   const ui = lang === "bi" ? "en" : lang;
-  const { p, read, quizDone, due, steps, done } = useMission(date, briefIds);
+  const { p, read, quizDone, due, steps, done } = useMission(date, briefIds, isLatest);
   const total = briefIds.length;
   const days = streak(p);
   const hi = ui === "hi";
@@ -60,7 +61,7 @@ export function TodayHeader({ date, briefIds, lang }: { date: string; briefIds: 
       <div className="flex items-start justify-between gap-3">
         <div>
           <div className="text-[13px] font-semibold text-white/75">{fmtDate(date, ui, { weekday: "long", day: "numeric", month: "long" })}</div>
-          <h1 className="mt-0.5 font-display text-[26px] leading-tight sm:text-3xl">{done === 3 ? (hi ? "मिशन पूरा! 🎉" : "Mission complete! 🎉") : hi ? "आज का मिशन" : "Today's mission"}</h1>
+          <h1 className="mt-0.5 font-display text-[26px] leading-tight sm:text-3xl">{done === 3 ? (hi ? "मिशन पूरा! 🎉" : "Mission complete! 🎉") : isLatest ? (hi ? "आज का मिशन" : "Today's mission") : hi ? "इस दिन की ख़बरें" : "Catch up on this day"}</h1>
         </div>
         <div className="flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-accent-2" title={t("streak", ui)}>
           <Flame className={cx("size-[18px]", days > 0 && "wiggle")} strokeWidth={2.6} />

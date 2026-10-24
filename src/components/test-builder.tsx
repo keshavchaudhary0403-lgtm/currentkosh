@@ -8,7 +8,7 @@ const RANGES = [
   { id: "7", label: "Last 7 days", days: 7 },
   { id: "30", label: "Last 30 days", days: 30 },
   { id: "90", label: "Last 3 months", days: 90 },
-  { id: "365", label: "Last 12 months", days: 365 },
+  { id: "180", label: "Last 6 months", days: 183 },
 ];
 
 export function TestBuilder({ latest, lang }: { latest: string; lang: Lang }) {

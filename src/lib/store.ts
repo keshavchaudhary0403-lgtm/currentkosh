@@ -152,7 +152,7 @@ export function searchStories(f: ArchiveFilter, limit = 60): Story[] {
     .stories.filter(
       (s) =>
         (!q || JSON.stringify(s.content).toLowerCase().includes(q)) &&
-        (!f.category || s.category === f.category) &&
+        (!f.category || inTopic(s, f.category)) &&
         (!f.month || s.date.startsWith(f.month)) &&
         (!f.state || s.states.includes(f.state)) &&
         (!f.exam || (s.relevance[f.exam] ?? 0) >= 2),
@@ -176,19 +176,45 @@ function rng(seed: number) {
 
 export type QuizSpec = { from: string; to: string; categories?: string[]; count: number; storyIds?: string[]; seed: number };
 
+// ── Topic matching ─────────────────────────────────────────────────────────
+
+// Observances (World X Day, Diwas, Jayanti, anniversaries, Foundation Days) are often filed under the
+// subject they are about (Environment, Culture…). They also belong to "Important Days" for revision and tests.
+const OBSERVANCE =
+  /\b(?:World|International|National|Global)\b[^.;:]{0,60}?\bDay\b|\b(?:Diwas|Divas|Dibas|Jayanti|Purnima|Utsav)\b|\b(?:Foundation|Formation|Raising|Martyrdom|Independence|Republic|Statehood|Liberation|Accord) Day\b|\b(?:birth|death|martyrdom) anniversary\b/;
+
+const isObservance = (s: Story) => OBSERVANCE.test(s.content.title.en);
+
+/** Does a story belong to a topic? Its own category, plus "days" for observances filed elsewhere. */
+export const inTopic = (s: Story, topic: string) => s.category === topic || (topic === "days" && isObservance(s));
+
+// An Important Days question should test the day itself: its date, theme, occasion or who/what it honours.
+const MONTHS = "January|February|March|April|May|June|July|August|September|October|November|December";
+const DAY_QUESTION = new RegExp(
+  `\\b(?:observed|observes|celebrated|commemorat\\w*|theme|Day|Diwas|Divas|Jayanti|anniversary|founded|founder|birth|born|honour\\w*|tribute|marks?|marked)\\b|\\b\\d{1,2}(?:st|nd|rd|th)? (?:${MONTHS})\\b|\\b(?:${MONTHS}) \\d{1,2}\\b`,
+);
+const DATE_OPTION = new RegExp(`^\\s*\\d{1,2}(?:st|nd|rd|th)? (?:${MONTHS})\\b`);
+const isDayQuestion = (m: Mcq) => DAY_QUESTION.test(m.content.question.en) || m.content.options.en.some((o) => DATE_OPTION.test(o));
+
 /** Pick MCQs for a test, preferring questions written for the aspirant's exams and stories that matter to them. */
 export function pickMcqs(p: Aspirant, spec: QuizSpec): string[] {
   const rand = rng(spec.seed);
+  const topics = spec.categories ?? [];
   const pool = storiesBetween(spec.from, spec.to).filter(
-    (s) => (!spec.categories?.length || spec.categories.includes(s.category)) && (!spec.storyIds?.length || spec.storyIds.includes(s.id)),
+    (s) => (!topics.length || topics.some((t) => inTopic(s, t))) && (!spec.storyIds?.length || spec.storyIds.includes(s.id)),
   );
-  return pool
-    .flatMap((s) => {
-      const rel = relevanceFor(s, p);
-      if (rel === 0) return [];
-      return mcqsByIds(s.mcqIds).map((m) => ({ id: m.id, score: rel * 3 + (m.exams.some((e) => p.exams.includes(e)) ? 2 : 0) + rand() * 2 }));
-    })
+  // In an Important Days-only test, keep questions about the observance itself and drop side details
+  // (statistics, speeches) that happen to be in the same story. Fall back to all if that leaves too few.
+  const daysOnly = topics.length > 0 && topics.every((t) => t === "days");
+  const scored = pool.flatMap((s) => {
+    const rel = relevanceFor(s, p);
+    if (rel === 0 && !spec.storyIds?.length) return [];
+    return mcqsByIds(s.mcqIds).map((m) => ({ m, score: rel * 3 + (m.exams.some((e) => p.exams.includes(e)) ? 2 : 0) + rand() * 2 }));
+  });
+  const focused = daysOnly ? scored.filter((x) => isDayQuestion(x.m)) : scored;
+  const chosen = focused.length >= Math.min(spec.count, 5) ? focused : scored;
+  return chosen
     .sort((a, b) => b.score - a.score)
     .slice(0, spec.count)
-    .map((x) => x.id);
+    .map((x) => x.m.id);
 }

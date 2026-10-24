@@ -53,7 +53,9 @@ export default async function RunTest({ searchParams }: PageProps<"/practice/run
 
   const ids = pickMcqs(profile, { from, to, categories, count, storyIds, seed });
   if (!ids.length) redirect("/practice?empty=1");
-  const questions = mcqsByIds(ids).map((m) => ({ id: m.id, storyId: m.storyId, category: m.category, content: m.content }));
+  // Observances filed under another subject still show (and score) as the topic the reader chose.
+  const shownAs = (c: string) => (categories.length && !categories.includes(c) && categories.includes("days") ? "days" : c);
+  const questions = mcqsByIds(ids).map((m) => ({ id: m.id, storyId: m.storyId, category: shownAs(m.category), content: m.content }));
 
   return <QuizRunner key={seed} kind={kind} title={title} questions={questions} lang={profile.lang} timed={timed} seconds={timed ? questions.length * 60 : 0} negative={negative} />;
 }
