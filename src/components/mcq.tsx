@@ -6,6 +6,7 @@ import type { Lang } from "@/lib/taxonomy";
 
 const LETTERS = ["A", "B", "C", "D"];
 const PRAISE = ["Correct! 🎯", "Spot on! ✨", "Nailed it! 💪", "Great recall! 🧠"];
+const PRAISE_HI = ["सही! 🎯", "बिल्कुल सही! ✨", "शाबाश! 💪", "बढ़िया याद! 🧠"];
 
 function Text({ en, hi, lang, className }: { en: string; hi: string; lang: Lang; className?: string }) {
   const lines = (s: string) => s.split("\n").map((l, i) => <span key={i} className="block">{l}</span>);
@@ -45,6 +46,7 @@ export function McqView({
   number?: number;
 }) {
   const right = selected === mcq.answer;
+  const hi = lang === "hi";
   return (
     <div>
       <Text en={mcq.question.en} hi={mcq.question.hi} lang={lang} className="text-base leading-relaxed font-semibold sm:text-[17px]" />
@@ -92,7 +94,17 @@ export function McqView({
       {reveal && (
         <div className={`rise mt-4 rounded-2xl p-4 text-sm leading-relaxed ${selected === null ? "bg-surface-2" : right ? "bg-good-soft" : "bg-bad-soft"}`}>
           <div className={`mb-1.5 flex items-center gap-2 font-display text-base ${selected === null ? "text-ink-2" : right ? "text-good" : "text-bad"}`}>
-            {selected === null ? "Skipped" : right ? PRAISE[(number ?? mcq.answer) % PRAISE.length] : "Not quite. Here's why:"}
+            {hi
+              ? selected === null
+                ? "छोड़ा"
+                : right
+                  ? PRAISE_HI[(number ?? mcq.answer) % PRAISE_HI.length]
+                  : "सही नहीं। कारण:"
+              : selected === null
+                ? "Skipped"
+                : right
+                  ? PRAISE[(number ?? mcq.answer) % PRAISE.length]
+                  : "Not quite. Here's why:"}
             {number !== undefined && <span className="text-xs font-bold text-ink-3">Q{number}</span>}
           </div>
           <Text en={mcq.explanation.en} hi={mcq.explanation.hi} lang={lang} className="text-ink" />

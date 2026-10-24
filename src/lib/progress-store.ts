@@ -156,6 +156,14 @@ export function gradeReview(type: ItemType, id: string, grade: Grade, log?: { ca
   commit({ ...state, reviews, answers });
 }
 
+/** A one-off answer (e.g. a story's quick check): counts toward accuracy; a miss comes back in Revise. */
+export function answerQuestion(mcqId: string, category: string, correct: boolean) {
+  ensureLoaded();
+  const reviews = { ...state.reviews };
+  if (!correct) graded(reviews, "mcq", mcqId, "again");
+  commit({ ...state, reviews, answers: [...state.answers, { mcqId, category, correct, at: new Date().toISOString() }].slice(-5000) });
+}
+
 /** Forget items whose content no longer exists (e.g. after a correction). */
 export function pruneReviews(validKeys: Set<string>) {
   ensureLoaded();
@@ -165,8 +173,9 @@ export function pruneReviews(validKeys: Set<string>) {
 
 // ── Derived views ──────────────────────────────────────────────────────────
 
-export function dueItems(s: State, limit = 30): { type: ItemType; id: string }[] {
-  const now = new Date().toISOString();
+/** Items due now; `aheadDays` also pulls in what is coming up, for revising early. */
+export function dueItems(s: State, limit = 30, aheadDays = 0): { type: ItemType; id: string }[] {
+  const now = new Date(Date.now() + aheadDays * 86400_000).toISOString();
   return Object.entries(s.reviews)
     .filter(([, r]) => r.due <= now)
     .sort((a, b) => a[1].due.localeCompare(b[1].due))

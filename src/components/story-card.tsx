@@ -3,21 +3,20 @@ import { ArrowRight, Check, Clock } from "lucide-react";
 import type { Story } from "@/lib/store";
 import { categoryById, pick, type Lang } from "@/lib/taxonomy";
 import { CategoryIcon, catStyle } from "./category-icon";
-import { RelevanceBadge, cx } from "./ui";
+import { RelevanceBadge, cx, fmtDate } from "./ui";
 
+// Only read stories get a mark; an empty circle looked like a checkbox you could tap.
 function ReadTick({ read }: { read?: boolean }) {
+  if (!read) return null;
   return (
-    <span
-      className={cx("grid size-6 shrink-0 place-items-center rounded-full border-2 transition", read ? "pop border-good bg-good text-white" : "border-line-strong text-transparent")}
-      aria-label={read ? "Read" : "Not read yet"}
-    >
+    <span className="pop grid size-6 shrink-0 place-items-center rounded-full bg-good text-white" aria-label="Read">
       <Check className="size-3.5" strokeWidth={3.5} />
     </span>
   );
 }
 
 /** One story as a tappable card. */
-export function StoryCard({ story, lang, relevance, read }: { story: Story; lang: Lang; relevance: number; read?: boolean; compact?: boolean }) {
+export function StoryCard({ story, lang, relevance, read, showDate }: { story: Story; lang: Lang; relevance: number; read?: boolean; showDate?: boolean }) {
   const ui = lang === "bi" ? "en" : lang;
   return (
     <Link href={`/story/${story.id}`} className="tap group flex items-start gap-3 rounded-2xl bg-surface p-3.5 sm:gap-4 sm:p-4">
@@ -28,6 +27,7 @@ export function StoryCard({ story, lang, relevance, read }: { story: Story; lang
             {pick(categoryById(story.category)?.label, ui)}
           </span>
           <RelevanceBadge level={relevance} lang={ui} />
+          {showDate && <span className="text-xs font-semibold text-ink-3">{fmtDate(story.date, ui, { day: "numeric", month: "short" })}</span>}
         </div>
         <h3 lang={ui === "hi" ? "hi" : undefined} className={cx("mt-1 text-[15px] leading-snug font-bold sm:text-base", read && "text-ink-2")}>
           {pick(story.content.title, ui)}

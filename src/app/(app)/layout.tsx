@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { NavTracker } from "@/components/back-button";
 import { LangProvider } from "@/components/lang-context";
 import { BottomNav, LangMenu, SavedLink, Sidebar, ThemeToggle, Wordmark } from "@/components/nav";
 import { t } from "@/lib/i18n";
@@ -55,6 +56,7 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
         </main>
       </div>
       <BottomNav labels={labels} />
+      <NavTracker />
     </div>
   );
 }

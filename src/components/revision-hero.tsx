@@ -14,6 +14,7 @@ export function RevisionHero() {
   const due = dueCount(p);
   const days = forecast(p, 7);
   const max = Math.max(1, ...days.map((f) => f.count));
+  const soon = days.slice(0, 4).reduce((n, f) => n + f.count, 0);
   return (
     <section className="rounded-3xl bg-violet p-5 text-white sm:p-6">
       <div className="flex items-center gap-4">
@@ -30,7 +31,14 @@ export function RevisionHero() {
           {hi ? "दोहराव शुरू करें" : "Start revising"} <ArrowRight className="size-5" strokeWidth={2.6} />
         </Link>
       ) : (
-        <p className="mt-4 rounded-2xl bg-white/15 px-4 py-3 text-sm font-semibold">{hi ? "सब पूरा! पढ़ी हर ख़बर कल यहाँ लौटेगी।" : "All caught up! Every story you read comes back here tomorrow."}</p>
+        <>
+          <p className="mt-4 rounded-2xl bg-white/15 px-4 py-3 text-sm font-semibold">{hi ? "सब पूरा! पढ़ी हर ख़बर कल यहाँ लौटेगी।" : "All caught up! Every story you read comes back here tomorrow."}</p>
+          {soon > 0 && (
+            <Link href="/revise/session?ahead=1" className="btn btn-white mt-3 w-full py-3 text-sm [--bt:var(--violet)]">
+              {hi ? `आगे का दोहराव करें (${soon})` : `Revise ahead · ${soon} coming up`}
+            </Link>
+          )}
+        </>
       )}
       <div className="mt-5 flex h-16 items-end gap-1.5">
         {days.map((f, i) => (

@@ -10,6 +10,7 @@ export default function Progress() {
   const p = useProgress();
   const lang = useLang();
   const ui = lang === "bi" ? "en" : lang;
+  const L = (en: string, hi: string) => (ui === "hi" ? hi : en);
   const tot = totals(p);
   const acc = accuracyByCategory(p);
   const days = activityDays(p);
@@ -22,18 +23,18 @@ export default function Progress() {
   const level = (n: number) => (n === 0 ? 0 : n < 5 ? 1 : n < 15 ? 2 : n < 30 ? 3 : 4);
 
   const stats = [
-    { label: "Day streak", value: streak(p), cls: "bg-accent-2-soft text-accent-2" },
-    { label: "Stories read", value: tot.read, cls: "bg-accent-soft text-accent" },
-    { label: "Questions answered", value: tot.answered, cls: "bg-teal-soft text-teal" },
-    { label: "Accuracy", value: tot.answered ? `${Math.round((tot.correct / tot.answered) * 100)}%` : "—", cls: "bg-good-soft text-good" },
-    { label: "Facts mastered", value: tot.mastered, hint: "interval ≥ 21 days", cls: "bg-violet-soft text-violet" },
+    { label: L("Day streak", "दिन लगातार"), value: streak(p), cls: "bg-accent-2-soft text-accent-2" },
+    { label: L("Stories read", "ख़बरें पढ़ीं"), value: tot.read, cls: "bg-accent-soft text-accent" },
+    { label: L("Questions answered", "प्रश्न हल किए"), value: tot.answered, cls: "bg-teal-soft text-teal" },
+    { label: L("Accuracy", "सटीकता"), value: tot.answered ? `${Math.round((tot.correct / tot.answered) * 100)}%` : "—", cls: "bg-good-soft text-good" },
+    { label: L("Facts mastered", "पक्के तथ्य"), value: tot.mastered, hint: L("interval ≥ 21 days", "अंतराल ≥ 21 दिन"), cls: "bg-violet-soft text-violet" },
   ];
 
   return (
     <div className="space-y-7">
       <header>
         <h1 className="font-display text-[28px] sm:text-4xl">{ui === "hi" ? "प्रगति" : "Progress"}</h1>
-        <p className="mt-2 text-sm text-ink-3">Saved privately in this browser.</p>
+        <p className="mt-2 text-sm text-ink-3">{L("Saved privately in this browser.", "इसी ब्राउज़र में निजी रूप से सहेजा।")}</p>
       </header>
 
       <section className="grid grid-cols-2 gap-3 sm:grid-cols-5">
@@ -47,7 +48,7 @@ export default function Progress() {
       </section>
 
       <section>
-        <SectionTitle title="Your consistency" eyebrow="Last 18 weeks" />
+        <SectionTitle title={L("Your consistency", "आपकी नियमितता")} eyebrow={L("Last 18 weeks", "पिछले 18 सप्ताह")} />
         <Card className="overflow-x-auto p-5">
           <div className="flex gap-1">
             {weeks.map((w, i) => (
@@ -70,7 +71,7 @@ export default function Progress() {
       </section>
 
       <section>
-        <SectionTitle title="Accuracy by topic" eyebrow="Red bars are where to focus" />
+        <SectionTitle title={L("Accuracy by topic", "विषयवार सटीकता")} eyebrow={L("Red bars are where to focus", "लाल पट्टियों पर ध्यान दें")} />
         {acc.length ? (
           <Card className="divide-y divide-line">
             {acc.map((a) => {
@@ -87,7 +88,7 @@ export default function Progress() {
             })}
           </Card>
         ) : (
-          <Empty title="No test data yet">Take the daily quiz and your topic-wise accuracy will show up here.</Empty>
+          <Empty title={L("No test data yet", "अभी कोई टेस्ट डेटा नहीं")}>{L("Take the daily quiz and your topic-wise accuracy will show up here.", "डेली क्विज़ दें, विषयवार सटीकता यहाँ दिखेगी।")}</Empty>
         )}
       </section>
     </div>

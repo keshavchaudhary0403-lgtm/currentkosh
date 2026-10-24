@@ -47,7 +47,7 @@ export default async function Today({ searchParams }: PageProps<"/">) {
         {more.length > 0 && (
           <section>
             <SectionTitle title={ui === "hi" ? "और भी आज" : "Also today"} eyebrow={ui === "hi" ? "आपकी परीक्षाओं के लिए कम प्राथमिकता" : "Lower priority for your exams"} />
-            <StoryList items={more} lang={lang} compact grid />
+            <StoryList items={more} lang={lang} />
           </section>
         )}
 

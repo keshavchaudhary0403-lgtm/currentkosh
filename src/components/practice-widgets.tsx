@@ -18,18 +18,20 @@ export function WeakDrillCard() {
       <span className="grid size-12 place-items-center rounded-2xl bg-pink text-white transition group-hover:-rotate-6">
         <Crosshair className="size-6" strokeWidth={2.4} />
       </span>
-      <span className="mt-3 block font-display text-[17px] leading-tight text-pink">Weak-area drill</span>
-      <span className="mt-0.5 line-clamp-2 block text-xs font-semibold text-ink-2">{weak.length ? `15 Qs · ${weak.map((c) => pick(categoryById(c)?.label, ui)).join(", ")}` : "Unlocks after a few tests"}</span>
+      <span className="mt-3 block font-display text-[17px] leading-tight text-pink">{ui === "hi" ? "कमज़ोर विषय अभ्यास" : "Weak-area drill"}</span>
+      <span className="mt-0.5 line-clamp-2 block text-xs font-semibold text-ink-2">{weak.length ? `15 ${ui === "hi" ? "प्रश्न" : "Qs"} · ${weak.map((c) => pick(categoryById(c)?.label, ui)).join(", ")}` : ui === "hi" ? "कुछ टेस्ट के बाद खुलेगा" : "Unlocks after a few tests"}</span>
     </Link>
   );
 }
 
 export function RecentAttempts() {
+  const lang = useLang();
+  const ui = lang === "bi" ? "en" : lang;
   const attempts = useProgress().attempts.slice(0, 8);
   if (!attempts.length) return null;
   return (
     <section>
-      <SectionTitle title="Recent tests" eyebrow="Saved in this browser" />
+      <SectionTitle title={ui === "hi" ? "हाल के टेस्ट" : "Recent tests"} eyebrow={ui === "hi" ? "इस ब्राउज़र में सहेजे" : "Saved in this browser"} />
       <div className="divide-y-2 divide-line overflow-hidden rounded-3xl border-2 border-line bg-surface">
         {attempts.map((a) => (
           <Link key={a.id} href={`/practice/result?id=${a.id}`} className="flex items-center gap-4 px-4 py-3 hover:bg-surface-2">

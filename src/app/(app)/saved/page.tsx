@@ -45,7 +45,7 @@ export default function Saved() {
       ) : !items ? (
         <div className="h-40 animate-pulse rounded-2xl bg-surface" />
       ) : (
-        <StoryList items={stories.map((story) => ({ story, relevance: 0 }))} lang={lang} />
+        <StoryList items={stories.map((story) => ({ story, relevance: 0 }))} lang={lang} showDate />
       )}
     </div>
   );

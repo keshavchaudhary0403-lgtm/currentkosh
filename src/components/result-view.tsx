@@ -10,6 +10,7 @@ import { Bar, Confetti, ProgressRing } from "./ui";
 
 export function ResultView({ attempt, questions, lang }: { attempt: Attempt; questions: Question[]; lang: Lang }) {
   const ui = lang === "bi" ? "en" : lang;
+  const L = (en: string, hi: string) => (ui === "hi" ? hi : en);
   const byId = new Map(questions.map((q) => [q.id, q]));
   const rows = attempt.mcqIds
     .map((id, i) => ({ q: byId.get(id), picked: attempt.answers[i] ?? null }))
@@ -32,45 +33,45 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
       ? {
           bg: "bg-good",
           press: "var(--good-press)",
-          msg: "Outstanding! 🏆",
-          sub: "You're exam-ready on these topics.",
+          msg: L("Outstanding! 🏆", "शानदार! 🏆"),
+          sub: L("You're exam-ready on these topics.", "इन विषयों पर आप परीक्षा के लिए तैयार हैं।"),
         }
       : pct >= 40
         ? {
             bg: "bg-accent-2",
             press: "var(--accent-2-press)",
-            msg: "Good effort! 💪",
-            sub: "A little revision and you'll own these.",
+            msg: L("Good effort! 💪", "अच्छा प्रयास! 💪"),
+            sub: L("A little revision and you'll own these.", "थोड़ा दोहराव और ये आपके पक्के।"),
           }
         : {
             bg: "bg-accent",
             press: "var(--accent-press)",
-            msg: "Every attempt counts! 🌱",
-            sub: "Missed questions are now queued for revision.",
+            msg: L("Every attempt counts! 🌱", "हर प्रयास मायने रखता है! 🌱"),
+            sub: L("Missed questions are now queued for revision.", "छूटे प्रश्न अब दोहराव में जुड़ गए हैं।"),
           };
   const tiles = [
     {
       icon: CheckCircle2,
       value: correct,
-      label: "Correct",
+      label: L("Correct", "सही"),
       cls: "bg-good-soft text-good",
     },
     {
       icon: XCircle,
       value: wrong,
-      label: "Wrong",
+      label: L("Wrong", "ग़लत"),
       cls: "bg-bad-soft text-bad",
     },
     {
       icon: MinusCircle,
       value: skipped,
-      label: "Skipped",
+      label: L("Skipped", "छोड़े"),
       cls: "bg-surface-2 text-ink-2",
     },
     {
       icon: Timer,
       value: `${minutes}m`,
-      label: "Time",
+      label: L("Time", "समय"),
       cls: "bg-accent-soft text-accent",
     },
   ];
@@ -82,7 +83,7 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
           href="/practice"
           className="inline-flex items-center gap-1.5 rounded-full border-2 border-line bg-surface px-3 py-1 text-sm font-bold text-ink-2 hover:text-ink"
         >
-          <ArrowLeft className="size-4" /> Practice
+          <ArrowLeft className="size-4" /> {L("Practice", "अभ्यास")}
         </Link>
         <section className={`pop relative overflow-hidden rounded-3xl p-6 text-center text-white sm:p-8 ${tier.bg}`}>
           {pct >= 70 && <Confetti pieces={44} />}
@@ -92,21 +93,21 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
             <ProgressRing value={correct} max={rows.length || 1} size={140} stroke={14} color="#fff" track={tier.press}>
               <div>
                 <div className="font-display text-4xl leading-none">{pct}%</div>
-                <div className="mt-1 text-xs font-bold text-white/80">accuracy</div>
+                <div className="mt-1 text-xs font-bold text-white/80">{L("accuracy", "सटीकता")}</div>
               </div>
             </ProgressRing>
           </div>
           <div className="mt-4 font-display text-xl">
-            Score {attempt.score.toFixed(attempt.config.negative ? 2 : 0)} <span className="text-white/70">/ {rows.length}</span>
+            {L("Score", "अंक")} {attempt.score.toFixed(attempt.config.negative ? 2 : 0)} <span className="text-white/70">/ {rows.length}</span>
           </div>
           <p className="mt-1 text-sm font-semibold text-white/85">{tier.sub}</p>
           <div className="mt-5 flex flex-wrap justify-center gap-2">
             <Link href="/practice#weak" className="btn btn-white px-5 py-3 text-sm">
-              <RotateCcw className="size-4" strokeWidth={2.6} /> More practice
+              <RotateCcw className="size-4" strokeWidth={2.6} /> {L("More practice", "और अभ्यास")}
             </Link>
             {wrong + skipped > 0 && (
               <Link href="/revise" className="btn px-5 py-3 text-sm [--b:rgb(255_255_255/0.18)]">
-                Revise missed
+                {L("Revise missed", "छूटे दोहराएँ")}
               </Link>
             )}
           </div>
@@ -123,7 +124,7 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
         </section>
 
         <section>
-          <h2 className="mb-3 font-display text-lg">By topic</h2>
+          <h2 className="mb-3 font-display text-lg">{L("By topic", "विषयवार")}</h2>
           <div className="grid gap-2 sm:grid-cols-2">
             {[...byCat.entries()].map(([cat, v]) => (
               <div key={cat} className="rounded-2xl border-2 border-line bg-surface p-3.5">
@@ -145,7 +146,7 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
         </section>
       </div>
       <section>
-        <h2 className="mb-3 font-display text-lg">Review answers</h2>
+        <h2 className="mb-3 font-display text-lg">{L("Review answers", "उत्तर देखें")}</h2>
         <McqReview
           items={rows.map((r) => ({
             id: r.q.id,

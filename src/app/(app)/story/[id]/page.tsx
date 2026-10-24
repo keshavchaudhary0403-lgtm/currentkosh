@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import { ArrowDown, ArrowLeft, ExternalLink, Landmark, Lightbulb, PenLine, ShieldCheck, Sparkles, Target, Waypoints } from "lucide-react";
+import { ArrowDown, ExternalLink, Landmark, Lightbulb, PenLine, ShieldCheck, Sparkles, Target, Waypoints } from "lucide-react";
+import { BackButton } from "@/components/back-button";
 import { BookmarkButton, QuickCheck, ReadButton } from "@/components/story-actions";
 import { CategoryIcon, catStyle } from "@/components/category-icon";
 import { BiText, RelevanceBadge, fmtDate } from "@/components/ui";
 import { t } from "@/lib/i18n";
 import { currentProfile } from "@/lib/profile";
-import { getStory, getThread, mcqsForStory } from "@/lib/store";
+import { feedFor, getStory, getThread, latestStoryDate, mcqsForStory } from "@/lib/store";
 import { sourceById } from "@/lib/sources";
 import { categoryById, examById, pick } from "@/lib/taxonomy";
 
@@ -28,6 +29,13 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
   const thread = story.threadKey ? getThread(story.threadKey) : null;
   const official = story.sources.filter((s) => sourceById(s.sourceId)?.mode === "ai");
   const alsoCovered = story.sources.filter((s) => sourceById(s.sourceId)?.mode !== "ai");
+  // Reading order for the day, same as the Today list, so a reader can go story to story.
+  const dayFeed = feedFor(profile, story.date);
+  const pos = dayFeed.findIndex((s) => s.id === story.id);
+  const next = pos >= 0 ? (dayFeed[pos + 1] ?? null) : null;
+  const nextHref = next ? `/story/${next.id}` : null;
+  const dayHref = story.date === latestStoryDate() ? "/" : `/?date=${story.date}`;
+  const readLabels = { mark: t("markRead", ui), done: ui === "hi" ? "पढ़ लिया!" : "Done! In Revise", next: ui === "hi" ? "अगली ख़बर" : "Next story" };
   // Long storylines (some have 200+ updates): show the few updates around this one.
   const at = thread ? thread.stories.findIndex((s) => s.id === story.id) : -1;
   const nearby = thread ? thread.stories.slice(Math.max(0, at - 3), at + 4) : [];
@@ -35,12 +43,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
   return (
     <div className="pb-24 lg:grid lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-8 lg:pb-10 xl:grid-cols-[minmax(0,1fr)_340px] xl:gap-10">
       <article className="min-w-0">
-        <Link
-          href={story.date ? `/?date=${story.date}` : "/"}
-          className="mb-4 inline-flex items-center gap-1.5 rounded-full border-2 border-line bg-surface px-3 py-1 text-sm font-bold text-ink-2 hover:text-ink sm:mb-6"
-        >
-          <ArrowLeft className="size-4" /> {fmtDate(story.date, ui, { day: "numeric", month: "long" })}
-        </Link>
+        <BackButton fallback={dayHref} label={ui === "hi" ? "वापस" : "Back"} />
 
         <header className="rise">
           <div className="mb-4 flex items-center gap-3">
@@ -154,19 +157,14 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
         </section>
 
         <div className="fixed inset-x-0 bottom-[calc(62px+env(safe-area-inset-bottom))] z-30 flex justify-center px-4 lg:hidden">
-          <div className="flex w-full items-center gap-2 rounded-2xl border-2 border-line bg-surface p-2 pb-2.5 shadow-[0_12px_40px_-12px_rgb(0_0_0/0.3)] sm:w-auto">
-            <ReadButton
-              storyId={story.id}
-              cardIds={story.cardIds}
-              labels={{
-                mark: t("markRead", ui),
-                done: ui === "hi" ? "पढ़ लिया!" : "Done! In Revise",
-              }}
-            />
+          <div className="flex w-full items-center gap-2 rounded-2xl border-2 border-line bg-surface p-2 shadow-[0_12px_40px_-12px_rgb(0_0_0/0.3)] sm:w-auto">
+            <BackButton fallback={dayHref} variant="icon" />
+            <ReadButton storyId={story.id} cardIds={story.cardIds} labels={readLabels} nextHref={nextHref} className="min-w-0 flex-1 sm:flex-none" />
             <BookmarkButton storyId={story.id} />
             {mcqs.length > 0 && (
-              <a href="#quick-check" className="btn btn-orange ml-auto px-4 py-2.5 text-sm">
-                {ui === "hi" ? "क्विज़" : "Quiz"} <ArrowDown className="size-4" strokeWidth={2.6} />
+              <a href="#quick-check" aria-label={ui === "hi" ? "क्विज़" : "Quiz"} className="btn btn-orange h-11 shrink-0 px-3 text-sm">
+                <Target className="size-5" strokeWidth={2.4} />
+                <span className="hidden min-[400px]:inline">{ui === "hi" ? "क्विज़" : "Quiz"}</span>
               </a>
             )}
           </div>
@@ -180,7 +178,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
               </span>
               {t("quickCheck", ui)}
             </h2>
-            <QuickCheck mcqs={mcqs.map((m) => m.content)} lang={lang} />
+            <QuickCheck mcqs={mcqs.map((m) => ({ id: m.id, content: m.content }))} category={story.category} lang={lang} />
           </section>
         )}
 
@@ -215,6 +213,28 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
             <FullStorylineLink threadKey={story.threadKey!} count={thread.stories.length} ui={ui} />
           </section>
         )}
+        <nav className="mt-10 grid gap-2.5 sm:grid-cols-2" aria-label="Keep reading">
+          {next ? (
+            <Link href={`/story/${next.id}`} className="tap group rounded-2xl bg-surface p-4 sm:order-2">
+              <span className="text-xs font-extrabold text-accent">{ui === "hi" ? "अगली ख़बर →" : "Up next →"}</span>
+              <span lang={ui === "hi" ? "hi" : undefined} className="mt-1 line-clamp-2 block font-bold group-hover:text-accent">
+                {pick(next.content.title, ui)}
+              </span>
+            </Link>
+          ) : (
+            <Link href="/practice/run?kind=daily" className="tap group rounded-2xl bg-accent-2-soft p-4 sm:order-2">
+              <span className="text-xs font-extrabold text-accent-2">{ui === "hi" ? "दिन की आख़िरी ख़बर" : "That's the last story of the day"}</span>
+              <span className="mt-1 block font-bold">{ui === "hi" ? "अब डेली क्विज़ दें →" : "Take the daily quiz →"}</span>
+            </Link>
+          )}
+          <Link href={dayHref} className="tap rounded-2xl bg-surface p-4 sm:order-1">
+            <span className="text-xs font-extrabold text-ink-3">{ui === "hi" ? "← सूची पर लौटें" : "← Back to the list"}</span>
+            <span className="mt-1 block font-bold">
+              {fmtDate(story.date, ui, { day: "numeric", month: "long" })}
+              {pos >= 0 && ` · ${pos + 1}/${dayFeed.length}`}
+            </span>
+          </Link>
+        </nav>
       </article>
 
       <aside className="hidden lg:block">
@@ -222,14 +242,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
           <div className="space-y-2.5 rounded-3xl border-2 border-line bg-surface p-4">
             <div className="flex items-center gap-2">
               <div className="min-w-0 flex-1 [&>*]:w-full">
-                <ReadButton
-                  storyId={story.id}
-                  cardIds={story.cardIds}
-                  labels={{
-                    mark: t("markRead", ui),
-                    done: ui === "hi" ? "पढ़ लिया!" : "Done! In Revise",
-                  }}
-                />
+                <ReadButton storyId={story.id} cardIds={story.cardIds} labels={readLabels} nextHref={nextHref} />
               </div>
               <BookmarkButton storyId={story.id} />
             </div>

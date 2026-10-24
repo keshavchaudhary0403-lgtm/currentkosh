@@ -13,6 +13,7 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
   if (!thread) notFound();
   const lang = profile.lang;
   const ui = lang === "bi" ? "en" : lang;
+  const L = (en: string, hi: string) => (ui === "hi" ? hi : en);
   const stories = [...thread.stories].reverse();
   const testHref = `/practice/run?kind=thread&thread=${encodeURIComponent((await params).key)}&title=${encodeURIComponent(`Storyline test · ${thread.title.en}`)}`;
   const topics = new Map<string, number>();
@@ -25,17 +26,17 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
           href="/threads"
           className="mb-5 inline-flex items-center gap-1.5 rounded-full border-2 border-line bg-surface px-3 py-1 text-sm font-bold text-ink-2 hover:text-ink"
         >
-          <ArrowLeft className="size-4" /> Storylines
+          <ArrowLeft className="size-4" /> {L("Storylines", "कहानी-क्रम")}
         </Link>
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
             <div className="inline-flex rounded-full bg-pink-soft px-2.5 py-0.5 text-xs font-extrabold text-pink">
-              Storyline · {thread.stories.length} {thread.stories.length === 1 ? "update" : "updates"}
+              {L("Storyline", "कहानी-क्रम")} · {thread.stories.length} {L(thread.stories.length === 1 ? "update" : "updates", "अपडेट")}
             </div>
             <BiText v={thread.title} lang={lang} as="h1" className="mt-2 font-display text-[28px] leading-tight sm:text-4xl" hiClassName="font-sans text-xl" />
           </div>
           <Link href={testHref} className="btn btn-orange px-4 py-2.5 text-sm lg:hidden">
-            Test this storyline
+            {L("Test this storyline", "इस क्रम का टेस्ट दें")}
           </Link>
         </div>
         <ol className="relative space-y-5 border-l-[3px] border-pink-soft pl-6">
@@ -68,7 +69,7 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
           <div className="grid grid-cols-2 gap-2 text-center">
             <div className="rounded-2xl bg-pink-soft p-3 text-pink">
               <div className="font-display text-2xl leading-none">{thread.stories.length}</div>
-              <div className="mt-1 text-[11px] font-bold">updates</div>
+              <div className="mt-1 text-[11px] font-bold">{L("updates", "अपडेट")}</div>
             </div>
             <div className="rounded-2xl bg-surface-2 p-3 text-ink-2">
               <div className="font-display text-base leading-tight">
@@ -77,11 +78,11 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
                   month: "short",
                 })}
               </div>
-              <div className="mt-1 text-[11px] font-bold">first update</div>
+              <div className="mt-1 text-[11px] font-bold">{L("first update", "पहला अपडेट")}</div>
             </div>
           </div>
           <div>
-            <div className="mb-2 text-sm font-extrabold">Topics covered</div>
+            <div className="mb-2 text-sm font-extrabold">{L("Topics covered", "शामिल विषय")}</div>
             <div className="flex flex-wrap gap-1.5">
               {[...topics.entries()]
                 .sort((a, b) => b[1] - a[1])
@@ -91,9 +92,9 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
             </div>
           </div>
           <Link href={testHref} className="btn btn-orange w-full py-3 text-sm">
-            Test this storyline
+            {L("Test this storyline", "इस क्रम का टेस्ट दें")}
           </Link>
-          <p className="text-xs font-medium text-ink-3">Questions from every update, oldest to newest, so you can revise how the issue evolved.</p>
+          <p className="text-xs font-medium text-ink-3">{L("Questions from every update, oldest to newest, so you can revise how the issue evolved.", "हर अपडेट से प्रश्न, ताकि आप मुद्दे का पूरा विकास दोहरा सकें।")}</p>
         </div>
       </aside>
     </div>

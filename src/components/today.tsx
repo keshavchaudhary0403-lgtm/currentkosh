@@ -153,12 +153,12 @@ function Chip({ active, onClick, cat, children }: { active: boolean; onClick: ()
 }
 
 /** Cards used by Archive, Saved and "Also today". */
-export function StoryList({ items, lang }: { items: Item[]; lang: Lang; compact?: boolean; grid?: boolean }) {
+export function StoryList({ items, lang, showDate }: { items: Item[]; lang: Lang; showDate?: boolean }) {
   const p = useProgress();
   return (
     <StoryRows>
       {items.map(({ story, relevance }) => (
-        <StoryCard key={story.id} story={story} lang={lang} relevance={relevance} read={!!p.reads[story.id]} />
+        <StoryCard key={story.id} story={story} lang={lang} relevance={relevance} read={!!p.reads[story.id]} showDate={showDate} />
       ))}
     </StoryRows>
   );

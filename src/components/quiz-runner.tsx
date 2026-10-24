@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, ChevronDown, Clock, Flag, Flame, LayoutGrid, X } from "lucide-react";
 import type { McqContent } from "@/lib/content";
@@ -38,6 +39,8 @@ export function QuizRunner({
   const [startedAt] = useState(() => new Date().toISOString());
   const [remaining, setRemaining] = useState(seconds);
   const [result, setResult] = useState<Attempt | null>(null);
+  const [quitAsk, setQuitAsk] = useState(false);
+  const router = useRouter();
 
   const finish = () => {
     if (result) return;
@@ -74,6 +77,7 @@ export function QuizRunner({
   const q = questions[i];
   const answered = answers.filter((a) => a !== null).length;
   const ui = lang === "bi" ? "en" : lang;
+  const hi = ui === "hi";
   const last = i === questions.length - 1;
   const isRight = (j: number) => answers[j] === questions[j].content.answer;
   // Correct answers in a row, counting back from the current question (practice mode only).
@@ -89,9 +93,13 @@ export function QuizRunner({
   return (
     <div className="mx-auto max-w-3xl pb-16">
       <div className="mb-5 flex items-center gap-3">
-        <Link href="/practice" className="grid size-10 shrink-0 place-items-center rounded-full text-ink-3 hover:bg-surface-2 hover:text-ink" aria-label="Quit test">
+        <button
+          onClick={() => (answered ? setQuitAsk(true) : router.push("/practice"))}
+          className="grid size-10 shrink-0 place-items-center rounded-full text-ink-3 hover:bg-surface-2 hover:text-ink"
+          aria-label="Quit test"
+        >
           <X className="size-6" strokeWidth={2.6} />
-        </Link>
+        </button>
         <Bar value={i + (revealed[i] || answers[i] !== null ? 1 : 0)} max={questions.length} color="bg-accent-2" className="h-4 flex-1" />
         {timed ? (
           <div className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 font-mono text-sm font-bold tabular-nums ${remaining < 60 ? "bg-bad-soft text-bad" : "bg-surface-2 text-ink-2"}`}>
@@ -105,6 +113,21 @@ export function QuizRunner({
         )}
       </div>
 
+      {quitAsk && (
+        <div className="pop mb-4 flex flex-wrap items-center gap-2 rounded-2xl bg-bad-soft p-3">
+          <span className="flex-1 text-sm font-bold text-bad">{hi ? `छोड़ें? आपके ${answered} उत्तर सहेजे नहीं जाएँगे।` : `Quit? Your ${answered} answers won't be saved.`}</span>
+          <button onClick={() => setQuitAsk(false)} className="btn btn-ghost px-3 py-2 text-sm">
+            {hi ? "जारी रखें" : "Keep going"}
+          </button>
+          <button onClick={finish} className="btn px-3 py-2 text-sm">
+            {hi ? "अभी जमा करें" : "Submit now"}
+          </button>
+          <button onClick={() => router.push("/practice")} className="btn btn-red px-3 py-2 text-sm">
+            {hi ? "छोड़ें" : "Quit"}
+          </button>
+        </div>
+      )}
+
       <div className="mb-3 flex items-center justify-between">
         <div className="min-w-0">
           <div className="truncate text-xs font-bold text-ink-3">{title}</div>
@@ -117,13 +140,13 @@ export function QuizRunner({
           onClick={() => setFlags((f) => f.map((x, j) => (j === i ? !x : x)))}
           className={`inline-flex items-center gap-1.5 rounded-full border-2 px-3 py-1 text-xs font-bold transition ${flags[i] ? "border-warn bg-warn-soft text-warn" : "border-line text-ink-3 hover:text-ink"}`}
         >
-          <Flag className="size-3.5" strokeWidth={2.5} /> {flags[i] ? "Flagged" : "Flag"}
+          <Flag className="size-3.5" strokeWidth={2.5} /> {flags[i] ? (hi ? "चिह्नित" : "Flagged") : hi ? "चिह्नित करें" : "Flag"}
         </button>
       </div>
 
       {combo >= 3 && revealed[i] && (
         <div key={`c${i}`} className="pop mb-3 rounded-2xl bg-accent-2 px-4 py-2 text-center text-sm font-extrabold text-white">
-          🔥 {combo} in a row! Keep going!
+          🔥 {hi ? `लगातार ${combo} सही! जारी रखें!` : `${combo} in a row! Keep going!`}
         </div>
       )}
 
@@ -135,14 +158,14 @@ export function QuizRunner({
         <McqView mcq={q.content} lang={lang} selected={answers[i]} reveal={revealed[i]} onSelect={revealed[i] ? undefined : select} />
         {revealed[i] && (
           <Link href={`/story/${q.storyId}`} className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-accent">
-            Read the story <ArrowRight className="size-4" />
+            {hi ? "ख़बर पढ़ें" : "Read the story"} <ArrowRight className="size-4" />
           </Link>
         )}
       </div>
 
       <details className="group mt-6">
         <summary className="flex cursor-pointer list-none items-center gap-2 text-sm font-bold text-ink-2">
-          <LayoutGrid className="size-4" /> All questions · {answered}/{questions.length} answered
+          <LayoutGrid className="size-4" /> {hi ? `सभी प्रश्न · ${answered}/${questions.length} हल` : `All questions · ${answered}/${questions.length} answered`}
           <ChevronDown className="size-4 transition group-open:rotate-180" />
         </summary>
         <div className="mt-3 grid grid-cols-8 gap-1.5 sm:grid-cols-10">
@@ -168,7 +191,7 @@ export function QuizRunner({
         </div>
         {answered < questions.length && (
           <button onClick={finish} className="mt-3 text-sm font-semibold text-ink-3 underline hover:text-ink">
-            Submit now with {questions.length - answered} unanswered
+            {hi ? `${questions.length - answered} बिना उत्तर के अभी जमा करें` : `Submit now with ${questions.length - answered} unanswered`}
           </button>
         )}
       </details>
@@ -180,11 +203,11 @@ export function QuizRunner({
           </button>
           {!timed && !revealed[i] ? (
             <button onClick={next} className="btn btn-ghost h-12 flex-1 text-[15px]">
-              {last ? "Submit test" : "Skip"}
+              {last ? (hi ? "टेस्ट जमा करें" : "Submit test") : hi ? "छोड़ें" : "Skip"}
             </button>
           ) : (
             <button onClick={next} className={`btn h-12 flex-1 text-[15px] ${timed ? (last ? "btn-orange" : "") : isRight(i) ? "btn-green" : "btn-red"}`}>
-              {last ? "Submit test" : "Continue"} <ArrowRight className="size-5" strokeWidth={2.6} />
+              {last ? (hi ? "टेस्ट जमा करें" : "Submit test") : hi ? "आगे" : "Continue"} <ArrowRight className="size-5" strokeWidth={2.6} />
             </button>
           )}
         </div>

@@ -8,6 +8,16 @@ import { CATEGORY_IDS } from "@/lib/taxonomy";
 
 export const metadata: Metadata = { title: "Test" };
 
+const HI_TITLES: Record<string, string> = {
+  daily: "डेली क्विज़",
+  weekly: "साप्ताहिक दोहराव टेस्ट",
+  monthly: "मासिक दोहराव टेस्ट",
+  mock: "टाइम्ड मॉक टेस्ट",
+  weak: "कमज़ोर विषय अभ्यास",
+  thread: "कहानी-क्रम टेस्ट",
+  custom: "अपना टेस्ट",
+};
+
 const KINDS = {
   daily: { title: "Daily quiz", count: 10, days: 1, timed: false, negative: 0 },
   weekly: {
@@ -87,7 +97,8 @@ export default async function RunTest({ searchParams }: PageProps<"/practice/run
   const count = Math.min(Math.max(Number(str(sp.count)) || preset.count, 5), 100);
   const timed = str(sp.timed) ? str(sp.timed) === "1" : preset.timed;
   const negative = str(sp.neg) !== undefined ? Math.min(Math.max(Number(str(sp.neg)) || 0, 0), 1) : preset.negative;
-  const title = str(sp.title) ?? (kind === "monthly" ? `${preset.title} · ${from.slice(0, 7)}` : preset.title);
+  const presetTitle = profile.lang === "hi" ? HI_TITLES[kind] : preset.title;
+  const title = str(sp.title) ?? (kind === "monthly" ? `${presetTitle} · ${from.slice(0, 7)}` : presetTitle);
 
   const ids = pickMcqs(profile, {
     from,

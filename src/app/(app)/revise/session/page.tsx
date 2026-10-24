@@ -1,19 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useState } from "react";
 import { useLang } from "@/components/lang-context";
 import { ReviewSession, type SessionItem } from "@/components/review-session";
 import { Empty } from "@/components/ui";
 import { dueItems, useProgress } from "@/lib/progress-store";
 import { useItems } from "@/lib/use-items";
 
-export default function Session() {
+function Session() {
+  const ahead = useSearchParams().get("ahead") === "1";
   const lang = useLang();
   const progress = useProgress();
   // Freeze the queue when the session starts; grading items mid-session must not reshuffle it.
   const [queue, setQueue] = useState<{ type: "card" | "mcq"; id: string }[] | null>(null);
-  const due = queue ?? dueItems(progress, 30);
+  const due = queue ?? dueItems(progress, 30, ahead ? 3 : 0);
   if (!queue && due.length) setQueue(due);
   const items = useItems(due.length ? { cards: due.filter((d) => d.type === "card").map((d) => d.id), mcqs: due.filter((d) => d.type === "mcq").map((d) => d.id) } : null);
 
@@ -38,4 +40,12 @@ export default function Session() {
     return m ? [{ type: "mcq", id: m.id, storyId: m.storyId, category: m.category, content: m.content }] : [];
   });
   return <ReviewSession items={session} lang={lang} />;
+}
+
+export default function SessionPage() {
+  return (
+    <Suspense>
+      <Session />
+    </Suspense>
+  );
 }
