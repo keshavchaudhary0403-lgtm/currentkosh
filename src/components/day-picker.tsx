@@ -41,7 +41,7 @@ export function DayPicker({ dates, selected, latest, lang }: { dates: { date: st
 
   const arrow = "grid size-9 place-items-center rounded-xl border border-line bg-surface text-ink-2 transition hover:text-ink";
   return (
-    <div ref={box} className="relative flex items-center gap-1.5">
+    <div ref={box} className="relative flex shrink-0 items-center gap-1 sm:gap-1.5">
       {older ? (
         <Link href={hrefFor(older, latest)} aria-label="Previous day" className={arrow}>
           <ChevronLeft className="size-4" />
@@ -57,10 +57,11 @@ export function DayPicker({ dates, selected, latest, lang }: { dates: { date: st
           setOpen((o) => !o);
         }}
         aria-expanded={open}
-        className="flex h-9 items-center gap-2 rounded-xl border border-line bg-surface px-3 text-sm font-semibold whitespace-nowrap text-ink-2 hover:text-ink"
+        className="flex h-9 items-center gap-1.5 rounded-xl border border-line bg-surface px-2.5 text-sm font-semibold whitespace-nowrap text-ink-2 hover:text-ink sm:gap-2 sm:px-3"
       >
-        <CalendarDays className="size-4 text-accent" />
-        {fmtDate(selected, ui, { weekday: "short", day: "numeric", month: "short" })}
+        <CalendarDays className="hidden size-4 text-accent sm:block" />
+        <span className="sm:hidden">{fmtDate(selected, ui, { day: "numeric", month: "short" })}</span>
+        <span className="hidden sm:inline">{fmtDate(selected, ui, { weekday: "short", day: "numeric", month: "short" })}</span>
         <ChevronDown className={cx("size-4 transition", open && "rotate-180")} />
       </button>
       {newer ? (
@@ -73,7 +74,7 @@ export function DayPicker({ dates, selected, latest, lang }: { dates: { date: st
         </span>
       )}
       {selected !== latest && (
-        <Link href="/" className="ml-1 text-sm font-semibold whitespace-nowrap text-accent">
+        <Link href="/" className="ml-1 hidden text-sm font-semibold whitespace-nowrap text-accent sm:inline">
           {ui === "hi" ? "ताज़ा" : "Latest"}
         </Link>
       )}
