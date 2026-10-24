@@ -28,7 +28,8 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
   const mcqs = mcqsForStory(story.id);
   const thread = story.threadKey ? getThread(story.threadKey) : null;
   const official = story.sources.filter((s) => sourceById(s.sourceId)?.mode === "ai");
-  const alsoCovered = story.sources.filter((s) => sourceById(s.sourceId)?.mode !== "ai");
+  const reported = story.sources.filter((s) => sourceById(s.sourceId)?.mode === "facts");
+  const alsoCovered = story.sources.filter((s) => !["ai", "facts"].includes(sourceById(s.sourceId)?.mode ?? ""));
   // Reading order for the day, same as the Today list, so a reader can go story to story.
   const dayFeed = feedFor(profile, story.date);
   const pos = dayFeed.findIndex((s) => s.id === story.id);
@@ -138,11 +139,23 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
           <h2 className="mb-3 flex items-center gap-2 font-display text-lg">
             <ShieldCheck className="size-5 text-good" /> {ui === "hi" ? "आधिकारिक स्रोत" : "Official sources"}
           </h2>
-          <ul className="space-y-2">
-            {official.map((s) => (
-              <SourceLink key={s.url} name={sourceById(s.sourceId)?.name ?? s.sourceId} title={s.title} url={s.url} />
-            ))}
-          </ul>
+          {official.length > 0 && (
+            <ul className="space-y-2">
+              {official.map((s) => (
+                <SourceLink key={s.url} name={sourceById(s.sourceId)?.name ?? s.sourceId} title={s.title} url={s.url} />
+              ))}
+            </ul>
+          )}
+          {reported.length > 0 && (
+            <>
+              <h3 className="mt-5 mb-2 text-sm font-bold text-ink-2 first:mt-0">{ui === "hi" ? "समाचार रिपोर्ट (तथ्य मिलान)" : "Press reports (facts cross-checked)"}</h3>
+              <ul className="space-y-2">
+                {reported.map((s) => (
+                  <SourceLink key={s.url} name={outletName(s.url)} title={s.title} url={s.url} />
+                ))}
+              </ul>
+            </>
+          )}
           {alsoCovered.length > 0 && (
             <>
               <h3 className="mt-5 mb-2 text-sm font-bold text-ink-2">{ui === "hi" ? "यहाँ भी पढ़ें" : "Also covered by"}</h3>
@@ -154,9 +167,13 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
             </>
           )}
           <p className="mt-4 text-xs leading-relaxed text-ink-3">
-            {ui === "hi"
-              ? "यह नोट Claude (AI) द्वारा केवल ऊपर दिए आधिकारिक स्रोतों से तैयार किया गया है। अंतिम पुष्टि के लिए मूल स्रोत देखें।"
-              : "These notes are written by Claude (AI) only from the official sources above. Check the original for anything you will quote."}
+            {reported.length > 0
+              ? ui === "hi"
+                ? "इस घटना का कोई आधिकारिक स्रोत नहीं मिला। यह संक्षिप्त नोट Claude (AI) ने केवल उन तथ्यों से लिखा है जिनकी पुष्टि कम से कम दो स्वतंत्र समाचार स्रोतों ने की है। उद्धृत करने से पहले मूल रिपोर्ट देखें।"
+                : "No official source covered this event yet. Claude (AI) wrote this short note only from facts that at least two independent outlets confirm. Check the reports before you quote anything."
+              : ui === "hi"
+                ? "यह नोट Claude (AI) द्वारा केवल ऊपर दिए आधिकारिक स्रोतों से तैयार किया गया है। अंतिम पुष्टि के लिए मूल स्रोत देखें।"
+                : "These notes are written by Claude (AI) only from the official sources above. Check the original for anything you will quote."}
           </p>
         </section>
 
@@ -311,6 +328,14 @@ function FullStorylineLink({ threadKey, count, ui }: { threadKey: string; count:
       {ui === "hi" ? `पूरा क्रम देखें (${count}) →` : `See all ${count} updates →`}
     </Link>
   );
+}
+
+function outletName(url: string) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
 }
 
 function SourceLink({ name, title, url }: { name: string; title: string | null; url: string }) {

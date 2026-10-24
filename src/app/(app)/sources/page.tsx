@@ -7,6 +7,7 @@ export const metadata: Metadata = { title: "Sources" };
 
 const MODE: Record<SourceMode, { label: string; desc: string; cls: string }> = {
   ai: { label: "Full notes", desc: "Official text → exam notes, MCQs and flashcards, always linked back.", cls: "bg-good/10 text-good" },
+  facts: { label: "Facts only", desc: "Used only when no official source exists: facts confirmed by 2+ outlets, written fresh as a one-liner.", cls: "bg-warn-soft text-warn-ink" },
   link: { label: "Linked", desc: "Headline + link shown as “Also covered by”. Their text is never copied.", cls: "bg-accent-soft text-accent" },
   reference: { label: "Further reading", desc: "Curated link to their current-affairs page.", cls: "bg-surface-2 text-ink-2" },
 };
@@ -22,10 +23,10 @@ export default function Sources() {
       <header>
         <h1 className="font-display text-3xl sm:text-5xl">Sources</h1>
         <p className="mt-2 max-w-2xl text-ink-2">
-          CurrentKosh only uses the sources below. Notes and questions are generated from official government text; newspapers and coaching sites are linked, never copied, and respect their robots.txt.
+          CurrentKosh only uses the sources below. Notes and questions are generated from official text. When no official source covers an event, a short one-liner is written from facts that at least two independent outlets confirm. Newspaper and coaching text is never copied, and their robots.txt is respected.
         </p>
       </header>
-      <div className="grid gap-3 sm:grid-cols-3">
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {Object.entries(MODE).map(([k, m]) => (
           <div key={k} className="rounded-2xl border border-line bg-surface p-4">
             <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${m.cls}`}>{m.label}</span>

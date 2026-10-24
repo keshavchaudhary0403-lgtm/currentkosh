@@ -25,7 +25,7 @@ Claude routine (daily, cloud)                     GitHub                 Vercel
 
 - **Content** is JSON in `content/`: one file per day in `content/stories/`, plus `threads.json` and `skipped.json`. No database and no API key: a scheduled Claude routine writes the stories, using your Claude plan, by following [`ROUTINE.md`](ROUTINE.md).
 - **Your profile** (exams, state, language) is stored in a cookie. **Your progress** (stories read, tests, revision schedule) is stored in your browser's localStorage. It doesn't sync across devices until accounts are added.
-- **Notes and questions come only from government text** (PIB, AIR, DD News, RBI). The Hindu and Indian Express block AI crawlers in their robots.txt, and coaching content is copyrighted, so those sources appear only as headline links. See [`docs/sources.md`](docs/sources.md).
+- **Notes and questions come from official text** (PIB, AIR, DD News, RBI, ministry sites) or from the announcing body's own site (award committee, sports federation, UN agency, court). For an exam topic with neither, the routine writes a short one-liner from facts that at least 2 independent outlets confirm, written fresh and marked "Press reports" in the app. The Hindu, Indian Express and coaching sites block AI crawlers or are copyrighted, so they appear only as headline links and are never used as a source. See [`docs/sources.md`](docs/sources.md).
 
 ## Run locally
 

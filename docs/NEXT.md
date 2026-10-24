@@ -15,7 +15,7 @@ Start the next session from this file.
 ## Ground rules (don't break these)
 
 - Ask the user before any design change that isn't clear, and change only what was asked.
-- Use official sources only. Coaching and newspaper headlines may serve only as a checklist, and their text is never copied or paraphrased.
+- Use official sources first. Then use the announcing body's own site (`primary`). As a last resort, write a press one-liner from facts 2+ independent outlets confirm (`press`). The full rules are in `ROUTINE.md`. Coaching and newspaper sites marked `link`/`reference` (The Hindu, IE, Drishti, Adda247…) serve only as a checklist and are never read as a source, and no outlet's text is copied or paraphrased.
 - Don't get around bot blocking: no faked user agents, and no browser automation for PIB or other blocked sites.
 - Never ask for the Supabase service_role key.
 
@@ -25,6 +25,7 @@ Start the next session from this file.
 - [ ] The gap check uses the Adda247 and Drishti headlines as its checklist.
 - [ ] Early November: `news:monthly` picks up the PRS October 2026 issue and writes `content/monthly/prs-2026-10.json`.
 - [ ] New global-index releases follow the `intl` rule.
+- [ ] The gap fill uses the new `primary` and `press` tiers. Spot-check a few press one-liners: 2 genuinely independent outlets, wording that's fresh and not paraphrased, no barred domains.
 
 ## Remaining work (pick up when the user asks)
 

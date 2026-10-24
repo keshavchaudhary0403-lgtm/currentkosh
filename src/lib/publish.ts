@@ -4,6 +4,7 @@ import path from "node:path";
 import { z } from "zod";
 import { NewStorySchema, type DayFile, type McqContent, type NewStory, type SourceRef, type StoredStory } from "./content";
 import { teachingRelevance } from "./relevance";
+import { SOURCES } from "./sources";
 import { EXAM_IDS, STATES, type Bi } from "./taxonomy";
 
 export const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -76,7 +77,10 @@ function toStored(n: NewStory, takenIds: Set<string>): { story: StoredStory; war
     }
     return [shuffleOptions({ ...m, answer, difficulty: clamp(m.difficulty, 1, 3) })];
   });
-  if (mcqs.length < 2) warnings.push(`only ${mcqs.length} valid MCQs`);
+  // Press-only stories are short one-liners, so one MCQ is enough.
+  const pressOnly = n.sources.every((s) => s.sourceId === "press");
+  if (mcqs.length < (pressOnly ? 1 : 2)) warnings.push(`only ${mcqs.length} valid MCQs`);
+
   let id = `${n.date}-${slugify(p.title.en) || "story"}`;
   for (let k = 2; takenIds.has(id); k++) id = `${n.date}-${slugify(p.title.en)}-${k}`;
   takenIds.add(id);
@@ -100,11 +104,34 @@ function toStored(n: NewStory, takenIds: Set<string>): { story: StoredStory; war
   };
 }
 
+const outlet = (url: string) => {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
+};
+
 /** Merge new stories into their day files. Throws with every validation error if the inbox is malformed. */
 export function publishNewStories(raw: unknown): { added: StoredStory[]; warnings: string[] } {
   const parsed = z.array(NewStorySchema).safeParse(raw);
   if (!parsed.success) {
     throw new Error(`new-stories.json is invalid:\n${parsed.error.issues.map((i) => `  [${i.path.join(".")}] ${i.message}`).join("\n")}`);
+  }
+  // A fact from one press report is not confirmed: press-only stories need 2+ different outlets.
+  const unconfirmed = parsed.data.filter(
+    (n) => n.sources.every((s) => s.sourceId === "press") && new Set(n.sources.map((s) => outlet(s.url))).size < 2,
+  );
+  // Newspapers and coaching sites we only link to (robots.txt opt-outs, copyrighted notes) are never a press source.
+  const linkOnly = SOURCES.filter((s) => s.mode === "link" || s.mode === "reference").map((s) => outlet(s.homepage).split(".").slice(-2).join("."));
+  const isLinkOnly = (url: string) => linkOnly.some((d) => outlet(url) === d || outlet(url).endsWith(`.${d}`));
+  const barred = parsed.data.flatMap((n) => n.sources.filter((s) => s.sourceId === "press" && isLinkOnly(s.url)).map((s) => ({ n, s })));
+  if (unconfirmed.length || barred.length) {
+    const lines = [
+      ...unconfirmed.map((n) => `  [${n.pack.title.en}] press-only story needs reports from at least 2 different outlets`),
+      ...barred.map(({ n, s }) => `  [${n.pack.title.en}] ${outlet(s.url)} is link-only and cannot be a press source`),
+    ];
+    throw new Error(`new-stories.json is invalid:\n${lines.join("\n")}`);
   }
   const days = new Map(readDays().map((d) => [d.date, d]));
   const taken = new Set([...days.values()].flatMap((d) => d.stories.map((s) => s.id)));

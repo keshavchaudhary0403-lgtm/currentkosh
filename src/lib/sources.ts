@@ -4,11 +4,13 @@
 //            notes, MCQs and flashcards by the daily routine, always with attribution and a link back.
 //  link      Copyrighted publishers. We read only headline + URL from their public feed and
 //            attach it to matching stories as "Also covered by". Their text is never fetched or used.
+//  facts     Press reports used for facts only: a short one-liner written fresh once 2+ independent
+//            outlets confirm the same facts. Their text is never copied or paraphrased.
 //  reference No automated access (no feed, or robots.txt says no). Shown as curated links.
 //
 // Feed URLs were checked live on 2026-10-23; see docs/sources.md for the audit.
 
-export type SourceMode = "ai" | "link" | "reference";
+export type SourceMode = "ai" | "facts" | "link" | "reference";
 export type SourceKind = "government" | "newspaper" | "coaching" | "publication";
 
 export type Source = {
@@ -94,6 +96,24 @@ export const SOURCES: Source[] = [
     mode: "ai",
     homepage: "https://www.wipo.int/global_innovation_index/en/",
     license: "Only India's rank and key figures from a well-known global index, read from the publisher's own report page, with credit and a link.",
+  },
+  {
+    id: "primary",
+    name: "Organisation's own announcement",
+    short: "Official release",
+    kind: "publication",
+    mode: "ai",
+    homepage: "https://www.nobelprize.org",
+    license: "The body that made the news, on its own site (award committee, sports federation, UN agency, court, company release). Summarised with credit and a link.",
+  },
+  {
+    id: "press",
+    name: "Press reports",
+    short: "Press",
+    kind: "newspaper",
+    mode: "facts",
+    homepage: "https://news.google.com/topstories?hl=en-IN&gl=IN",
+    license: "Used only when no official or primary source exists: facts confirmed by 2+ independent outlets, written fresh as a one-liner. Text never copied; sites whose robots.txt opts out of AI are never read.",
   },
   {
     id: "rbi",

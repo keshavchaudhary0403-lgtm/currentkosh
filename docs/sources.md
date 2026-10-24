@@ -14,6 +14,11 @@
 | **AffairsCloud** | `/feed/` | copyrighted | **link** |
 | Vision IAS, Adda247, Testbook, Jagran Josh, GKToday (feed is 410), IndiaBix, Oliveboard (robots disallows feeds), BYJU'S, Unacademy, StudyIQ (robots disallows CA crawling) | listing pages only | copyrighted | **reference** (curated link-out) |
 
+**Gap fill (since 24 Oct 2026).** For an exam topic that no official source covers, the routine may use:
+
+- **`primary`**: the announcing body's own site, such as an award committee, sports federation, UN agency, court or company release. It gets a full story.
+- **`press`**: a short one-liner, written fresh from facts that **2+ independent outlets** confirm. `news:publish` rejects a press-only story with fewer than 2 different outlet domains, and rejects any press URL on a `link`/`reference` domain above. The story page lists these under "Press reports (facts cross-checked)" with a matching note.
+
 Rules enforced in code (`src/lib/ingest/fetch.ts`):
 
 - Items from `link` sources are stored with **headline and URL only**: no snippet, no body.
