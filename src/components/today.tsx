@@ -225,8 +225,8 @@ export function NextSteps({ date, lang }: { date: string; lang: Lang }) {
   const ui = lang === "bi" ? "en" : lang;
   const hi = ui === "hi";
   return (
-    <section className="flex items-center gap-4 rounded-3xl bg-accent-2-soft p-5">
-      <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-accent-2 text-white">
+    <section className="flex items-center gap-4 rounded-3xl border border-line bg-surface p-5">
+      <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-accent-soft text-accent">
         <Target className="size-6" strokeWidth={2.4} />
       </span>
       <div className="min-w-0 flex-1">

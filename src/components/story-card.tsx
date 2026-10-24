@@ -56,16 +56,16 @@ export function FeaturedStory({ story, lang, relevance, read }: { story: Story; 
   const ui = lang === "bi" ? "en" : lang;
   return (
     <Link href={`/story/${story.id}`} className="tap cat group block overflow-hidden rounded-2xl bg-surface" style={catStyle(story.category)}>
-      <div className="flex items-center gap-2 bg-(--cat-solid) px-4 py-2.5 text-xs font-extrabold tracking-wide text-white uppercase">
-        <span className="rounded-full bg-white/25 px-2 py-0.5">{ui === "hi" ? "आज की प्रमुख ख़बर" : "Top story"}</span>
-        <span className="truncate">{pick(categoryById(story.category)?.label, ui)}</span>
+      <div className="flex items-center gap-2 px-4 pt-4 text-xs sm:px-5 sm:pt-5">
+        <span className="rounded-full bg-accent-soft px-2.5 py-0.5 font-semibold text-accent">{ui === "hi" ? "प्रमुख ख़बर" : "Top story"}</span>
+        <span className="truncate font-medium text-ink-3">{pick(categoryById(story.category)?.label, ui)}</span>
         {read && (
-          <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-white px-2 py-0.5 text-good">
-            <Check className="size-3" strokeWidth={3.5} /> {ui === "hi" ? "पढ़ा" : "Read"}
+          <span className="ml-auto inline-flex items-center gap-1 font-semibold text-good">
+            <Check className="size-3.5" strokeWidth={2.6} /> {ui === "hi" ? "पढ़ा" : "Read"}
           </span>
         )}
       </div>
-      <div className="p-4 sm:p-5">
+      <div className="px-4 pt-2 pb-4 sm:px-5 sm:pb-5">
         <h2 lang={ui === "hi" ? "hi" : undefined} className="font-display text-lg leading-snug sm:text-xl">
           {pick(story.content.title, ui)}
         </h2>
@@ -82,7 +82,7 @@ export function FeaturedStory({ story, lang, relevance, read }: { story: Story; 
           <span className="inline-flex items-center gap-1 text-xs font-semibold text-ink-3">
             <Clock className="size-3.5" /> 2 min
           </span>
-          <span className="ml-auto inline-flex items-center gap-1 text-sm font-extrabold text-(--cat-ink) transition group-hover:gap-2">
+          <span className="ml-auto inline-flex items-center gap-1 text-sm font-semibold text-accent transition group-hover:gap-2">
             {ui === "hi" ? "पढ़ें" : "Read"} <ArrowRight className="size-4" strokeWidth={2.6} />
           </span>
         </div>

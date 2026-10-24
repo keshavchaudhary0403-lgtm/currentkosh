@@ -4,10 +4,13 @@
 
 :root {
   --ck-font: var(--font-geist), var(--font-deva), ui-sans-serif, system-ui, sans-serif;
-  /* Bright, solid study palette: indigo for learning, orange for energy, green for "got it". No gradients. */
+  /*
+   * One brand colour (indigo) on calm neutrals. Other hues carry meaning only:
+   * green = right, red = wrong, amber = "must-know" / streak. Legacy colour names map onto indigo.
+   */
   --bg: #f5f6fa;
   --surface: #ffffff;
-  --surface-2: #eef1f8;
+  --surface-2: #f1f3f8;
   --ink: #252b37;
   --ink-2: #565f70;
   --ink-3: #8d95a5;
@@ -15,18 +18,18 @@
   --line-strong: #d6dbe5;
   --accent: #4f46e5;
   --accent-press: #3a32c4;
-  --accent-soft: #eceafe;
-  --accent-2: #f97316;
-  --accent-2-press: #d35a08;
-  --accent-2-soft: #fff0e5;
-  --violet: #8b5cf6;
-  --violet-press: #6d3fdc;
-  --violet-soft: #f2edff;
-  --teal: #0ea5a4;
-  --teal-press: #0b8382;
-  --teal-soft: #e3f7f6;
-  --pink: #ec4899;
-  --pink-soft: #fde9f3;
+  --accent-soft: #eef0fd;
+  --accent-2: #d97706;
+  --accent-2-press: #b45309;
+  --accent-2-soft: #fdf3e2;
+  --violet: var(--accent);
+  --violet-press: var(--accent-press);
+  --violet-soft: var(--accent-soft);
+  --teal: var(--accent);
+  --teal-press: var(--accent-press);
+  --teal-soft: var(--accent-soft);
+  --pink: var(--accent);
+  --pink-soft: var(--accent-soft);
   --good: #16a34a;
   --good-press: #11823a;
   --good-soft: #e5f7ea;
@@ -37,9 +40,9 @@
   --warn-soft: #fff5dc;
   --glass: rgb(255 255 255 / 0.88);
   --shadow: 0 1px 2px rgb(17 24 39 / 0.04), 0 4px 16px -6px rgb(17 24 39 / 0.08);
-  --cat-l: 0.52;
-  --cat-c: 0.17;
-  --cat-tint-a: 0.13;
+  --cat-l: 0.5;
+  --cat-c: 0.07;
+  --cat-tint-a: 0.16;
   color-scheme: light;
 }
 
@@ -61,17 +64,17 @@
   --accent: #6d66ff;
   --accent-press: #4a42d6;
   --accent-soft: #23255a;
-  --accent-2: #ff8a3d;
-  --accent-2-press: #d8661c;
-  --accent-2-soft: #3a2518;
-  --violet: #8b5cf6;
-  --violet-press: #6a3fd8;
-  --violet-soft: #2b2352;
-  --teal: #12a8a6;
-  --teal-press: #0b8382;
-  --teal-soft: #12323a;
-  --pink: #ec4899;
-  --pink-soft: #3a1a30;
+  --accent-2: #e9a23b;
+  --accent-2-press: #c2801f;
+  --accent-2-soft: #33270f;
+  --violet: var(--accent);
+  --violet-press: var(--accent-press);
+  --violet-soft: var(--accent-soft);
+  --teal: var(--accent);
+  --teal-press: var(--accent-press);
+  --teal-soft: var(--accent-soft);
+  --pink: var(--accent);
+  --pink-soft: var(--accent-soft);
   --good: #22b35a;
   --good-press: #178a43;
   --good-soft: #143223;
@@ -82,9 +85,9 @@
   --warn-soft: #3a2e10;
   --glass: rgb(21 26 46 / 0.9);
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 6px 20px -8px rgb(0 0 0 / 0.5);
-  --cat-l: 0.78;
-  --cat-c: 0.14;
-  --cat-tint-a: 0.18;
+  --cat-l: 0.8;
+  --cat-c: 0.06;
+  --cat-tint-a: 0.16;
   color-scheme: dark;
 }
 
@@ -149,9 +152,9 @@ body {
 /* Category colour from a hue: text, tint and solid variants that work in both themes. */
 .cat {
   --cat-ink: oklch(var(--cat-l) var(--cat-c) var(--h));
-  --cat-solid: oklch(0.62 0.19 var(--h));
-  --cat-press: oklch(0.5 0.17 var(--h));
-  --cat-tint: oklch(0.65 0.16 var(--h) / var(--cat-tint-a));
+  --cat-solid: var(--accent);
+  --cat-press: var(--accent-press);
+  --cat-tint: oklch(0.7 0.05 var(--h) / var(--cat-tint-a));
 }
 
 ::selection {
@@ -187,8 +190,9 @@ body {
   --bt: var(--ink-3);
   cursor: not-allowed;
 }
+/* Former orange buttons follow the brand colour: one primary colour across the app. */
 .btn-orange {
-  --b: var(--accent-2);
+  --b: var(--accent);
 }
 .btn-green {
   --b: var(--good);
@@ -196,11 +200,9 @@ body {
 .btn-red {
   --b: var(--bad);
 }
-.btn-violet {
-  --b: var(--violet);
-}
+.btn-violet,
 .btn-teal {
-  --b: var(--teal);
+  --b: var(--accent);
 }
 .btn-white {
   --b: #fff;

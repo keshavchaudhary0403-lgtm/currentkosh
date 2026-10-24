@@ -27,28 +27,28 @@ export default async function Me() {
     },
     {
       href: "/tests",
-      tone: "bg-accent-2-soft text-accent-2",
+      tone: "bg-accent-soft text-accent",
       icon: ClipboardList,
       label: ui === "hi" ? "मेरे टेस्ट" : "My tests",
       hint: ui === "hi" ? "अंक, विश्लेषण, दोबारा प्रयास" : "Scores, analysis and retries",
     },
     {
       href: "/saved",
-      tone: "bg-violet-soft text-violet",
+      tone: "bg-accent-soft text-accent",
       icon: Bookmark,
       label: ui === "hi" ? "सहेजे गए" : "Saved",
       hint: ui === "hi" ? "अंतिम समय के दोहराव के लिए" : "Kept for last-minute revision",
     },
     {
       href: "/threads",
-      tone: "bg-pink-soft text-pink",
+      tone: "bg-accent-soft text-accent",
       icon: Waypoints,
       label: ui === "hi" ? "घटनाक्रम" : "Timelines",
       hint: ui === "hi" ? "एक मुद्दे की पूरी कहानी, क्रम से" : "Follow an issue from start to now",
     },
     {
       href: "/sources",
-      tone: "bg-good-soft text-good",
+      tone: "bg-accent-soft text-accent",
       icon: BookOpen,
       label: ui === "hi" ? "स्रोत" : "Sources",
       hint: ui === "hi" ? "हम कहाँ से पढ़ते हैं" : "Where our news comes from",
@@ -64,22 +64,22 @@ export default async function Me() {
 
   return (
     <div className="mx-auto max-w-xl space-y-5 lg:max-w-none">
-      <header className="flex items-center gap-4 rounded-3xl bg-pink p-5 text-white">
-        <span className="grid size-16 shrink-0 place-items-center rounded-full bg-white font-display text-2xl text-pink">
+      <header className="flex items-center gap-4 rounded-3xl border border-line bg-surface p-5">
+        <span className="grid size-16 shrink-0 place-items-center rounded-full bg-accent-soft font-display text-2xl text-accent">
           <GraduationCap className="size-8" strokeWidth={2.2} />
         </span>
         <div className="min-w-0">
           <h1 className="font-display text-2xl leading-tight">{ui === "hi" ? "आपकी तैयारी" : "Your prep"}</h1>
           <div className="mt-1.5 flex flex-wrap gap-1.5">
             {profile.exams.map((e) => (
-              <span key={e} className="rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-bold">
+              <span key={e} className="rounded-full bg-surface-2 px-2.5 py-0.5 text-xs font-semibold text-ink-2">
                 {pick(examById(e)?.label, ui)}
               </span>
             ))}
-            {profile.state && <span className="rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-bold">{pick(stateById(profile.state)?.label, ui)}</span>}
+            {profile.state && <span className="rounded-full bg-surface-2 px-2.5 py-0.5 text-xs font-semibold text-ink-2">{pick(stateById(profile.state)?.label, ui)}</span>}
           </div>
           {countdown !== null && countdown >= 0 && (
-            <div className="mt-1.5 text-sm font-bold text-white/90">
+            <div className="mt-1.5 text-sm text-ink-2">
               ⏳ {countdown} {ui === "hi" ? "दिन परीक्षा तक" : "days to your exam"}
             </div>
           )}

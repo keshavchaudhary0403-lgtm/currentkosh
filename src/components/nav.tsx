@@ -16,8 +16,8 @@ type Labels = Record<"today" | "revise" | "practice" | "tests" | "threads" | "ar
 const TONE = {
   today: { text: "text-accent", soft: "bg-accent-soft" },
   revise: { text: "text-violet", soft: "bg-violet-soft" },
-  practice: { text: "text-accent-2", soft: "bg-accent-2-soft" },
-  tests: { text: "text-accent-2", soft: "bg-accent-2-soft" },
+  practice: { text: "text-accent", soft: "bg-accent-soft" },
+  tests: { text: "text-accent", soft: "bg-accent-soft" },
   threads: { text: "text-pink", soft: "bg-pink-soft" },
   archive: { text: "text-teal", soft: "bg-teal-soft" },
   you: { text: "text-pink", soft: "bg-pink-soft" },
@@ -92,7 +92,7 @@ export function Sidebar({ labels, youLabel, lang }: { labels: Labels; youLabel: 
       <div className="mt-auto">
         <InstallSidebarButton />
       </div>
-      <div className="flex items-center gap-3 rounded-2xl bg-accent-2-soft p-4">
+      <div className="flex items-center gap-3 rounded-2xl border border-line p-4">
         <Flame className={`size-8 shrink-0 text-accent-2 ${days > 0 ? "wiggle" : ""}`} strokeWidth={2.4} />
         <div>
           <div className="font-display text-xl leading-none text-accent-2">

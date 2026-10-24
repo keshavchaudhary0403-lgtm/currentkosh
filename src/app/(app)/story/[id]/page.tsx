@@ -173,7 +173,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
         {mcqs.length > 0 && (
           <section id="quick-check" className="mt-10 scroll-mt-20">
             <h2 className="mb-3 flex items-center gap-2 font-display text-xl sm:text-2xl">
-              <span className="grid size-9 place-items-center rounded-xl bg-accent-2 text-white">
+              <span className="grid size-9 place-items-center rounded-xl bg-accent-soft text-accent">
                 <Target className="size-5" strokeWidth={2.4} />
               </span>
               {t("quickCheck", ui)}
@@ -222,8 +222,8 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
               </span>
             </Link>
           ) : (
-            <Link href="/practice/run?kind=daily" className="tap group rounded-2xl bg-accent-2-soft p-4 sm:order-2">
-              <span className="text-xs font-extrabold text-accent-2">{ui === "hi" ? "दिन की आख़िरी ख़बर" : "That's the last story of the day"}</span>
+            <Link href="/practice/run?kind=daily" className="tap group rounded-2xl bg-surface p-4 sm:order-2">
+              <span className="text-xs font-semibold text-accent">{ui === "hi" ? "दिन की आख़िरी ख़बर" : "That's the last story of the day"}</span>
               <span className="mt-1 block font-bold">{ui === "hi" ? "अब डेली क्विज़ दें →" : "Take the daily quiz →"}</span>
             </Link>
           )}
@@ -298,9 +298,9 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
 }
 
 const TONES = {
-  orange: "bg-accent-2-soft [&_h2]:text-accent-2",
-  indigo: "bg-accent-soft [&_h2]:text-accent",
-  violet: "bg-violet-soft [&_h2]:text-violet",
+  orange: "bg-surface-2 [&_h2]:text-accent",
+  indigo: "bg-surface-2 [&_h2]:text-accent",
+  violet: "bg-surface-2 [&_h2]:text-accent",
 } as const;
 
 function Callout({ icon, title, tone, children }: { icon: React.ReactNode; title: string; tone: keyof typeof TONES; children: React.ReactNode }) {

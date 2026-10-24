@@ -26,27 +26,27 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
       icon: <Zap className="size-6" strokeWidth={2.4} />,
       title: hi ? "डेली क्विज़" : "Daily quiz",
       body: hi ? "10 प्रश्न · ताज़ा दिन" : "10 Qs · latest day",
-      tone: "bg-accent-soft",
-      ink: "text-accent",
-      solid: "bg-accent",
+      tone: "border border-line bg-surface hover:border-line-strong",
+      ink: "text-ink",
+      solid: "bg-accent-soft text-accent",
     },
     {
       href: "/practice/run?kind=weekly",
       icon: <CalendarRange className="size-6" strokeWidth={2.4} />,
       title: hi ? "साप्ताहिक टेस्ट" : "Weekly test",
       body: hi ? "25 प्रश्न · पिछले 7 दिन" : "25 Qs · last 7 days",
-      tone: "bg-teal-soft",
-      ink: "text-teal",
-      solid: "bg-teal",
+      tone: "border border-line bg-surface hover:border-line-strong",
+      ink: "text-ink",
+      solid: "bg-accent-soft text-accent",
     },
     {
       href: "/practice/run?kind=mock",
       icon: <Timer className="size-6" strokeWidth={2.4} />,
       title: hi ? "टाइम्ड मॉक" : "Timed mock",
       body: hi ? "50 प्रश्न · −⅓ नेगेटिव" : "50 Qs · −⅓ negative",
-      tone: "bg-accent-2-soft",
-      ink: "text-accent-2",
-      solid: "bg-accent-2",
+      tone: "border border-line bg-surface hover:border-line-strong",
+      ink: "text-ink",
+      solid: "bg-accent-soft text-accent",
     },
   ];
 
@@ -72,7 +72,7 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
           <section className="grid grid-cols-2 gap-3">
             {quick.map((q) => (
               <Link key={q.href} href={q.href} className={`group rounded-3xl p-4 transition active:scale-[.97] ${q.tone}`}>
-                <span className={`grid size-12 place-items-center rounded-2xl text-white transition group-hover:-rotate-6 ${q.solid}`}>{q.icon}</span>
+                <span className={`grid size-12 place-items-center rounded-2xl transition ${q.solid}`}>{q.icon}</span>
                 <span className={`mt-3 block font-display text-[17px] leading-tight ${q.ink}`}>{q.title}</span>
                 <span className="mt-0.5 block text-xs font-semibold text-ink-2">{q.body}</span>
               </Link>
