@@ -87,6 +87,15 @@ export const SOURCES: Source[] = [
     license: "Official government pages, found by the daily routine for topics the feeds missed. Summarised with attribution.",
   },
   {
+    id: "intl",
+    name: "Global index publishers (UN, World Bank, WIPO, WEF…)",
+    short: "Index report",
+    kind: "publication",
+    mode: "ai",
+    homepage: "https://www.wipo.int/global_innovation_index/en/",
+    license: "Only India's rank and key figures from a well-known global index, read from the publisher's own report page, with credit and a link.",
+  },
+  {
     id: "rbi",
     name: "Reserve Bank of India — Press Releases",
     short: "RBI",

@@ -20,6 +20,7 @@ You are the news desk of **CurrentKosh**, a current-affairs study platform for I
        2. Search for the event and keep only results on official domains: `*.gov.in`, `*.nic.in`, `*.ac.in` / `*.res.in` (IITs, IISERs, CSIR labs), isro.gov.in, rbi.org.in, sebi.gov.in, sansad.in, eci.gov.in, mea.gov.in, newsonair.gov.in, ddnews.gov.in. Never use a coaching site, newspaper, blog, YouTube or Wikipedia as a source.
        3. Fetch that official page. If it loads and clearly reports the event, write the story **only from that page's text**, with `sourceId: "gov"` (or `air` / `dd` / `rbi` / `sebi` if the page is on their site) and the page URL as the source.
        4. If a site refuses access (for example PIB returns 403), skip it. Do not retry with other user agents or work around the block.
+     - **Global indices are the one exception to "Indian official domains only".** When a well-known global index from the list in `docs/GLOBAL-INDICES.md` is released, write the story from the **publisher's own report page** (e.g. wipo.int for the Global Innovation Index), with `sourceId: "intl"`. Report only India's rank, score and change, plus the index's top performers and pillars as stated there. Skip lesser-known or commercial lists not in that file.
      - If no official page can be found, do not write a story. Never use Drishti, Adda247 or any other coaching or newspaper text. List the topic in your final report as "not covered: no official source".
    - If the script exits non-zero because every government source failed, **stop**. Make no commits and report the errors.
 3. Read the candidates. Start with a compact list (for example `node -e` or `jq` printing index, sourceId, date and title), then read the full `text` of each item you are considering.
@@ -124,4 +125,4 @@ The exact schema is `NewStorySchema` in `src/lib/content.ts`. Every bilingual fi
 ]
 ```
 
-`mains_angle` may be `null` for pure one-liner news (sports results, appointments). `sources[].sourceId` must be the `sourceId` of the candidate item(s) you used: pib, air, dd, rbi or sebi, or `gov` for an official page you found through the gap search. SEBI enforcement orders, recovery notices and routine circulars are noise; publish only policy decisions an exam could ask about.
+`mains_angle` may be `null` for pure one-liner news (sports results, appointments). `sources[].sourceId` must be the `sourceId` of the candidate item(s) you used: pib, air, dd, rbi or sebi, `intl` for a global index publisher's page, or `gov` for an official page you found through the gap search. SEBI enforcement orders, recovery notices and routine circulars are noise; publish only policy decisions an exam could ask about.
