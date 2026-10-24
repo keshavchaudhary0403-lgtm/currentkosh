@@ -1,5 +1,5 @@
 // CurrentKosh service worker: makes the app installable and keeps pages you've opened readable offline.
-const VERSION = "ck-v1";
+const VERSION = "ck-v2";
 const STATIC = `${VERSION}-static`;
 const PAGES = `${VERSION}-pages`;
 const OFFLINE = "/offline.html";
