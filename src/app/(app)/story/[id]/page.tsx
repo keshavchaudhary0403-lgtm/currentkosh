@@ -8,7 +8,7 @@ import { CategoryIcon, catStyle } from "@/components/category-icon";
 import { BiText, RelevanceBadge, fmtDate } from "@/components/ui";
 import { t } from "@/lib/i18n";
 import { currentProfile } from "@/lib/profile";
-import { feedFor, getStory, getThread, latestStoryDate, mcqsForStory } from "@/lib/store";
+import { examRelevance, feedFor, getStory, getThread, latestStoryDate, mcqsForStory } from "@/lib/store";
 import { sourceById } from "@/lib/sources";
 import { categoryById, examById, pick } from "@/lib/taxonomy";
 
@@ -79,7 +79,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
                 key={e}
                 className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-2.5 py-0.5 text-xs font-bold text-ink-2 has-[>span]:pr-1"
               >
-                {pick(examById(e)?.label, ui)} <RelevanceBadge level={story.relevance[e] ?? 0} lang={ui} />
+                {pick(examById(e)?.label, ui)} <RelevanceBadge level={examRelevance(story, e)} lang={ui} />
               </span>
             ))}
           </div>
@@ -246,8 +246,8 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
               {profile.exams.map((e) => (
                 <li key={e} className="flex items-center justify-between gap-2 text-sm font-semibold text-ink-2">
                   {pick(examById(e)?.label, ui)}
-                  {(story.relevance[e] ?? 0) >= 2 ? (
-                    <RelevanceBadge level={story.relevance[e] ?? 0} lang={ui} />
+                  {(examRelevance(story, e)) >= 2 ? (
+                    <RelevanceBadge level={examRelevance(story, e)} lang={ui} />
                   ) : (
                     <span className="text-xs text-ink-3">{ui === "hi" ? "कम" : "Low"}</span>
                   )}

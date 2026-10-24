@@ -53,7 +53,8 @@ You are the news desk of **CurrentKosh**, a current-affairs study platform for I
 - `gs_paper`: GS1 / GS2 / GS3 / GS4 / none.
 - `scope`: national / international / state.
 - `states`: two-letter codes, listed only when the story is specifically about that state or UT. Valid codes: AP AR AS BR CG GA GJ HR HP JH KA KL MP MH MN ML MZ NL OD PB RJ SK TN TS TR UP UK WB AN CH DN DL JK LA LD PY.
-- `relevance`: a score per exam, `{ upsc, state_psc, ssc, banking, railways, defence }`, each 0 (skip), 1 (low), 2 (likely) or 3 (must-know).
+- `relevance`: a score per exam, `{ upsc, state_psc, ssc, banking, railways, defence, teaching }`, each 0 (skip), 1 (low), 2 (likely) or 3 (must-know).
+  - `teaching` covers teacher-recruitment exams (CTET, State TETs, KVS/NVS, DSSSB). Score education news high: NEP, schools, teachers, NCERT/NCTE/CBSE/UGC, literacy, scholarships, child welfare, Samagra Shiksha, PM SHRI, PM POSHAN, NIPUN Bharat. Score general news like basic SSC-level general awareness (usually 1–2).
   - UPSC values analysis and policy.
   - SSC and Railways value one-line facts.
   - Banking values economy, RBI and banking news.
@@ -99,7 +100,7 @@ The exact schema is `NewStorySchema` in `src/lib/content.ts`. Every bilingual fi
       "gs_paper": "GS3",
       "scope": "national",
       "states": [],
-      "relevance": { "upsc": 2, "state_psc": 1, "ssc": 2, "banking": 3, "railways": 1, "defence": 0 },
+      "relevance": { "upsc": 2, "state_psc": 1, "ssc": 2, "banking": 3, "railways": 1, "defence": 0, "teaching": 1 },
       "importance": 3,
       "thread_key": "rbi-monetary-policy",
       "thread_title": { "en": "RBI monetary policy", "hi": "RBI मौद्रिक नीति" },

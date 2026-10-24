@@ -32,7 +32,9 @@ export const StoryPackSchema = z.object({
   gs_paper: z.enum(GS_PAPERS),
   scope: z.enum(["national", "international", "state"]),
   states: z.array(z.string()).describe("Two-letter state/UT codes the story is specifically about; empty if none"),
-  relevance: z.object(Object.fromEntries(EXAM_IDS.map((id) => [id, z.number()])) as Record<(typeof EXAM_IDS)[number], z.ZodNumber>)
+  relevance: z.object(
+    Object.fromEntries(EXAM_IDS.map((id) => [id, id === "teaching" ? z.number().optional() : z.number()])) as Record<(typeof EXAM_IDS)[number], z.ZodNumber>,
+  )
     .describe("0 = skip, 1 = low, 2 = likely, 3 = must-know, per exam"),
   importance: z.number().describe("1-5 overall importance"),
   thread_key: z.string().describe("kebab-case key for the ongoing storyline, reused across days"),

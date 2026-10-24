@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { CardContent, DayFile, McqContent, SourceRef, StoredStory, StoryContent } from "./content";
 import type { Bi, ExamId } from "./taxonomy";
+import { teachingRelevance } from "./relevance";
 
 // Content lives in content/ as JSON committed to git. It changes only when the daily routine
 // pushes (which triggers a redeploy), so it is read once per server process in production.
@@ -87,8 +88,11 @@ function toStory(s: StoredStory, mcqs: Map<string, Mcq>, cards: Map<string, Card
 type Aspirant = { exams: ExamId[]; state: string | null };
 
 /** How much a story matters to this aspirant (0-3), given their exams and home state. */
+/** A story's 0–3 relevance for one exam. */
+export const examRelevance = (story: Story, exam: ExamId) => (exam === "teaching" ? teachingRelevance(story) : (story.relevance[exam] ?? 0));
+
 export function relevanceFor(story: Story, p: Aspirant): number {
-  let score = Math.max(0, ...p.exams.map((e) => story.relevance[e] ?? 0));
+  let score = Math.max(0, ...p.exams.map((e) => examRelevance(story, e)));
   if (p.state && story.states.includes(p.state)) {
     // Home-state news is must-know for State PSC, and still useful for everyone else.
     score = p.exams.includes("state_psc") ? 3 : Math.max(score, 2);
@@ -181,7 +185,7 @@ export function searchStories(f: ArchiveFilter, limit = 60): Story[] {
         (!f.category || inTopic(s, f.category)) &&
         (!f.month || s.date.startsWith(f.month)) &&
         (!f.state || s.states.includes(f.state)) &&
-        (!f.exam || (s.relevance[f.exam] ?? 0) >= 2),
+        (!f.exam || examRelevance(s, f.exam) >= 2),
     )
     .slice(0, limit);
 }

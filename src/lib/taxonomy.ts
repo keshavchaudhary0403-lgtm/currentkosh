@@ -11,6 +11,7 @@ export const EXAMS = [
   { id: "banking", label: { en: "Banking & Insurance", hi: "बैंकिंग व बीमा" }, blurb: { en: "IBPS, SBI, RBI, LIC", hi: "IBPS, SBI, RBI, LIC" } },
   { id: "railways", label: { en: "Railways", hi: "रेलवे" }, blurb: { en: "RRB NTPC, Group D, ALP", hi: "RRB NTPC, ग्रुप D, ALP" } },
   { id: "defence", label: { en: "Defence", hi: "रक्षा" }, blurb: { en: "CDS, NDA, AFCAT, CAPF", hi: "CDS, NDA, AFCAT, CAPF" } },
+  { id: "teaching", label: { en: "Teaching", hi: "शिक्षक भर्ती" }, blurb: { en: "CTET, State TETs, KVS, NVS, DSSSB", hi: "CTET, राज्य TET, KVS, NVS, DSSSB" } },
 ] as const satisfies readonly { id: string; label: Bi; blurb: Bi }[];
 export type ExamId = (typeof EXAMS)[number]["id"];
 export const EXAM_IDS = EXAMS.map((e) => e.id) as [ExamId, ...ExamId[]];

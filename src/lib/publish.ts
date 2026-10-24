@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { z } from "zod";
 import { NewStorySchema, type DayFile, type McqContent, type NewStory, type SourceRef, type StoredStory } from "./content";
+import { teachingRelevance } from "./relevance";
 import { EXAM_IDS, STATES, type Bi } from "./taxonomy";
 
 export const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -92,7 +93,7 @@ function toStored(n: NewStory, takenIds: Set<string>): { story: StoredStory; war
       sources: n.sources,
       thread_key: threadKey,
       states: p.states.filter((s) => validStates.has(s)),
-      relevance: Object.fromEntries(EXAM_IDS.map((e) => [e, clamp(p.relevance[e] ?? 0, 0, 3)])) as StoredStory["relevance"],
+      relevance: Object.fromEntries(EXAM_IDS.map((e) => [e, clamp(e === "teaching" && p.relevance.teaching === undefined ? teachingRelevance({ relevance: p.relevance, content: { title: p.title, key_facts: p.key_facts }, category: p.category }) : (p.relevance[e] ?? 0), 0, 3)])) as StoredStory["relevance"],
       importance: clamp(p.importance, 1, 5),
       mcqs,
     },
