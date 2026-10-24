@@ -43,11 +43,17 @@ export const catStyle = (id: string) => ({ "--h": categoryHue(id) }) as React.CS
 
 export function CategoryIcon({ id, size = "md", solid }: { id: string; size?: "sm" | "md" | "lg"; solid?: boolean }) {
   const Icon = ICONS[id] ?? ScrollText;
-  const box = size === "lg" ? "size-12 rounded-2xl" : size === "sm" ? "size-8 rounded-xl" : "size-10 rounded-xl";
+  const box = size === "lg" ? "size-12 rounded-[16px]" : size === "sm" ? "size-8 rounded-[10px]" : "size-10 rounded-[13px]";
   const icon = size === "lg" ? "size-6" : size === "sm" ? "size-4" : "size-[18px]";
   return (
-    <span className={`cat grid shrink-0 place-items-center ${solid ? "bg-(--cat-solid) text-white" : "bg-(--cat-tint) text-(--cat-ink)"} ${box}`} style={catStyle(id)}>
-      <Icon className={icon} strokeWidth={2} />
+    <span className={`cat grid shrink-0 place-items-center ${solid ? "bg-(--cat-solid) text-white shadow-[inset_0_1px_0_rgb(255_255_255/0.25)]" : "bg-(--cat-tint) text-(--cat-ink)"} ${box}`} style={catStyle(id)}>
+      <Icon className={icon} strokeWidth={1.9} />
     </span>
   );
+}
+
+/** The bare category icon (no tile), for large decorative use. */
+export function CategoryGlyph({ id, className }: { id: string; className?: string }) {
+  const Icon = ICONS[id] ?? ScrollText;
+  return <Icon className={className} strokeWidth={1.25} />;
 }

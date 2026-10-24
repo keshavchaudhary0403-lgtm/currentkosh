@@ -2,150 +2,206 @@
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
+/*
+ * "Signal" design system (2026 redesign).
+ *   Paper + ink neutrals, one electric lime "signal" for the brand and primary actions,
+ *   cobalt for memory (Revise), flare pink for practice, mint for the library, amber for storylines.
+ *   Type: Instrument Serif (display), Instrument Sans (UI), JetBrains Mono (labels and numbers),
+ *   Noto Sans / Serif Devanagari for Hindi.
+ */
 :root {
-  --ck-font: var(--font-geist), var(--font-deva), ui-sans-serif, system-ui, sans-serif;
-  --ck-display: var(--font-display-sans), var(--font-deva), ui-sans-serif, system-ui, sans-serif;
-  /*
-   * Matched palette: every colour is the same strength as the indigo button (Tailwind 600 family:
-   * solid 600, pressed 700, soft 100; dark mode 500 / 600 / 950), so the whole app reads as one family.
-   *   indigo 272 = action · violet 300 = Revise · peach 55 = Practice · teal 190 = Library
-   *   rose 350 = Timelines · green 150 = correct · red 25 = wrong · amber 78 = must-know
-   */
-  --bg: #f7f7fb;
-  --surface: #ffffff;
-  --surface-2: #f0f0f6;
-  --ink: #15141b;
-  --ink-2: #4f4c59;
-  --ink-3: #8a8794;
-  --line: rgb(21 20 27 / 0.08);
-  --line-strong: rgb(21 20 27 / 0.14);
-  --accent: #5a48f5;
-  --accent-press: #4535d9;
-  --accent-soft: rgb(90 72 245 / 0.09);
-  --violet: #7a5af8;
-  --violet-press: #6342e6;
-  --violet-soft: rgb(122 90 248 / 0.1);
-  --accent-2: #ff7a3d;
-  --accent-2-press: #e5602a;
-  --accent-2-soft: rgb(255 122 61 / 0.12);
-  --teal: #0f9f74;
-  --teal-press: #0b8160;
-  --teal-soft: rgb(15 159 116 / 0.1);
-  --pink: #e5487a;
-  --pink-press: #c93564;
-  --pink-soft: rgb(229 72 122 / 0.1);
-  --good: #0f9f74;
-  --good-press: #0b8160;
-  --good-soft: rgb(15 159 116 / 0.1);
-  --bad: #e0464c;
-  --bad-press: #c23338;
-  --bad-soft: rgb(224 70 76 / 0.1);
-  --warn: #d98a00;
-  --warn-soft: rgb(217 138 0 / 0.12);
-  --warn-ink: #a86a00;
-  --glass: rgb(255 255 255 / 0.72);
-  --shadow: 0 1px 2px rgb(21 20 27 / 0.04), 0 8px 24px -12px rgb(21 20 27 / 0.12);
-  --cat-l: 0.55;
-  --cat-c: 0.17;
-  --cat-solid-l: 0.56;
-  --cat-soft-c: 0.05;
-  --cat-band-l: 0.95;
+  --ck-sans: var(--font-ui), var(--font-deva), ui-sans-serif, system-ui, sans-serif;
+  --ck-serif: var(--font-serif), var(--font-deva-serif), ui-serif, Georgia, serif;
+  --ck-mono: var(--font-mono-ui), ui-monospace, SFMono-Regular, monospace;
+
+  --bg: #f3f2ec;
+  --bg-2: #e9e7de;
+  --card: #ffffff;
+  --card-2: #f7f6f1;
+  --ink: #10110e;
+  --ink-2: #4b4c46;
+  --ink-3: #7c7d74;
+  --line: rgb(16 17 14 / 0.08);
+  --line-2: rgb(16 17 14 / 0.15);
+  --dot: rgb(16 17 14 / 0.07);
+
+  --signal: #c8f135;
+  --signal-press: #b6df22;
+  --on-signal: #10110e;
+  --signal-ink: #4a6800;
+  --signal-soft: rgb(200 241 53 / 0.3);
+
+  --cobalt: #3557ff;
+  --cobalt-ink: #2a45d6;
+  --cobalt-soft: rgb(53 87 255 / 0.1);
+  --flare: #e5306f;
+  --flare-ink: #c21f59;
+  --flare-soft: rgb(229 48 111 / 0.1);
+  --mint: #0ea67a;
+  --mint-ink: #08805d;
+  --mint-soft: rgb(14 166 122 / 0.11);
+  --amber: #f0a20b;
+  --amber-ink: #9a6200;
+  --amber-soft: rgb(240 162 11 / 0.14);
+
+  --good: #14a05e;
+  --good-ink: #0c7d48;
+  --good-soft: rgb(20 160 94 / 0.12);
+  --bad: #e5484d;
+  --bad-ink: #c62e33;
+  --bad-soft: rgb(229 72 77 / 0.11);
+
+  /* "Selected" surface: ink in light mode, lime in dark mode. */
+  --solid: #10110e;
+  --on-solid: #f3f2ec;
+  --solid-accent: #c8f135;
+
+  --glass: rgb(255 255 255 / 0.7);
+  --glass-strong: rgb(255 255 255 / 0.86);
+  --dock: rgb(16 17 14 / 0.9);
+  --on-dock: #f3f2ec;
+  --focus: #3557ff;
+  --shadow-sm: 0 1px 2px rgb(16 17 14 / 0.05);
+  --shadow: 0 1px 2px rgb(16 17 14 / 0.04), 0 10px 30px -14px rgb(16 17 14 / 0.18);
+  --shadow-lg: 0 2px 6px rgb(16 17 14 / 0.05), 0 24px 60px -24px rgb(16 17 14 / 0.35);
+
+  /* Category colour from a hue (--h), tuned per theme. */
+  --cat-ink-l: 0.48;
+  --cat-solid-l: 0.62;
+  --cat-tint-a: 0.13;
+  --cat-mesh-l: 0.9;
+
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   color-scheme: light;
 }
 
-/* Hindi mode: Devanagari leads; its font only covers Devanagari, so Latin text and digits still use Geist. */
+/* Hindi mode: Devanagari leads; Latin text and digits still use Instrument Sans / Serif. */
 :root[lang="hi"] {
-  --ck-font: var(--font-deva), var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --ck-sans: var(--font-deva), var(--font-ui), ui-sans-serif, system-ui, sans-serif;
+  --ck-serif: var(--font-deva-serif), var(--font-serif), ui-serif, Georgia, serif;
 }
 
-/* Light is the default; dark applies only when the reader picks it. */
 :root[data-theme="dark"] {
-  --bg: #0b0b0f;
-  --surface: #14141a;
-  --surface-2: #1c1c24;
-  --ink: #f1f0f6;
-  --ink-2: #b0aebb;
-  --ink-3: #75727f;
-  --line: rgb(255 255 255 / 0.07);
-  --line-strong: rgb(255 255 255 / 0.13);
-  --accent: #8f82ff;
-  --accent-press: #7466f0;
-  --accent-soft: rgb(143 130 255 / 0.13);
-  --violet: #a08cff;
-  --violet-press: #8b74f5;
-  --violet-soft: rgb(160 140 255 / 0.14);
-  --accent-2: #ff935f;
-  --accent-2-press: #f07a42;
-  --accent-2-soft: rgb(255 147 95 / 0.14);
-  --teal: #3ccf9b;
-  --teal-press: #2bb384;
-  --teal-soft: rgb(60 207 155 / 0.13);
-  --pink: #ff6b9a;
-  --pink-press: #ef5585;
-  --pink-soft: rgb(255 107 154 / 0.13);
-  --good: #3ccf9b;
-  --good-press: #2bb384;
-  --good-soft: rgb(60 207 155 / 0.13);
-  --bad: #ff6b70;
-  --bad-press: #ee5258;
-  --bad-soft: rgb(255 107 112 / 0.13);
-  --warn: #f5b13d;
-  --warn-soft: rgb(245 177 61 / 0.14);
-  --warn-ink: #f5b13d;
-  --glass: rgb(20 20 26 / 0.72);
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 32px -16px rgb(0 0 0 / 0.6);
-  --cat-l: 0.78;
-  --cat-c: 0.14;
-  --cat-solid-l: 0.6;
-  --cat-soft-c: 0.05;
-  --cat-band-l: 0.32;
+  --bg: #0b0c0a;
+  --bg-2: #121310;
+  --card: #151613;
+  --card-2: #1c1d19;
+  --ink: #f1f1ea;
+  --ink-2: #b0b1a7;
+  --ink-3: #7a7b72;
+  --line: rgb(255 255 245 / 0.08);
+  --line-2: rgb(255 255 245 / 0.15);
+  --dot: rgb(255 255 245 / 0.06);
+
+  --signal: #d4f84c;
+  --signal-press: #c3ea33;
+  --on-signal: #10110e;
+  --signal-ink: #d4f84c;
+  --signal-soft: rgb(212 248 76 / 0.13);
+
+  --cobalt: #6f87ff;
+  --cobalt-ink: #93a5ff;
+  --cobalt-soft: rgb(111 135 255 / 0.15);
+  --flare: #ff5a97;
+  --flare-ink: #ff7fac;
+  --flare-soft: rgb(255 90 151 / 0.14);
+  --mint: #34d6a2;
+  --mint-ink: #5ce3b7;
+  --mint-soft: rgb(52 214 162 / 0.13);
+  --amber: #ffc044;
+  --amber-ink: #ffcb63;
+  --amber-soft: rgb(255 192 68 / 0.14);
+
+  --good: #3ad68a;
+  --good-ink: #5ee3a1;
+  --good-soft: rgb(58 214 138 / 0.14);
+  --bad: #ff6a6f;
+  --bad-ink: #ff8a8e;
+  --bad-soft: rgb(255 106 111 / 0.14);
+
+  --solid: #d4f84c;
+  --on-solid: #10110e;
+  --solid-accent: #10110e;
+
+  --glass: rgb(21 22 19 / 0.68);
+  --glass-strong: rgb(21 22 19 / 0.86);
+  --dock: rgb(30 31 27 / 0.86);
+  --on-dock: #f1f1ea;
+  --focus: #93a5ff;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 14px 34px -18px rgb(0 0 0 / 0.7);
+  --shadow-lg: 0 2px 6px rgb(0 0 0 / 0.3), 0 28px 70px -24px rgb(0 0 0 / 0.85);
+
+  --cat-ink-l: 0.82;
+  --cat-solid-l: 0.66;
+  --cat-tint-a: 0.16;
+  --cat-mesh-l: 0.32;
   color-scheme: dark;
 }
 
 @theme inline {
   --color-bg: var(--bg);
-  --color-surface: var(--surface);
-  --color-surface-2: var(--surface-2);
+  --color-bg-2: var(--bg-2);
+  --color-card: var(--card);
+  --color-card-2: var(--card-2);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-ink-3: var(--ink-3);
   --color-line: var(--line);
-  --color-line-strong: var(--line-strong);
-  --color-accent: var(--accent);
-  --color-accent-press: var(--accent-press);
-  --color-accent-soft: var(--accent-soft);
-  --color-accent-2: var(--accent-2);
-  --color-accent-2-soft: var(--accent-2-soft);
-  --color-violet: var(--violet);
-  --color-violet-soft: var(--violet-soft);
-  --color-teal: var(--teal);
-  --color-teal-soft: var(--teal-soft);
-  --color-pink: var(--pink);
-  --color-pink-soft: var(--pink-soft);
+  --color-line-2: var(--line-2);
+  --color-signal: var(--signal);
+  --color-on-signal: var(--on-signal);
+  --color-signal-ink: var(--signal-ink);
+  --color-signal-soft: var(--signal-soft);
+  --color-cobalt: var(--cobalt);
+  --color-cobalt-ink: var(--cobalt-ink);
+  --color-cobalt-soft: var(--cobalt-soft);
+  --color-flare: var(--flare);
+  --color-flare-ink: var(--flare-ink);
+  --color-flare-soft: var(--flare-soft);
+  --color-mint: var(--mint);
+  --color-mint-ink: var(--mint-ink);
+  --color-mint-soft: var(--mint-soft);
+  --color-amber: var(--amber);
+  --color-amber-ink: var(--amber-ink);
+  --color-amber-soft: var(--amber-soft);
   --color-good: var(--good);
+  --color-good-ink: var(--good-ink);
   --color-good-soft: var(--good-soft);
   --color-bad: var(--bad);
+  --color-bad-ink: var(--bad-ink);
   --color-bad-soft: var(--bad-soft);
-  --color-warn: var(--warn);
-  --color-warn-soft: var(--warn-soft);
-  --color-warn-ink: var(--warn-ink);
-  --font-sans: var(--ck-font);
-  --font-display: var(--ck-display);
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --color-solid: var(--solid);
+  --color-on-solid: var(--on-solid);
+  --color-solid-accent: var(--solid-accent);
+  --color-dock: var(--dock);
+  --color-on-dock: var(--on-dock);
+  --font-sans: var(--ck-sans);
+  --font-serif: var(--ck-serif);
+  --font-mono: var(--ck-mono);
   --shadow-card: var(--shadow);
+  --shadow-float: var(--shadow-lg);
 }
 
 html {
   background: var(--bg);
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: transparent;
+  overflow-x: clip;
+  /* A faint dot grid that fades out down the page. */
+  background:
+    radial-gradient(circle at 1px 1px, var(--dot) 1px, transparent 0) 0 0 / 22px 22px,
+    var(--bg);
+  background-attachment: fixed;
 }
 
 :lang(hi),
@@ -153,114 +209,281 @@ body {
   line-height: 1.7;
 }
 
-.font-display {
-  font-family: var(--ck-display);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-}
-
-/* Category colour from a hue: text, tint and solid variants that work in both themes. */
-.cat {
-  --cat-ink: oklch(var(--cat-l) 0.15 var(--h));
-  --cat-solid: oklch(0.62 0.17 var(--h));
-  --cat-press: oklch(0.52 0.16 var(--h));
-  --cat-tint: oklch(0.62 0.15 var(--h) / 0.12);
-  --cat-band: oklch(0.62 0.17 var(--h));
-}
-
 ::selection {
-  background: var(--accent-soft);
+  background: var(--signal);
+  color: var(--on-signal);
 }
 
-/* First-version look: violet→orange gradient on primary buttons and a soft glow behind the page. */
-body {
-  background:
-    radial-gradient(60rem 30rem at 15% -10%, color-mix(in oklab, var(--accent) 10%, transparent), transparent 70%),
-    radial-gradient(50rem 28rem at 95% -5%, color-mix(in oklab, var(--accent-2) 9%, transparent), transparent 70%),
-    var(--bg);
-  background-attachment: fixed;
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 10px;
 }
-.grad-text {
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+
+/* Display type: Instrument Serif, set tight. Devanagari display sets a little heavier. */
+.font-display {
+  font-family: var(--ck-serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+}
+:root[lang="hi"] .font-display,
+.font-display:lang(hi) {
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+/* Small mono labels ("eyebrows"). */
+.eyebrow {
+  font-family: var(--ck-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Category colour from a hue. */
+.cat {
+  --cat-ink: oklch(var(--cat-ink-l) 0.15 var(--h));
+  --cat-solid: oklch(var(--cat-solid-l) 0.17 var(--h));
+  --cat-tint: oklch(0.65 0.15 var(--h) / var(--cat-tint-a));
+  --cat-mesh: oklch(var(--cat-mesh-l) 0.09 var(--h));
+}
+
+/* Soft mesh wash in the category hue, for hero cards. */
+.mesh {
+  background:
+    radial-gradient(80% 90% at 100% 0%, color-mix(in oklab, var(--cat-solid) 30%, transparent), transparent 60%),
+    radial-gradient(60% 70% at 0% 100%, color-mix(in oklab, var(--signal) 22%, transparent), transparent 70%),
+    var(--card);
+}
+
+.glass {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  backdrop-filter: blur(20px) saturate(1.6);
 }
 
 @layer components {
-/* Solid buttons. Colour comes from --b (face) and --bt (text). */
-.btn {
-  --b: var(--accent);
-  --bt: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  border-radius: 14px;
-  background: var(--b);
-  color: var(--bt);
-  font-weight: 700;
-  box-shadow: 0 8px 20px -10px color-mix(in oklab, var(--b) 70%, transparent);
-  transition:
-    transform 0.1s ease,
-    filter 0.15s;
-  user-select: none;
-}
-/* Primary (indigo) buttons carry the brand gradient. */
-.btn:not([class*="btn-"]):not([class*="--b:"]):not(:disabled) {
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-}
-.btn:hover {
-  filter: brightness(1.07);
-}
-.btn:active:not(:disabled) {
-  transform: scale(0.97);
-}
-.btn:disabled {
-  --b: var(--surface-2);
-  --bt: var(--ink-3);
-  cursor: not-allowed;
-}
-.btn-orange {
-  --b: var(--accent-2);
-}
-.btn-green {
-  --b: var(--good);
-}
-.btn-red {
-  --b: var(--bad);
-}
-.btn-violet {
-  --b: var(--violet);
-}
-.btn-teal {
-  --b: var(--teal);
-}
-.btn-white {
-  --b: #fff;
-  --bt: var(--accent);
-}
-.btn-ghost {
-  --b: var(--surface);
-  --bt: var(--ink);
-  border: 1px solid var(--line-strong);
+  /* Buttons: pill shape, colour from --b (face) and --bt (text). Size with utilities. */
+  .btn {
+    --b: var(--signal);
+    --bt: var(--on-signal);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    border-radius: 999px;
+    background: var(--b);
+    color: var(--bt);
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    white-space: nowrap;
+    user-select: none;
+    transition:
+      transform 0.18s var(--ease-spring),
+      background-color 0.2s,
+      box-shadow 0.2s,
+      filter 0.2s;
+  }
+  .btn:hover:not(:disabled) {
+    filter: brightness(1.04) saturate(1.05);
+    box-shadow: 0 8px 22px -12px color-mix(in oklab, var(--b) 80%, black);
+  }
+  .btn:active:not(:disabled) {
+    transform: scale(0.96);
+  }
+  .btn:disabled {
+    --b: var(--card-2);
+    --bt: var(--ink-3);
+    cursor: not-allowed;
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+  .btn-ink {
+    --b: var(--ink);
+    --bt: var(--bg);
+  }
+  .btn-ghost {
+    --b: var(--card);
+    --bt: var(--ink);
+    box-shadow: inset 0 0 0 1px var(--line-2);
+  }
+  .btn-ghost:hover:not(:disabled) {
+    box-shadow:
+      inset 0 0 0 1px var(--ink-3),
+      0 8px 20px -14px rgb(0 0 0 / 0.3);
+  }
+  .btn-cobalt {
+    --b: var(--cobalt);
+    --bt: #fff;
+  }
+  .btn-flare {
+    --b: var(--flare);
+    --bt: #fff;
+  }
+  .btn-mint {
+    --b: var(--mint);
+    --bt: #fff;
+  }
+  .btn-good {
+    --b: var(--good);
+    --bt: #fff;
+  }
+  .btn-bad {
+    --b: var(--bad);
+    --bt: #fff;
+  }
+  .btn-glass {
+    --b: rgb(255 255 255 / 0.16);
+    --bt: currentColor;
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.22);
+  }
+
+  /* Surfaces */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+  }
+  /* Tappable surface: lifts on hover, presses in on tap. */
+  .lift {
+    transition:
+      transform 0.25s var(--ease-out),
+      box-shadow 0.25s var(--ease-out),
+      border-color 0.2s;
+  }
+  .lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+    border-color: var(--line-2);
+  }
+  .lift:active {
+    transform: translateY(0) scale(0.985);
+    transition-duration: 0.08s;
+  }
+
+  /* Filter chip */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 36px;
+    padding: 0 0.9rem;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    background: var(--card);
+    color: var(--ink-2);
+    box-shadow: inset 0 0 0 1px var(--line-2);
+    transition:
+      background-color 0.2s,
+      color 0.2s,
+      box-shadow 0.2s,
+      transform 0.15s var(--ease-spring);
+  }
+  .chip:hover {
+    color: var(--ink);
+    box-shadow: inset 0 0 0 1px var(--ink-3);
+  }
+  .chip:active {
+    transform: scale(0.95);
+  }
+  .chip[aria-pressed="true"],
+  .chip[aria-current="page"],
+  .chip[data-on="true"] {
+    background: var(--solid);
+    color: var(--on-solid);
+    box-shadow: none;
+  }
 }
 
-/* Tappable card: a soft border that darkens on hover. */
-.tap {
-  border: 1px solid var(--line);
-  transition:
-    transform 0.1s ease,
-    border-color 0.15s;
+/* ---------- Motion ---------- */
+
+.rise {
+  animation: rise 0.5s var(--ease-out) both;
 }
-.tap:hover {
-  border-color: var(--line-strong);
-}
-.tap:active {
-  transform: scale(0.99);
-}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
 }
 
+.pop {
+  animation: pop 0.4s var(--ease-spring) both;
+}
+@keyframes pop {
+  from {
+    transform: scale(0.85);
+    opacity: 0.4;
+  }
+}
+
+.shake {
+  animation: shake 0.45s ease both;
+}
+@keyframes shake {
+  20%,
+  60% {
+    transform: translateX(-7px);
+  }
+  40%,
+  80% {
+    transform: translateX(7px);
+  }
+}
+
+/* Staggered entrance for lists: set --i on each child. */
+.stagger > * {
+  animation: rise 0.55s var(--ease-out) both;
+  animation-delay: 540ms;
+}
+.stagger > :nth-child(1) {
+  animation-delay: 0ms;
+}
+.stagger > :nth-child(2) {
+  animation-delay: 45ms;
+}
+.stagger > :nth-child(3) {
+  animation-delay: 90ms;
+}
+.stagger > :nth-child(4) {
+  animation-delay: 135ms;
+}
+.stagger > :nth-child(5) {
+  animation-delay: 180ms;
+}
+.stagger > :nth-child(6) {
+  animation-delay: 225ms;
+}
+.stagger > :nth-child(7) {
+  animation-delay: 270ms;
+}
+.stagger > :nth-child(8) {
+  animation-delay: 315ms;
+}
+.stagger > :nth-child(9) {
+  animation-delay: 360ms;
+}
+.stagger > :nth-child(10) {
+  animation-delay: 405ms;
+}
+.stagger > :nth-child(11) {
+  animation-delay: 450ms;
+}
+.stagger > :nth-child(12) {
+  animation-delay: 495ms;
+}
+
+/* Live pulse dot */
 .live-dot {
   position: relative;
   width: 8px;
@@ -273,86 +496,117 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: var(--good);
+  background: inherit;
   animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 @keyframes ping {
   75%,
   100% {
-    transform: scale(2.6);
+    transform: scale(2.8);
     opacity: 0;
   }
 }
 
-.rise {
-  animation: rise 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-}
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-}
-
-.pop {
-  animation: pop 0.35s cubic-bezier(0.3, 1.6, 0.5, 1) both;
-}
-@keyframes pop {
-  from {
-    transform: scale(0.85);
-    opacity: 0.4;
-  }
-}
-
-.shake {
-  animation: shake 0.4s ease both;
-}
-@keyframes shake {
-  20%,
-  60% {
-    transform: translateX(-6px);
-  }
-  40%,
-  80% {
-    transform: translateX(6px);
-  }
-}
-
-.wiggle {
-  animation: wiggle 2.4s ease-in-out infinite;
+/* Flame flicker for streaks */
+.flicker {
   transform-origin: 50% 90%;
+  animation: flicker 2.6s ease-in-out infinite;
 }
-@keyframes wiggle {
+@keyframes flicker {
   0%,
-  80%,
   100% {
-    transform: rotate(0);
+    transform: rotate(0) scale(1);
   }
-  85% {
-    transform: rotate(-10deg) scale(1.1);
+  30% {
+    transform: rotate(-4deg) scale(1.06, 0.97);
   }
-  92% {
-    transform: rotate(8deg) scale(1.1);
+  60% {
+    transform: rotate(3deg) scale(0.97, 1.05);
   }
 }
 
-.slide-up {
-  animation: slide-up 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+/* Shimmer for skeletons */
+.skeleton {
+  background: linear-gradient(90deg, var(--card-2) 0%, var(--bg-2) 40%, var(--card-2) 80%) 0 0 / 300% 100%;
+  animation: shimmer 1.6s linear infinite;
 }
-@keyframes slide-up {
+@keyframes shimmer {
+  to {
+    background-position: -150% 0;
+  }
+}
+
+/* Marquee */
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Count-up number: <span class="count" style="--to: 72">  renders 0 → 72. */
+@property --n {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 0;
+}
+.count {
+  --n: var(--to);
+  counter-reset: n var(--n);
+  animation: count 1.2s var(--ease-out) both;
+}
+.count::after {
+  content: counter(n);
+}
+@keyframes count {
   from {
-    transform: translateY(100%);
+    --n: 0;
+  }
+}
+
+/* Ring stroke draws in */
+.ring-draw {
+  animation: ring-draw 1.1s var(--ease-out) both;
+}
+@keyframes ring-draw {
+  from {
+    stroke-dashoffset: var(--ring-c);
+  }
+}
+
+/* Bars grow from zero */
+.grow-x {
+  transform-origin: left;
+  animation: grow-x 0.9s var(--ease-out) both;
+}
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+.grow-y {
+  transform-origin: bottom;
+  animation: grow-y 0.8s var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 50ms);
+}
+@keyframes grow-y {
+  from {
+    transform: scaleY(0);
   }
 }
 
 /* Flashcard flip */
 .flip {
-  perspective: 1200px;
+  perspective: 1400px;
 }
 .flip-inner {
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.55s cubic-bezier(0.3, 1.2, 0.5, 1);
+  transition: transform 0.6s var(--ease-spring);
 }
 .flip-inner.flipped {
   transform: rotateY(180deg);
@@ -389,18 +643,131 @@ body {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .live-dot::after,
-  .rise,
-  .pop,
-  .shake,
-  .wiggle,
-  .slide-up,
-  .confetti {
-    animation: none;
+/* Correct-answer burst ring */
+.burst {
+  position: relative;
+}
+.burst::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 var(--good);
+  animation: burst 0.7s var(--ease-out) forwards;
+  pointer-events: none;
+}
+@keyframes burst {
+  from {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--good) 55%, transparent);
   }
-  .flip-inner {
-    transition: none;
+  to {
+    box-shadow: 0 0 0 14px transparent;
+  }
+}
+
+/* Popovers and toasts fade + scale in on first render. */
+.popover {
+  transition:
+    opacity 0.2s var(--ease-out),
+    transform 0.25s var(--ease-spring);
+  @starting-style {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+}
+
+/* Scroll-driven: reading progress bar and reveal-on-scroll (where supported). */
+.read-progress {
+  transform-origin: left;
+  transform: scaleX(0);
+}
+@supports (animation-timeline: scroll()) {
+  .read-progress {
+    animation: read-progress linear both;
+    animation-timeline: scroll(root);
+  }
+  @keyframes read-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  .reveal {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(18px) scale(0.98);
+    }
+  }
+}
+
+/* Page-to-page crossfade (React <ViewTransition> on the main column). */
+::view-transition {
+  pointer-events: none;
+}
+::view-transition-old(.page-swap) {
+  animation: 140ms ease-in both vt-out;
+}
+::view-transition-new(.page-swap) {
+  animation: 320ms var(--ease-out) 60ms both vt-in;
+}
+/* The header and tab dock stay put while the page underneath swaps. */
+::view-transition-group(app-header),
+::view-transition-group(app-dock) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(app-header),
+::view-transition-old(app-dock) {
+  display: none;
+}
+::view-transition-new(app-header),
+::view-transition-new(app-dock) {
+  animation: none;
+}
+@keyframes vt-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes vt-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee,
+  .reveal,
+  .flicker,
+  .skeleton,
+  .live-dot::after {
+    animation: none !important;
+  }
+  .read-progress {
+    animation-duration: auto !important;
+  }
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
   }
 }
 
@@ -409,4 +776,9 @@ body {
 }
 .no-scrollbar {
   scrollbar-width: none;
+}
+
+/* Edge fade for horizontal scrollers */
+@utility fade-x {
+  mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 24px), transparent 100%);
 }

@@ -1,17 +1,18 @@
 // Shown instantly while a page loads, so taps never feel ignored.
 export default function Loading() {
   return (
-    <div className="animate-pulse space-y-4" aria-busy="true" aria-label="Loading">
-      <div className="h-8 w-48 rounded-xl bg-surface-2" />
-      <div className="h-4 w-72 max-w-full rounded-lg bg-surface-2" />
-      <div className="grid gap-3 sm:grid-cols-2">
-        {Array.from({ length: 4 }, (_, i) => (
-          <div key={i} className="h-28 rounded-3xl border border-line bg-surface" />
+    <div className="space-y-5" aria-busy="true" aria-label="Loading">
+      <div className="skeleton h-3 w-40 rounded-full" />
+      <div className="skeleton h-14 w-72 max-w-full rounded-2xl" />
+      <div className="grid gap-3 lg:grid-cols-12">
+        <div className="skeleton h-[340px] rounded-[24px] lg:col-span-8" />
+        <div className="skeleton h-[340px] rounded-[24px] lg:col-span-4" />
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+        {Array.from({ length: 6 }, (_, i) => (
+          <div key={i} className="skeleton h-44 rounded-[24px]" />
         ))}
       </div>
-      {Array.from({ length: 3 }, (_, i) => (
-        <div key={i} className="h-20 rounded-2xl border border-line bg-surface" />
-      ))}
     </div>
   );
 }

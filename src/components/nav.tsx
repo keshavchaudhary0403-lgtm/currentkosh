@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useId, useRef, useState, useTransition } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useRef, useState, useTransition } from "react";
 import {
   BarChart3,
   BookOpen,
   Bookmark,
   Brain,
+  CalendarRange,
   Check,
   ChevronDown,
   ClipboardList,
@@ -15,32 +16,22 @@ import {
   Library,
   Moon,
   Newspaper,
+  Search,
   Settings,
   Sun,
   Target,
   UserRound,
   Waypoints,
-  CalendarRange,
 } from "lucide-react";
 import { setLang } from "@/app/actions";
 import { InstallSidebarButton } from "./install";
-import { dueCount, streak, useProgress } from "@/lib/progress-store";
+import { activityDays, dueCount, streak, useProgress } from "@/lib/progress-store";
+import { addDays, istDate } from "@/lib/dates";
 import { setTheme, useTheme } from "@/lib/theme";
 import type { Lang } from "@/lib/taxonomy";
+import { cx } from "./ui";
 
-type Labels = Record<"today" | "revise" | "practice" | "tests" | "threads" | "monthly" | "archive" | "progress" | "saved" | "sources" | "settings" | "you", string>;
-
-// Each destination has its own colour so the app feels like distinct "rooms".
-const TONE = {
-  today: { text: "text-accent", soft: "bg-accent-soft" },
-  revise: { text: "text-violet", soft: "bg-violet-soft" },
-  practice: { text: "text-accent-2", soft: "bg-accent-2-soft" },
-  tests: { text: "text-accent-2", soft: "bg-accent-2-soft" },
-  threads: { text: "text-pink", soft: "bg-pink-soft" },
-  monthly: { text: "text-good", soft: "bg-good-soft" },
-  archive: { text: "text-teal", soft: "bg-teal-soft" },
-  you: { text: "text-pink", soft: "bg-pink-soft" },
-} as const;
+export type NavLabels = Record<"today" | "revise" | "practice" | "tests" | "threads" | "monthly" | "archive" | "progress" | "saved" | "sources" | "settings" | "you", string>;
 
 const MAIN = [
   { href: "/", key: "today", icon: Newspaper },
@@ -59,9 +50,7 @@ const MORE = [
   { href: "/settings", key: "settings", icon: Settings },
 ] as const;
 
-const isActive = (path: string, href: string) => (href === "/" ? path === "/" || path.startsWith("/story") : path.startsWith(href));
-
-// Phone tab bar: the four daily destinations plus "You" (progress, saved, storylines, settings…).
+// Phone dock: the four daily destinations plus "You" (progress, saved, storylines, settings…).
 const TABS = [
   { href: "/", key: "today", icon: Newspaper, also: [] as string[] },
   { href: "/revise", key: "revise", icon: Brain, also: [] as string[] },
@@ -70,92 +59,179 @@ const TABS = [
   { href: "/me", key: "you", icon: UserRound, also: ["/progress", "/saved", "/threads", "/thread", "/monthly", "/sources", "/settings"] },
 ] as const;
 
-export function Sidebar({ labels, youLabel, lang }: { labels: Labels; youLabel: string; lang: Lang }) {
+const isActive = (path: string, href: string) => (href === "/" ? path === "/" || path.startsWith("/story") : path.startsWith(href));
+
+/** Tests and revision sessions are focus mode: no sidebar, header or dock. */
+export const isFocus = (path: string) => path.startsWith("/practice/run") || path.startsWith("/revise/session") || /^\/monthly\/[^/]+\/test/.test(path);
+
+export function Sidebar({ labels, lang }: { labels: NavLabels; lang: Lang }) {
   const path = usePathname();
   const p = useProgress();
   const due = dueCount(p);
-  const days = streak(p);
+  if (isFocus(path)) return null;
   return (
-    <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-line bg-surface px-4 py-5 lg:flex">
-      <Link href="/" className="mb-7 px-2">
+    <aside className="sticky top-0 hidden h-dvh w-[252px] shrink-0 flex-col border-r border-line px-4 pt-5 pb-4 lg:flex">
+      <Link href="/" className="mb-8 px-2" aria-label="CurrentKosh home">
         <Wordmark lang={lang} />
       </Link>
-      <nav className="flex flex-col gap-1">
+      <nav className="flex flex-col gap-0.5" aria-label="Main">
         {MAIN.map(({ href, key, icon: Icon }) => {
           const active = isActive(path, href);
-          const tone = TONE[key];
           return (
             <Link
               key={href}
               href={href}
-              className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-[15px] font-bold transition ${active ? `${tone.soft} ${tone.text}` : "text-ink-2 hover:bg-surface-2 hover:text-ink"}`}
+              aria-current={active ? "page" : undefined}
+              className={cx(
+                "group relative flex h-11 items-center gap-3 rounded-2xl px-3 text-[15px] font-semibold transition-colors",
+                active ? "bg-solid text-on-solid" : "text-ink-2 hover:bg-card hover:text-ink",
+              )}
             >
-              <Icon className="size-5" strokeWidth={active ? 2 : 1.75} />
+              <Icon className={cx("size-[19px] transition-transform group-hover:scale-110", active && "text-solid-accent")} strokeWidth={active ? 2.2 : 1.8} />
               {labels[key]}
-              {key === "revise" && due > 0 && <span className="ml-auto rounded-full bg-violet px-2 py-0.5 text-xs font-extrabold text-white">{due}</span>}
+              {key === "revise" && due > 0 && (
+                <span className={cx("ml-auto rounded-full px-2 text-xs leading-5 font-bold tnum", active ? "bg-solid-accent text-solid" : "bg-cobalt text-white")}>{due}</span>
+              )}
             </Link>
           );
         })}
       </nav>
-      <div className="mt-7 mb-2 px-3 text-xs font-bold text-ink-3">{youLabel}</div>
-      <nav className="flex flex-col gap-0.5">
+      <div className="eyebrow mt-8 mb-2 px-3 text-ink-3">{labels.you}</div>
+      <nav className="flex flex-col gap-0.5" aria-label="You">
         {MORE.map(({ href, key, icon: Icon }) => {
           const active = isActive(path, href);
           return (
             <Link
               key={href}
               href={href}
-              className={`flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition ${active ? "bg-surface-2 text-ink" : "text-ink-2 hover:bg-surface-2 hover:text-ink"}`}
+              aria-current={active ? "page" : undefined}
+              className={cx("flex h-10 items-center gap-3 rounded-2xl px-3 text-sm font-medium transition-colors", active ? "bg-card text-ink shadow-[inset_0_0_0_1px_var(--line-2)]" : "text-ink-2 hover:bg-card hover:text-ink")}
             >
-              <Icon className="size-4" strokeWidth={2} />
+              <Icon className="size-4" strokeWidth={1.9} />
               {labels[key]}
             </Link>
           );
         })}
       </nav>
-      <div className="mt-auto">
+      <div className="mt-auto space-y-3">
         <InstallSidebarButton />
-      </div>
-      <div className="flex items-center gap-3 rounded-2xl bg-accent-2-soft p-4">
-        <Flame className={`size-8 shrink-0 text-accent-2 ${days > 0 ? "wiggle" : ""}`} strokeWidth={2} />
-        <div>
-          <div className="font-display text-xl leading-none text-accent-2">
-            {days} {days === 1 ? "day" : "days"}
-          </div>
-          <div className="mt-1 text-xs font-semibold text-ink-2">
-            {days > 0 ? "of steady study. Small daily steps add up." : "Read a story today to begin."}
-          </div>
-        </div>
+        <StreakCard />
       </div>
     </aside>
   );
 }
 
-export function BottomNav({ labels }: { labels: Labels }) {
+/** Dark streak widget: flame, day count and the last seven days as dots. */
+function StreakCard() {
+  const p = useProgress();
+  const days = streak(p);
+  const activity = activityDays(p);
+  const today = istDate();
+  const week = Array.from({ length: 7 }, (_, i) => addDays(today, i - 6));
+  return (
+    <Link href="/progress" className="lift block rounded-[22px] bg-[#10110e] p-4 text-[#f3f2ec] dark:bg-card dark:shadow-[inset_0_0_0_1px_var(--line-2)]">
+      <div className="flex items-center gap-3">
+        <span className="grid size-11 place-items-center rounded-2xl bg-[#c8f135] text-[#10110e]">
+          <Flame className={cx("size-6", days > 0 && "flicker")} strokeWidth={2.2} />
+        </span>
+        <div>
+          <div className="font-display text-[32px] leading-none tnum">{days}</div>
+          <div className="text-xs text-white/60">{days === 1 ? "day streak" : "day streak"}</div>
+        </div>
+      </div>
+      <div className="mt-4 flex justify-between">
+        {week.map((d) => {
+          const on = (activity.get(d) ?? 0) > 0;
+          return (
+            <span key={d} className="flex flex-col items-center gap-1.5">
+              <span className={cx("size-5 rounded-full transition", on ? "bg-[#c8f135] shadow-[0_0_12px_rgb(200_241_53/0.5)]" : "bg-white/10", d === today && !on && "ring-1 ring-white/40")} />
+              <span className="font-mono text-[10px] text-white/45">{new Date(`${d}T00:00:00Z`).toLocaleDateString("en-IN", { weekday: "narrow", timeZone: "UTC" })}</span>
+            </span>
+          );
+        })}
+      </div>
+    </Link>
+  );
+}
+
+/** Sticky glass top bar: brand (phones), search (desktop), exam chips, saved, language and theme. */
+export function AppHeader({ lang, chips }: { lang: Lang; chips: React.ReactNode }) {
+  const path = usePathname();
+  const router = useRouter();
+  const input = useRef<HTMLInputElement>(null);
+  const ui = lang === "bi" ? "en" : lang;
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        if (input.current && input.current.offsetParent) input.current.focus();
+        else router.push("/library");
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [router]);
+  if (isFocus(path)) return null;
+  return (
+    <header className="glass sticky top-0 z-30 border-b border-line" style={{ viewTransitionName: "app-header" }}>
+      <div className="mx-auto flex h-16 max-w-[1240px] items-center gap-3 px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="lg:hidden" aria-label="CurrentKosh home">
+          <Wordmark size={30} text={19} lang={lang} />
+        </Link>
+        <form action="/library" className="hidden w-full max-w-sm lg:block" role="search">
+          <label className="group flex h-11 items-center gap-2.5 rounded-full bg-card px-4 shadow-[inset_0_0_0_1px_var(--line-2)] transition focus-within:shadow-[inset_0_0_0_2px_var(--ink)]">
+            <Search className="size-4 text-ink-3" />
+            <input ref={input} name="q" placeholder={ui === "hi" ? "हर ख़बर में खोजें…" : "Search every story…"} className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-ink-3" aria-label="Search stories" />
+            <kbd className="eyebrow rounded-md bg-card-2 px-1.5 py-0.5 text-ink-3">⌘K</kbd>
+          </label>
+        </form>
+        <div className="no-scrollbar hidden min-w-0 items-center gap-1.5 overflow-x-auto md:flex">{chips}</div>
+        <div className="ml-auto flex items-center gap-2">
+          <SavedLink />
+          <LangMenu lang={lang} />
+          <ThemeToggle />
+        </div>
+      </div>
+    </header>
+  );
+}
+
+export function BottomNav({ labels }: { labels: NavLabels }) {
   const path = usePathname();
   const due = dueCount(useProgress());
-  // Tests and revision sessions are focus mode: no tab bar.
-  if (path.startsWith("/practice/run") || path.startsWith("/revise/session") || /^\/monthly\/[^/]+\/test/.test(path)) return null;
+  // Focus mode and story pages (which have their own action dock) hide the tab dock.
+  if (isFocus(path) || path.startsWith("/story/")) return null;
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] lg:hidden">
-      <div className="mx-auto grid max-w-lg grid-cols-5 px-1">
+    <nav
+      aria-label="Tabs"
+      className="pointer-events-none fixed inset-x-0 bottom-0 z-40 flex justify-center px-3 pb-[calc(10px+env(safe-area-inset-bottom))] lg:hidden"
+      style={{ viewTransitionName: "app-dock" }}
+    >
+      <div className="pointer-events-auto flex items-center gap-1 rounded-full bg-dock p-1.5 shadow-float ring-1 ring-white/10 backdrop-blur-xl">
         {TABS.map(({ href, key, icon: Icon, also }) => {
           const active = isActive(path, href) || also.some((p) => path.startsWith(p));
-          const tone = TONE[key];
           return (
             <Link
               key={href}
               href={href}
-              className={`relative flex flex-col items-center gap-0.5 pt-1.5 pb-1.5 text-xs font-bold ${active ? tone.text : "text-ink-3"}`}
+              aria-label={labels[key]}
+              aria-current={active ? "page" : undefined}
+              className={cx(
+                "relative flex h-12 items-center justify-center rounded-full transition-all duration-500 ease-[cubic-bezier(.34,1.56,.64,1)] active:scale-90",
+                active ? "bg-signal px-4 text-on-signal" : "w-12 text-on-dock/65 hover:text-on-dock",
+              )}
             >
-              <span className={`grid h-8 w-12 place-items-center rounded-full transition ${active ? `${tone.soft} pop` : ""}`}>
-                <Icon className="size-[22px]" strokeWidth={active ? 2 : 1.75} />
+              <Icon className="size-[21px] shrink-0" strokeWidth={active ? 2.3 : 1.9} />
+              <span
+                className={cx(
+                  "overflow-hidden text-sm font-semibold whitespace-nowrap transition-all duration-500",
+                  active ? "ml-2 max-w-[120px] opacity-100" : "max-w-0 opacity-0",
+                )}
+              >
+                {labels[key]}
               </span>
-              {labels[key]}
-              {key === "revise" && due > 0 && (
-                <span className="absolute top-0.5 left-1/2 ml-2.5 grid min-w-[18px] place-items-center rounded-full border-2 border-surface bg-violet px-1 text-xs leading-[14px] font-extrabold text-white">
-                  {due}
-                </span>
+              {key === "revise" && due > 0 && !active && (
+                <span className="absolute top-1.5 right-1.5 grid min-w-[17px] place-items-center rounded-full bg-cobalt px-1 text-[10px] leading-[17px] font-bold text-white tnum">{due > 99 ? "99+" : due}</span>
               )}
             </Link>
           );
@@ -181,8 +257,13 @@ export function LangMenu({ lang }: { lang: Lang }) {
     const close = (e: MouseEvent) => {
       if (!ref.current?.contains(e.target as Node)) setOpen(false);
     };
+    const esc = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     document.addEventListener("click", close);
-    return () => document.removeEventListener("click", close);
+    document.addEventListener("keydown", esc);
+    return () => {
+      document.removeEventListener("click", close);
+      document.removeEventListener("keydown", esc);
+    };
   }, [open]);
   const current = LANGS.find((l) => l.v === lang) ?? LANGS[0];
   return (
@@ -192,13 +273,13 @@ export function LangMenu({ lang }: { lang: Lang }) {
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label="Reading language"
-        className={`flex h-9 items-center gap-1 rounded-full border border-line bg-surface px-3 text-xs font-bold text-ink-2 hover:text-ink ${pending ? "opacity-60" : ""}`}
+        className={cx("flex h-11 items-center gap-1 rounded-full bg-card px-3.5 text-xs font-semibold text-ink shadow-[inset_0_0_0_1px_var(--line-2)] transition active:scale-95", pending && "opacity-60")}
       >
         {current.short}
-        <ChevronDown className="size-3.5" />
+        <ChevronDown className={cx("size-3.5 transition", open && "rotate-180")} />
       </button>
       {open && (
-        <div role="menu" className="pop absolute right-0 z-50 mt-2 w-48 overflow-hidden rounded-2xl border border-line bg-surface p-1.5 shadow-xl">
+        <div role="menu" className="popover absolute right-0 z-50 mt-2 w-52 overflow-hidden rounded-[20px] border border-line bg-card p-1.5 shadow-float">
           {LANGS.map((l) => (
             <button
               key={l.v}
@@ -208,10 +289,14 @@ export function LangMenu({ lang }: { lang: Lang }) {
                 setOpen(false);
                 if (l.v !== lang) start(() => setLang(l.v));
               }}
-              className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-sm font-semibold hover:bg-surface-2"
+              className="flex min-h-11 w-full items-center justify-between rounded-2xl px-3 text-left text-sm font-medium hover:bg-card-2"
             >
               {l.label}
-              {l.v === lang && <Check className="size-4 text-accent" />}
+              {l.v === lang && (
+                <span className="grid size-5 place-items-center rounded-full bg-signal text-on-signal">
+                  <Check className="size-3.5" strokeWidth={3} />
+                </span>
+              )}
             </button>
           ))}
         </div>
@@ -220,17 +305,18 @@ export function LangMenu({ lang }: { lang: Lang }) {
   );
 }
 
-/** Language choice as a row of buttons (the "You" page). */
+/** Language choice as a segmented control (the "You" page). */
 export function LangPicker({ lang }: { lang: Lang }) {
   const [pending, start] = useTransition();
   return (
-    <div className={`grid grid-cols-3 gap-2 ${pending ? "opacity-60" : ""}`}>
+    <div className={cx("grid grid-cols-3 gap-1 rounded-full bg-card-2 p-1", pending && "opacity-60")} role="radiogroup" aria-label="Reading language">
       {LANGS.map((l) => (
         <button
           key={l.v}
+          role="radio"
           onClick={() => l.v !== lang && start(() => setLang(l.v))}
-          aria-pressed={l.v === lang}
-          className={`rounded-xl border-2 px-2 py-2.5 text-sm font-bold transition ${l.v === lang ? "border-accent bg-accent-soft text-accent" : "border-line bg-surface text-ink-2"}`}
+          aria-checked={l.v === lang}
+          className={cx("h-10 rounded-full px-2 text-sm font-semibold transition", l.v === lang ? "bg-solid text-on-solid shadow-card" : "text-ink-2 hover:text-ink")}
         >
           {l.short}
         </button>
@@ -249,14 +335,14 @@ export function SavedLink() {
       href="/saved"
       aria-label={`Saved (${n})`}
       title="Saved"
-      className={`relative grid size-9 place-items-center rounded-full border-2 transition active:scale-90 ${active ? "border-violet bg-violet-soft text-violet" : "border-line bg-surface text-ink-2 hover:text-ink"}`}
+      className={cx(
+        "relative grid size-11 place-items-center rounded-full transition active:scale-90",
+        active ? "bg-solid text-on-solid" : "bg-card text-ink shadow-[inset_0_0_0_1px_var(--line-2)] hover:shadow-[inset_0_0_0_1px_var(--ink-3)]",
+      )}
     >
-      <Bookmark className="size-4" strokeWidth={2} />
+      <Bookmark className="size-[18px]" strokeWidth={2} />
       {n > 0 && (
-        <span
-          key={n}
-          className="pop absolute -top-1.5 -right-1.5 grid min-w-[18px] place-items-center rounded-full border-2 border-surface bg-violet px-1 text-xs leading-[14px] font-extrabold text-white"
-        >
+        <span key={n} className="pop absolute -top-0.5 -right-0.5 grid min-w-[18px] place-items-center rounded-full bg-signal px-1 text-[10px] leading-[18px] font-bold text-on-signal ring-2 ring-bg tnum">
           {n}
         </span>
       )}
@@ -270,49 +356,52 @@ export function ThemeToggle() {
   const dark = theme === "dark";
   return (
     <button
-      onClick={() => setTheme(dark ? "light" : "dark")}
+      onClick={() => {
+        const flip = () => setTheme(dark ? "light" : "dark");
+        // Cross-fade the whole page between themes where the browser supports it.
+        const doc = document as Document & { startViewTransition?: (cb: () => void) => unknown };
+        if (doc.startViewTransition && !matchMedia("(prefers-reduced-motion: reduce)").matches) doc.startViewTransition(flip);
+        else flip();
+      }}
       aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
       title={dark ? "Light theme" : "Dark theme"}
-      className="grid size-9 place-items-center rounded-full border border-line bg-surface text-ink-2 transition hover:text-ink active:scale-90"
+      className="grid size-11 place-items-center overflow-hidden rounded-full bg-card text-ink shadow-[inset_0_0_0_1px_var(--line-2)] transition hover:shadow-[inset_0_0_0_1px_var(--ink-3)] active:scale-90"
     >
-      {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
+      <span key={theme} className="pop">
+        {dark ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
+      </span>
     </button>
   );
 }
 
-/** CurrentKosh mark: an open book (kosh, a treasury of knowledge) with a dot for "current"; first-version gradient. */
+/** CurrentKosh mark: an ink tile with three lines of a brief and a lime "live" signal dot. */
 export function Logo({ size = 28 }: { size?: number }) {
-  const id = useId();
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden className="shrink-0">
-      <defs>
-        <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#5a48f5" />
-          <stop offset="1" stopColor="#ff7a3d" />
-        </linearGradient>
-      </defs>
-      <rect width="32" height="32" rx="9" fill={`url(#${id})`} />
-      <path
-        d="M7 11.2c3-1.4 6.1-1.2 9 .9 2.9-2.1 6-2.3 9-.9v11.1c-3-1.4-6.1-1.2-9 .9-2.9-2.1-6-2.3-9-.9z"
-        fill="none"
-        stroke="#fff"
-        strokeWidth="2"
-        strokeLinejoin="round"
-      />
-      <path d="M16 12.2v10.9" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="25" cy="7" r="3" fill="#fff" />
-      <circle cx="25" cy="7" r="1.5" fill="#ff7a3d" />
+      <rect width="32" height="32" rx="9.5" fill="#10110e" />
+      <rect x="0.5" y="0.5" width="31" height="31" rx="9" fill="none" stroke="rgb(255 255 255 / 0.12)" />
+      <rect x="7" y="10" width="11" height="3" rx="1.5" fill="#f3f2ec" />
+      <rect x="7" y="15" width="18" height="3" rx="1.5" fill="#f3f2ec" />
+      <rect x="7" y="20" width="14" height="3" rx="1.5" fill="#f3f2ec" opacity="0.55" />
+      <circle cx="23.5" cy="11.5" r="3.5" fill="#c8f135" />
     </svg>
   );
 }
 
-/** Logo + name. Sizes follow the app's scale: logo 32 / name 20 on desktop, 28 / 18 on phones. */
-export function Wordmark({ size = 32, text = 20, lang = "en" }: { size?: number; text?: number; lang?: Lang }) {
+/** Logo + name: "Current" in the UI face, "Kosh" in serif italic. */
+export function Wordmark({ size = 32, text = 21, lang = "en" }: { size?: number; text?: number; lang?: Lang }) {
   return (
     <span className="flex items-center gap-2.5">
       <Logo size={size} />
-      <span className="font-display leading-none" style={{ fontSize: text }}>
-        Current<span className="grad-text">{lang === "en" ? "Kosh" : "कोश"}</span>
+      <span className="leading-none font-semibold tracking-[-0.03em]" style={{ fontSize: text }}>
+        Current
+        {lang === "en" ? (
+          <span className="font-serif font-normal tracking-[-0.01em] italic">Kosh</span>
+        ) : (
+          <span lang="hi" className="font-serif font-medium">
+            कोश
+          </span>
+        )}
       </span>
     </span>
   );

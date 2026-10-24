@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { ViewTransition } from "react";
 import { NavTracker } from "@/components/back-button";
 import { LangProvider } from "@/components/lang-context";
-import { BottomNav, LangMenu, SavedLink, Sidebar, ThemeToggle, Wordmark } from "@/components/nav";
+import { AppHeader, BottomNav, Sidebar, type NavLabels } from "@/components/nav";
 import { t } from "@/lib/i18n";
 import { currentProfile } from "@/lib/profile";
 import { examById, pick, stateById } from "@/lib/taxonomy";
@@ -11,7 +12,7 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
   const profile = await currentProfile();
   if (!profile) redirect("/welcome");
   const lang = profile.lang;
-  const labels = {
+  const labels: NavLabels = {
     today: t("today", lang),
     revise: t("revise", lang),
     practice: t("practice", lang),
@@ -26,35 +27,33 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
     you: lang === "hi" ? "आप" : "You",
   };
   const ui = lang === "bi" ? "en" : lang;
+  const chips = (
+    <Link href="/settings" className="flex items-center gap-1.5" title={ui === "hi" ? "परीक्षाएँ बदलें" : "Change exams"}>
+      {profile.exams.map((e) => (
+        <span key={e} className="inline-flex h-8 items-center rounded-full bg-card-2 px-3 text-xs font-semibold whitespace-nowrap text-ink-2 shadow-[inset_0_0_0_1px_var(--line)] transition hover:text-ink">
+          {pick(examById(e)?.label, ui)}
+        </span>
+      ))}
+      {profile.state && (
+        <span className="inline-flex h-8 items-center gap-1.5 rounded-full bg-card-2 px-3 text-xs font-semibold whitespace-nowrap text-ink-2 shadow-[inset_0_0_0_1px_var(--line)]">
+          <span className="size-1.5 rounded-full bg-mint" />
+          {pick(stateById(profile.state)?.label, ui)}
+        </span>
+      )}
+    </Link>
+  );
 
   return (
     <div className="flex min-h-dvh">
-      <Sidebar labels={labels} youLabel={ui === "hi" ? "आप" : "You"} lang={lang} />
+      <Sidebar labels={labels} lang={lang} />
       <div className="min-w-0 flex-1">
-        <header className="sticky top-0 z-30 border-b border-line bg-(--glass) backdrop-blur-xl">
-          <div className="mx-auto flex h-14 max-w-6xl items-center gap-2 px-4 sm:gap-3 sm:px-6">
-            <Link href="/" className="lg:hidden" aria-label="CurrentKosh home">
-              <Wordmark size={28} text={18} lang={lang} />
-            </Link>
-            <Link href="/settings" className="no-scrollbar hidden min-w-0 items-center gap-1.5 overflow-x-auto sm:flex">
-              {profile.exams.map((e) => (
-                <span key={e} className="rounded-full bg-accent-soft px-2.5 py-1 text-xs font-bold whitespace-nowrap text-accent">
-                  {pick(examById(e)?.label, ui)}
-                </span>
-              ))}
-              {profile.state && (
-                <span className="rounded-full bg-teal-soft px-2.5 py-1 text-xs font-bold whitespace-nowrap text-teal">{pick(stateById(profile.state)?.label, ui)}</span>
-              )}
-            </Link>
-            <div className="ml-auto flex items-center gap-2">
-              <SavedLink />
-              <LangMenu lang={lang} />
-              <ThemeToggle />
-            </div>
-          </div>
-        </header>
-        <main className="mx-auto max-w-6xl px-4 pt-4 pb-28 sm:px-6 sm:pt-8 lg:pb-16">
-          <LangProvider lang={lang}>{children}</LangProvider>
+        <AppHeader lang={lang} chips={chips} />
+        <main className="mx-auto max-w-[1240px] px-4 pt-5 pb-32 sm:px-6 sm:pt-8 lg:px-8 lg:pb-16">
+          <LangProvider lang={lang}>
+            <ViewTransition update="page-swap" default="none">
+              <div>{children}</div>
+            </ViewTransition>
+          </LangProvider>
         </main>
       </div>
       <BottomNav labels={labels} />

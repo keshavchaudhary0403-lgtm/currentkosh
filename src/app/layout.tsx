@@ -1,14 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Geist, Geist_Mono, Noto_Sans_Devanagari } from "next/font/google";
+import { Instrument_Sans, Instrument_Serif, JetBrains_Mono, Noto_Sans_Devanagari, Noto_Serif_Devanagari } from "next/font/google";
 import { currentProfile } from "@/lib/profile";
 import { PwaSetup } from "@/components/install";
 import "./globals.css";
 
-// Geist (variable) for English and numbers; Noto Sans Devanagari (variable) for Hindi.
-const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
-const display = Bricolage_Grotesque({ variable: "--font-display-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+// Instrument Sans for UI and body, Instrument Serif for display, JetBrains Mono for labels and numbers.
+// Noto Sans / Serif Devanagari carry Hindi in the matching roles.
+const ui = Instrument_Sans({ variable: "--font-ui", subsets: ["latin"], axes: ["wdth"] });
+const serif = Instrument_Serif({ variable: "--font-serif", subsets: ["latin"], weight: "400", style: ["normal", "italic"] });
+const mono = JetBrains_Mono({ variable: "--font-mono-ui", subsets: ["latin"] });
 const deva = Noto_Sans_Devanagari({ variable: "--font-deva", subsets: ["devanagari"] });
+const devaSerif = Noto_Serif_Devanagari({ variable: "--font-deva-serif", subsets: ["devanagari"], preload: false });
 
 export const metadata: Metadata = {
   title: { default: "CurrentKosh — Current affairs, made exam-ready", template: "%s · CurrentKosh" },
@@ -28,24 +30,24 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f7f7fb" },
-    { media: "(prefers-color-scheme: dark)", color: "#151a2e" },
+    { media: "(prefers-color-scheme: light)", color: "#f3f2ec" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0c0a" },
   ],
   viewportFit: "cover",
 };
 
-// Applies the saved theme (light by default) before first paint so there is no flash.
-const themeScript = `try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){}`;
+// Applies the saved theme before first paint so there is no flash; with no saved choice, follows the system.
+const themeScript = `try{var t=localStorage.getItem("theme");document.documentElement.dataset.theme=t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light"}catch(e){}`;
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
-  // In Hindi mode Devanagari is the main font; Geist still renders anything Latin (names, numbers, acronyms).
+  // In Hindi mode Devanagari is the main font; Instrument Sans still renders anything Latin (names, numbers, acronyms).
   const lang = (await currentProfile())?.lang === "hi" ? "hi" : "en";
   return (
     <html
       lang={lang}
       data-theme="light"
       suppressHydrationWarning
-      className={`${geist.variable} ${display.variable} ${geistMono.variable} ${deva.variable} h-full antialiased`}
+      className={`${ui.variable} ${serif.variable} ${mono.variable} ${deva.variable} ${devaSerif.variable} h-full antialiased`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
