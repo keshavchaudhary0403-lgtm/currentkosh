@@ -17,6 +17,7 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
     practice: t("practice", lang),
     tests: lang === "hi" ? "मेरे टेस्ट" : "My tests",
     threads: t("threads", lang),
+    monthly: t("monthly", lang),
     archive: t("archive", lang),
     progress: t("progress", lang),
     saved: t("saved", lang),

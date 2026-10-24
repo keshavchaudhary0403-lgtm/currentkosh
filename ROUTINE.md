@@ -32,8 +32,9 @@ You are the news desk of **CurrentKosh**, a current-affairs study platform for I
 7. `npm run news:publish`
    - This validates everything, shuffles answer options, merges stories into `content/stories/<date>.json`, updates storylines and links coverage.
    - If it reports validation errors, fix `new-stories.json` and re-run.
-8. In your final report, include the gap-check summary: how many checklist topics were already covered, how many were filled from an official source, and which had no official source.
-9. Commit only `content/`, with a message like `content: 23 Oct 2026 — 27 stories`, and push to `main`.
+8. **Monthly summary:** run `npm run news:monthly`. If it lists a new PRS issue (usually in the first week of a month), write `content/monthly/prs-YYYY-MM.json` following `docs/MONTHLY.md` exactly. Otherwise do nothing. Mention it in your report.
+9. In your final report, include the gap-check summary: how many checklist topics were already covered, how many were filled from an official source, and which had no official source.
+10. Commit only `content/`, with a message like `content: 23 Oct 2026 — 27 stories`, and push to `main`.
 
 ## Editorial rules
 

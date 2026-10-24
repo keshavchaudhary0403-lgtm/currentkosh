@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { BarChart3, BookOpen, Bookmark, ChevronRight, ClipboardList, GraduationCap, Settings, Waypoints } from "lucide-react";
+import { BarChart3, BookOpen, Bookmark, ChevronRight, ClipboardList, GraduationCap, Settings, Waypoints, CalendarRange } from "lucide-react";
 import { InstallCard } from "@/components/install";
 import { MyStats } from "@/components/my-stats";
 import { ResetProgress } from "@/components/reset-progress";
@@ -45,6 +45,13 @@ export default async function Me() {
       icon: Waypoints,
       label: ui === "hi" ? "घटनाक्रम" : "Timelines",
       hint: ui === "hi" ? "एक मुद्दे की पूरी कहानी, क्रम से" : "Follow an issue from start to now",
+    },
+    {
+      href: "/monthly",
+      tone: "bg-teal-soft text-teal",
+      icon: CalendarRange,
+      label: ui === "hi" ? "मासिक" : "Monthly",
+      hint: ui === "hi" ? "हर महीने के नीतिगत बदलाव और टेस्ट" : "Each month's policy changes, with a test",
     },
     {
       href: "/sources",

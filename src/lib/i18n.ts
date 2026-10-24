@@ -5,6 +5,7 @@ const STRINGS = {
   revise: { en: "Revise", hi: "दोहराएँ" },
   practice: { en: "Practice", hi: "अभ्यास" },
   threads: { en: "Timelines", hi: "घटनाक्रम" },
+  monthly: { en: "Monthly", hi: "मासिक" },
   archive: { en: "Library", hi: "लाइब्रेरी" },
   progress: { en: "Progress", hi: "प्रगति" },
   saved: { en: "Saved", hi: "सहेजे गए" },

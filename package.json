@@ -14,7 +14,8 @@
     "backfill:fetch": "tsx scripts/backfill-fetch.mts",
     "backfill:publish": "tsx scripts/backfill-publish.mts",
     "threads:merge": "tsx scripts/merge-threads.mts",
-    "news:gaps": "tsx scripts/news-gaps.mts"
+    "news:gaps": "tsx scripts/news-gaps.mts",
+    "news:monthly": "tsx scripts/news-monthly.mts"
   },
   "dependencies": {
     "lucide-react": "^1.61.0",

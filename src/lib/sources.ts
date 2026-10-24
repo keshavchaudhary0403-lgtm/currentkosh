@@ -101,10 +101,10 @@ export const SOURCES: Source[] = [
     name: "PRS Legislative Research",
     short: "PRS",
     kind: "publication",
-    mode: "reference",
+    mode: "ai",
     homepage: "https://prsindia.org",
-    caPage: "https://prsindia.org/billtrack",
-    license: "CC BY 4.0. Bill-tracker ingestion is planned (crawl-delay 10s).",
+    caPage: "https://prsindia.org/policy/monthly-policy-review",
+    license: "CC BY 4.0. Monthly Policy Review summarised each month, with credit and a link back (crawl-delay 10s respected).",
   },
   {
     id: "yojana",

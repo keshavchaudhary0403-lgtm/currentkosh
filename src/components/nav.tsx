@@ -3,14 +3,32 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState, useTransition } from "react";
-import { BarChart3, BookOpen, Bookmark, Brain, Check, ChevronDown, ClipboardList, Flame, Library, Moon, Newspaper, Settings, Sun, Target, UserRound, Waypoints } from "lucide-react";
+import {
+  BarChart3,
+  BookOpen,
+  Bookmark,
+  Brain,
+  Check,
+  ChevronDown,
+  ClipboardList,
+  Flame,
+  Library,
+  Moon,
+  Newspaper,
+  Settings,
+  Sun,
+  Target,
+  UserRound,
+  Waypoints,
+  CalendarRange,
+} from "lucide-react";
 import { setLang } from "@/app/actions";
 import { InstallSidebarButton } from "./install";
 import { dueCount, streak, useProgress } from "@/lib/progress-store";
 import { setTheme, useTheme } from "@/lib/theme";
 import type { Lang } from "@/lib/taxonomy";
 
-type Labels = Record<"today" | "revise" | "practice" | "tests" | "threads" | "archive" | "progress" | "saved" | "sources" | "settings" | "you", string>;
+type Labels = Record<"today" | "revise" | "practice" | "tests" | "threads" | "monthly" | "archive" | "progress" | "saved" | "sources" | "settings" | "you", string>;
 
 // Each destination has its own colour so the app feels like distinct "rooms".
 const TONE = {
@@ -19,6 +37,7 @@ const TONE = {
   practice: { text: "text-accent-2", soft: "bg-accent-2-soft" },
   tests: { text: "text-accent-2", soft: "bg-accent-2-soft" },
   threads: { text: "text-pink", soft: "bg-pink-soft" },
+  monthly: { text: "text-good", soft: "bg-good-soft" },
   archive: { text: "text-teal", soft: "bg-teal-soft" },
   you: { text: "text-pink", soft: "bg-pink-soft" },
 } as const;
@@ -29,6 +48,7 @@ const MAIN = [
   { href: "/practice", key: "practice", icon: Target },
   { href: "/tests", key: "tests", icon: ClipboardList },
   { href: "/threads", key: "threads", icon: Waypoints },
+  { href: "/monthly", key: "monthly", icon: CalendarRange },
   { href: "/library", key: "archive", icon: Library },
 ] as const;
 
@@ -47,7 +67,7 @@ const TABS = [
   { href: "/revise", key: "revise", icon: Brain, also: [] as string[] },
   { href: "/practice", key: "practice", icon: Target, also: ["/tests"] as string[] },
   { href: "/library", key: "archive", icon: Library, also: [] as string[] },
-  { href: "/me", key: "you", icon: UserRound, also: ["/progress", "/saved", "/threads", "/thread", "/sources", "/settings"] },
+  { href: "/me", key: "you", icon: UserRound, also: ["/progress", "/saved", "/threads", "/thread", "/monthly", "/sources", "/settings"] },
 ] as const;
 
 export function Sidebar({ labels, youLabel, lang }: { labels: Labels; youLabel: string; lang: Lang }) {
@@ -82,7 +102,11 @@ export function Sidebar({ labels, youLabel, lang }: { labels: Labels; youLabel: 
         {MORE.map(({ href, key, icon: Icon }) => {
           const active = isActive(path, href);
           return (
-            <Link key={href} href={href} className={`flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition ${active ? "bg-surface-2 text-ink" : "text-ink-2 hover:bg-surface-2 hover:text-ink"}`}>
+            <Link
+              key={href}
+              href={href}
+              className={`flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition ${active ? "bg-surface-2 text-ink" : "text-ink-2 hover:bg-surface-2 hover:text-ink"}`}
+            >
               <Icon className="size-4" strokeWidth={2} />
               {labels[key]}
             </Link>
@@ -98,7 +122,9 @@ export function Sidebar({ labels, youLabel, lang }: { labels: Labels; youLabel: 
           <div className="font-display text-xl leading-none text-accent-2">
             {days} {days === 1 ? "day" : "days"}
           </div>
-          <div className="mt-1 text-xs font-semibold text-ink-2">{days > 0 ? "of steady study. Small daily steps add up." : "Read a story today to begin."}</div>
+          <div className="mt-1 text-xs font-semibold text-ink-2">
+            {days > 0 ? "of steady study. Small daily steps add up." : "Read a story today to begin."}
+          </div>
         </div>
       </div>
     </aside>
@@ -109,7 +135,7 @@ export function BottomNav({ labels }: { labels: Labels }) {
   const path = usePathname();
   const due = dueCount(useProgress());
   // Tests and revision sessions are focus mode: no tab bar.
-  if (path.startsWith("/practice/run") || path.startsWith("/revise/session")) return null;
+  if (path.startsWith("/practice/run") || path.startsWith("/revise/session") || /^\/monthly\/[^/]+\/test/.test(path)) return null;
   return (
     <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] lg:hidden">
       <div className="mx-auto grid max-w-lg grid-cols-5 px-1">
@@ -117,7 +143,11 @@ export function BottomNav({ labels }: { labels: Labels }) {
           const active = isActive(path, href) || also.some((p) => path.startsWith(p));
           const tone = TONE[key];
           return (
-            <Link key={href} href={href} className={`relative flex flex-col items-center gap-0.5 pt-1.5 pb-1.5 text-xs font-bold ${active ? tone.text : "text-ink-3"}`}>
+            <Link
+              key={href}
+              href={href}
+              className={`relative flex flex-col items-center gap-0.5 pt-1.5 pb-1.5 text-xs font-bold ${active ? tone.text : "text-ink-3"}`}
+            >
               <span className={`grid h-8 w-12 place-items-center rounded-full transition ${active ? `${tone.soft} pop` : ""}`}>
                 <Icon className="size-[22px]" strokeWidth={active ? 2 : 1.75} />
               </span>
@@ -223,7 +253,10 @@ export function SavedLink() {
     >
       <Bookmark className="size-4" strokeWidth={2} />
       {n > 0 && (
-        <span key={n} className="pop absolute -top-1.5 -right-1.5 grid min-w-[18px] place-items-center rounded-full border-2 border-surface bg-violet px-1 text-xs leading-[14px] font-extrabold text-white">
+        <span
+          key={n}
+          className="pop absolute -top-1.5 -right-1.5 grid min-w-[18px] place-items-center rounded-full border-2 border-surface bg-violet px-1 text-xs leading-[14px] font-extrabold text-white"
+        >
           {n}
         </span>
       )}
@@ -259,7 +292,13 @@ export function Logo({ size = 28 }: { size?: number }) {
         </linearGradient>
       </defs>
       <rect width="32" height="32" rx="9" fill={`url(#${id})`} />
-      <path d="M7 11.2c3-1.4 6.1-1.2 9 .9 2.9-2.1 6-2.3 9-.9v11.1c-3-1.4-6.1-1.2-9 .9-2.9-2.1-6-2.3-9-.9z" fill="none" stroke="#fff" strokeWidth="2" strokeLinejoin="round" />
+      <path
+        d="M7 11.2c3-1.4 6.1-1.2 9 .9 2.9-2.1 6-2.3 9-.9v11.1c-3-1.4-6.1-1.2-9 .9-2.9-2.1-6-2.3-9-.9z"
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
       <path d="M16 12.2v10.9" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
       <circle cx="25" cy="7" r="3" fill="#fff" />
       <circle cx="25" cy="7" r="1.5" fill="#ff7a3d" />
