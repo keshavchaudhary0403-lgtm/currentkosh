@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ArrowUpRight, ListChecks } from "lucide-react";
+import { DailyPath } from "@/components/daily-path";
 import { RevisionHero } from "@/components/revision-hero";
 import { CategoryPill, Empty, PageHeader, SectionTitle, fmtDate } from "@/components/ui";
 import { addDays, daysUntil, istDate } from "@/lib/dates";
@@ -33,6 +34,7 @@ export default async function Revise({ searchParams }: PageProps<"/revise">) {
         sub={hi ? "तथ्य भूलने से ठीक पहले लौटते हैं।" : "Facts come back right before you'd forget them."}
       />
 
+      <DailyPath current="revise" />
       <RevisionHero countdown={countdown} />
       <section>
         <SectionTitle

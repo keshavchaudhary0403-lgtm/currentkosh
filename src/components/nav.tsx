@@ -5,7 +5,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState, useTransition } from "react";
 import {
   BarChart3,
-  BookOpen,
   Bookmark,
   Brain,
   CalendarRange,
@@ -14,26 +13,24 @@ import {
   ClipboardList,
   Flame,
   Library,
-  Moon,
   Newspaper,
   Search,
-  Settings,
-  Sun,
   Target,
   UserRound,
   Waypoints,
 } from "lucide-react";
 import { setLang } from "@/app/actions";
 import { InstallSidebarButton } from "./install";
-import { activityDays, dueCount, streak, useProgress } from "@/lib/progress-store";
-import { addDays, istDate } from "@/lib/dates";
-import { setTheme, useTheme } from "@/lib/theme";
+import { dueCount, useProgress } from "@/lib/progress-store";
 import type { Lang } from "@/lib/taxonomy";
-import { cx } from "./ui";
+import { ThemeSwitch } from "./theme-switch";
+import { ProgressRing, cx } from "./ui";
+import { LEVEL_SIZE, useXp } from "./xp";
 
 export type NavLabels = Record<"today" | "revise" | "practice" | "tests" | "threads" | "monthly" | "archive" | "progress" | "saved" | "sources" | "settings" | "you", string>;
 
-const MAIN = [
+// Desktop rail: every destination as an icon with a short label.
+const RAIL = [
   { href: "/", key: "today", icon: Newspaper },
   { href: "/revise", key: "revise", icon: Brain },
   { href: "/practice", key: "practice", icon: Target },
@@ -41,13 +38,8 @@ const MAIN = [
   { href: "/threads", key: "threads", icon: Waypoints },
   { href: "/monthly", key: "monthly", icon: CalendarRange },
   { href: "/library", key: "archive", icon: Library },
-] as const;
-
-const MORE = [
   { href: "/progress", key: "progress", icon: BarChart3 },
-  { href: "/saved", key: "saved", icon: Bookmark },
-  { href: "/sources", key: "sources", icon: BookOpen },
-  { href: "/settings", key: "settings", icon: Settings },
+  { href: "/me", key: "you", icon: UserRound },
 ] as const;
 
 // Phone dock: the four daily destinations plus "You" (progress, saved, storylines, settings…).
@@ -61,100 +53,76 @@ const TABS = [
 
 const isActive = (path: string, href: string) => (href === "/" ? path === "/" || path.startsWith("/story") : path.startsWith(href));
 
-/** Tests and revision sessions are focus mode: no sidebar, header or dock. */
+/** Tests and revision sessions are focus mode: no rail, header or dock. */
 export const isFocus = (path: string) => path.startsWith("/practice/run") || path.startsWith("/revise/session") || /^\/monthly\/[^/]+\/test/.test(path);
 
-export function Sidebar({ labels, lang }: { labels: NavLabels; lang: Lang }) {
+/** Desktop icon rail with the level ring at the bottom. */
+export function Sidebar({ labels }: { labels: NavLabels; lang: Lang }) {
   const path = usePathname();
-  const p = useProgress();
-  const due = dueCount(p);
+  const xp = useXp();
   if (isFocus(path)) return null;
   return (
-    <aside className="sticky top-0 hidden h-dvh w-[252px] shrink-0 flex-col border-r border-line px-4 pt-5 pb-4 lg:flex">
-      <Link href="/" className="mb-8 px-2" aria-label="CurrentKosh home">
-        <Wordmark lang={lang} />
+    <aside className="sticky top-0 hidden h-dvh w-[88px] shrink-0 flex-col items-center border-r border-line py-4 lg:flex">
+      <Link href="/" className="mb-5" aria-label="CurrentKosh home">
+        <Logo size={40} />
       </Link>
-      <nav className="flex flex-col gap-0.5" aria-label="Main">
-        {MAIN.map(({ href, key, icon: Icon }) => {
-          const active = isActive(path, href);
+      <nav className="flex flex-col items-center gap-1" aria-label="Main">
+        {RAIL.map(({ href, key, icon: Icon }) => {
+          const active = isActive(path, href) || (key === "you" && ["/saved", "/sources", "/settings"].some((p) => path.startsWith(p)));
           return (
             <Link
               key={href}
               href={href}
               aria-current={active ? "page" : undefined}
-              className={cx(
-                "group relative flex h-11 items-center gap-3 rounded-2xl px-3 text-[15px] font-semibold transition-colors",
-                active ? "bg-solid text-on-solid" : "text-ink-2 hover:bg-card hover:text-ink",
-              )}
+              title={labels[key]}
+              className={cx("group relative flex h-[54px] w-[68px] flex-col items-center justify-center gap-1 rounded-[18px] transition-colors", active ? "bg-solid text-on-solid" : "text-ink-2 hover:bg-card hover:text-ink")}
             >
-              <Icon className={cx("size-[19px] transition-transform group-hover:scale-110", active && "text-solid-accent")} strokeWidth={active ? 2.2 : 1.8} />
-              {labels[key]}
-              {key === "revise" && due > 0 && (
-                <span className={cx("ml-auto rounded-full px-2 text-xs leading-5 font-bold tnum", active ? "bg-solid-accent text-solid" : "bg-cobalt text-white")}>{due}</span>
+              <Icon className={cx("size-5 transition-transform group-hover:scale-110", active && "text-solid-accent")} strokeWidth={active ? 2.2 : 1.8} />
+              <span className="max-w-full truncate px-1 text-[10px] leading-none font-semibold">{labels[key]}</span>
+              {key === "revise" && xp.due > 0 && (
+                <span className="absolute top-1 right-2 grid min-w-[18px] place-items-center rounded-full bg-cobalt px-1 text-[10px] leading-[18px] font-bold text-white tnum">{xp.due > 99 ? "99+" : xp.due}</span>
               )}
             </Link>
           );
         })}
       </nav>
-      <div className="eyebrow mt-8 mb-2 px-3 text-ink-3">{labels.you}</div>
-      <nav className="flex flex-col gap-0.5" aria-label="You">
-        {MORE.map(({ href, key, icon: Icon }) => {
-          const active = isActive(path, href);
-          return (
-            <Link
-              key={href}
-              href={href}
-              aria-current={active ? "page" : undefined}
-              className={cx("flex h-10 items-center gap-3 rounded-2xl px-3 text-sm font-medium transition-colors", active ? "bg-card text-ink shadow-[inset_0_0_0_1px_var(--line-2)]" : "text-ink-2 hover:bg-card hover:text-ink")}
-            >
-              <Icon className="size-4" strokeWidth={1.9} />
-              {labels[key]}
-            </Link>
-          );
-        })}
-      </nav>
-      <div className="mt-auto space-y-3">
+      <div className="mt-auto flex flex-col items-center gap-3">
         <InstallSidebarButton />
-        <StreakCard />
+        <Link href="/progress" title={`Level ${xp.level} · ${xp.total} XP`} className="lift flex flex-col items-center gap-1 rounded-[18px] p-1.5">
+          <ProgressRing value={xp.into} max={LEVEL_SIZE} size={52} stroke={5} label={`Level ${xp.level}`}>
+            <span className="font-mono text-[11px] font-semibold">L{xp.level}</span>
+          </ProgressRing>
+          <span className="inline-flex items-center gap-0.5 text-xs font-semibold">
+            <Flame className={cx("size-3.5 text-flare", xp.streak > 0 && "flicker")} /> {xp.streak}
+          </span>
+        </Link>
       </div>
     </aside>
   );
 }
 
-/** Dark streak widget: flame, day count and the last seven days as dots. */
-function StreakCard() {
-  const p = useProgress();
-  const days = streak(p);
-  const activity = activityDays(p);
-  const today = istDate();
-  const week = Array.from({ length: 7 }, (_, i) => addDays(today, i - 6));
+/** Streak flame and XP, shown in the header on every screen. */
+export function XpChip() {
+  const xp = useXp();
   return (
-    <Link href="/progress" className="lift block rounded-[22px] bg-[#10110e] p-4 text-[#f3f2ec] dark:bg-card dark:shadow-[inset_0_0_0_1px_var(--line-2)]">
-      <div className="flex items-center gap-3">
-        <span className="grid size-11 place-items-center rounded-2xl bg-[#c8f135] text-[#10110e]">
-          <Flame className={cx("size-6", days > 0 && "flicker")} strokeWidth={2.2} />
-        </span>
-        <div>
-          <div className="font-display text-[32px] leading-none tnum">{days}</div>
-          <div className="text-xs text-white/60">{days === 1 ? "day streak" : "day streak"}</div>
-        </div>
-      </div>
-      <div className="mt-4 flex justify-between">
-        {week.map((d) => {
-          const on = (activity.get(d) ?? 0) > 0;
-          return (
-            <span key={d} className="flex flex-col items-center gap-1.5">
-              <span className={cx("size-5 rounded-full transition", on ? "bg-[#c8f135] shadow-[0_0_12px_rgb(200_241_53/0.5)]" : "bg-white/10", d === today && !on && "ring-1 ring-white/40")} />
-              <span className="font-mono text-[10px] text-white/45">{new Date(`${d}T00:00:00Z`).toLocaleDateString("en-IN", { weekday: "narrow", timeZone: "UTC" })}</span>
-            </span>
-          );
-        })}
-      </div>
+    <Link
+      href="/progress"
+      title={`Level ${xp.level} · ${xp.total} XP · ${xp.streak}-day streak`}
+      className="flex h-11 shrink-0 items-center gap-2 rounded-full bg-card pr-3 pl-1.5 shadow-[inset_0_0_0_1px_var(--line-2)] transition hover:shadow-[inset_0_0_0_1px_var(--ink-3)]"
+    >
+      <span className="flex h-8 items-center gap-1 rounded-full bg-[#10110e] px-2 text-xs font-bold text-[#c8f135] tnum dark:bg-signal dark:text-on-signal">
+        <Flame className={cx("size-4", xp.streak > 0 && "flicker")} /> {xp.streak}
+      </span>
+      <span className="font-mono text-xs font-semibold tnum">
+        {xp.total.toLocaleString("en-IN")}
+        <span className="text-ink-3"> XP</span>
+      </span>
+      <span className="hidden font-mono text-[11px] text-ink-3 xl:inline">· L{xp.level}</span>
     </Link>
   );
 }
 
-/** Sticky glass top bar: brand (phones), search (desktop), exam chips, saved, language and theme. */
+/** Sticky glass top bar: brand (phones), search (desktop), XP, saved, language and the theme switch. */
 export function AppHeader({ lang, chips }: { lang: Lang; chips: React.ReactNode }) {
   const path = usePathname();
   const router = useRouter();
@@ -174,26 +142,46 @@ export function AppHeader({ lang, chips }: { lang: Lang; chips: React.ReactNode 
   if (isFocus(path)) return null;
   return (
     <header className="glass sticky top-0 z-30 border-b border-line" style={{ viewTransitionName: "app-header" }}>
-      <div className="mx-auto flex h-16 max-w-[1240px] items-center gap-3 px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="lg:hidden" aria-label="CurrentKosh home">
-          <Wordmark size={30} text={19} lang={lang} />
+      <div className="flex h-16 items-center gap-2 px-3 sm:gap-3 sm:px-6 lg:px-6">
+        <Link href="/" className="shrink-0 lg:hidden" aria-label="CurrentKosh home">
+          <span className="sm:hidden">
+            <Logo size={34} />
+          </span>
+          <span className="hidden sm:block">
+            <Wordmark size={30} text={19} lang={lang} />
+          </span>
         </Link>
-        <form action="/library" className="hidden w-full max-w-sm lg:block" role="search">
+        <form action="/library" className="hidden w-full max-w-xs lg:block" role="search">
           <label className="group flex h-11 items-center gap-2.5 rounded-full bg-card px-4 shadow-[inset_0_0_0_1px_var(--line-2)] transition focus-within:shadow-[inset_0_0_0_2px_var(--ink)]">
             <Search className="size-4 text-ink-3" />
             <input ref={input} name="q" placeholder={ui === "hi" ? "हर ख़बर में खोजें…" : "Search every story…"} className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-ink-3" aria-label="Search stories" />
             <kbd className="eyebrow rounded-md bg-card-2 px-1.5 py-0.5 text-ink-3">⌘K</kbd>
           </label>
         </form>
-        <div className="no-scrollbar hidden min-w-0 items-center gap-1.5 overflow-x-auto md:flex">{chips}</div>
-        <div className="ml-auto flex items-center gap-2">
-          <SavedLink />
+        <div className="no-scrollbar hidden min-w-0 items-center gap-1.5 overflow-x-auto xl:flex">{chips}</div>
+        <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
+          <XpChip />
+          <span className="hidden sm:block">
+            <SavedLink />
+          </span>
           <LangMenu lang={lang} />
-          <ThemeToggle />
+          <span className="lg:hidden">
+            <ThemeSwitch />
+          </span>
+          <span className="hidden lg:block">
+            <ThemeSwitch labeled />
+          </span>
         </div>
       </div>
     </header>
   );
+}
+
+/** Main column. Today's deck runs edge to edge; other pages get the usual gutters. */
+export function AppMain({ children }: { children: React.ReactNode }) {
+  const path = usePathname();
+  if (path === "/") return <main className="min-w-0">{children}</main>;
+  return <main className="mx-auto max-w-[1240px] px-4 pt-5 pb-32 sm:px-6 sm:pt-8 lg:px-8 lg:pb-16">{children}</main>;
 }
 
 export function BottomNav({ labels }: { labels: NavLabels }) {
@@ -350,28 +338,9 @@ export function SavedLink() {
   );
 }
 
-/** One icon: a moon in light mode (tap for dark), a sun in dark mode (tap for light). */
+/** Labeled theme switch (kept under the old name for existing imports). */
 export function ThemeToggle() {
-  const theme = useTheme();
-  const dark = theme === "dark";
-  return (
-    <button
-      onClick={() => {
-        const flip = () => setTheme(dark ? "light" : "dark");
-        // Cross-fade the whole page between themes where the browser supports it.
-        const doc = document as Document & { startViewTransition?: (cb: () => void) => unknown };
-        if (doc.startViewTransition && !matchMedia("(prefers-reduced-motion: reduce)").matches) doc.startViewTransition(flip);
-        else flip();
-      }}
-      aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
-      title={dark ? "Light theme" : "Dark theme"}
-      className="grid size-11 place-items-center overflow-hidden rounded-full bg-card text-ink shadow-[inset_0_0_0_1px_var(--line-2)] transition hover:shadow-[inset_0_0_0_1px_var(--ink-3)] active:scale-90"
-    >
-      <span key={theme} className="pop">
-        {dark ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
-      </span>
-    </button>
-  );
+  return <ThemeSwitch labeled />;
 }
 
 /** CurrentKosh mark: an ink tile with three lines of a brief and a lime "live" signal dot. */

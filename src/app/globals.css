@@ -214,7 +214,7 @@ body {
   color: var(--on-signal);
 }
 
-:focus-visible {
+:focus-visible:not([tabindex="-1"]) {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
   border-radius: 10px;
@@ -781,4 +781,80 @@ body {
 /* Edge fade for horizontal scrollers */
 @utility fade-x {
   mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 24px), transparent 100%);
+}
+
+/* Reader sheet: slides up on phones, in from the right on desktop. */
+.sheet-fade {
+  animation: vt-out 0.3s ease reverse both;
+}
+.sheet-panel {
+  animation: sheet-up 0.45s var(--ease-out) both;
+}
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+}
+@media (min-width: 1024px) {
+  .sheet-panel {
+    animation-name: drawer-in;
+  }
+  @keyframes drawer-in {
+    from {
+      transform: translateX(105%);
+    }
+  }
+}
+
+/* Deck: each card fills the scroller and snaps. */
+.deck {
+  scroll-snap-type: y mandatory;
+  overscroll-behavior-y: contain;
+  scrollbar-width: none;
+}
+.deck::-webkit-scrollbar {
+  display: none;
+}
+.deck > * {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+/* Layers unfold in place. */
+.unfold {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.5s var(--ease-out),
+    opacity 0.35s ease;
+}
+.unfold[data-open="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.unfold > * {
+  min-height: 0;
+  overflow: hidden;
+}
+/* XP pop */
+.xp-pop {
+  animation: xp-pop 1.1s var(--ease-out) both;
+}
+@keyframes xp-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.8);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0) scale(1.1);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-22px);
+  }
 }

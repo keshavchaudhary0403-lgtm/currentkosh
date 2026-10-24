@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ArrowUpRight, CalendarRange, Timer, Zap } from "lucide-react";
+import { DailyPath } from "@/components/daily-path";
 import { RecentAttempts, WeakDrillCard } from "@/components/practice-widgets";
 import { TestBuilder } from "@/components/test-builder";
 import { PageHeader, SectionTitle, fmtDate } from "@/components/ui";
@@ -27,6 +28,8 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
         title={hi ? "अभ्यास" : <>Practice<span className="text-flare italic">.</span></>}
         sub={hi ? "आधिकारिक स्रोतों से परीक्षा-शैली के प्रश्न।" : "Quick quizzes, timed mocks and your own tests, all built from the day's official sources."}
       />
+
+      <DailyPath current="quiz" />
 
       {empty && (
         <div className="pop rounded-[20px] bg-amber-soft p-4 text-sm font-semibold text-amber-ink">

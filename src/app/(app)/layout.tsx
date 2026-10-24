@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { ViewTransition } from "react";
 import { NavTracker } from "@/components/back-button";
 import { LangProvider } from "@/components/lang-context";
-import { AppHeader, BottomNav, Sidebar, type NavLabels } from "@/components/nav";
+import { AppHeader, AppMain, BottomNav, Sidebar, type NavLabels } from "@/components/nav";
 import { t } from "@/lib/i18n";
 import { currentProfile } from "@/lib/profile";
 import { examById, pick, stateById } from "@/lib/taxonomy";
@@ -48,13 +48,13 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
       <Sidebar labels={labels} lang={lang} />
       <div className="min-w-0 flex-1">
         <AppHeader lang={lang} chips={chips} />
-        <main className="mx-auto max-w-[1240px] px-4 pt-5 pb-32 sm:px-6 sm:pt-8 lg:px-8 lg:pb-16">
+        <AppMain>
           <LangProvider lang={lang}>
             <ViewTransition update="page-swap" default="none">
               <div>{children}</div>
             </ViewTransition>
           </LangProvider>
-        </main>
+        </AppMain>
       </div>
       <BottomNav labels={labels} />
       <NavTracker />

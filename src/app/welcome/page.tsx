@@ -3,6 +3,7 @@ import { Brain, Newspaper, ShieldCheck, Target } from "lucide-react";
 import Link from "next/link";
 import { Wordmark } from "@/components/nav";
 import { ProfileForm } from "@/components/profile-form";
+import { ThemeSwitch } from "@/components/theme-switch";
 import { currentProfile } from "@/lib/profile";
 
 export const metadata: Metadata = { title: "Welcome" };
@@ -27,8 +28,16 @@ export default async function Welcome() {
           <Link href="/" aria-label="CurrentKosh home" className="flex w-fit items-center gap-2.5">
             <Wordmark size={34} text={21} />
           </Link>
-          <span lang="hi" className="eyebrow hidden text-ink-3 sm:block">
-            करंट कोश
+          <span className="flex items-center gap-3">
+            <span lang="hi" className="eyebrow hidden text-ink-3 sm:block">
+              करंट कोश
+            </span>
+            <span className="sm:hidden">
+              <ThemeSwitch />
+            </span>
+            <span className="hidden sm:block">
+              <ThemeSwitch labeled />
+            </span>
           </span>
         </div>
         <div className="mt-10 grid items-start gap-10 lg:mt-14 lg:grid-cols-[1fr_1.02fr] lg:gap-14">

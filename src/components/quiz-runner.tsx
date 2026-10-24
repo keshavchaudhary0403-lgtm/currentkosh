@@ -10,6 +10,7 @@ import { categoryById, pick, type Lang } from "@/lib/taxonomy";
 import { McqView } from "./mcq";
 import { ResultView } from "./result-view";
 import { catStyle } from "./category-icon";
+import { ThemeSwitch } from "./theme-switch";
 import { Confetti, cx } from "./ui";
 
 export type Question = { id: string; storyId: string; category: string; content: McqContent };
@@ -133,6 +134,7 @@ export function QuizRunner({
               <Flame className={cx("size-4", combo >= 2 && "flicker")} strokeWidth={2.4} /> {combo}
             </span>
           )}
+          <ThemeSwitch />
         </div>
       </div>
 

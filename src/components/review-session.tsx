@@ -7,6 +7,7 @@ import { gradeReview } from "@/lib/progress-store";
 import type { CardContent, McqContent } from "@/lib/content";
 import type { Grade } from "@/lib/srs";
 import type { Lang } from "@/lib/taxonomy";
+import { ThemeSwitch } from "./theme-switch";
 import { BiText, Confetti, Count, cx } from "./ui";
 import { McqView } from "./mcq";
 
@@ -119,6 +120,7 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
         <span className="font-mono text-sm font-semibold text-ink-2 tnum">
           {i + 1}/{items.length}
         </span>
+        <ThemeSwitch />
       </div>
       <div className="eyebrow mb-4 inline-flex h-7 items-center gap-1.5 rounded-full bg-cobalt-soft px-3 text-cobalt-ink">
         {item.type === "card" ? <Layers className="size-3.5" /> : <RotateCw className="size-3.5" />}

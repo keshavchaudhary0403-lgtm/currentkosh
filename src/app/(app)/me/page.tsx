@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ArrowUpRight, BarChart3, BookOpen, Bookmark, CalendarDays, CalendarRange, ClipboardList, Settings, Waypoints } from "lucide-react";
+import { DailyPath } from "@/components/daily-path";
 import { InstallCard } from "@/components/install";
 import { MyStats } from "@/components/my-stats";
 import { ResetProgress } from "@/components/reset-progress";
@@ -59,6 +60,8 @@ export default async function Me() {
           )}
         </div>
       </header>
+
+      <DailyPath />
 
       <div className="space-y-6 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6 lg:space-y-0">
         <div className="space-y-6">

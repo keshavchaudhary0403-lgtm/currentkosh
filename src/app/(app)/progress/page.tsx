@@ -1,6 +1,7 @@
 "use client";
 
 import { Flame } from "lucide-react";
+import { DailyPath } from "@/components/daily-path";
 import { useLang } from "@/components/lang-context";
 import { catStyle } from "@/components/category-icon";
 import { Bar, Count, Empty, PageHeader, ProgressRing, SectionTitle, cx } from "@/components/ui";
@@ -30,6 +31,8 @@ export default function Progress() {
   return (
     <div className="space-y-8">
       <PageHeader eyebrow={L("Saved privately in this browser", "इसी ब्राउज़र में निजी रूप से सहेजा")} title={ui === "hi" ? "प्रगति" : <>Progress<span className="text-signal-ink italic">.</span></>} />
+
+      <DailyPath />
 
       <section className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <div className="rise relative col-span-2 row-span-2 flex min-h-[260px] flex-col overflow-hidden rounded-[28px] bg-[#10110e] p-6 text-[#f3f2ec] dark:bg-card dark:shadow-[inset_0_0_0_1px_var(--line-2)]">

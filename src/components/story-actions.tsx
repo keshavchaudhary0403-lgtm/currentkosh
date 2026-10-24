@@ -45,7 +45,7 @@ export function ReadButton({
         {read && <Check className="size-4" strokeWidth={3} />}
         {labels.mark}
       </button>
-      {nextHref ? (
+      {nextHref === undefined ? null : nextHref ? (
         <Link href={nextHref} className="btn btn-ink h-11 flex-1 px-4 text-[15px] lg:flex-none lg:px-6">
           {labels.next} <ArrowRight className="size-4" />
         </Link>
