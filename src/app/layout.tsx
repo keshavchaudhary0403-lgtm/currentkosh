@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Noto_Sans_Devanagari } from "next/font/google";
+import { Bricolage_Grotesque, Geist, Geist_Mono, Noto_Sans_Devanagari } from "next/font/google";
 import { currentProfile } from "@/lib/profile";
 import { PwaSetup } from "@/components/install";
 import "./globals.css";
 
 // Geist (variable) for English and numbers; Noto Sans Devanagari (variable) for Hindi.
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
+const display = Bricolage_Grotesque({ variable: "--font-display-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 const deva = Noto_Sans_Devanagari({ variable: "--font-deva", subsets: ["devanagari"] });
 
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: light)", color: "#f7f7fb" },
     { media: "(prefers-color-scheme: dark)", color: "#151a2e" },
   ],
   viewportFit: "cover",
@@ -44,7 +45,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       lang={lang}
       data-theme="light"
       suppressHydrationWarning
-      className={`${geist.variable} ${geistMono.variable} ${deva.variable} h-full antialiased`}
+      className={`${geist.variable} ${display.variable} ${geistMono.variable} ${deva.variable} h-full antialiased`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

@@ -33,7 +33,7 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
             <div className="inline-flex rounded-full bg-pink-soft px-2.5 py-0.5 text-xs font-extrabold text-pink">
               {L("Timeline", "घटनाक्रम")} · {thread.stories.length} {L(thread.stories.length === 1 ? "update" : "updates", "अपडेट")}
             </div>
-            <BiText v={thread.title} lang={lang} as="h1" className="mt-2 font-display text-2xl leading-tight sm:text-[28px]" hiClassName="font-sans text-xl" />
+            <BiText v={thread.title} lang={lang} as="h1" className="mt-2 font-display text-3xl leading-tight sm:text-5xl" hiClassName="font-sans text-xl" />
           </div>
           <Link href={testHref} className="btn btn-orange px-4 py-2.5 text-[15px] lg:hidden">
             {L("Test this timeline", "इस घटनाक्रम का टेस्ट दें")}

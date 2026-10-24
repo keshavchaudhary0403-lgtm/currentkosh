@@ -36,7 +36,7 @@ export default async function Library({ searchParams }: PageProps<"/library">) {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="font-display text-2xl sm:text-[28px]">{ui === "hi" ? "लाइब्रेरी" : "Library"}</h1>
+        <h1 className="font-display text-3xl sm:text-5xl">{ui === "hi" ? "लाइब्रेरी" : "Library"}</h1>
         <p className="mt-1 text-sm font-medium text-ink-2">{L("Every story since April, searchable in English or Hindi.", "अप्रैल से अब तक की हर ख़बर, हिंदी या अंग्रेज़ी में खोजें।")}</p>
       </header>
 

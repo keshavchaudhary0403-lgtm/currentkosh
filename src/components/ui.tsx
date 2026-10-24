@@ -166,7 +166,7 @@ export function SectionTitle({ eyebrow, title, right, icon }: { eyebrow?: string
       <div className="flex items-center gap-2.5">
         {icon}
         <div>
-          <h2 className="font-display text-lg leading-tight sm:text-xl">{title}</h2>
+          <h2 className="font-display text-2xl leading-tight sm:text-3xl">{title}</h2>
           {eyebrow && <div className="text-xs font-medium text-ink-3">{eyebrow}</div>}
         </div>
       </div>

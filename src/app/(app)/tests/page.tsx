@@ -49,7 +49,7 @@ export default function MyTests() {
   if (!attempts.length)
     return (
       <div className="space-y-5">
-        <h1 className="font-display text-2xl sm:text-[28px]">{L("My tests", "मेरे टेस्ट")}</h1>
+        <h1 className="font-display text-3xl sm:text-5xl">{L("My tests", "मेरे टेस्ट")}</h1>
         <Empty title={L("No tests yet", "अभी कोई टेस्ट नहीं")} icon={<ClipboardList className="size-7" />}>
           {L("Every test you take (daily quiz, mocks, your own tests) is listed here with its score, accuracy, time and review.", "आपका हर टेस्ट यहाँ अंक, सटीकता, समय और समीक्षा के साथ दिखेगा।")}
           <div className="mt-4">
@@ -91,7 +91,7 @@ export default function MyTests() {
     <div className="space-y-7">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="font-display text-2xl sm:text-[28px]">{L("My tests", "मेरे टेस्ट")}</h1>
+          <h1 className="font-display text-3xl sm:text-5xl">{L("My tests", "मेरे टेस्ट")}</h1>
           <p className="mt-1 text-sm font-medium text-ink-2">{L("Every test you've taken, with scores, analysis and retries.", "आपके सभी टेस्ट: अंक, विश्लेषण और दोबारा प्रयास।")}</p>
         </div>
         <Link href="/practice" className="btn btn-orange px-4 py-2.5 text-[15px]">

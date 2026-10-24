@@ -53,7 +53,7 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
   return (
     <div className="space-y-7">
       <header>
-        <h1 className="font-display text-2xl sm:text-[28px]">{ui === "hi" ? "अभ्यास" : "Practice"}</h1>
+        <h1 className="font-display text-3xl sm:text-5xl">{ui === "hi" ? "अभ्यास" : "Practice"}</h1>
         <p className="mt-1 text-sm font-medium text-ink-2">
           {hi ? "आधिकारिक स्रोतों से परीक्षा-शैली के प्रश्न।" : "Exam-style questions from official sources."}
         </p>

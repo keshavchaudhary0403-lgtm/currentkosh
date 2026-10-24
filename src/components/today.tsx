@@ -143,7 +143,7 @@ export function MoreStories({ items, lang }: { items: Item[]; lang: Lang }) {
   return (
     <section className="space-y-3 pt-2">
       <div>
-        <h2 className="font-display text-lg sm:text-xl">{hi ? "और भी आज" : "Also today"}</h2>
+        <h2 className="font-display text-2xl sm:text-3xl">{hi ? "और भी आज" : "Also today"}</h2>
         <p className="text-xs text-ink-3">{hi ? "आपकी परीक्षाओं के लिए कम प्राथमिकता" : "Lower priority for your exams"}</p>
       </div>
       <StoryList items={items} lang={lang} />

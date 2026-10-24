@@ -20,7 +20,7 @@ export default function Sources() {
   return (
     <div className="space-y-10">
       <header>
-        <h1 className="font-display text-2xl sm:text-[28px]">Sources</h1>
+        <h1 className="font-display text-3xl sm:text-5xl">Sources</h1>
         <p className="mt-2 max-w-2xl text-ink-2">
           CurrentKosh only uses the sources below. Notes and questions are generated from official government text; newspapers and coaching sites are linked, never copied, and respect their robots.txt.
         </p>

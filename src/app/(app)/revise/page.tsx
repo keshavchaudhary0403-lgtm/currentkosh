@@ -28,7 +28,7 @@ export default async function Revise({ searchParams }: PageProps<"/revise">) {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="font-display text-2xl sm:text-[28px]">{ui === "hi" ? "दोहराएँ" : "Revise"}</h1>
+        <h1 className="font-display text-3xl sm:text-5xl">{ui === "hi" ? "दोहराएँ" : "Revise"}</h1>
         <p className="mt-1 text-sm font-medium text-ink-2">{hi ? "तथ्य भूलने से ठीक पहले लौटते हैं।" : "Facts come back right before you'd forget them."}</p>
       </header>
 

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState, useTransition } from "react";
+import { useEffect, useId, useRef, useState, useTransition } from "react";
 import { BarChart3, BookOpen, Bookmark, Brain, Check, ChevronDown, ClipboardList, Flame, Library, Moon, Newspaper, Settings, Sun, Target, UserRound, Waypoints } from "lucide-react";
 import { setLang } from "@/app/actions";
 import { InstallSidebarButton } from "./install";
@@ -247,26 +247,33 @@ export function ThemeToggle() {
   );
 }
 
-/** CurrentKosh mark: an open book (kosh, a treasury of knowledge) with an orange dot for "current". */
+/** CurrentKosh mark: an open book (kosh, a treasury of knowledge) with a dot for "current"; first-version gradient. */
 export function Logo({ size = 28 }: { size?: number }) {
+  const id = useId();
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden className="shrink-0">
-      <rect width="32" height="32" rx="9" fill="#4f46e5" />
-      <path d="M7 11.2c3-1.4 6.1-1.2 9 .9 2.9-2.1 6-2.3 9-.9v11.1c-3-1.4-6.1-1.2-9 .9-2.9-2.1-6-2.3-9-.9z" fill="#fff" stroke="#fff" strokeWidth="2" strokeLinejoin="round" />
-      <path d="M16 12.2v10.9" stroke="#4f46e5" strokeWidth="1.8" strokeLinecap="round" />
-      <circle cx="25.5" cy="6.5" r="3.5" fill="#f97316" stroke="#fff" strokeWidth="1.5" />
+      <defs>
+        <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#5a48f5" />
+          <stop offset="1" stopColor="#ff7a3d" />
+        </linearGradient>
+      </defs>
+      <rect width="32" height="32" rx="9" fill={`url(#${id})`} />
+      <path d="M7 11.2c3-1.4 6.1-1.2 9 .9 2.9-2.1 6-2.3 9-.9v11.1c-3-1.4-6.1-1.2-9 .9-2.9-2.1-6-2.3-9-.9z" fill="none" stroke="#fff" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M16 12.2v10.9" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="25" cy="7" r="3" fill="#fff" />
+      <circle cx="25" cy="7" r="1.5" fill="#ff7a3d" />
     </svg>
   );
 }
 
-/** "CurrentKosh"; in Hindi and bilingual modes the second half reads कोश. */
 /** Logo + name. Sizes follow the app's scale: logo 32 / name 20 on desktop, 28 / 18 on phones. */
 export function Wordmark({ size = 32, text = 20, lang = "en" }: { size?: number; text?: number; lang?: Lang }) {
   return (
     <span className="flex items-center gap-2.5">
       <Logo size={size} />
       <span className="font-display leading-none" style={{ fontSize: text }}>
-        Current<span className="text-accent">{lang === "en" ? "Kosh" : "कोश"}</span>
+        Current<span className="grad-text">{lang === "en" ? "Kosh" : "कोश"}</span>
       </span>
     </span>
   );

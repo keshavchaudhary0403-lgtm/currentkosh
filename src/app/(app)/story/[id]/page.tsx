@@ -70,7 +70,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
             v={c.title}
             lang={lang}
             as="h1"
-            className="font-display text-2xl leading-snug sm:text-[30px]"
+            className="font-display text-[28px] leading-[1.15] sm:text-[44px]"
             hiClassName="font-sans text-xl sm:text-2xl font-semibold tracking-normal mt-3"
           />
           <div className="mt-4 flex flex-wrap gap-2 lg:hidden">
@@ -162,7 +162,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
 
         {mcqs.length > 0 && (
           <section id="quick-check" className="mt-10 scroll-mt-20">
-            <h2 className="mb-3 flex items-center gap-2 font-display text-lg sm:text-xl">
+            <h2 className="mb-3 flex items-center gap-2 font-display text-2xl sm:text-3xl">
               <span className="grid size-9 place-items-center rounded-xl bg-accent-2 text-white">
                 <Target className="size-5" strokeWidth={2} />
               </span>
@@ -177,7 +177,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
             <div className="mb-1 inline-flex items-center gap-1.5 rounded-full bg-pink-soft px-2.5 py-0.5 text-xs font-extrabold text-pink">
               <Waypoints className="size-3.5" /> {ui === "hi" ? "घटनाक्रम" : "Timeline"}
             </div>
-            <h2 className="mb-1 font-display text-lg sm:text-xl">{pick(thread.title, ui)}</h2>
+            <h2 className="mb-1 font-display text-2xl sm:text-3xl">{pick(thread.title, ui)}</h2>
             <p className="mb-4 text-sm text-ink-2">{ui === "hi" ? "यह मुद्दा कैसे आगे बढ़ा" : "How this issue has developed"}</p>
             <ol className="relative space-y-4 border-l-[3px] border-pink-soft pl-5">
               {nearby.map((s) => (

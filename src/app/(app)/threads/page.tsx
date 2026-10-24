@@ -13,7 +13,7 @@ export default async function Timelines() {
   return (
     <div className="space-y-5">
       <header>
-        <h1 className="font-display text-2xl sm:text-[28px]">{hi ? "घटनाक्रम" : "Timelines"}</h1>
+        <h1 className="font-display text-3xl sm:text-5xl">{hi ? "घटनाक्रम" : "Timelines"}</h1>
         <p className="mt-1 max-w-2xl text-sm text-ink-2">
           {hi
             ? "एक मुद्दे की हर ख़बर, शुरू से अब तक क्रम में, जैसे भारत-चीन संबंध या चुनाव 2026। परीक्षा में पूरा संदर्भ पूछा जाता है, सिर्फ़ ताज़ा ख़बर नहीं।"

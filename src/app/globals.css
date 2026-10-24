@@ -4,47 +4,48 @@
 
 :root {
   --ck-font: var(--font-geist), var(--font-deva), ui-sans-serif, system-ui, sans-serif;
+  --ck-display: var(--font-display-sans), var(--font-deva), ui-sans-serif, system-ui, sans-serif;
   /*
    * Matched palette: every colour is the same strength as the indigo button (Tailwind 600 family:
    * solid 600, pressed 700, soft 100; dark mode 500 / 600 / 950), so the whole app reads as one family.
    *   indigo 272 = action · violet 300 = Revise · peach 55 = Practice · teal 190 = Library
    *   rose 350 = Timelines · green 150 = correct · red 25 = wrong · amber 78 = must-know
    */
-  --bg: #f5f6fa;
+  --bg: #f7f7fb;
   --surface: #ffffff;
-  --surface-2: #eef1f8;
-  --ink: #252b37;
-  --ink-2: #565f70;
-  --ink-3: #8d95a5;
-  --line: #e7eaf1;
-  --line-strong: #d6dbe5;
-  --accent: oklch(0.52 0.2 272);
-  --accent-press: oklch(0.45 0.2 272);
-  --accent-soft: oklch(0.95 0.035 272);
-  --violet: #7c3aed;
-  --violet-press: #6d28d9;
-  --violet-soft: #ede9fe;
-  --accent-2: #ea580c;
-  --accent-2-press: #c2410c;
-  --accent-2-soft: #ffedd5;
-  --teal: #0d9488;
-  --teal-press: #0f766e;
-  --teal-soft: #ccfbf1;
-  --pink: #e11d48;
-  --pink-press: #be123c;
-  --pink-soft: #ffe4e6;
-  --good: #16a34a;
-  --good-press: #15803d;
-  --good-soft: #dcfce7;
-  --bad: #dc2626;
-  --bad-press: #b91c1c;
-  --bad-soft: #fee2e2;
-  --warn: #d97706;
-  --warn-soft: #fef3c7;
-  --warn-ink: #92400e;
-  --glass: rgb(255 255 255 / 0.88);
-  --shadow: 0 1px 2px rgb(17 24 39 / 0.04), 0 4px 16px -6px rgb(17 24 39 / 0.08);
-  --cat-l: 0.5;
+  --surface-2: #f0f0f6;
+  --ink: #15141b;
+  --ink-2: #4f4c59;
+  --ink-3: #8a8794;
+  --line: rgb(21 20 27 / 0.08);
+  --line-strong: rgb(21 20 27 / 0.14);
+  --accent: #5a48f5;
+  --accent-press: #4535d9;
+  --accent-soft: rgb(90 72 245 / 0.09);
+  --violet: #7a5af8;
+  --violet-press: #6342e6;
+  --violet-soft: rgb(122 90 248 / 0.1);
+  --accent-2: #ff7a3d;
+  --accent-2-press: #e5602a;
+  --accent-2-soft: rgb(255 122 61 / 0.12);
+  --teal: #0f9f74;
+  --teal-press: #0b8160;
+  --teal-soft: rgb(15 159 116 / 0.1);
+  --pink: #e5487a;
+  --pink-press: #c93564;
+  --pink-soft: rgb(229 72 122 / 0.1);
+  --good: #0f9f74;
+  --good-press: #0b8160;
+  --good-soft: rgb(15 159 116 / 0.1);
+  --bad: #e0464c;
+  --bad-press: #c23338;
+  --bad-soft: rgb(224 70 76 / 0.1);
+  --warn: #d98a00;
+  --warn-soft: rgb(217 138 0 / 0.12);
+  --warn-ink: #a86a00;
+  --glass: rgb(255 255 255 / 0.72);
+  --shadow: 0 1px 2px rgb(21 20 27 / 0.04), 0 8px 24px -12px rgb(21 20 27 / 0.12);
+  --cat-l: 0.55;
   --cat-c: 0.17;
   --cat-solid-l: 0.56;
   --cat-soft-c: 0.05;
@@ -59,40 +60,40 @@
 
 /* Light is the default; dark applies only when the reader picks it. */
 :root[data-theme="dark"] {
-  --bg: #0c1020;
-  --surface: #151a2e;
-  --surface-2: #1d2340;
-  --ink: #e3e7f1;
-  --ink-2: #a3abbf;
-  --ink-3: #6f7894;
-  --line: #262d4a;
-  --line-strong: #343c5e;
-  --accent: oklch(0.6 0.19 272);
-  --accent-press: oklch(0.52 0.19 272);
-  --accent-soft: oklch(0.32 0.05 272);
-  --violet: #8b5cf6;
-  --violet-press: #7c3aed;
-  --violet-soft: #2e1065;
-  --accent-2: #f97316;
-  --accent-2-press: #ea580c;
-  --accent-2-soft: #431407;
-  --teal: #14b8a6;
-  --teal-press: #0d9488;
-  --teal-soft: #042f2e;
-  --pink: #f43f5e;
-  --pink-press: #e11d48;
-  --pink-soft: #4c0519;
-  --good: #22c55e;
-  --good-press: #16a34a;
-  --good-soft: #052e16;
-  --bad: #ef4444;
-  --bad-press: #dc2626;
-  --bad-soft: #450a0a;
-  --warn: #f59e0b;
-  --warn-soft: #451a03;
-  --warn-ink: #fcd34d;
-  --glass: rgb(21 26 46 / 0.9);
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 6px 20px -8px rgb(0 0 0 / 0.5);
+  --bg: #0b0b0f;
+  --surface: #14141a;
+  --surface-2: #1c1c24;
+  --ink: #f1f0f6;
+  --ink-2: #b0aebb;
+  --ink-3: #75727f;
+  --line: rgb(255 255 255 / 0.07);
+  --line-strong: rgb(255 255 255 / 0.13);
+  --accent: #8f82ff;
+  --accent-press: #7466f0;
+  --accent-soft: rgb(143 130 255 / 0.13);
+  --violet: #a08cff;
+  --violet-press: #8b74f5;
+  --violet-soft: rgb(160 140 255 / 0.14);
+  --accent-2: #ff935f;
+  --accent-2-press: #f07a42;
+  --accent-2-soft: rgb(255 147 95 / 0.14);
+  --teal: #3ccf9b;
+  --teal-press: #2bb384;
+  --teal-soft: rgb(60 207 155 / 0.13);
+  --pink: #ff6b9a;
+  --pink-press: #ef5585;
+  --pink-soft: rgb(255 107 154 / 0.13);
+  --good: #3ccf9b;
+  --good-press: #2bb384;
+  --good-soft: rgb(60 207 155 / 0.13);
+  --bad: #ff6b70;
+  --bad-press: #ee5258;
+  --bad-soft: rgb(255 107 112 / 0.13);
+  --warn: #f5b13d;
+  --warn-soft: rgb(245 177 61 / 0.14);
+  --warn-ink: #f5b13d;
+  --glass: rgb(20 20 26 / 0.72);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 32px -16px rgb(0 0 0 / 0.6);
   --cat-l: 0.78;
   --cat-c: 0.14;
   --cat-solid-l: 0.6;
@@ -129,12 +130,9 @@
   --color-warn-soft: var(--warn-soft);
   --color-warn-ink: var(--warn-ink);
   --font-sans: var(--ck-font);
-  --font-display: var(--ck-font);
+  --font-display: var(--ck-display);
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --shadow-card: var(--shadow);
-  --font-weight-semibold: 550;
-  --font-weight-bold: 600;
-  --font-weight-extrabold: 650;
 }
 
 html {
@@ -156,21 +154,37 @@ body {
 }
 
 .font-display {
-  font-weight: 650;
-  letter-spacing: -0.015em;
+  font-family: var(--ck-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
 /* Category colour from a hue: text, tint and solid variants that work in both themes. */
 .cat {
-  --cat-ink: oklch(var(--cat-l) var(--cat-c) var(--h));
-  --cat-solid: oklch(var(--cat-solid-l) 0.18 var(--h));
-  --cat-press: oklch(calc(var(--cat-solid-l) - 0.08) 0.18 var(--h));
-  --cat-tint: oklch(var(--cat-band-l) var(--cat-soft-c) var(--h));
-  --cat-band: oklch(var(--cat-band-l) var(--cat-soft-c) var(--h));
+  --cat-ink: oklch(var(--cat-l) 0.15 var(--h));
+  --cat-solid: oklch(0.62 0.17 var(--h));
+  --cat-press: oklch(0.52 0.16 var(--h));
+  --cat-tint: oklch(0.62 0.15 var(--h) / 0.12);
+  --cat-band: oklch(0.62 0.17 var(--h));
 }
 
 ::selection {
   background: var(--accent-soft);
+}
+
+/* First-version look: violet→orange gradient on primary buttons and a soft glow behind the page. */
+body {
+  background:
+    radial-gradient(60rem 30rem at 15% -10%, color-mix(in oklab, var(--accent) 10%, transparent), transparent 70%),
+    radial-gradient(50rem 28rem at 95% -5%, color-mix(in oklab, var(--accent-2) 9%, transparent), transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
+}
+.grad-text {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 @layer components {
@@ -186,10 +200,15 @@ body {
   background: var(--b);
   color: var(--bt);
   font-weight: 700;
+  box-shadow: 0 8px 20px -10px color-mix(in oklab, var(--b) 70%, transparent);
   transition:
     transform 0.1s ease,
     filter 0.15s;
   user-select: none;
+}
+/* Primary (indigo) buttons carry the brand gradient. */
+.btn:not([class*="btn-"]):not([class*="--b:"]):not(:disabled) {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
 }
 .btn:hover {
   filter: brightness(1.07);

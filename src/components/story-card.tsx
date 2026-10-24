@@ -56,8 +56,8 @@ export function FeaturedStory({ story, lang, relevance, read }: { story: Story; 
   const ui = lang === "bi" ? "en" : lang;
   return (
     <Link href={`/story/${story.id}`} className="tap cat group block overflow-hidden rounded-2xl bg-surface" style={catStyle(story.category)}>
-      <div className="flex items-center gap-2 bg-(--cat-band) px-4 py-2.5 text-xs font-extrabold tracking-wide text-(--cat-ink) uppercase">
-        <span className="rounded-full bg-surface/70 px-2 py-0.5">{ui === "hi" ? "आज की प्रमुख ख़बर" : "Top story"}</span>
+      <div className="flex items-center gap-2 bg-(--cat-band) px-4 py-2.5 text-xs font-extrabold tracking-wide text-white uppercase">
+        <span className="rounded-full bg-white/25 px-2 py-0.5">{ui === "hi" ? "आज की प्रमुख ख़बर" : "Top story"}</span>
         <span className="truncate">{pick(categoryById(story.category)?.label, ui)}</span>
         {read && (
           <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-surface px-2 py-0.5 text-good">
@@ -66,7 +66,7 @@ export function FeaturedStory({ story, lang, relevance, read }: { story: Story; 
         )}
       </div>
       <div className="p-4 sm:p-5">
-        <h2 lang={ui === "hi" ? "hi" : undefined} className="font-display text-[19px] leading-snug sm:text-[22px]">
+        <h2 lang={ui === "hi" ? "hi" : undefined} className="font-display text-2xl leading-tight sm:text-3xl">
           {pick(story.content.title, ui)}
         </h2>
         {lang === "bi" && (
