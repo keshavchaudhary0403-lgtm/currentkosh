@@ -18,8 +18,8 @@
   --ink-3: #8d95a5;
   --line: #e7eaf1;
   --line-strong: #d6dbe5;
-  --accent: oklch(0.56 0.13 272);
-  --accent-press: oklch(0.48 0.13 272);
+  --accent: oklch(0.52 0.2 272);
+  --accent-press: oklch(0.45 0.2 272);
   --accent-soft: oklch(0.95 0.035 272);
   --violet: oklch(0.56 0.13 300);
   --violet-press: oklch(0.48 0.13 300);
@@ -67,8 +67,8 @@
   --ink-3: #6f7894;
   --line: #262d4a;
   --line-strong: #343c5e;
-  --accent: oklch(0.6 0.13 272);
-  --accent-press: oklch(0.52 0.13 272);
+  --accent: oklch(0.6 0.19 272);
+  --accent-press: oklch(0.52 0.19 272);
   --accent-soft: oklch(0.32 0.05 272);
   --violet: oklch(0.6 0.13 300);
   --violet-press: oklch(0.52 0.13 300);
