@@ -25,7 +25,7 @@ export default function Session() {
         </Link>
       </Empty>
     );
-  if (!items) return <div className="mx-auto h-72 max-w-2xl animate-pulse rounded-3xl bg-surface" />;
+  if (!items) return <div className="mx-auto h-72 max-w-2xl animate-pulse rounded-xl bg-surface" />;
 
   const cards = new Map(items.cards.map((c) => [c.id, c]));
   const mcqs = new Map(items.mcqs.map((m) => [m.id, m]));

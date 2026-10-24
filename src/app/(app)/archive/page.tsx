@@ -25,21 +25,24 @@ export default async function Archive({ searchParams }: PageProps<"/archive">) {
   };
   const results = searchStories(filter, 80);
   const months = storyMonths();
-  const select = "rounded-xl border border-line bg-surface px-3 py-2.5 text-sm";
+  const select = "rounded-lg border border-line bg-surface px-3 py-2.5 text-sm";
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <header>
-        <h1 className="font-display text-3xl sm:text-5xl">{ui === "hi" ? "संग्रह" : "Archive"}</h1>
-        <p className="mt-2 text-ink-2">Every story, searchable in English or Hindi. Filter by month, topic, exam or state.</p>
+        <h1 className="font-display text-[28px] sm:text-4xl">{ui === "hi" ? "संग्रह" : "Archive"}</h1>
+        <p className="mt-1 text-sm text-ink-2">Search every story in English or Hindi.</p>
       </header>
 
       <form className="space-y-3">
-        <label className="flex items-center gap-3 rounded-2xl border border-line bg-surface px-4 py-3 shadow-card focus-within:border-accent">
+        <label className="flex items-center gap-3 rounded-lg border border-line bg-surface px-3.5 py-2.5 focus-within:border-accent">
           <Search className="size-5 text-ink-3" />
           <input name="q" defaultValue={filter.q} placeholder="Search: repo rate, Ramsar, गवर्नर, INDRA…" className="w-full bg-transparent text-base outline-none placeholder:text-ink-3" />
         </label>
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
+        <details className="peer sm:hidden" open={!!(filter.month || filter.category || filter.exam || filter.state)}>
+          <summary className="cursor-pointer list-none text-sm font-medium text-accent">Filters {filter.month || filter.category || filter.exam || filter.state ? "· on" : ""}</summary>
+        </details>
+        <div className="hidden grid-cols-2 gap-2 peer-open:grid sm:grid sm:grid-cols-5">
           <select name="month" defaultValue={filter.month ?? ""} className={select}>
             <option value="">Any month</option>
             {months.map((m) => (
@@ -72,7 +75,7 @@ export default async function Archive({ searchParams }: PageProps<"/archive">) {
               </option>
             ))}
           </select>
-          <button className="col-span-2 rounded-xl bg-ink px-4 py-2.5 text-sm font-semibold text-bg sm:col-span-1">Apply</button>
+          <button className="col-span-2 rounded-lg bg-ink px-4 py-2.5 text-sm font-semibold text-bg sm:col-span-1">Apply</button>
         </div>
       </form>
 

@@ -25,16 +25,16 @@ export default async function Revise({ searchParams }: PageProps<"/revise">) {
   const countdown = profile.examDate ? daysUntil(profile.examDate) : null;
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-8">
       <header>
-        <h1 className="font-display text-3xl sm:text-5xl">{ui === "hi" ? "दोहराएँ" : "Revise"}</h1>
-        <p className="mt-2 text-ink-2">Spaced repetition brings each fact back just before you&apos;d forget it: tomorrow, then 3, 7, 21 days and beyond.</p>
+        <h1 className="font-display text-[28px] sm:text-4xl">{ui === "hi" ? "दोहराएँ" : "Revise"}</h1>
+        <p className="mt-1 text-sm text-ink-2">Each fact comes back just before you&apos;d forget it: tomorrow, then 3, 7 and 21 days later.</p>
       </header>
 
       <RevisionHero />
 
       {countdown !== null && countdown > 0 && (
-        <section className="flex flex-col gap-4 rounded-3xl border border-accent/30 bg-accent-soft p-5 sm:flex-row sm:items-center sm:p-6">
+        <section className="flex flex-col gap-4 rounded-xl border border-accent/30 bg-accent-soft p-5 sm:flex-row sm:items-center sm:p-6">
           <CalendarClock className="size-8 shrink-0 text-accent" strokeWidth={1.6} />
           <div className="flex-1">
             <div className="font-semibold">{countdown} days to your exam</div>
@@ -72,7 +72,7 @@ export default async function Revise({ searchParams }: PageProps<"/revise">) {
           ))}
         </div>
         {oneLiners.length ? (
-          <ol className="divide-y divide-line overflow-hidden rounded-2xl border border-line bg-surface">
+          <ol className="divide-y divide-line overflow-hidden rounded-xl border border-line bg-surface">
             {oneLiners.map((s, i) => (
               <li key={s.id}>
                 <Link href={`/story/${s.id}`} className="flex gap-4 px-4 py-3.5 hover:bg-surface-2">

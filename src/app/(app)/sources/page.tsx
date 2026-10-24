@@ -20,14 +20,14 @@ export default function Sources() {
   return (
     <div className="space-y-10">
       <header>
-        <h1 className="font-display text-3xl sm:text-5xl">Sources</h1>
+        <h1 className="font-display text-[28px] sm:text-4xl">Sources</h1>
         <p className="mt-2 max-w-2xl text-ink-2">
           CurrentKosh only uses the sources below. Notes and questions are generated from official government text; newspapers and coaching sites are linked, never copied, and respect their robots.txt.
         </p>
       </header>
       <div className="grid gap-3 sm:grid-cols-3">
         {Object.entries(MODE).map(([k, m]) => (
-          <div key={k} className="rounded-2xl border border-line bg-surface p-4">
+          <div key={k} className="rounded-xl border border-line bg-surface p-4">
             <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${m.cls}`}>{m.label}</span>
             <p className="mt-2 text-sm text-ink-2">{m.desc}</p>
           </div>
@@ -36,7 +36,7 @@ export default function Sources() {
       {groups.map((g) => (
         <section key={g.title}>
           <SectionTitle title={g.title} />
-          <div className="divide-y divide-line overflow-hidden rounded-2xl border border-line bg-surface">
+          <div className="divide-y divide-line overflow-hidden rounded-xl border border-line bg-surface">
             {g.ids.map((s) => {
               return (
                 <div key={s.id} className="flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-3.5">

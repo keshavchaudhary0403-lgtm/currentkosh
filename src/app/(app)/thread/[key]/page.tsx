@@ -39,7 +39,7 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
           <li key={s.id} className="relative">
             <span className="absolute top-2 -left-[29px] size-2.5 rounded-full bg-accent ring-4 ring-bg" />
             <div className="mb-1 text-xs text-ink-3">{fmtDate(s.date, ui, { day: "numeric", month: "long", year: "numeric" })}</div>
-            <Link href={`/story/${s.id}`} className="block rounded-2xl border border-line bg-surface p-4 shadow-card transition hover:border-line-strong">
+            <Link href={`/story/${s.id}`} className="block rounded-xl border border-line bg-surface p-4 transition hover:border-line-strong">
               <CategoryPill id={s.category} lang={lang} size="xs" />
               <div lang={ui === "hi" ? "hi" : undefined} className="mt-2 font-semibold">
                 {pick(s.content.title, ui)}

@@ -17,7 +17,7 @@ export function MyStats() {
   return (
     <div className="grid grid-cols-4 gap-2">
       {stats.map(({ icon: Icon, cls, value, label }) => (
-        <div key={label} className="rounded-2xl border border-line bg-surface px-2 py-3 text-center">
+        <div key={label} className="rounded-xl border border-line bg-surface px-2 py-3 text-center">
           <Icon className={`mx-auto size-4 ${cls}`} />
           <div className="mt-1 font-display text-xl leading-none">{value}</div>
           <div className="mt-1 text-[10px] leading-tight text-ink-3">{label}</div>

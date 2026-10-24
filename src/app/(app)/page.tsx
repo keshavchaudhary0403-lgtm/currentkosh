@@ -37,7 +37,7 @@ export default async function Today({ searchParams }: PageProps<"/">) {
                   key={d.date}
                   href={d.date === latest ? "/" : `/?date=${d.date}`}
                   className={cx(
-                    "flex min-w-14 flex-col items-center rounded-2xl border px-2.5 py-1.5 text-center transition",
+                    "flex min-w-14 flex-col items-center rounded-xl border px-2.5 py-1.5 text-center transition",
                     d.date === date ? "border-transparent bg-ink text-bg" : "border-line bg-surface hover:border-line-strong",
                   )}
                 >

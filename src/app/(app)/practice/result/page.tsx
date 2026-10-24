@@ -14,7 +14,7 @@ function PastResult() {
   const attempt = useProgress().attempts.find((a) => a.id === id) ?? null;
   const items = useItems(attempt ? { mcqs: attempt.mcqIds } : null);
   if (!attempt) return <Empty title="Result not found">Past results are saved in this browser only.</Empty>;
-  if (!items) return <div className="h-64 animate-pulse rounded-3xl bg-surface" />;
+  if (!items) return <div className="h-64 animate-pulse rounded-xl bg-surface" />;
   return <ResultView attempt={attempt} questions={items.mcqs} lang={lang} />;
 }
 

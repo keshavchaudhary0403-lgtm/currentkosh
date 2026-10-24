@@ -58,12 +58,12 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
         </div>
       </header>
 
-      <section className="mt-6 sm:mt-8 sm:rounded-3xl sm:border sm:border-line sm:bg-surface sm:p-7 sm:shadow-card">
+      <section className="mt-6 sm:mt-8 sm:rounded-xl sm:border sm:border-line sm:bg-surface sm:p-7 sm:shadow-card">
         <BiText v={c.summary} lang={lang} as="p" className="text-[17px] leading-[1.75]" hiClassName="mt-4 text-base" />
       </section>
 
       <section className="mt-6 grid gap-4 sm:grid-cols-[1.2fr_1fr]">
-        <div className="rounded-3xl border border-line bg-surface p-5 shadow-card sm:p-6">
+        <div className="rounded-xl border border-line bg-surface p-5 sm:p-6">
           <h2 className="mb-3 flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-ink-3 uppercase">
             <Sparkles className="size-4 text-accent" /> {t("keyFacts", ui)}
           </h2>
@@ -107,7 +107,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
         </section>
       )}
 
-      <section className="mt-6 rounded-3xl border border-line bg-surface-2/60 p-5 sm:p-6">
+      <section className="mt-6 rounded-xl border border-line bg-surface-2/60 p-5 sm:p-6">
         <h2 className="mb-3 flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-ink-3 uppercase">
           <ShieldCheck className="size-4 text-good" /> {ui === "hi" ? "आधिकारिक स्रोत" : "Official sources"}
         </h2>
@@ -134,7 +134,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
       </section>
 
       <div className="fixed inset-x-0 bottom-[calc(62px+env(safe-area-inset-bottom))] z-30 flex justify-center px-4 lg:bottom-6 lg:pl-64">
-        <div className="flex w-full items-center gap-2 rounded-2xl border border-line-strong bg-surface p-1.5 shadow-[0_12px_40px_-12px_rgb(0_0_0/0.35)] sm:w-auto">
+        <div className="flex w-full items-center gap-2 rounded-xl border border-line-strong bg-surface p-1.5 shadow-[0_12px_40px_-12px_rgb(0_0_0/0.35)] sm:w-auto">
           <ReadButton storyId={story.id} cardIds={story.cardIds} labels={{ mark: t("markRead", ui), done: ui === "hi" ? "पढ़ लिया · दोहराव में जुड़ा" : "Read · added to revision" }} />
           <BookmarkButton storyId={story.id} />
           {mcqs.length > 0 && (
@@ -147,14 +147,14 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
 
       {mcqs.length > 0 && (
         <section id="quick-check" className="mt-10 scroll-mt-20">
-          <h2 className="mb-4 font-display text-3xl">{t("quickCheck", ui)}</h2>
+          <h2 className="mb-3 font-display text-xl sm:text-2xl">{t("quickCheck", ui)}</h2>
           <QuickCheck mcqs={mcqs.map((m) => m.content)} lang={lang} />
         </section>
       )}
 
       {thread && thread.stories.length > 1 && (
         <section className="mt-10">
-          <h2 className="mb-1 font-display text-3xl">{pick(thread.title, ui)}</h2>
+          <h2 className="mb-1 font-display text-xl sm:text-2xl">{pick(thread.title, ui)}</h2>
           <p className="mb-4 text-sm text-ink-2">{ui === "hi" ? "इस कहानी का पूरा क्रम" : "How this storyline has developed"}</p>
           <ol className="relative space-y-4 border-l border-line-strong pl-5">
             {thread.stories.map((s) => (
@@ -179,7 +179,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
 
 function Callout({ icon, title, children }: { icon: React.ReactNode; title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-3xl border border-line bg-surface p-5 text-[15px] leading-relaxed shadow-card">
+    <div className="rounded-xl border border-line bg-surface p-5 text-[15px] leading-relaxed">
       <h2 className="mb-2 flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-ink-3 uppercase">
         {icon} {title}
       </h2>

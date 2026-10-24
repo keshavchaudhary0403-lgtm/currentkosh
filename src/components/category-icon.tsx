@@ -43,7 +43,7 @@ export const catStyle = (id: string) => ({ "--h": categoryHue(id) }) as React.CS
 
 export function CategoryIcon({ id, size = "md" }: { id: string; size?: "sm" | "md" | "lg" }) {
   const Icon = ICONS[id] ?? ScrollText;
-  const box = size === "lg" ? "size-12 rounded-2xl" : size === "sm" ? "size-8 rounded-lg" : "size-10 rounded-xl";
+  const box = size === "lg" ? "size-12 rounded-xl" : size === "sm" ? "size-8 rounded-lg" : "size-10 rounded-xl";
   const icon = size === "lg" ? "size-6" : size === "sm" ? "size-4" : "size-5";
   return (
     <span className={`cat grid shrink-0 place-items-center bg-(--cat-tint) text-(--cat-ink) ${box}`} style={catStyle(id)}>

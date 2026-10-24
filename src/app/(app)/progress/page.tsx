@@ -32,7 +32,7 @@ export default function Progress() {
   return (
     <div className="space-y-10">
       <header>
-        <h1 className="font-display text-3xl sm:text-5xl">{ui === "hi" ? "प्रगति" : "Progress"}</h1>
+        <h1 className="font-display text-[28px] sm:text-4xl">{ui === "hi" ? "प्रगति" : "Progress"}</h1>
         <p className="mt-2 text-sm text-ink-3">Saved privately in this browser.</p>
       </header>
 

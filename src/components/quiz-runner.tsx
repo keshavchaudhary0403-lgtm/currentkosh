@@ -99,10 +99,10 @@ export function QuizRunner({
       </div>
 
       <div className="mb-5 h-1 overflow-hidden rounded-full bg-line-strong">
-        <div className="h-full rounded-full bg-gradient-to-r from-accent to-accent-2 transition-all" style={{ width: `${((i + 1) / questions.length) * 100}%` }} />
+        <div className="h-full rounded-full bg-accent transition-all" style={{ width: `${((i + 1) / questions.length) * 100}%` }} />
       </div>
 
-      <div key={q.id} className="rise rounded-3xl border border-line bg-surface p-5 shadow-card sm:p-7">
+      <div key={q.id} className="rise rounded-xl border border-line bg-surface p-5 sm:p-7">
         <div className="mb-4 flex items-center justify-between text-xs text-ink-3">
           <span className="font-semibold tracking-wider uppercase">
             Q{i + 1} · {pick(categoryById(q.category)?.label, ui)}
@@ -128,7 +128,7 @@ export function QuizRunner({
             Next <ArrowRight className="size-4" />
           </button>
         ) : (
-          <button onClick={finish} className="ml-auto inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent-2 px-5 py-2.5 text-sm font-semibold text-white">
+          <button onClick={finish} className="ml-auto inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-white">
             Submit test
           </button>
         )}

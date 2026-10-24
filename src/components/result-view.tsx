@@ -29,8 +29,7 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
       <Link href="/practice" className="inline-flex items-center gap-1.5 text-sm text-ink-2 hover:text-ink">
         <ArrowLeft className="size-4" /> Practice
       </Link>
-      <section className="relative overflow-hidden rounded-3xl border border-line bg-surface p-6 shadow-card sm:p-8">
-        <div className="aurora opacity-50" />
+      <section className="relative overflow-hidden rounded-xl border border-line bg-surface p-6 sm:p-8">
         <div className="relative flex flex-col items-center gap-6 sm:flex-row">
           <ProgressRing value={correct} max={rows.length || 1} size={120} stroke={9}>
             <div>
@@ -58,7 +57,7 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
         <h2 className="mb-3 text-xs font-semibold tracking-[0.14em] text-ink-3 uppercase">By topic</h2>
         <div className="grid gap-2 sm:grid-cols-2">
           {[...byCat.entries()].map(([cat, v]) => (
-            <div key={cat} className="rounded-2xl border border-line bg-surface p-3">
+            <div key={cat} className="rounded-xl border border-line bg-surface p-3">
               <div className="flex justify-between text-sm">
                 <span>{pick(categoryById(cat)?.label, ui)}</span>
                 <span className="font-semibold tabular-nums">
@@ -74,7 +73,7 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
       </section>
 
       <section>
-        <h2 className="mb-4 font-display text-3xl">Review</h2>
+        <h2 className="mb-3 font-display text-xl sm:text-2xl">Review</h2>
         <McqReview items={rows.map((r) => ({ id: r.q.id, storyId: r.q.storyId, content: r.q.content, selected: r.picked }))} lang={lang} />
       </section>
     </div>

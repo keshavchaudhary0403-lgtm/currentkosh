@@ -23,7 +23,7 @@ export function McqReview({ items, lang }: { items: Item[]; lang: Lang }) {
       {shown.length === 0 && <p className="text-sm text-ink-2">Nothing missed. Clean sweep! 🎯</p>}
       <div className="space-y-4">
         {shown.map((it) => (
-          <div key={it.id} className="rounded-2xl border border-line bg-surface p-4 sm:p-5">
+          <div key={it.id} className="rounded-xl border border-line bg-surface p-4 sm:p-5">
             <McqView mcq={it.content} lang={lang} selected={it.selected} reveal number={it.n} />
             <Link href={`/story/${it.storyId}`} className="mt-3 inline-block text-sm font-medium text-accent">
               Read the story →

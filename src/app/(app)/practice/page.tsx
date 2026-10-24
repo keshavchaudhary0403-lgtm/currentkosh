@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { CalendarRange, Timer, Zap } from "lucide-react";
+import { CalendarRange, ChevronRight, Timer, Zap } from "lucide-react";
 import { RecentAttempts, WeakDrillCard } from "@/components/practice-widgets";
 import { TestBuilder } from "@/components/test-builder";
 import { Card, SectionTitle, fmtDate } from "@/components/ui";
@@ -26,26 +26,25 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
   ];
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-8">
       <header>
-        <h1 className="font-display text-3xl sm:text-5xl">{ui === "hi" ? "अभ्यास" : "Practice"}</h1>
-        <p className="mt-2 text-ink-2">Every question is written from an official source and tagged to your exams. Missed questions automatically return in Revise.</p>
+        <h1 className="font-display text-[28px] sm:text-4xl">{ui === "hi" ? "अभ्यास" : "Practice"}</h1>
+        <p className="mt-1 text-sm text-ink-2">Questions from official sources, in your exam&apos;s style. Missed ones return in Revise.</p>
       </header>
 
       {empty && (
-        <div className="rounded-2xl border border-warn/40 bg-warn/10 p-4 text-sm">Not enough questions for that selection yet. Try a wider period or fewer topic filters.</div>
+        <div className="rounded-xl border border-warn/40 bg-warn/10 p-4 text-sm">Not enough questions for that selection yet. Try a wider period or fewer topic filters.</div>
       )}
 
-      <section className="grid gap-3 sm:grid-cols-2">
+      <section className="divide-y divide-line overflow-hidden rounded-xl border border-line bg-surface">
         {quick.map((q) => (
-          <Link key={q.href} href={q.href} className="group flex w-full items-start gap-4 rounded-2xl border border-line bg-surface p-5 text-left shadow-card transition hover:-translate-y-0.5 hover:border-line-strong">
-            <span className="cat grid size-11 shrink-0 place-items-center rounded-xl bg-(--cat-tint) text-(--cat-ink)" style={{ "--h": q.hue } as React.CSSProperties}>
-              {q.icon}
+          <Link key={q.href} href={q.href} className="group flex items-center gap-3 px-4 py-3.5 transition hover:bg-surface-2 sm:px-5">
+            <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-accent-soft text-accent">{q.icon}</span>
+            <span className="min-w-0 flex-1">
+              <span className="block text-[15px] font-medium">{q.title}</span>
+              <span className="block text-xs text-ink-3">{q.body}</span>
             </span>
-            <span>
-              <span className="block font-semibold">{q.title}</span>
-              <span className="block text-sm text-ink-2">{q.body}</span>
-            </span>
+            <ChevronRight className="size-4 text-ink-3" />
           </Link>
         ))}
         <WeakDrillCard />
@@ -54,11 +53,11 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
       {months.length > 0 && (
         <section>
           <SectionTitle eyebrow="Monthly revision tests" title="Test a whole month" />
-          <div className="flex flex-wrap gap-2">
+          <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:flex-wrap sm:px-0">
             {months.map((m) => (
-              <Link key={m} href={`/practice/run?kind=monthly&from=${m}-01&to=${m}-31`} className="rounded-2xl border border-line bg-surface px-4 py-3 text-left transition hover:border-line-strong">
-                <span className="block font-display text-xl">{fmtDate(`${m}-01`, ui, { month: "long" })}</span>
-                <span className="block text-xs text-ink-3">{m.slice(0, 4)} · 50 questions</span>
+              <Link key={m} href={`/practice/run?kind=monthly&from=${m}-01&to=${m}-31`} className="shrink-0 rounded-lg border border-line bg-surface px-3.5 py-2 text-left transition hover:border-line-strong">
+                <span className="block text-[15px] font-semibold">{fmtDate(`${m}-01`, ui, { month: "short" })}</span>
+                <span className="block text-xs text-ink-3">{m.slice(0, 4)} · 50 Qs</span>
               </Link>
             ))}
           </div>

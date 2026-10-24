@@ -38,9 +38,9 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
 
   if (!item) {
     return (
-      <div className="rise mx-auto max-w-md rounded-3xl border border-line bg-surface p-8 text-center shadow-card">
+      <div className="rise mx-auto max-w-md rounded-xl border border-line bg-surface p-8 text-center">
         <PartyPopper className="mx-auto mb-3 size-10 text-accent-2" />
-        <h2 className="font-display text-4xl">Session complete</h2>
+        <h2 className="font-display text-3xl">Session complete</h2>
         <p className="mt-2 text-ink-2">
           {tally.good} remembered · {tally.again} coming back tomorrow
         </p>
@@ -60,16 +60,16 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
         <span>{item.type === "card" ? "Flashcard" : "Question you missed"}</span>
       </div>
       <div className="mb-6 h-1 overflow-hidden rounded-full bg-line-strong">
-        <div className="h-full rounded-full bg-gradient-to-r from-accent to-accent-2 transition-all" style={{ width: `${(i / items.length) * 100}%` }} />
+        <div className="h-full rounded-full bg-accent transition-all" style={{ width: `${(i / items.length) * 100}%` }} />
       </div>
 
       {item.type === "card" ? (
         <div key={`c${item.id}`} className="rise">
           <button
             onClick={() => setFlipped(true)}
-            className="flex min-h-64 w-full flex-col items-center justify-center rounded-3xl border border-line bg-surface p-8 text-center shadow-card"
+            className="flex min-h-64 w-full flex-col items-center justify-center rounded-xl border border-line bg-surface p-8 text-center"
           >
-            <BiText v={item.content.front} lang={lang} as="div" className="font-display text-3xl leading-snug" hiClassName="font-sans text-lg mt-3" />
+            <BiText v={item.content.front} lang={lang} as="div" className="font-display text-2xl leading-snug" hiClassName="font-sans text-lg mt-3" />
             {flipped ? (
               <div className="mt-6 w-full border-t border-line pt-6">
                 <BiText v={item.content.back} lang={lang} as="div" className="text-xl font-semibold text-accent" hiClassName="text-base font-medium" />
@@ -95,7 +95,7 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
           </Link>
         </div>
       ) : (
-        <div key={`m${item.id}`} className="rise rounded-3xl border border-line bg-surface p-5 shadow-card sm:p-7">
+        <div key={`m${item.id}`} className="rise rounded-xl border border-line bg-surface p-5 sm:p-7">
           <McqView mcq={item.content} lang={lang} selected={picked} reveal={picked !== null} onSelect={setPicked} />
           {picked !== null && (
             <button

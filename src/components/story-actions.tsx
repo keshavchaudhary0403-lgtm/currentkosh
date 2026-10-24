@@ -44,7 +44,7 @@ export function QuickCheck({ mcqs, lang }: { mcqs: McqContent[]; lang: Lang }) {
   return (
     <div className="space-y-6">
       {mcqs.map((m, i) => (
-        <div key={i} className="rounded-2xl border border-line bg-surface p-4 sm:p-5">
+        <div key={i} className="rounded-xl border border-line bg-surface p-4 sm:p-5">
           <McqView mcq={m} lang={lang} selected={picked[i]} reveal={picked[i] !== null} onSelect={(a) => setPicked((p) => p.map((x, j) => (j === i ? a : x)))} number={i + 1} />
         </div>
       ))}

@@ -37,7 +37,7 @@ export function ProfileForm({ initial, submitLabel }: { initial?: Initial; submi
                 key={e.id}
                 onClick={() => toggle(e.id)}
                 aria-pressed={on}
-                className={`flex items-center gap-3 rounded-2xl border p-3.5 text-left transition ${on ? "border-accent bg-accent-soft" : "border-line bg-surface hover:border-line-strong"}`}
+                className={`flex items-center gap-3 rounded-xl border p-3.5 text-left transition ${on ? "border-accent bg-accent-soft" : "border-line bg-surface hover:border-line-strong"}`}
               >
                 <span className={`grid size-5 shrink-0 place-items-center rounded-md border ${on ? "border-accent bg-accent text-white" : "border-line-strong"}`}>{on && <Check className="size-3.5" strokeWidth={3} />}</span>
                 <span>
@@ -100,7 +100,7 @@ export function ProfileForm({ initial, submitLabel }: { initial?: Initial; submi
       <button
         onClick={submit}
         disabled={pending}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-ink px-6 py-3.5 text-sm font-semibold text-bg transition hover:opacity-90 active:scale-[.99] disabled:opacity-60 sm:w-auto"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-ink px-6 py-3.5 text-sm font-semibold text-bg transition hover:opacity-90 active:scale-[.99] disabled:opacity-60 sm:w-auto"
       >
         {pending && <Loader2 className="size-4 animate-spin" />}
         {submitLabel}

@@ -36,7 +36,7 @@ export default async function Me() {
 
       <MyStats />
 
-      <nav className="divide-y divide-line overflow-hidden rounded-2xl border border-line bg-surface">
+      <nav className="divide-y divide-line overflow-hidden rounded-xl border border-line bg-surface">
         {links.map(({ href, icon: Icon, label, hint }) => (
           <Link key={href} href={href} className="flex items-center gap-3.5 px-4 py-3.5 active:bg-surface-2">
             <span className="grid size-9 place-items-center rounded-xl bg-accent-soft text-accent">
@@ -51,7 +51,7 @@ export default async function Me() {
         ))}
       </nav>
 
-      <section className="space-y-3 rounded-2xl border border-line bg-surface p-4">
+      <section className="space-y-3 rounded-xl border border-line bg-surface p-4">
         <div className="text-sm font-semibold">{ui === "hi" ? "पढ़ने की भाषा" : "Reading language"}</div>
         <LangPicker lang={profile.lang} />
         <div className="flex items-center justify-between border-t border-line pt-3">

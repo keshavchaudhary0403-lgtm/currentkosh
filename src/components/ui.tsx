@@ -31,10 +31,9 @@ export function CategoryPill({ id, lang, size = "sm" }: { id: string; lang: Lang
   const c = categoryById(id) ?? CATEGORIES[0];
   return (
     <span
-      className={cx("inline-flex items-center gap-1.5 rounded-full font-medium whitespace-nowrap", size === "sm" ? "px-2.5 py-1 text-xs" : "px-2 py-0.5 text-[11px]")}
-      style={{ background: `oklch(0.62 0.14 ${c.hue} / 0.12)`, color: `oklch(0.55 0.14 ${c.hue})` }}
+      className={cx("cat inline-flex items-center gap-1.5 rounded-md bg-(--cat-tint) font-medium whitespace-nowrap text-(--cat-ink)", size === "sm" ? "px-2 py-0.5 text-xs" : "px-1.5 py-0.5 text-[11px]")}
+      style={{ "--h": c.hue } as React.CSSProperties}
     >
-      <span className="size-1.5 rounded-full" style={{ background: `oklch(0.62 0.16 ${c.hue})` }} />
       {pick(c.label, lang === "bi" ? "en" : lang)}
     </span>
   );
@@ -44,7 +43,7 @@ export function RelevanceBadge({ level, lang }: { level: number; lang: Lang }) {
   if (level <= 0) return null;
   const label = level >= 3 ? t("mustKnow", lang) : level === 2 ? t("likely", lang) : t("low", lang);
   return (
-    <span className={cx("inline-flex items-center gap-1 text-[11px] font-semibold tracking-wide uppercase", level >= 3 ? "text-accent-2" : level === 2 ? "text-accent" : "text-ink-3")}>
+    <span className={cx("inline-flex items-center gap-1 text-[11px] font-semibold tracking-wide uppercase", level >= 3 ? "text-accent-2" : level === 2 ? "text-ink-2" : "text-ink-3")}>
       <span className="flex gap-0.5">
         {[1, 2, 3].map((i) => (
           <span key={i} className={cx("h-2.5 w-1 rounded-full", i <= level ? "bg-current" : "bg-line-strong")} />
@@ -82,19 +81,13 @@ export function ProgressRing({ value, max, size = 64, stroke = 6, children }: { 
           cy={size / 2}
           r={r}
           fill="none"
-          stroke="url(#ring)"
+          stroke="var(--accent)"
           strokeWidth={stroke}
           strokeLinecap="round"
           strokeDasharray={c}
           strokeDashoffset={c * (1 - pct)}
           style={{ transition: "stroke-dashoffset 0.8s cubic-bezier(.2,.8,.2,1)" }}
         />
-        <defs>
-          <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="var(--accent)" />
-            <stop offset="100%" stopColor="var(--accent-2)" />
-          </linearGradient>
-        </defs>
       </svg>
       <div className="absolute inset-0 grid place-items-center text-center">{children}</div>
     </div>
@@ -102,7 +95,7 @@ export function ProgressRing({ value, max, size = 64, stroke = 6, children }: { 
 }
 
 export function Card({ className, children }: { className?: string; children: React.ReactNode }) {
-  return <div className={cx("rounded-2xl border border-line bg-surface shadow-card", className)}>{children}</div>;
+  return <div className={cx("rounded-xl border border-line bg-surface", className)}>{children}</div>;
 }
 
 export function ButtonLink({ href, children, variant = "primary", className }: { href: string; children: React.ReactNode; variant?: "primary" | "ghost"; className?: string }) {
@@ -125,7 +118,7 @@ export function SectionTitle({ eyebrow, title, right }: { eyebrow?: string; titl
     <div className="mb-4 flex items-end justify-between gap-4">
       <div>
         {eyebrow && <div className="mb-1 text-xs font-semibold tracking-[0.14em] text-ink-3 uppercase">{eyebrow}</div>}
-        <h2 className="font-display text-2xl leading-tight sm:text-3xl">{title}</h2>
+        <h2 className="font-display text-xl leading-tight sm:text-2xl">{title}</h2>
       </div>
       {right}
     </div>
@@ -134,8 +127,8 @@ export function SectionTitle({ eyebrow, title, right }: { eyebrow?: string; titl
 
 export function Empty({ title, children }: { title: string; children?: React.ReactNode }) {
   return (
-    <div className="rounded-2xl border border-dashed border-line-strong px-6 py-12 text-center">
-      <div className="font-display text-2xl">{title}</div>
+    <div className="rounded-xl border border-dashed border-line-strong px-6 py-12 text-center">
+      <div className="font-display text-xl">{title}</div>
       {children && <div className="mx-auto mt-2 max-w-md text-sm text-ink-2">{children}</div>}
     </div>
   );

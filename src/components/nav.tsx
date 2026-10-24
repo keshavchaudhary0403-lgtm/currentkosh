@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useId, useRef, useState, useTransition } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
 import { BarChart3, BookOpen, Bookmark, Brain, Check, ChevronDown, Library, Moon, Newspaper, Settings, Sun, Target, UserRound, Waypoints } from "lucide-react";
 import { setLang } from "@/app/actions";
 import { dueCount, useProgress } from "@/lib/progress-store";
@@ -41,7 +41,7 @@ export function Sidebar({ labels, youLabel }: { labels: Labels; youLabel: string
   const path = usePathname();
   const due = dueCount(useProgress());
   return (
-    <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-line bg-surface/60 px-4 py-6 lg:flex">
+    <aside className="sticky top-0 hidden h-dvh w-60 shrink-0 flex-col border-r border-line bg-surface px-3 py-5 lg:flex">
       <Link href="/" className="mb-8 px-2">
         <Wordmark />
       </Link>
@@ -52,12 +52,11 @@ export function Sidebar({ labels, youLabel }: { labels: Labels; youLabel: string
             <Link
               key={href}
               href={href}
-              className={`group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition ${active ? "bg-accent-soft text-accent" : "text-ink-2 hover:bg-surface-2 hover:text-ink"}`}
+              className={`group relative flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition ${active ? "bg-surface-2 text-ink" : "text-ink-2 hover:bg-surface-2 hover:text-ink"}`}
             >
-              {active && <span className="absolute top-2 bottom-2 left-0 w-1 rounded-full bg-accent" />}
               <Icon className="size-[18px]" strokeWidth={active ? 2.3 : 1.8} />
               {labels[key]}
-              {key === "revise" && due > 0 && <span className="ml-auto rounded-full bg-accent-2 px-2 py-0.5 text-[11px] font-bold text-white">{due}</span>}
+              {key === "revise" && due > 0 && <span className="ml-auto rounded-md bg-accent px-1.5 py-0.5 text-[11px] font-semibold text-white">{due}</span>}
             </Link>
           );
         })}
@@ -67,16 +66,16 @@ export function Sidebar({ labels, youLabel }: { labels: Labels; youLabel: string
         {MORE.map(({ href, key, icon: Icon }) => {
           const active = isActive(path, href);
           return (
-            <Link key={href} href={href} className={`flex items-center gap-3 rounded-xl px-3 py-2 text-sm transition ${active ? "bg-accent-soft font-medium text-accent" : "text-ink-2 hover:bg-surface-2 hover:text-ink"}`}>
+            <Link key={href} href={href} className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition ${active ? "bg-surface-2 font-medium text-ink" : "text-ink-2 hover:bg-surface-2 hover:text-ink"}`}>
               <Icon className="size-4" strokeWidth={1.8} />
               {labels[key]}
             </Link>
           );
         })}
       </nav>
-      <div className="mt-auto overflow-hidden rounded-2xl bg-gradient-to-br from-accent to-accent-2 p-4 text-xs leading-relaxed text-white">
-        <div className="mb-1 text-sm font-semibold">No ads. No pop-ups. Ever.</div>
-        <span className="opacity-90">Every note links to its official source.</span>
+      <div className="mt-auto rounded-xl border border-line p-4 text-xs leading-relaxed text-ink-2">
+        <div className="mb-0.5 font-semibold text-ink">No ads. No pop-ups.</div>
+        Every note links to its official source.
       </div>
     </aside>
   );
@@ -86,7 +85,7 @@ export function BottomNav({ labels }: { labels: Labels }) {
   const path = usePathname();
   const due = dueCount(useProgress());
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl lg:hidden">
+    <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] lg:hidden">
       <div className="mx-auto grid max-w-lg grid-cols-5">
         {TABS.map(({ href, key, icon: Icon, also }) => {
           const active = isActive(path, href) || also.some((p) => path.startsWith(p));
@@ -95,7 +94,7 @@ export function BottomNav({ labels }: { labels: Labels }) {
               <Icon className="size-[22px]" strokeWidth={active ? 2.3 : 1.7} />
               {labels[key]}
               {key === "revise" && due > 0 && (
-                <span className="absolute top-1 left-1/2 ml-2 grid min-w-4 place-items-center rounded-full bg-accent-2 px-1 text-[10px] leading-4 font-bold text-white">{due}</span>
+                <span className="absolute top-1 left-1/2 ml-2 grid min-w-4 place-items-center rounded-full bg-accent px-1 text-[10px] leading-4 font-semibold text-white">{due}</span>
               )}
             </Link>
           );
@@ -138,7 +137,7 @@ export function LangMenu({ lang }: { lang: Lang }) {
         <ChevronDown className="size-3.5" />
       </button>
       {open && (
-        <div role="menu" className="absolute right-0 z-50 mt-2 w-44 overflow-hidden rounded-2xl border border-line bg-surface p-1 shadow-xl">
+        <div role="menu" className="absolute right-0 z-50 mt-2 w-44 overflow-hidden rounded-xl border border-line bg-surface p-1 shadow-xl">
           {LANGS.map((l) => (
             <button
               key={l.v}
@@ -195,22 +194,14 @@ export function ThemeToggle() {
   );
 }
 
-/** CurrentKosh mark: an open book (kosh, a treasury of knowledge) with a live dot (current). */
+/** CurrentKosh mark: an open book (kosh, a treasury of knowledge) with a dot for "current". */
 export function Logo({ size = 28 }: { size?: number }) {
-  const id = useId();
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden className="shrink-0">
-      <defs>
-        <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#5a48f5" />
-          <stop offset="1" stopColor="#ff7a3d" />
-        </linearGradient>
-      </defs>
-      <rect width="32" height="32" rx="9" fill={`url(#${id})`} />
+      <rect width="32" height="32" rx="8" fill="#1f3f99" />
       <path d="M7 11.2c3-1.4 6.1-1.2 9 .9 2.9-2.1 6-2.3 9-.9v11.1c-3-1.4-6.1-1.2-9 .9-2.9-2.1-6-2.3-9-.9z" fill="none" stroke="#fff" strokeWidth="2" strokeLinejoin="round" />
       <path d="M16 12.2v10.9" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="25" cy="7" r="3" fill="#fff" />
-      <circle cx="25" cy="7" r="1.5" fill="#ff7a3d" />
+      <circle cx="25" cy="7" r="3" fill="#e2a24a" />
     </svg>
   );
 }
@@ -219,8 +210,8 @@ export function Wordmark({ size = 28 }: { size?: number }) {
   return (
     <span className="flex items-center gap-2">
       <Logo size={size} />
-      <span className="font-display leading-none" style={{ fontSize: size * 0.72 }}>
-        Current<span className="bg-gradient-to-r from-accent to-accent-2 bg-clip-text text-transparent">Kosh</span>
+      <span className="font-display leading-none" style={{ fontSize: size * 0.68 }}>
+        Current<span className="text-accent">Kosh</span>
       </span>
     </span>
   );
