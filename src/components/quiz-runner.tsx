@@ -97,7 +97,7 @@ export function QuizRunner({
   return (
     <div className="mx-auto max-w-3xl pb-28">
       <div className="sticky top-0 z-30 -mx-4 mb-6 px-4 pt-1 pb-3 sm:-mx-6 sm:px-6">
-        <div className="glass absolute inset-0 -z-10 border-b border-line [mask-image:linear-gradient(#000_70%,transparent)]" />
+        <div className="glass absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 [mask-image:linear-gradient(#000_75%,transparent)]" />
         <div className="flex items-center gap-3 pt-2">
           <button
             onClick={() => (answered ? setQuitAsk(true) : router.push("/practice"))}

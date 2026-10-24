@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { ArrowRight, Bookmark, BookmarkCheck, Check, Target } from "lucide-react";
 import type { McqContent } from "@/lib/content";
 import { answerQuestion, markRead, toggleBookmark, useProgress } from "@/lib/progress-store";
@@ -89,15 +90,17 @@ export function BookmarkButton({ storyId, label }: { storyId: string; label?: st
         <Icon className="size-[18px]" strokeWidth={2} />
         {label && <span className="hidden lg:inline">{label}</span>}
       </button>
-      {toast > 0 && (
+      {toast > 0 &&
+        createPortal(
         <div role="status" className="popover fixed inset-x-4 top-20 z-50 mx-auto flex max-w-sm items-center gap-3 rounded-full bg-[#10110e] py-2 pr-2 pl-4 text-sm font-semibold text-[#f3f2ec] shadow-float">
           <BookmarkCheck className="size-5 shrink-0 text-[#c8f135]" />
           Saved for revision
           <Link href="/saved" className="ml-auto inline-flex h-9 items-center rounded-full bg-[#c8f135] px-3.5 text-[#10110e]">
             View
           </Link>
-        </div>
-      )}
+        </div>,
+          document.body,
+        )}
     </>
   );
 }

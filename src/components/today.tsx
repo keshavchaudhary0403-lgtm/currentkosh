@@ -28,7 +28,7 @@ export function TodayHeader({ date, lang, isLatest = true, edition, exams, picke
   const ui = lang === "bi" ? "en" : lang;
   const hi = ui === "hi";
   return (
-    <header className="rise grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,560px)] lg:items-end">
+    <header className="rise relative z-20 grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,560px)] lg:items-end">
       <div className="min-w-0">
         <div className="eyebrow flex flex-wrap items-center gap-x-3 gap-y-1 text-ink-3">
           <span className="inline-flex items-center gap-1.5 text-good-ink">

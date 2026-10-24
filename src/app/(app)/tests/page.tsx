@@ -81,7 +81,7 @@ export default function MyTests() {
   }
 
   const stats = [
-    { label: L("Tests taken", "टेस्ट दिए"), value: attempts.length, cls: "bg-solid text-on-solid" },
+    { label: L("Tests taken", "टेस्ट दिए"), value: attempts.length, cls: "bg-[#10110e] text-[#f3f2ec] dark:bg-card-2 dark:text-ink" },
     { label: L("Accuracy", "सटीकता"), value: `${Math.round((totalCorrect / Math.max(1, totalAnswered)) * 100)}%`, cls: "bg-signal text-on-signal" },
     { label: L("Questions", "प्रश्न"), value: totalQs, cls: "card" },
     { label: L("Avg time / Q", "औसत समय / प्रश्न"), value: `${Math.round(totalSecs / Math.max(1, totalAnswered))}s`, cls: "bg-cobalt-soft text-cobalt-ink" },

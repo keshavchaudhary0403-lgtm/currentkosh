@@ -60,16 +60,16 @@ export default function Progress() {
           <SectionTitle title={L("Your consistency", "आपकी नियमितता")} eyebrow={L(`Last 18 weeks · ${activeDays} active days`, `पिछले 18 सप्ताह · ${activeDays} सक्रिय दिन`)} />
           <div className="card p-5 sm:p-6">
             <div className="no-scrollbar overflow-x-auto">
-              <div className="flex w-max gap-1">
+              <div className="flex min-w-[400px] gap-1">
                 {weeks.map((w, i) => (
-                  <div key={i} className="flex flex-col gap-1">
+                  <div key={i} className="flex flex-1 flex-col gap-1">
                     {w.map((d) => {
                       const l = d > today ? -1 : level(days.get(d) ?? 0);
                       return (
                         <div
                           key={d}
                           title={`${d}: ${days.get(d) ?? 0} actions`}
-                          className={cx("pop size-4 rounded-[5px] sm:size-[18px]", d === today && "ring-2 ring-ink ring-offset-1 ring-offset-card")}
+                          className={cx("pop aspect-square w-full rounded-[5px]", d === today && "ring-2 ring-ink ring-offset-1 ring-offset-card")}
                           style={{
                             animationDelay: `${i * 18}ms`,
                             background: l < 0 ? "transparent" : l === 0 ? "var(--line)" : `color-mix(in oklab, var(--signal) ${30 + l * 17}%, var(--good) ${l * 8}%)`,

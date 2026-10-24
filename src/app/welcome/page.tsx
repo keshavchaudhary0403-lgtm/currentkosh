@@ -32,7 +32,7 @@ export default async function Welcome() {
           </span>
         </div>
         <div className="mt-10 grid items-start gap-10 lg:mt-14 lg:grid-cols-[1fr_1.02fr] lg:gap-14">
-          <div className="rise lg:sticky lg:top-10">
+          <div className="rise min-w-0 lg:sticky lg:top-10">
             <p className="eyebrow inline-flex h-8 items-center gap-2 rounded-full bg-card px-3 text-good-ink shadow-[inset_0_0_0_1px_var(--line-2)]">
               <span className="live-dot" /> Updated daily from official sources
             </p>
@@ -68,7 +68,7 @@ export default async function Welcome() {
               ))}
             </ul>
           </div>
-          <div className="rise glass rounded-[32px] p-5 shadow-float ring-1 ring-line-2 sm:p-8" style={{ animationDelay: "120ms" }}>
+          <div className="rise glass min-w-0 rounded-[32px] p-5 shadow-float ring-1 ring-line-2 sm:p-8" style={{ animationDelay: "120ms" }}>
             <div className="mb-6 flex items-end justify-between gap-4">
               <div>
                 <div className="eyebrow text-ink-3">Free · no sign-up</div>
