@@ -57,7 +57,7 @@ export function DayPicker({ dates, selected, latest, lang }: { dates: { date: st
           setOpen((o) => !o);
         }}
         aria-expanded={open}
-        className="flex h-9 items-center gap-2 rounded-xl border border-line bg-surface px-3 text-sm font-semibold text-ink-2 hover:text-ink"
+        className="flex h-9 items-center gap-2 rounded-xl border border-line bg-surface px-3 text-sm font-semibold whitespace-nowrap text-ink-2 hover:text-ink"
       >
         <CalendarDays className="size-4 text-accent" />
         {fmtDate(selected, ui, { weekday: "short", day: "numeric", month: "short" })}
@@ -73,8 +73,8 @@ export function DayPicker({ dates, selected, latest, lang }: { dates: { date: st
         </span>
       )}
       {selected !== latest && (
-        <Link href="/" className="ml-1 text-sm font-semibold text-accent">
-          {ui === "hi" ? "आज पर जाएँ" : "Jump to latest"}
+        <Link href="/" className="ml-1 text-sm font-semibold whitespace-nowrap text-accent">
+          {ui === "hi" ? "ताज़ा" : "Latest"}
         </Link>
       )}
 

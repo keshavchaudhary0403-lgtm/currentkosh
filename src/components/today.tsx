@@ -50,30 +50,33 @@ export function TodayHeader({
     {
       icon: BookOpenCheck,
       title: hi ? "पढ़ें और समझें" : "Read & understand",
-      hint: hi ? `${total} ख़बरें · ~${total * 2} मिनट` : `${total} stories · ~${total * 2} min`,
-      status: read > 0 && !steps[0] ? (hi ? `${read}/${total} पढ़ीं` : `${read} of ${total} read`) : null,
+      short: hi ? "पढ़ें" : "Read",
+      hint: hi ? `${total} ख़बरें` : `${total} stories`,
+      status: read > 0 && !steps[0] ? `${read}/${total}` : null,
       href: nextUnread ? `/story/${nextUnread}` : "#brief",
       done: steps[0],
     },
     {
       icon: Target,
       title: hi ? "क्विज़ से परखें" : "Recall with a quiz",
-      hint: hi ? "10 प्रश्न · ~5 मिनट" : "10 questions · ~5 min",
+      short: hi ? "क्विज़" : "Quiz",
+      hint: hi ? "10 प्रश्न" : "10 questions",
       status: null,
       href: quizHref,
       done: steps[1],
     },
     {
       icon: Brain,
-      title: hi ? "दोहराएँ" : "Revise",
-      hint: due ? (hi ? `${due} कार्ड तैयार` : `${due} cards ready`) : hi ? "कल से कार्ड आएँगे" : "Cards arrive tomorrow",
+      title: hi ? "पढ़ी ख़बरें दोहराएँ" : "Revise what you learned",
+      short: hi ? "दोहराएँ" : "Revise",
+      hint: due ? (hi ? `${due} कार्ड` : `${due} cards`) : hi ? "कल से" : "From tomorrow",
       status: null,
       href: "/revise",
       done: steps[2],
     },
   ];
   const cta = !steps[0] && nextUnread
-    ? { href: `/story/${nextUnread}`, label: read ? (hi ? "पढ़ना जारी रखें" : "Continue reading") : hi ? "पढ़ना शुरू करें" : "Start reading" }
+    ? { href: `/story/${nextUnread}`, label: read ? (hi ? "जारी रखें" : "Continue reading") : hi ? "पढ़ना शुरू करें" : "Start reading" }
     : !quizDone
       ? { href: quizHref, label: hi ? "क्विज़ से परखें" : "Check your recall" }
       : due
@@ -82,44 +85,53 @@ export function TodayHeader({
 
   return (
     <header className="rounded-3xl border border-line bg-surface p-4 sm:p-5">
-      {picker}
-      <div className="mt-4 flex flex-wrap items-end justify-between gap-3">
+      <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
           <h1 className="font-display text-xl leading-tight sm:text-2xl">
             {done === 3 ? (hi ? "आज की पढ़ाई पूरी 🌱" : "Today's essentials covered 🌱") : isLatest ? (hi ? "आज की पढ़ाई" : "Today's study plan") : hi ? "इस दिन की पढ़ाई" : "Study this day"}
           </h1>
           {focus.length > 0 && (
-            <p className="mt-1 text-sm text-ink-2">
+            <p className="mt-0.5 truncate text-sm text-ink-2">
               {hi ? "फ़ोकस: " : "Focus: "}
               <span className="font-semibold text-ink">{focus.join(" · ")}</span>
             </p>
           )}
         </div>
+        {picker}
+      </div>
+
+      <div className="mt-3 flex items-stretch gap-2">
+        <ol className="grid min-w-0 flex-1 grid-cols-3 gap-2">
+          {rows.map((r, i) => (
+            <li key={i}>
+              <Link
+                href={r.href}
+                title={r.title}
+                className={cx(
+                  "flex h-full flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-center transition hover:brightness-[.97] sm:flex-row sm:justify-start sm:gap-2.5 sm:px-3 sm:text-left",
+                  r.done ? "bg-good-soft" : "bg-surface-2",
+                )}
+              >
+                <span className={cx("grid size-8 shrink-0 place-items-center rounded-xl", r.done ? "bg-good text-white" : "bg-accent-soft text-accent")}>
+                  {r.done ? <Check className="size-4" strokeWidth={2.8} /> : <r.icon className="size-4" strokeWidth={2.2} />}
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-sm font-semibold">{r.short}</span>
+                  <span className="hidden truncate text-[11px] text-ink-3 sm:block">{r.done ? (hi ? "हो गया" : "Done") : (r.status ?? r.hint)}</span>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ol>
         {cta && (
-          <Link href={cta.href} className="btn hidden px-5 py-2.5 text-sm sm:inline-flex">
+          <Link href={cta.href} className="btn hidden shrink-0 px-5 text-sm sm:inline-flex">
             {cta.label} <ArrowRight className="size-4" />
           </Link>
         )}
       </div>
 
-      <ol className="mt-3 grid gap-1 sm:grid-cols-3 sm:gap-2">
-        {rows.map((r, i) => (
-          <li key={i}>
-            <Link href={r.href} className="flex items-center gap-3 rounded-2xl px-2 py-2 transition hover:bg-surface-2 sm:bg-surface-2/60 sm:px-3">
-              <span className={cx("grid size-9 shrink-0 place-items-center rounded-xl", r.done ? "bg-good-soft text-good" : "bg-accent-soft text-accent")}>
-                {r.done ? <Check className="size-[18px]" strokeWidth={2.6} /> : <r.icon className="size-[18px]" strokeWidth={2.1} />}
-              </span>
-              <span className="min-w-0">
-                <span className="block truncate text-sm font-semibold">{r.title}</span>
-                <span className="block truncate text-xs text-ink-3">{r.done ? (hi ? "हो गया" : "Done") : (r.status ?? r.hint)}</span>
-              </span>
-            </Link>
-          </li>
-        ))}
-      </ol>
-
       {cta && (
-        <Link href={cta.href} className="btn mt-3 w-full py-2.5 text-sm sm:hidden">
+        <Link href={cta.href} className="btn mt-2 w-full py-2.5 text-sm sm:hidden">
           {cta.label} <ArrowRight className="size-4" />
         </Link>
       )}
