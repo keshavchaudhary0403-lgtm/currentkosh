@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, BookOpenCheck, Bookmark, BookmarkCheck, Check, Target } from "lucide-react";
+import { Bookmark, BookmarkCheck, Target } from "lucide-react";
 import type { McqContent } from "@/lib/content";
 import { answerQuestion, markRead, toggleBookmark, useProgress } from "@/lib/progress-store";
 import type { Lang } from "@/lib/taxonomy";
@@ -10,8 +10,8 @@ import { McqView } from "./mcq";
 import { Confetti } from "./ui";
 
 /**
- * "Mark as read". Once read it shows a green "✓ Read" (the story's facts are now in Revise)
- * and, when there is one, a separate "Next →" to the next story of the day.
+ * "Read" and "Next", always side by side. Read is indigo until tapped, then green
+ * (the story's facts go into Revise). Next is greyed out on the day's last story.
  */
 export function ReadButton({
   storyId,
@@ -22,49 +22,46 @@ export function ReadButton({
 }: {
   storyId: string;
   cardIds: string[];
-  labels: { mark: string; done: string; next: string; doneHint: string };
+  labels: { mark: string; next: string; doneHint: string };
   nextHref?: string | null;
   className?: string;
 }) {
   const read = !!useProgress().reads[storyId];
   const [celebrate, setCelebrate] = useState(false);
-  if (read)
-    return (
-      <span className={`flex min-w-0 items-center gap-2 ${className}`}>
-        <span
-          title={labels.doneHint}
-          className="pop relative inline-flex h-10 shrink-0 items-center gap-1.5 rounded-[14px] bg-good-soft px-3.5 text-sm font-semibold whitespace-nowrap text-good"
-        >
-          {celebrate && <Confetti />}
-          <Check className="size-4" strokeWidth={2.6} /> {labels.done}
-        </span>
-        {nextHref && (
-          <Link href={nextHref} className="btn h-10 shrink-0 px-3.5 text-[15px]">
-            {labels.next} <ArrowRight className="size-4" strokeWidth={2} />
-          </Link>
-        )}
-      </span>
-    );
   return (
-    <button
-      onClick={() => {
-        setCelebrate(true);
-        markRead(storyId, cardIds);
-      }}
-      className={`btn h-10 px-4 text-[15px] whitespace-nowrap ${className}`}
-    >
-      <BookOpenCheck className="size-4" strokeWidth={2} /> {labels.mark}
-    </button>
+    <span className={`flex min-w-0 items-center gap-2 ${className}`}>
+      <button
+        onClick={() => {
+          if (read) return;
+          setCelebrate(true);
+          markRead(storyId, cardIds);
+        }}
+        aria-pressed={read}
+        title={read ? labels.doneHint : undefined}
+        className={`btn relative h-10 flex-1 px-4 text-[15px] lg:flex-none ${read ? "btn-green" : ""} ${celebrate ? "pop" : ""}`}
+      >
+        {celebrate && <Confetti />}
+        {labels.mark}
+      </button>
+      {nextHref ? (
+        <Link href={nextHref} className="btn btn-ghost h-10 flex-1 px-4 text-[15px] lg:flex-none">
+          {labels.next}
+        </Link>
+      ) : (
+        <button disabled className="btn h-10 flex-1 px-4 text-[15px] lg:flex-none">
+          {labels.next}
+        </button>
+      )}
+    </span>
   );
 }
 
-/** Jump to the story's quiz; on phones the label hides once the story is read, to make room for "Next". */
-export function QuizButton({ storyId, label }: { storyId: string; label: string }) {
-  const read = !!useProgress().reads[storyId];
+/** Jump to the story's quiz. */
+export function QuizButton({ label }: { storyId?: string; label: string }) {
   return (
     <a href="#quick-check" aria-label={label} className="btn h-10 shrink-0 px-3 text-[15px] [--b:var(--accent-2-soft)] [--bt:var(--accent-2)]">
       <Target className="size-4" strokeWidth={2} />
-      <span className={read ? "hidden lg:inline" : ""}>{label}</span>
+      <span>{label}</span>
     </a>
   );
 }

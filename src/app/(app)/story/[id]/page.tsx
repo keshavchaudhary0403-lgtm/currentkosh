@@ -36,8 +36,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
   const nextHref = next ? `/story/${next.id}` : null;
   const dayHref = story.date === latestStoryDate() ? "/" : `/?date=${story.date}`;
   const readLabels = {
-    mark: ui === "hi" ? "पढ़ा चिह्नित करें" : "Mark as read",
-    done: ui === "hi" ? "पढ़ा" : "Read",
+    mark: ui === "hi" ? "पढ़ा" : "Read",
     next: ui === "hi" ? "अगली" : "Next",
     doneHint: ui === "hi" ? "इसके तथ्य दोहराव में जुड़ गए" : "Its facts are now in your Revise queue",
   };
@@ -230,7 +229,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
         <div className="fixed inset-x-0 bottom-[calc(74px+env(safe-area-inset-bottom))] z-30 px-4 lg:sticky lg:bottom-6 lg:mt-8 lg:px-0">
           <div className="mx-auto flex w-full max-w-md items-center gap-2 rounded-2xl border border-line bg-surface p-2 shadow-[0_10px_30px_-12px_rgb(0_0_0/0.25)] lg:w-fit lg:max-w-none">
             <BackButton fallback={dayHref} variant="icon" label={ui === "hi" ? "वापस" : "Back"} />
-            <ReadButton storyId={story.id} cardIds={story.cardIds} labels={readLabels} nextHref={nextHref} className="flex-1 justify-center lg:flex-none" />
+            <ReadButton storyId={story.id} cardIds={story.cardIds} labels={readLabels} nextHref={nextHref} className="flex-1 lg:flex-none" />
             <BookmarkButton storyId={story.id} label={ui === "hi" ? "सहेजें" : "Save"} />
             {mcqs.length > 0 && (
               <QuizButton storyId={story.id} label={ui === "hi" ? "क्विज़" : "Quiz"} />
