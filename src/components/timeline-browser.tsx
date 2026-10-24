@@ -18,6 +18,8 @@ export function TimelineBrowser({ threads, lang }: { threads: ThreadSummary[]; l
   const [q, setQ] = useState("");
   const [cat, setCat] = useState("");
   const [sort, setSort] = useState<Sort>("latest");
+  // Render a page at a time; search and filters still cover every timeline.
+  const [limit, setLimit] = useState(60);
 
   const topics = useMemo(() => {
     const n = new Map<string, number>();
@@ -41,7 +43,10 @@ export function TimelineBrowser({ threads, lang }: { threads: ThreadSummary[]; l
           <Search className="size-4 text-ink-3" />
           <input
             value={q}
-            onChange={(e) => setQ(e.target.value)}
+            onChange={(e) => {
+              setQ(e.target.value);
+              setLimit(60);
+            }}
             placeholder={hi ? "खोजें: भारत-चीन, चुनाव, RBI, चक्रवात…" : "Search: India–China, elections, RBI, cyclone…"}
             className="w-full bg-transparent text-sm outline-none placeholder:text-ink-3"
           />
@@ -63,7 +68,10 @@ export function TimelineBrowser({ threads, lang }: { threads: ThreadSummary[]; l
         {[{ id: "", label: hi ? "सभी विषय" : "All topics", n: threads.length }, ...topics].map((t) => (
           <button
             key={t.id || "all"}
-            onClick={() => setCat(t.id)}
+            onClick={() => {
+              setCat(t.id);
+              setLimit(60);
+            }}
             className={cx(
               "rounded-full border px-3 py-1.5 text-[13px] font-semibold transition",
               cat === t.id ? "border-pink bg-pink-soft text-pink" : "border-line bg-surface text-ink-2 hover:border-line-strong",
@@ -88,7 +96,7 @@ export function TimelineBrowser({ threads, lang }: { threads: ThreadSummary[]; l
 
       {shown.length ? (
         <div className="grid gap-2.5 sm:grid-cols-2 xl:grid-cols-3">
-          {shown.map((t) => (
+          {shown.slice(0, limit).map((t) => (
             <Link key={t.key} href={`/thread/${t.key}`} className="tap flex gap-3 rounded-2xl bg-surface p-4">
               <CategoryIcon id={t.category} size="sm" />
               <span className="min-w-0 flex-1">
@@ -105,7 +113,13 @@ export function TimelineBrowser({ threads, lang }: { threads: ThreadSummary[]; l
             </Link>
           ))}
         </div>
-      ) : (
+      ) : null}
+      {shown.length > limit && (
+        <button onClick={() => setLimit((n) => n + 60)} className="btn btn-ghost mx-auto flex h-11 w-full px-8 text-[15px] sm:w-auto">
+          {hi ? `और दिखाएँ · ${shown.length - limit} बाकी` : `Show more · ${shown.length - limit} left`}
+        </button>
+      )}
+      {shown.length === 0 && (
         <Empty title={hi ? "कुछ नहीं मिला" : "No timelines match"}>{hi ? "दूसरा शब्द या विषय आज़माएँ।" : "Try another word or topic."}</Empty>
       )}
     </div>

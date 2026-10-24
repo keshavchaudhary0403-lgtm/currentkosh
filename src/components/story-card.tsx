@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Check, Clock } from "lucide-react";
-import type { Story } from "@/lib/store";
+import type { StoryCardData as Story } from "@/lib/store";
 import { categoryById, pick, type Lang } from "@/lib/taxonomy";
 import { CategoryIcon, catStyle } from "./category-icon";
 import { RelevanceBadge, cx, fmtDate } from "./ui";
@@ -75,7 +75,7 @@ export function FeaturedStory({ story, lang, relevance, read }: { story: Story; 
           </div>
         )}
         <p lang={ui === "hi" ? "hi" : undefined} className="mt-2 line-clamp-3 text-[15px] leading-relaxed text-ink-2">
-          {pick(story.content.summary, ui)}
+          {story.content.summary && pick(story.content.summary, ui)}
         </p>
         <div className="mt-4 flex items-center gap-3">
           <RelevanceBadge level={relevance} lang={ui} />

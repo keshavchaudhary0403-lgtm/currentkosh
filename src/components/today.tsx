@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight, BookOpenCheck, Brain, CalendarDays, Check, Target, Waypoints } from "lucide-react";
 import { dueCount, useProgress } from "@/lib/progress-store";
-import type { Story } from "@/lib/store";
+import type { StoryCardData as Story } from "@/lib/store";
 import { istDate } from "@/lib/dates";
 import { t } from "@/lib/i18n";
 import { categoryById, pick, type Bi, type Lang } from "@/lib/taxonomy";

@@ -144,6 +144,17 @@ export function activeThreads(limit = 12): { key: string; title: Bi; count: numb
     .slice(0, limit);
 }
 
+/** Just what a story card shows, so lists don't ship every story's questions and flashcards to the browser. */
+export type StoryCardData = Pick<Story, "id" | "date" | "category" | "gsPaper"> & { content: { title: Bi; key_facts: Bi[]; summary?: Bi } };
+
+export const toCard = (s: Story, withSummary = false): StoryCardData => ({
+  id: s.id,
+  date: s.date,
+  category: s.category,
+  gsPaper: s.gsPaper,
+  content: { title: s.content.title, key_facts: s.content.key_facts.slice(0, 1), ...(withSummary ? { summary: s.content.summary } : {}) },
+});
+
 export type ThreadSummary = { key: string; title: Bi; count: number; firstDate: string; lastDate: string; category: string; latest: Bi };
 
 /** Every timeline with its span, main topic and latest headline, for browsing and search. */

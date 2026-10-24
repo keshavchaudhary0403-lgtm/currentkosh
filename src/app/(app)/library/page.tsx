@@ -6,7 +6,7 @@ import { Search } from "lucide-react";
 import { StoryList } from "@/components/today";
 import { Empty, fmtDate } from "@/components/ui";
 import { currentProfile } from "@/lib/profile";
-import { relevanceFor, searchStories, storyMonths } from "@/lib/store";
+import { relevanceFor, searchStories, storyMonths, toCard } from "@/lib/store";
 import { CATEGORIES, EXAMS, STATES, pick, type ExamId } from "@/lib/taxonomy";
 
 export const metadata: Metadata = { title: "Library" };
@@ -92,7 +92,7 @@ export default async function Library({ searchParams }: PageProps<"/library">) {
         </div>
         {results.length ? (
           <>
-            <StoryList items={results.map((story) => ({ story, relevance: relevanceFor(story, profile) }))} lang={profile.lang} showDate />
+            <StoryList items={results.map((story) => ({ story: toCard(story), relevance: relevanceFor(story, profile) }))} lang={profile.lang} showDate />
             {all.length > results.length && (
               <Link href={`/library?${more}`} scroll={false} className="btn btn-ghost mt-4 w-full py-3 text-[15px] sm:mx-auto sm:flex sm:w-auto sm:px-8">
                 {L(`Show 50 more · ${all.length - results.length} left`, `50 और दिखाएँ · ${all.length - results.length} बाकी`)}

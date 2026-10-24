@@ -7,7 +7,7 @@ import { daysUntil, istDate } from "@/lib/dates";
 import { t } from "@/lib/i18n";
 import { currentProfile } from "@/lib/profile";
 import { categoryById, pick } from "@/lib/taxonomy";
-import { activeThreads, feedFor, latestStoryDate, relevanceFor, storyDates } from "@/lib/store";
+import { activeThreads, feedFor, latestStoryDate, relevanceFor, storyDates, toCard } from "@/lib/store";
 
 
 export default async function Today({ searchParams }: PageProps<"/">) {
@@ -20,8 +20,8 @@ export default async function Today({ searchParams }: PageProps<"/">) {
   const latest = latestStoryDate();
   const date = typeof dateParam === "string" && /^\d{4}-\d{2}-\d{2}$/.test(dateParam) ? dateParam : (latest ?? istDate());
   const feed = feedFor(profile, date).map((story) => ({ story, relevance: relevanceFor(story, profile) }));
-  const brief = feed.slice(0, profile.dailyGoal);
-  const more = feed.slice(profile.dailyGoal);
+  const brief = feed.slice(0, profile.dailyGoal).map((x) => ({ ...x, story: toCard(x.story, true) }));
+  const more = feed.slice(profile.dailyGoal).map((x) => ({ ...x, story: toCard(x.story) }));
   const briefIds = brief.map((b) => b.story.id);
   // The day's main subjects, most stories first, as a gentle "what today is about".
   const topicCount = new Map<string, number>();
