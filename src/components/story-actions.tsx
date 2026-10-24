@@ -2,14 +2,17 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, Bookmark, BookmarkCheck, Check, CheckCircle2 } from "lucide-react";
+import { ArrowRight, BookOpenCheck, Bookmark, BookmarkCheck, Check, Target } from "lucide-react";
 import type { McqContent } from "@/lib/content";
 import { answerQuestion, markRead, toggleBookmark, useProgress } from "@/lib/progress-store";
 import type { Lang } from "@/lib/taxonomy";
 import { McqView } from "./mcq";
 import { Confetti } from "./ui";
 
-/** Mark as read; once read, it becomes the way on to the next story of the day. */
+/**
+ * "Mark as read". Once read it shows a green "✓ Read" (the story's facts are now in Revise)
+ * and, when there is one, a separate "Next →" to the next story of the day.
+ */
 export function ReadButton({
   storyId,
   cardIds,
@@ -19,24 +22,27 @@ export function ReadButton({
 }: {
   storyId: string;
   cardIds: string[];
-  labels: { mark: string; done: string; next?: string };
+  labels: { mark: string; done: string; next: string; doneHint: string };
   nextHref?: string | null;
   className?: string;
 }) {
   const read = !!useProgress().reads[storyId];
   const [celebrate, setCelebrate] = useState(false);
-  if (read && nextHref)
-    return (
-      <Link href={nextHref} className={`btn relative px-4 text-sm ${celebrate ? "pop" : ""} ${className}`}>
-        {celebrate && <Confetti />}
-        <Check className="size-4 text-white/80" strokeWidth={2.6} /> {labels.next ?? "Next"} <ArrowRight className="size-4" strokeWidth={2.4} />
-      </Link>
-    );
   if (read)
     return (
-      <span className={`pop relative inline-flex items-center justify-center gap-1.5 rounded-[14px] bg-good-soft px-4 text-sm font-semibold whitespace-nowrap text-good ${className}`}>
-        {celebrate && <Confetti />}
-        <CheckCircle2 className="size-4" strokeWidth={2.4} /> {labels.done}
+      <span className={`flex min-w-0 items-center gap-2 ${className}`}>
+        <span
+          title={labels.doneHint}
+          className="pop relative inline-flex h-10 shrink-0 items-center gap-1.5 rounded-[14px] bg-good-soft px-3.5 text-sm font-semibold whitespace-nowrap text-good"
+        >
+          {celebrate && <Confetti />}
+          <Check className="size-4" strokeWidth={2.6} /> {labels.done}
+        </span>
+        {nextHref && (
+          <Link href={nextHref} className="btn h-10 shrink-0 px-3.5 text-sm">
+            {labels.next} <ArrowRight className="size-4" strokeWidth={2.4} />
+          </Link>
+        )}
       </span>
     );
   return (
@@ -45,14 +51,25 @@ export function ReadButton({
         setCelebrate(true);
         markRead(storyId, cardIds);
       }}
-      className={`btn px-4 text-sm ${className}`}
+      className={`btn h-10 px-4 text-sm whitespace-nowrap ${className}`}
     >
-      <Check className="size-4" strokeWidth={2.6} /> {labels.mark}
+      <BookOpenCheck className="size-4" strokeWidth={2.2} /> {labels.mark}
     </button>
   );
 }
 
-export function BookmarkButton({ storyId }: { storyId: string }) {
+/** Jump to the story's quiz; on phones the label hides once the story is read, to make room for "Next". */
+export function QuizButton({ storyId, label }: { storyId: string; label: string }) {
+  const read = !!useProgress().reads[storyId];
+  return (
+    <a href="#quick-check" aria-label={label} className="btn h-10 shrink-0 px-3 text-sm [--b:var(--accent-2-soft)] [--bt:var(--accent-2)]">
+      <Target className="size-4" strokeWidth={2.2} />
+      <span className={read ? "hidden lg:inline" : ""}>{label}</span>
+    </a>
+  );
+}
+
+export function BookmarkButton({ storyId, label }: { storyId: string; label?: string }) {
   const saved = useProgress().bookmarks.includes(storyId);
   const [toast, setToast] = useState(0);
   const Icon = saved ? BookmarkCheck : Bookmark;
@@ -68,9 +85,10 @@ export function BookmarkButton({ storyId }: { storyId: string }) {
           } else setToast(0);
         }}
         aria-label={saved ? "Remove from saved" : "Save for later"}
-        className={`btn size-10 shrink-0 ${saved ? "pop border border-accent bg-accent-soft [--b:var(--accent-soft)] [--bt:var(--accent)]" : "btn-ghost"}`}
+        className={`btn h-10 min-w-10 shrink-0 px-2.5 text-sm ${saved ? "pop border border-accent bg-accent-soft [--b:var(--accent-soft)] [--bt:var(--accent)]" : "btn-ghost"}`}
       >
         <Icon className="size-[18px]" strokeWidth={2.2} />
+        {label && <span className="hidden pr-1 lg:inline">{label}</span>}
       </button>
       {toast > 0 && (
         <div className="rise fixed inset-x-4 top-16 z-50 mx-auto flex max-w-sm items-center gap-3 rounded-2xl bg-ink px-4 py-3 text-sm font-semibold text-bg shadow-xl">

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { ExternalLink, Landmark, Lightbulb, PenLine, ShieldCheck, Sparkles, Target, Waypoints } from "lucide-react";
 import { BackButton } from "@/components/back-button";
-import { BookmarkButton, QuickCheck, ReadButton } from "@/components/story-actions";
+import { BookmarkButton, QuickCheck, QuizButton, ReadButton } from "@/components/story-actions";
 import { CategoryIcon, catStyle } from "@/components/category-icon";
 import { BiText, RelevanceBadge, fmtDate } from "@/components/ui";
 import { t } from "@/lib/i18n";
@@ -35,13 +35,18 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
   const next = pos >= 0 ? (dayFeed[pos + 1] ?? null) : null;
   const nextHref = next ? `/story/${next.id}` : null;
   const dayHref = story.date === latestStoryDate() ? "/" : `/?date=${story.date}`;
-  const readLabels = { mark: ui === "hi" ? "पढ़ लिया" : "Done", done: ui === "hi" ? "पढ़ा" : "Read", next: ui === "hi" ? "अगली" : "Next" };
+  const readLabels = {
+    mark: ui === "hi" ? "पढ़ा चिह्नित करें" : "Mark as read",
+    done: ui === "hi" ? "पढ़ा" : "Read",
+    next: ui === "hi" ? "अगली" : "Next",
+    doneHint: ui === "hi" ? "इसके तथ्य दोहराव में जुड़ गए" : "Its facts are now in your Revise queue",
+  };
   // Long storylines (some have 200+ updates): show the few updates around this one.
   const at = thread ? thread.stories.findIndex((s) => s.id === story.id) : -1;
   const nearby = thread ? thread.stories.slice(Math.max(0, at - 3), at + 4) : [];
 
   return (
-    <div className="pb-24 lg:grid lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-8 lg:pb-10 xl:grid-cols-[minmax(0,1fr)_340px] xl:gap-10">
+    <div className="pb-32 lg:grid lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-8 lg:pb-10 xl:grid-cols-[minmax(0,1fr)_340px] xl:gap-10">
       <article className="min-w-0">
         <BackButton fallback={dayHref} label={ui === "hi" ? "वापस" : "Back"} />
 
@@ -156,20 +161,6 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
           </p>
         </section>
 
-        <div className="fixed inset-x-0 bottom-[calc(62px+env(safe-area-inset-bottom))] z-30 flex justify-center px-4 lg:hidden">
-          <div className="flex w-full items-center gap-2 rounded-2xl border border-line bg-surface p-2 shadow-[0_12px_40px_-12px_rgb(0_0_0/0.3)] sm:w-auto">
-            <BackButton fallback={dayHref} variant="icon" />
-            <ReadButton storyId={story.id} cardIds={story.cardIds} labels={readLabels} nextHref={nextHref} className="h-10 min-w-0 flex-1 sm:flex-none" />
-            <BookmarkButton storyId={story.id} />
-            {mcqs.length > 0 && (
-              <a href="#quick-check" aria-label={ui === "hi" ? "क्विज़" : "Quiz"} className="btn btn-ghost h-10 shrink-0 px-3.5 text-sm">
-                <Target className="size-4" strokeWidth={2.2} />
-                <span>{ui === "hi" ? "क्विज़" : "Quiz"}</span>
-              </a>
-            )}
-          </div>
-        </div>
-
         {mcqs.length > 0 && (
           <section id="quick-check" className="mt-10 scroll-mt-20">
             <h2 className="mb-3 flex items-center gap-2 font-display text-xl sm:text-2xl">
@@ -235,20 +226,21 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
             </span>
           </Link>
         </nav>
+
+        <div className="fixed inset-x-0 bottom-[calc(74px+env(safe-area-inset-bottom))] z-30 px-4 lg:sticky lg:bottom-6 lg:mt-8 lg:px-0">
+          <div className="mx-auto flex w-full max-w-md items-center gap-2 rounded-2xl border border-line bg-surface p-2 shadow-[0_10px_30px_-12px_rgb(0_0_0/0.25)] lg:w-fit lg:max-w-none">
+            <BackButton fallback={dayHref} variant="icon" label={ui === "hi" ? "वापस" : "Back"} />
+            <ReadButton storyId={story.id} cardIds={story.cardIds} labels={readLabels} nextHref={nextHref} className="flex-1 justify-center lg:flex-none" />
+            <BookmarkButton storyId={story.id} label={ui === "hi" ? "सहेजें" : "Save"} />
+            {mcqs.length > 0 && (
+              <QuizButton storyId={story.id} label={ui === "hi" ? "क्विज़" : "Quiz"} />
+            )}
+          </div>
+        </div>
       </article>
 
       <aside className="hidden lg:block">
         <div className="no-scrollbar sticky top-20 max-h-[calc(100dvh-6rem)] space-y-4 overflow-y-auto pb-2">
-          <div className="flex items-center gap-2 rounded-3xl border border-line bg-surface p-3">
-            <ReadButton storyId={story.id} cardIds={story.cardIds} labels={readLabels} nextHref={nextHref} className="h-10 flex-1" />
-            {mcqs.length > 0 && (
-              <a href="#quick-check" className="btn btn-ghost h-10 px-3.5 text-sm">
-                <Target className="size-4" strokeWidth={2.2} /> {ui === "hi" ? "क्विज़" : "Quiz"}
-              </a>
-            )}
-            <BookmarkButton storyId={story.id} />
-          </div>
-
           <div className="rounded-3xl border border-line bg-surface p-4">
             <h2 className="mb-3 font-display text-base">{ui === "hi" ? "आपकी परीक्षाओं के लिए" : "For your exams"}</h2>
             <ul className="space-y-2">
