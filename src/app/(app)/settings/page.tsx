@@ -9,7 +9,7 @@ export default async function Settings() {
   const profile = await currentProfile();
   if (!profile) redirect("/welcome");
   return (
-    <div className="max-w-2xl space-y-6">
+    <div className="max-w-4xl space-y-6">
       <h1 className="font-display text-[28px] sm:text-4xl">Settings</h1>
       <div className="rounded-2xl border-2 border-line bg-surface p-5 sm:p-6">
         <ProfileForm initial={profile} submitLabel="Save changes" />

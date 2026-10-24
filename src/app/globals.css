@@ -149,6 +149,7 @@ body {
   background: var(--accent-soft);
 }
 
+@layer components {
 /* Solid buttons. Colour comes from --b (face) and --bt (text). */
 .btn {
   --b: var(--accent);
@@ -214,6 +215,7 @@ body {
 }
 .tap:active {
   transform: scale(0.99);
+}
 }
 
 .live-dot {

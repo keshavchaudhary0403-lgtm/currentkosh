@@ -3,19 +3,55 @@ import { redirect } from "next/navigation";
 import { QuizRunner } from "@/components/quiz-runner";
 import { addDays, istDate } from "@/lib/dates";
 import { currentProfile } from "@/lib/profile";
-import { latestStoryDate, mcqsByIds, pickMcqs } from "@/lib/store";
+import { getThread, latestStoryDate, mcqsByIds, pickMcqs } from "@/lib/store";
 import { CATEGORY_IDS } from "@/lib/taxonomy";
 
 export const metadata: Metadata = { title: "Test" };
 
 const KINDS = {
   daily: { title: "Daily quiz", count: 10, days: 1, timed: false, negative: 0 },
-  weekly: { title: "Weekly revision test", count: 25, days: 7, timed: false, negative: 0 },
-  monthly: { title: "Monthly revision test", count: 50, days: 31, timed: false, negative: 0 },
-  mock: { title: "Timed mock test", count: 50, days: 60, timed: true, negative: 1 / 3 },
-  weak: { title: "Weak-area drill", count: 15, days: 60, timed: false, negative: 0 },
-  thread: { title: "Storyline test", count: 20, days: 365, timed: false, negative: 0 },
-  custom: { title: "Custom test", count: 25, days: 30, timed: false, negative: 0 },
+  weekly: {
+    title: "Weekly revision test",
+    count: 25,
+    days: 7,
+    timed: false,
+    negative: 0,
+  },
+  monthly: {
+    title: "Monthly revision test",
+    count: 50,
+    days: 31,
+    timed: false,
+    negative: 0,
+  },
+  mock: {
+    title: "Timed mock test",
+    count: 50,
+    days: 60,
+    timed: true,
+    negative: 1 / 3,
+  },
+  weak: {
+    title: "Weak-area drill",
+    count: 15,
+    days: 60,
+    timed: false,
+    negative: 0,
+  },
+  thread: {
+    title: "Storyline test",
+    count: 20,
+    days: 365,
+    timed: false,
+    negative: 0,
+  },
+  custom: {
+    title: "Custom test",
+    count: 25,
+    days: 30,
+    timed: false,
+    negative: 0,
+  },
 } as const;
 type Kind = keyof typeof KINDS;
 
@@ -43,19 +79,44 @@ export default async function RunTest({ searchParams }: PageProps<"/practice/run
 
   const latest = latestStoryDate() ?? istDate();
   const to = isDate(str(sp.to)) ? str(sp.to)! : latest;
-  const from = isDate(str(sp.from)) ? str(sp.from)! : addDays(to, -(preset.days - 1));
+  const from = isDate(str(sp.from)) ? str(sp.from)! : str(sp.thread) ? "2000-01-01" : addDays(to, -(preset.days - 1));
   const categories = (str(sp.cats)?.split(",") ?? []).filter((c) => (CATEGORY_IDS as string[]).includes(c));
-  const storyIds = str(sp.stories)?.split(",");
+  // A storyline test names the thread; its stories are looked up here (long storylines would overflow the URL).
+  const thread = str(sp.thread) ? getThread(str(sp.thread)!) : null;
+  const storyIds = thread ? thread.stories.map((s) => s.id) : str(sp.stories)?.split(",");
   const count = Math.min(Math.max(Number(str(sp.count)) || preset.count, 5), 100);
   const timed = str(sp.timed) ? str(sp.timed) === "1" : preset.timed;
   const negative = str(sp.neg) !== undefined ? Math.min(Math.max(Number(str(sp.neg)) || 0, 0), 1) : preset.negative;
   const title = str(sp.title) ?? (kind === "monthly" ? `${preset.title} · ${from.slice(0, 7)}` : preset.title);
 
-  const ids = pickMcqs(profile, { from, to, categories, count, storyIds, seed });
+  const ids = pickMcqs(profile, {
+    from,
+    to,
+    categories,
+    count,
+    storyIds,
+    seed,
+  });
   if (!ids.length) redirect("/practice?empty=1");
   // Observances filed under another subject still show (and score) as the topic the reader chose.
   const shownAs = (c: string) => (categories.length && !categories.includes(c) && categories.includes("days") ? "days" : c);
-  const questions = mcqsByIds(ids).map((m) => ({ id: m.id, storyId: m.storyId, category: shownAs(m.category), content: m.content }));
+  const questions = mcqsByIds(ids).map((m) => ({
+    id: m.id,
+    storyId: m.storyId,
+    category: shownAs(m.category),
+    content: m.content,
+  }));
 
-  return <QuizRunner key={seed} kind={kind} title={title} questions={questions} lang={profile.lang} timed={timed} seconds={timed ? questions.length * 60 : 0} negative={negative} />;
+  return (
+    <QuizRunner
+      key={seed}
+      kind={kind}
+      title={title}
+      questions={questions}
+      lang={profile.lang}
+      timed={timed}
+      seconds={timed ? questions.length * 60 : 0}
+      negative={negative}
+    />
+  );
 }

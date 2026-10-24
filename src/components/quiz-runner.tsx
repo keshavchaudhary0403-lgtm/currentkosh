@@ -87,7 +87,7 @@ export function QuizRunner({
   const next = () => (last ? finish() : setI((x) => x + 1));
 
   return (
-    <div className="mx-auto max-w-2xl pb-16">
+    <div className="mx-auto max-w-3xl pb-16">
       <div className="mb-5 flex items-center gap-3">
         <Link href="/practice" className="grid size-10 shrink-0 place-items-center rounded-full text-ink-3 hover:bg-surface-2 hover:text-ink" aria-label="Quit test">
           <X className="size-6" strokeWidth={2.6} />
@@ -174,7 +174,7 @@ export function QuizRunner({
       </details>
 
       <div className="fixed inset-x-0 bottom-0 z-30 border-t-2 border-line bg-surface px-4 pt-3 pb-[calc(12px+env(safe-area-inset-bottom))] lg:pl-68">
-        <div className="mx-auto flex max-w-2xl items-center gap-2">
+        <div className="mx-auto flex max-w-3xl items-center gap-2">
           <button onClick={() => setI((x) => Math.max(0, x - 1))} disabled={i === 0} className="btn btn-ghost size-12 shrink-0" aria-label="Previous question">
             <ArrowLeft className="size-5" strokeWidth={2.6} />
           </button>
