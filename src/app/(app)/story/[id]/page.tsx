@@ -166,7 +166,11 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
             </>
           )}
           <p className="mt-4 rounded-2xl bg-card-2 p-3 text-xs leading-relaxed text-ink-3">
-            {reported.length > 0
+            {reported.length > 0 && official.length > 0
+              ? hi
+                ? "यह नोट Claude (AI) ने ऊपर दिए आधिकारिक स्रोतों से तैयार किया है; कुछ विवरण उन तथ्यों से हैं जिनकी पुष्टि कम से कम दो स्वतंत्र समाचार स्रोतों ने की है। उद्धृत करने से पहले मूल स्रोत देखें।"
+                : "Claude (AI) wrote these notes from the official sources above, with some details from facts that at least two independent outlets confirm. Check the original for anything you will quote."
+              : reported.length > 0
               ? hi
                 ? "इस घटना का कोई आधिकारिक स्रोत नहीं मिला। यह संक्षिप्त नोट Claude (AI) ने केवल उन तथ्यों से लिखा है जिनकी पुष्टि कम से कम दो स्वतंत्र समाचार स्रोतों ने की है। उद्धृत करने से पहले मूल रिपोर्ट देखें।"
                 : "No official source covered this event yet. Claude (AI) wrote this short note only from facts that at least two independent outlets confirm. Check the reports before you quote anything."
