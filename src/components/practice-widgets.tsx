@@ -15,7 +15,7 @@ export function WeakDrillCard() {
   const ui = lang === "bi" ? "en" : lang;
   return (
     <Link id="weak" href={href} className="group scroll-mt-24 rounded-3xl bg-pink-soft p-4 transition active:scale-[.97]">
-      <span className="grid size-12 place-items-center rounded-2xl bg-pink text-white shadow-[0_3px_0_0_rgb(0_0_0/0.15)] transition group-hover:-rotate-6">
+      <span className="grid size-12 place-items-center rounded-2xl bg-pink text-white transition group-hover:-rotate-6">
         <Crosshair className="size-6" strokeWidth={2.4} />
       </span>
       <span className="mt-3 block font-display text-[17px] leading-tight text-pink">Weak-area drill</span>

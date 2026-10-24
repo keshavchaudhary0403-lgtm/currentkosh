@@ -61,14 +61,14 @@ export function McqView({
               onClick={() => onSelect?.(i)}
               className={`flex items-start gap-3 rounded-2xl border-2 px-3.5 py-3 text-left text-[15px] font-medium transition ${
                 state === "right"
-                  ? "pop border-good bg-good-soft shadow-[0_3px_0_0_var(--good)]"
+                  ? "pop border-good bg-good-soft"
                   : state === "wrong"
-                    ? "shake border-bad bg-bad-soft shadow-[0_3px_0_0_var(--bad)]"
+                    ? "shake border-bad bg-bad-soft"
                     : state === "picked"
-                      ? "border-accent bg-accent-soft shadow-[0_3px_0_0_var(--accent)]"
+                      ? "border-accent bg-accent-soft"
                       : reveal || !onSelect
                         ? "border-line bg-surface opacity-70"
-                        : "border-line bg-surface shadow-[0_3px_0_0_var(--line)] hover:border-line-strong active:translate-y-[3px] active:shadow-none"
+                        : "border-line bg-surface hover:border-line-strong active:scale-[.98]"
               }`}
             >
               <span

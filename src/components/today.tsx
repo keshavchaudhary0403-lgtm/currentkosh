@@ -81,8 +81,8 @@ export function TodayHeader({ date, briefIds, lang }: { date: string; briefIds: 
             <Link
               href={r.href}
               className={cx(
-                "flex h-full flex-col items-center gap-1.5 rounded-2xl px-1.5 py-3 text-center transition active:translate-y-[3px] active:shadow-none sm:flex-row sm:gap-3 sm:px-3 sm:text-left",
-                r.done ? "bg-white/15" : "bg-white text-[#111827] shadow-[0_3px_0_0_var(--accent-press)]",
+                "flex h-full flex-col items-center gap-1.5 rounded-2xl px-1.5 py-3 text-center transition active:scale-[.98] sm:flex-row sm:gap-3 sm:px-3 sm:text-left",
+                r.done ? "bg-white/15" : "bg-white text-[#111827]",
               )}
             >
               <span className={cx("grid size-9 shrink-0 place-items-center rounded-xl", r.done ? "pop bg-good text-white" : "bg-[#eceafe] text-[#4f46e5]")}>

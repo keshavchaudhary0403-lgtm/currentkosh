@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Bookmark, BookmarkCheck, Check, CheckCircle2 } from "lucide-react";
 import type { McqContent } from "@/lib/content";
@@ -33,15 +34,34 @@ export function ReadButton({ storyId, cardIds, labels }: { storyId: string; card
 
 export function BookmarkButton({ storyId }: { storyId: string }) {
   const saved = useProgress().bookmarks.includes(storyId);
+  const [toast, setToast] = useState(0);
   const Icon = saved ? BookmarkCheck : Bookmark;
   return (
-    <button
-      onClick={() => toggleBookmark(storyId)}
-      aria-label={saved ? "Remove bookmark" : "Save for later"}
-      className={`btn size-11 ${saved ? "btn-violet pop" : "btn-ghost"}`}
-    >
-      <Icon className="size-5" strokeWidth={2.4} />
-    </button>
+    <>
+      <button
+        onClick={() => {
+          toggleBookmark(storyId);
+          if (!saved) {
+            const id = Date.now();
+            setToast(id);
+            setTimeout(() => setToast((t) => (t === id ? 0 : t)), 3500);
+          } else setToast(0);
+        }}
+        aria-label={saved ? "Remove from saved" : "Save for later"}
+        className={`btn size-11 ${saved ? "btn-violet pop" : "btn-ghost"}`}
+      >
+        <Icon className="size-5" strokeWidth={2.4} />
+      </button>
+      {toast > 0 && (
+        <div className="rise fixed inset-x-4 top-16 z-50 mx-auto flex max-w-sm items-center gap-3 rounded-2xl bg-ink px-4 py-3 text-sm font-semibold text-bg shadow-xl">
+          <BookmarkCheck className="size-5 shrink-0 text-violet" />
+          Saved for revision
+          <Link href="/saved" className="ml-auto font-extrabold text-violet">
+            View saved →
+          </Link>
+        </div>
+      )}
+    </>
   );
 }
 

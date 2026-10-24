@@ -37,7 +37,7 @@ export function ProfileForm({ initial, submitLabel }: { initial?: Initial; submi
                 key={e.id}
                 onClick={() => toggle(e.id)}
                 aria-pressed={on}
-                className={`flex items-center gap-3 rounded-2xl border-2 p-3.5 text-left transition active:translate-y-[3px] active:shadow-none ${on ? "border-accent bg-accent-soft shadow-[0_3px_0_0_var(--accent)]" : "border-line bg-surface shadow-[0_3px_0_0_var(--line)] hover:border-line-strong"}`}
+                className={`flex items-center gap-3 rounded-2xl border-2 p-3.5 text-left transition active:scale-[.98] ${on ? "border-accent bg-accent-soft" : "border-line bg-surface hover:border-line-strong"}`}
               >
                 <span className={`grid size-6 shrink-0 place-items-center rounded-lg border-2 ${on ? "pop border-accent bg-accent text-white" : "border-line-strong"}`}>{on && <Check className="size-4" strokeWidth={3.5} />}</span>
                 <span>

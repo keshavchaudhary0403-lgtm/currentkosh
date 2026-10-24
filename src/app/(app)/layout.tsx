@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { LangProvider } from "@/components/lang-context";
-import { BottomNav, LangMenu, Sidebar, ThemeToggle, Wordmark } from "@/components/nav";
+import { BottomNav, LangMenu, SavedLink, Sidebar, ThemeToggle, Wordmark } from "@/components/nav";
 import { t } from "@/lib/i18n";
 import { currentProfile } from "@/lib/profile";
 import { examById, pick, stateById } from "@/lib/taxonomy";
@@ -44,6 +44,7 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
               )}
             </Link>
             <div className="ml-auto flex items-center gap-2">
+              <SavedLink />
               <LangMenu lang={lang} />
               <ThemeToggle />
             </div>

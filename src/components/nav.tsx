@@ -203,6 +203,28 @@ export function LangPicker({ lang }: { lang: Lang }) {
   );
 }
 
+/** Header shortcut to saved stories, with a count. */
+export function SavedLink() {
+  const n = useProgress().bookmarks.length;
+  const path = usePathname();
+  const active = path.startsWith("/saved");
+  return (
+    <Link
+      href="/saved"
+      aria-label={`Saved stories (${n})`}
+      title="Saved stories"
+      className={`relative grid size-9 place-items-center rounded-full border-2 transition active:scale-90 ${active ? "border-violet bg-violet-soft text-violet" : "border-line bg-surface text-ink-2 hover:text-ink"}`}
+    >
+      <Bookmark className="size-4" strokeWidth={2.4} />
+      {n > 0 && (
+        <span key={n} className="pop absolute -top-1.5 -right-1.5 grid min-w-[18px] place-items-center rounded-full border-2 border-surface bg-violet px-1 text-[10px] leading-[14px] font-extrabold text-white">
+          {n}
+        </span>
+      )}
+    </Link>
+  );
+}
+
 /** One icon: a moon in light mode (tap for dark), a sun in dark mode (tap for light). */
 export function ThemeToggle() {
   const theme = useTheme();

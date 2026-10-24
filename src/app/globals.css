@@ -149,13 +149,9 @@ body {
   background: var(--accent-soft);
 }
 
-/*
- * Chunky "pressable" buttons: a solid face sitting on a darker edge that
- * sinks when tapped. Colour comes from --b (face) and --bp (edge).
- */
+/* Solid buttons. Colour comes from --b (face) and --bt (text). */
 .btn {
   --b: var(--accent);
-  --bp: var(--accent-press);
   --bt: #fff;
   display: inline-flex;
   align-items: center;
@@ -165,74 +161,59 @@ body {
   background: var(--b);
   color: var(--bt);
   font-weight: 700;
-  box-shadow: 0 4px 0 0 var(--bp);
-  transform: translateY(0);
   transition:
-    transform 0.08s ease,
-    box-shadow 0.08s ease,
+    transform 0.1s ease,
     filter 0.15s;
   user-select: none;
 }
 .btn:hover {
-  filter: brightness(1.06);
+  filter: brightness(1.07);
 }
 .btn:active:not(:disabled) {
-  transform: translateY(4px);
-  box-shadow: 0 0 0 0 var(--bp);
+  transform: scale(0.97);
 }
 .btn:disabled {
   --b: var(--surface-2);
-  --bp: var(--line-strong);
   --bt: var(--ink-3);
   cursor: not-allowed;
 }
 .btn-orange {
   --b: var(--accent-2);
-  --bp: var(--accent-2-press);
 }
 .btn-green {
   --b: var(--good);
-  --bp: var(--good-press);
 }
 .btn-red {
   --b: var(--bad);
-  --bp: var(--bad-press);
 }
 .btn-violet {
   --b: var(--violet);
-  --bp: var(--violet-press);
 }
 .btn-teal {
   --b: var(--teal);
-  --bp: var(--teal-press);
 }
 .btn-white {
   --b: #fff;
-  --bp: rgb(0 0 0 / 0.18);
   --bt: var(--accent);
 }
 .btn-ghost {
   --b: var(--surface);
-  --bp: var(--line-strong);
   --bt: var(--ink);
   border: 2px solid var(--line-strong);
 }
 
-/* Tappable card: a soft edge underneath that sinks on press. */
+/* Tappable card: a soft border that darkens on hover. */
 .tap {
   border: 2px solid var(--line);
-  box-shadow: 0 3px 0 0 var(--line);
   transition:
-    transform 0.08s ease,
-    box-shadow 0.08s ease,
+    transform 0.1s ease,
     border-color 0.15s;
 }
 .tap:hover {
   border-color: var(--line-strong);
 }
 .tap:active {
-  transform: translateY(3px);
-  box-shadow: 0 0 0 0 var(--line);
+  transform: scale(0.99);
 }
 
 .live-dot {

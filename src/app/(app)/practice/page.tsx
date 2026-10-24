@@ -39,7 +39,7 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
       <section className="grid grid-cols-2 gap-3">
         {quick.map((q) => (
           <Link key={q.href} href={q.href} className={`group rounded-3xl p-4 transition active:scale-[.97] ${q.tone}`}>
-            <span className={`grid size-12 place-items-center rounded-2xl text-white shadow-[0_3px_0_0_rgb(0_0_0/0.15)] transition group-hover:-rotate-6 ${q.solid}`}>{q.icon}</span>
+            <span className={`grid size-12 place-items-center rounded-2xl text-white transition group-hover:-rotate-6 ${q.solid}`}>{q.icon}</span>
             <span className={`mt-3 block font-display text-[17px] leading-tight ${q.ink}`}>{q.title}</span>
             <span className="mt-0.5 block text-xs font-semibold text-ink-2">{q.body}</span>
           </Link>

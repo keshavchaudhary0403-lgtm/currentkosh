@@ -79,13 +79,13 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
         <div key={`c${item.id}`} className="rise">
           <button onClick={() => setFlipped((f) => !f)} className="flip block w-full text-center" aria-label={flipped ? "Show question" : "Reveal answer"}>
             <div className={`flip-inner min-h-72 ${flipped ? "flipped" : ""}`}>
-              <div className="flip-face flex min-h-72 flex-col items-center justify-center rounded-3xl border-2 border-line bg-surface p-7 shadow-[0_5px_0_0_var(--line)]">
+              <div className="flip-face flex min-h-72 flex-col items-center justify-center rounded-3xl border-2 border-line bg-surface p-7">
                 <BiText v={item.content.front} lang={lang} as="div" className="font-display text-2xl leading-snug" hiClassName="font-sans text-lg mt-3" />
                 <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-violet-soft px-3 py-1.5 text-sm font-bold text-violet">
                   <RotateCw className="size-4" /> Tap to flip
                 </span>
               </div>
-              <div className="flip-face flip-back flex flex-col items-center justify-center rounded-3xl bg-violet p-7 text-white shadow-[0_5px_0_0_var(--violet-press)]">
+              <div className="flip-face flip-back flex flex-col items-center justify-center rounded-3xl bg-violet p-7 text-white">
                 <div className="mb-3 text-xs font-extrabold tracking-widest text-white/70 uppercase">Answer</div>
                 <BiText v={item.content.back} lang={lang} as="div" className="font-display text-2xl leading-snug" hiClassName="font-sans text-lg font-semibold text-white/85" />
               </div>

@@ -59,7 +59,7 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
             <RotateCcw className="size-4" strokeWidth={2.6} /> More practice
           </Link>
           {wrong + skipped > 0 && (
-            <Link href="/revise" className="btn px-5 py-3 text-sm [--b:rgb(255_255_255/0.18)] [--bp:rgb(0_0_0/0.15)]">
+            <Link href="/revise" className="btn px-5 py-3 text-sm [--b:rgb(255_255_255/0.18)]">
               Revise missed
             </Link>
           )}

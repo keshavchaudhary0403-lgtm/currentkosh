@@ -55,7 +55,7 @@ export default async function Welcome() {
               ))}
             </div>
           </div>
-          <div className="rise rounded-3xl border-2 border-line bg-surface p-5 shadow-[0_5px_0_0_var(--line)] sm:p-8" style={{ animationDelay: "120ms" }}>
+          <div className="rise rounded-3xl border-2 border-line bg-surface p-5 sm:p-8" style={{ animationDelay: "120ms" }}>
             <h2 className="font-display text-2xl sm:text-3xl">Set up in 30 seconds</h2>
             <p className="mb-6 text-sm font-medium text-ink-2">Free. No sign-up needed to start.</p>
             <ProfileForm initial={profile ?? undefined} submitLabel="Start preparing →" />
