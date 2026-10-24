@@ -1,7 +1,7 @@
 // Gap check: make sure nothing exam-relevant is missed.
 //   npm run news:gaps        (also runs automatically at the end of news:fetch)
 //
-// Drishti's daily topic headlines are an exam-focused checklist. For each headline that none of our
+// Drishti's and Adda247's daily headlines are an exam-focused checklist. For each headline that none of our
 // recent stories or fetched government items covers, search AIR's archive for an official report of
 // the same event and add it to the candidates, so the routine writes the story from government text.
 // Coaching text is never used: only the headline, to know the event happened.
@@ -11,7 +11,8 @@ import { pathToFileURL } from "node:url";
 import { INBOX_DIR, readDays, seenUrls, tokens } from "../src/lib/publish";
 
 const UA = process.env.CK_USER_AGENT ?? "CurrentKoshReader/0.1 (current-affairs study aid; +https://github.com/currentkosh)";
-const CHECKLIST = new Set(["drishti"]);
+// Exam-focused publishers whose headlines (never text) we may read: Drishti (UPSC topics) and Adda247 (one-liners).
+const CHECKLIST = new Set(["drishti", "adda247"]);
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 type Item = { sourceId: string; url: string; title: string; publishedAt: string | null; text?: string | null; gapFor?: string };

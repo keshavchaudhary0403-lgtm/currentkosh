@@ -138,6 +138,21 @@ async function fromDrishtiDays(days: number): Promise<Item[]> {
   return items;
 }
 
+/**
+ * Adda247's current-affairs home page: article headlines only (their robots.txt allows it). Used as a
+ * checklist of exam one-liners (awards, appointments, days, sports) and as "Also covered by" links.
+ */
+async function fromAdda247(url: string): Promise<Item[]> {
+  const html = (await get(url, "text/html")).replace(/<script[\s\S]*?<\/script>/gi, "");
+  const items = new Map<string, Item>();
+  for (const m of html.matchAll(/<a[^>]+href="(https:\/\/currentaffairs\.adda247\.com\/[a-z0-9-]{20,}\/)"[^>]*>([\s\S]*?)<\/a>/gi)) {
+    const title = htmlToText(m[2]);
+    if (title.length < 25 || /\b(pdf|quiz|download|mock test|one liner)\b/i.test(title)) continue;
+    if (!items.has(m[1])) items.set(m[1], { sourceId: "adda247", url: m[1], title, publishedAt: new Date().toISOString(), text: null });
+  }
+  return [...items.values()].slice(0, 40);
+}
+
 /** PIB's "all releases" page lists the day's releases grouped by ministry. */
 async function fromPibListing(url: string): Promise<Item[]> {
   const html = await get(url);
@@ -195,7 +210,7 @@ for (const source of SOURCES) {
   }
   for (const url of source.listings ?? []) {
     try {
-      items.push(...(await fromPibListing(url)));
+      items.push(...(source.id === "adda247" ? await fromAdda247(url) : await fromPibListing(url)));
     } catch (e) {
       errors.push(`listing: ${(e as Error).message}`);
     }
