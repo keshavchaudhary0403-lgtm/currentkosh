@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { CalendarRange, Timer, Zap } from "lucide-react";
 import { RecentAttempts, WeakDrillCard } from "@/components/practice-widgets";
 import { TestBuilder } from "@/components/test-builder";
-import { Card, SectionTitle, fmtDate } from "@/components/ui";
+import { SectionTitle, fmtDate } from "@/components/ui";
 import { istDate } from "@/lib/dates";
 import { currentProfile } from "@/lib/profile";
 import { latestStoryDate, storyMonths } from "@/lib/store";
@@ -102,11 +102,12 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
             </section>
           )}
         </div>
-        <section className="lg:sticky lg:top-20">
-          <SectionTitle title={hi ? "अपना टेस्ट बनाएँ" : "Build your own test"} eyebrow={hi ? "अवधि, विषय और मोड चुनें" : "Pick period, topics and mode"} />
-          <Card className="rounded-3xl p-5">
-            <TestBuilder latest={latest} lang={profile.lang} />
-          </Card>
+        <section className="rounded-3xl border border-line bg-surface p-5 lg:sticky lg:top-20">
+          <div className="mb-4">
+            <h2 className="font-display text-lg leading-tight">{hi ? "अपना टेस्ट बनाएँ" : "Build your own test"}</h2>
+            <p className="text-xs text-ink-3">{hi ? "अवधि, विषय और मोड चुनें" : "Pick period, topics and mode"}</p>
+          </div>
+          <TestBuilder latest={latest} lang={profile.lang} />
         </section>
       </div>
     </div>

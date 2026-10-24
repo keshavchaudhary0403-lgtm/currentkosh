@@ -208,7 +208,7 @@ export function MoreStories({ items, lang }: { items: Item[]; lang: Lang }) {
   const hi = lang === "hi";
   if (!open)
     return (
-      <button onClick={() => setOpen(true)} className="btn btn-ghost w-full py-3 text-sm">
+      <button onClick={() => setOpen(true)} className="btn btn-ghost w-full py-3 text-sm sm:mx-auto sm:flex sm:w-auto sm:px-8">
         {hi ? `${items.length} और ख़बरें देखें (कम प्राथमिकता)` : `Show ${items.length} more stories (lower priority for your exams)`}
       </button>
     );

@@ -1,44 +1,26 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { redirect } from "next/navigation";
-import { Empty, fmtDate } from "@/components/ui";
+import { TimelineBrowser } from "@/components/timeline-browser";
 import { currentProfile } from "@/lib/profile";
-import { activeThreads } from "@/lib/store";
-import { pick } from "@/lib/taxonomy";
+import { threadIndex } from "@/lib/store";
 
-export const metadata: Metadata = { title: "Storylines" };
+export const metadata: Metadata = { title: "Timelines" };
 
-export default async function Threads() {
+export default async function Timelines() {
   const profile = await currentProfile();
   if (!profile) redirect("/welcome");
-  const ui = profile.lang === "bi" ? "en" : profile.lang;
-  const L = (en: string, hi: string) => (ui === "hi" ? hi : en);
-  const threads = activeThreads(100);
+  const hi = profile.lang === "hi";
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <header>
-        <h1 className="font-display text-2xl sm:text-[28px]">{ui === "hi" ? "कहानी-क्रम" : "Storylines"}</h1>
-        <p className="mt-1 max-w-2xl text-sm font-medium text-ink-2">{L("Every update on one issue, in order. Revise how it evolved, not just the headline.", "एक मुद्दे के सभी अपडेट, क्रम से। केवल शीर्षक नहीं, पूरा विकास दोहराएँ।")}</p>
+        <h1 className="font-display text-2xl sm:text-[28px]">{hi ? "घटनाक्रम" : "Timelines"}</h1>
+        <p className="mt-1 max-w-2xl text-sm text-ink-2">
+          {hi
+            ? "एक मुद्दे की हर ख़बर, शुरू से अब तक क्रम में, जैसे भारत-चीन संबंध या चुनाव 2026। परीक्षा में पूरा संदर्भ पूछा जाता है, सिर्फ़ ताज़ा ख़बर नहीं।"
+            : "Every update on one issue, from the start to now, like India–China relations or Elections 2026. Exams ask for the whole context, not just the latest headline."}
+        </p>
       </header>
-      {threads.length ? (
-        <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
-          {threads.map((t) => (
-            <Link key={t.key} href={`/thread/${t.key}`} className="tap flex items-start gap-3 rounded-2xl bg-surface p-4">
-              <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-pink-soft font-display text-base text-pink">{t.count}</span>
-              <span className="min-w-0">
-                <span lang={ui === "hi" ? "hi" : undefined} className="block font-bold leading-snug">
-                  {pick(t.title, ui)}
-                </span>
-                <span className="mt-0.5 block text-xs font-semibold text-ink-3">
-                  {L(t.count === 1 ? "update" : "updates", "अपडेट")} · {L("latest", "ताज़ा")} {fmtDate(t.lastDate, ui)}
-                </span>
-              </span>
-            </Link>
-          ))}
-        </div>
-      ) : (
-        <Empty title={L("No storylines yet", "अभी कोई कहानी-क्रम नहीं")} />
-      )}
+      <TimelineBrowser threads={threadIndex()} lang={profile.lang} />
     </div>
   );
 }

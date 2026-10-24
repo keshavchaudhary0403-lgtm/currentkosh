@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Select } from "@/components/form";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { Search } from "lucide-react";
@@ -31,7 +32,6 @@ export default async function Library({ searchParams }: PageProps<"/library">) {
   const more = new URLSearchParams(Object.entries(sp).flatMap(([k, v]) => (typeof v === "string" && v && k !== "page" ? [[k, v]] : [])));
   more.set("page", String(page + 1));
   const months = storyMonths();
-  const select = "rounded-xl border border-line bg-surface px-3 py-2.5 text-sm font-semibold";
 
   return (
     <div className="space-y-6">
@@ -49,39 +49,39 @@ export default async function Library({ searchParams }: PageProps<"/library">) {
           <summary className="cursor-pointer list-none text-sm font-bold text-teal">{L("Filters", "फ़िल्टर")} {filter.month || filter.category || filter.exam || filter.state ? "· on" : ""}</summary>
         </details>
         <div className="hidden grid-cols-2 gap-2 peer-open:grid sm:grid sm:grid-cols-5">
-          <select name="month" defaultValue={filter.month ?? ""} className={select}>
+          <Select name="month" defaultValue={filter.month ?? ""}>
             <option value="">{L("Any month", "कोई भी महीना")}</option>
             {months.map((m) => (
               <option key={m} value={m}>
                 {fmtDate(`${m}-01`, "en", { month: "long", year: "numeric" })}
               </option>
             ))}
-          </select>
-          <select name="category" defaultValue={filter.category ?? ""} className={select}>
+          </Select>
+          <Select name="category" defaultValue={filter.category ?? ""}>
             <option value="">{L("All topics", "सभी विषय")}</option>
             {CATEGORIES.map((c) => (
               <option key={c.id} value={c.id}>
                 {pick(c.label, ui)}
               </option>
             ))}
-          </select>
-          <select name="exam" defaultValue={filter.exam ?? ""} className={select}>
+          </Select>
+          <Select name="exam" defaultValue={filter.exam ?? ""}>
             <option value="">{L("Any exam", "कोई भी परीक्षा")}</option>
             {EXAMS.map((e) => (
               <option key={e.id} value={e.id}>
                 {L(`Important for ${e.label.en}`, `${e.label.hi} के लिए महत्वपूर्ण`)}
               </option>
             ))}
-          </select>
-          <select name="state" defaultValue={filter.state ?? ""} className={select}>
+          </Select>
+          <Select name="state" defaultValue={filter.state ?? ""}>
             <option value="">{L("Any state", "कोई भी राज्य")}</option>
             {STATES.map((s) => (
               <option key={s.id} value={s.id}>
                 {pick(s.label, ui)}
               </option>
             ))}
-          </select>
-          <button className="btn btn-teal col-span-2 px-4 py-2.5 text-sm sm:col-span-1">{L("Apply", "लागू करें")}</button>
+          </Select>
+          <button className="btn btn-teal col-span-2 h-11 px-4 text-sm sm:col-span-1">{L("Apply", "लागू करें")}</button>
         </div>
       </form>
 
@@ -94,7 +94,7 @@ export default async function Library({ searchParams }: PageProps<"/library">) {
           <>
             <StoryList items={results.map((story) => ({ story, relevance: relevanceFor(story, profile) }))} lang={profile.lang} showDate />
             {all.length > results.length && (
-              <Link href={`/library?${more}`} scroll={false} className="btn btn-ghost mt-4 w-full py-3 text-sm">
+              <Link href={`/library?${more}`} scroll={false} className="btn btn-ghost mt-4 w-full py-3 text-sm sm:mx-auto sm:flex sm:w-auto sm:px-8">
                 {L(`Show 50 more · ${all.length - results.length} left`, `50 और दिखाएँ · ${all.length - results.length} बाकी`)}
               </Link>
             )}

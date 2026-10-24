@@ -217,8 +217,8 @@ export function SavedLink() {
   return (
     <Link
       href="/saved"
-      aria-label={`Saved stories (${n})`}
-      title="Saved stories"
+      aria-label={`Saved (${n})`}
+      title="Saved"
       className={`relative grid size-9 place-items-center rounded-full border-2 transition active:scale-90 ${active ? "border-violet bg-violet-soft text-violet" : "border-line bg-surface text-ink-2 hover:text-ink"}`}
     >
       <Bookmark className="size-4" strokeWidth={2.4} />

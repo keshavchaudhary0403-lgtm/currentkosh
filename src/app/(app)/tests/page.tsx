@@ -16,8 +16,8 @@ const KINDS: Record<string, Kind> = {
   monthly: { label: "Monthly", hi: "मासिक", icon: CalendarRange, tone: "bg-violet-soft text-violet" },
   mock: { label: "Timed mock", hi: "टाइम्ड मॉक", icon: Timer, tone: "bg-accent-2-soft text-accent-2" },
   weak: { label: "Weak-area drill", hi: "कमज़ोर विषय", icon: Crosshair, tone: "bg-pink-soft text-pink" },
-  thread: { label: "Storyline", hi: "कहानी-क्रम", icon: Waypoints, tone: "bg-pink-soft text-pink" },
-  saved: { label: "Saved stories", hi: "सहेजी ख़बरें", icon: BookmarkCheck, tone: "bg-violet-soft text-violet" },
+  thread: { label: "Timeline", hi: "घटनाक्रम", icon: Waypoints, tone: "bg-pink-soft text-pink" },
+  saved: { label: "Saved", hi: "सहेजे गए", icon: BookmarkCheck, tone: "bg-violet-soft text-violet" },
   custom: { label: "Custom", hi: "अपना टेस्ट", icon: Wrench, tone: "bg-surface-2 text-ink-2" },
 };
 

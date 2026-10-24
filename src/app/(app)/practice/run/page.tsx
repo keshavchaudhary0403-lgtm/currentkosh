@@ -14,7 +14,7 @@ const HI_TITLES: Record<string, string> = {
   monthly: "मासिक दोहराव टेस्ट",
   mock: "टाइम्ड मॉक टेस्ट",
   weak: "कमज़ोर विषय अभ्यास",
-  thread: "कहानी-क्रम टेस्ट",
+  thread: "घटनाक्रम टेस्ट",
   custom: "अपना टेस्ट",
 };
 
@@ -49,7 +49,7 @@ const KINDS = {
     negative: 0,
   },
   thread: {
-    title: "Storyline test",
+    title: "Timeline test",
     count: 20,
     days: 365,
     timed: false,

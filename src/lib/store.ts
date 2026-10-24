@@ -144,6 +144,21 @@ export function activeThreads(limit = 12): { key: string; title: Bi; count: numb
     .slice(0, limit);
 }
 
+export type ThreadSummary = { key: string; title: Bi; count: number; firstDate: string; lastDate: string; category: string; latest: Bi };
+
+/** Every timeline with its span, main topic and latest headline, for browsing and search. */
+export function threadIndex(): ThreadSummary[] {
+  const lib = load();
+  const groups = new Map<string, Story[]>();
+  for (const s of lib.stories) if (s.threadKey && lib.threads.has(s.threadKey)) groups.set(s.threadKey, [...(groups.get(s.threadKey) ?? []), s]);
+  return [...groups.entries()].map(([key, ss]) => {
+    const cats = new Map<string, number>();
+    for (const s of ss) cats.set(s.category, (cats.get(s.category) ?? 0) + 1);
+    const category = [...cats.entries()].sort((a, b) => b[1] - a[1])[0][0];
+    return { key, title: lib.threads.get(key)!.title, count: ss.length, firstDate: ss.at(-1)!.date, lastDate: ss[0].date, category, latest: ss[0].content.title };
+  });
+}
+
 export type ArchiveFilter = { q?: string; category?: string; month?: string; state?: string; exam?: ExamId };
 
 export function searchStories(f: ArchiveFilter, limit = 60): Story[] {

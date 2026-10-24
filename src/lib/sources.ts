@@ -78,6 +78,15 @@ export const SOURCES: Source[] = [
     license: "Official regulator releases. Summarised with attribution.",
   },
   {
+    id: "gov",
+    name: "Ministry & department websites (gov.in / nic.in)",
+    short: "Govt website",
+    kind: "government",
+    mode: "ai",
+    homepage: "https://www.india.gov.in",
+    license: "Official government pages, found by the daily routine for topics the feeds missed. Summarised with attribution.",
+  },
+  {
     id: "rbi",
     name: "Reserve Bank of India — Press Releases",
     short: "RBI",

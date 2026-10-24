@@ -105,7 +105,7 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
               </div>
             </div>
           ) : (
-            <button onClick={() => setFlipped(true)} className="btn btn-violet mt-5 w-full py-3.5 text-[15px]">
+            <button onClick={() => setFlipped(true)} className="btn btn-violet mt-5 w-full py-3.5 text-[15px] sm:mx-auto sm:flex sm:w-auto sm:px-10">
               {hi ? "उत्तर देखें" : "Show answer"}
             </button>
           )}
@@ -119,7 +119,7 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
           {picked !== null && (
             <button
               onClick={() => next(picked === item.content.answer ? "good" : "again", picked === item.content.answer)}
-              className={`btn mt-4 w-full py-3.5 text-[15px] ${picked === item.content.answer ? "btn-green" : "btn-red"}`}
+              className={`btn mt-4 w-full py-3.5 text-[15px] sm:ml-auto sm:flex sm:w-auto sm:px-10 ${picked === item.content.answer ? "btn-green" : "btn-red"}`}
             >
               Continue
             </button>

@@ -36,15 +36,15 @@ export default async function Me() {
       href: "/saved",
       tone: "bg-violet-soft text-violet",
       icon: Bookmark,
-      label: ui === "hi" ? "सहेजे गए" : "Saved stories",
+      label: ui === "hi" ? "सहेजे गए" : "Saved",
       hint: ui === "hi" ? "अंतिम समय के दोहराव के लिए" : "Kept for last-minute revision",
     },
     {
       href: "/threads",
       tone: "bg-pink-soft text-pink",
       icon: Waypoints,
-      label: ui === "hi" ? "कहानी-क्रम" : "Storylines",
-      hint: ui === "hi" ? "एक मुद्दा, पूरी टाइमलाइन" : "One issue, full timeline",
+      label: ui === "hi" ? "घटनाक्रम" : "Timelines",
+      hint: ui === "hi" ? "एक मुद्दे की पूरी कहानी, क्रम से" : "Follow an issue from start to now",
     },
     {
       href: "/sources",

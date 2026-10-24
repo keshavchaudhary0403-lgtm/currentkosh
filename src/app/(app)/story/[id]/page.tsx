@@ -185,10 +185,10 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
         {thread && thread.stories.length > 1 && (
           <section className="mt-10 lg:hidden">
             <div className="mb-1 inline-flex items-center gap-1.5 rounded-full bg-pink-soft px-2.5 py-0.5 text-xs font-extrabold text-pink">
-              <Waypoints className="size-3.5" /> {ui === "hi" ? "कहानी-क्रम" : "Storyline"}
+              <Waypoints className="size-3.5" /> {ui === "hi" ? "घटनाक्रम" : "Timeline"}
             </div>
             <h2 className="mb-1 font-display text-xl sm:text-2xl">{pick(thread.title, ui)}</h2>
-            <p className="mb-4 text-sm text-ink-2">{ui === "hi" ? "इस कहानी का पूरा क्रम" : "How this storyline has developed"}</p>
+            <p className="mb-4 text-sm text-ink-2">{ui === "hi" ? "यह मुद्दा कैसे आगे बढ़ा" : "How this issue has developed"}</p>
             <ol className="relative space-y-4 border-l-[3px] border-pink-soft pl-5">
               {nearby.map((s) => (
                 <li key={s.id} className="relative">
@@ -272,7 +272,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
           {thread && thread.stories.length > 1 && (
             <div className="rounded-3xl border border-line bg-surface p-4">
               <div className="mb-1 inline-flex items-center gap-1.5 rounded-full bg-pink-soft px-2.5 py-0.5 text-xs font-extrabold text-pink">
-                <Waypoints className="size-3.5" /> {ui === "hi" ? "कहानी-क्रम" : "Storyline"}
+                <Waypoints className="size-3.5" /> {ui === "hi" ? "घटनाक्रम" : "Timeline"}
               </div>
               <h2 className="mb-3 font-display text-base leading-snug">{pick(thread.title, ui)}</h2>
               <ol className="relative space-y-3 border-l-[3px] border-pink-soft pl-4">

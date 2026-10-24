@@ -23,7 +23,7 @@ export default function manifest(): MetadataRoute.Manifest {
     shortcuts: [
       { name: "Daily quiz", short_name: "Quiz", url: "/practice/run?kind=daily", icons: [{ src: "/icons/icon-192.png", sizes: "192x192" }] },
       { name: "Revise", url: "/revise", icons: [{ src: "/icons/icon-192.png", sizes: "192x192" }] },
-      { name: "Saved stories", short_name: "Saved", url: "/saved", icons: [{ src: "/icons/icon-192.png", sizes: "192x192" }] },
+      { name: "Saved", short_name: "Saved", url: "/saved", icons: [{ src: "/icons/icon-192.png", sizes: "192x192" }] },
     ],
   };
 }

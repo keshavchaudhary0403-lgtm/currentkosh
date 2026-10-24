@@ -24,7 +24,7 @@ export default function Saved() {
           <Bookmark className="size-6" strokeWidth={2.4} />
         </span>
         <div className="min-w-0 flex-1">
-          <h1 className="font-display text-2xl leading-tight">{hi ? "सहेजी गई ख़बरें" : "Saved stories"}</h1>
+          <h1 className="font-display text-2xl leading-tight">{hi ? "सहेजे गए" : "Saved"}</h1>
           <p className="text-sm font-medium text-ink-2">
             {ids.length} {hi ? "ख़बरें · अंतिम समय के दोहराव के लिए" : ids.length === 1 ? "story · for last-minute revision" : "stories · for last-minute revision"}
           </p>

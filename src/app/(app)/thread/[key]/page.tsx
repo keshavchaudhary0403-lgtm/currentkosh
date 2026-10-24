@@ -15,7 +15,7 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
   const ui = lang === "bi" ? "en" : lang;
   const L = (en: string, hi: string) => (ui === "hi" ? hi : en);
   const stories = [...thread.stories].reverse();
-  const testHref = `/practice/run?kind=thread&thread=${encodeURIComponent((await params).key)}&title=${encodeURIComponent(`Storyline test · ${thread.title.en}`)}`;
+  const testHref = `/practice/run?kind=thread&thread=${encodeURIComponent((await params).key)}&title=${encodeURIComponent(`Timeline test · ${thread.title.en}`)}`;
   const topics = new Map<string, number>();
   for (const s of thread.stories) topics.set(s.category, (topics.get(s.category) ?? 0) + 1);
 
@@ -26,17 +26,17 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
           href="/threads"
           className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 text-sm font-bold text-ink-2 hover:text-ink"
         >
-          <ArrowLeft className="size-4" /> {L("Storylines", "कहानी-क्रम")}
+          <ArrowLeft className="size-4" /> {L("Timelines", "घटनाक्रम")}
         </Link>
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
             <div className="inline-flex rounded-full bg-pink-soft px-2.5 py-0.5 text-xs font-extrabold text-pink">
-              {L("Storyline", "कहानी-क्रम")} · {thread.stories.length} {L(thread.stories.length === 1 ? "update" : "updates", "अपडेट")}
+              {L("Timeline", "घटनाक्रम")} · {thread.stories.length} {L(thread.stories.length === 1 ? "update" : "updates", "अपडेट")}
             </div>
             <BiText v={thread.title} lang={lang} as="h1" className="mt-2 font-display text-2xl leading-tight sm:text-[28px]" hiClassName="font-sans text-xl" />
           </div>
           <Link href={testHref} className="btn btn-orange px-4 py-2.5 text-sm lg:hidden">
-            {L("Test this storyline", "इस क्रम का टेस्ट दें")}
+            {L("Test this timeline", "इस घटनाक्रम का टेस्ट दें")}
           </Link>
         </div>
         <ol className="relative space-y-5 border-l-[3px] border-pink-soft pl-6">
@@ -92,7 +92,7 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
             </div>
           </div>
           <Link href={testHref} className="btn btn-orange w-full py-3 text-sm">
-            {L("Test this storyline", "इस क्रम का टेस्ट दें")}
+            {L("Test this timeline", "इस घटनाक्रम का टेस्ट दें")}
           </Link>
           <p className="text-xs font-medium text-ink-3">{L("Questions from every update, oldest to newest, so you can revise how the issue evolved.", "हर अपडेट से प्रश्न, ताकि आप मुद्दे का पूरा विकास दोहरा सकें।")}</p>
         </div>

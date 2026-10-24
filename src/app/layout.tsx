@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono, Noto_Sans_Devanagari, Plus_Jakarta_Sans } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Sans_Devanagari } from "next/font/google";
+import { currentProfile } from "@/lib/profile";
 import { PwaSetup } from "@/components/install";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({ variable: "--font-jakarta", subsets: ["latin"] });
+// Geist (variable) for English and numbers; Noto Sans Devanagari (variable) for Hindi.
+const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-const deva = Noto_Sans_Devanagari({ variable: "--font-deva", subsets: ["devanagari"], weight: ["400", "500", "600", "700"] });
+const deva = Noto_Sans_Devanagari({ variable: "--font-deva", subsets: ["devanagari"] });
 
 export const metadata: Metadata = {
   title: { default: "CurrentKosh — Current affairs, made exam-ready", template: "%s · CurrentKosh" },
@@ -34,13 +36,15 @@ export const viewport: Viewport = {
 // Applies the saved theme (light by default) before first paint so there is no flash.
 const themeScript = `try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="dark"?"dark":"light"}catch(e){}`;
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  // In Hindi mode Devanagari is the main font; Geist still renders anything Latin (names, numbers, acronyms).
+  const lang = (await currentProfile())?.lang === "hi" ? "hi" : "en";
   return (
     <html
-      lang="en"
+      lang={lang}
       data-theme="light"
       suppressHydrationWarning
-      className={`${jakarta.variable} ${geistMono.variable} ${deva.variable} h-full antialiased`}
+      className={`${geist.variable} ${geistMono.variable} ${deva.variable} h-full antialiased`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

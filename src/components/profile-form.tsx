@@ -3,11 +3,13 @@
 import { useState, useTransition } from "react";
 import { Check, Loader2 } from "lucide-react";
 import { saveProfile } from "@/app/actions";
+import { DateInput, Select } from "./form";
 import { EXAMS, STATES, type Lang } from "@/lib/taxonomy";
 
 type Initial = { exams: string[]; state: string | null; lang: Lang; examDate: string | null };
 
-export function ProfileForm({ initial, submitLabel }: { initial?: Initial; submitLabel: string }) {
+/** `wide`: the button spans the form (welcome card); otherwise it sizes to its label on larger screens. */
+export function ProfileForm({ initial, submitLabel, wide = false }: { initial?: Initial; submitLabel: string; wide?: boolean }) {
   const [exams, setExams] = useState<string[]>(initial?.exams ?? []);
   const [state, setState] = useState<string>(initial?.state ?? "");
   const [lang, setLang] = useState<Lang>(initial?.lang ?? "en");
@@ -56,20 +58,20 @@ export function ProfileForm({ initial, submitLabel }: { initial?: Initial; submi
       <div className="grid gap-3 sm:grid-cols-2">
         <label className="block">
           <span className="mb-1 block text-sm font-semibold">Your state</span>
-          <select value={state} onChange={(e) => setState(e.target.value)} className="w-full rounded-xl border border-line bg-surface px-3 py-2.5 text-sm">
+          <Select value={state} onChange={(e) => setState(e.target.value)}>
             <option value="">No state focus</option>
             {STATES.map((s) => (
               <option key={s.id} value={s.id}>
                 {s.label.en} · {s.label.hi}
               </option>
             ))}
-          </select>
+          </Select>
         </label>
         <label className="block">
           <span className="mb-1 block text-sm font-semibold">
             Exam date <span className="font-normal text-ink-3">(optional)</span>
           </span>
-          <input type="date" value={examDate} onChange={(e) => setExamDate(e.target.value)} className="w-full rounded-xl border border-line bg-surface px-3 py-2 text-sm" />
+          <DateInput value={examDate} onChange={(e) => setExamDate(e.target.value)} />
         </label>
       </div>
 
@@ -97,10 +99,12 @@ export function ProfileForm({ initial, submitLabel }: { initial?: Initial; submi
       </fieldset>
 
       {error && <p className="shake rounded-xl bg-bad-soft px-3 py-2 text-sm font-semibold text-bad">{error}</p>}
-      <button onClick={submit} disabled={pending} className="btn w-full px-6 py-3 text-[15px]">
-        {pending && <Loader2 className="size-4 animate-spin" />}
-        {submitLabel}
-      </button>
+      <div className={wide ? "" : "flex justify-end border-t border-line pt-4"}>
+        <button onClick={submit} disabled={pending} className={`btn h-11 px-6 text-[15px] ${wide ? "w-full" : "w-full sm:w-auto sm:min-w-40"}`}>
+          {pending && <Loader2 className="size-4 animate-spin" />}
+          {submitLabel}
+        </button>
+      </div>
     </div>
   );
 }

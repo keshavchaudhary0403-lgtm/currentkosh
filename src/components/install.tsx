@@ -51,7 +51,7 @@ export function InstallCard() {
         </div>
       </div>
       {state === "prompt" && (
-        <button onClick={() => promptInstall()} className="btn mt-4 w-full py-3 text-[15px]">
+        <button onClick={() => promptInstall()} className="btn mt-4 w-full py-3 text-[15px] sm:w-auto sm:px-6">
           <Download className="size-5" strokeWidth={2.4} /> Install CurrentKosh
         </button>
       )}
@@ -61,7 +61,7 @@ export function InstallCard() {
             <IosSteps />
           </div>
         ) : (
-          <button onClick={() => setShowIos(true)} className="btn mt-4 w-full py-3 text-[15px]">
+          <button onClick={() => setShowIos(true)} className="btn mt-4 w-full py-3 text-[15px] sm:w-auto sm:px-6">
             <Download className="size-5" strokeWidth={2.4} /> How to install on iPhone
           </button>
         ))}

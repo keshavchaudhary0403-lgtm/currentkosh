@@ -4,7 +4,7 @@ const STRINGS = {
   today: { en: "Today", hi: "आज" },
   revise: { en: "Revise", hi: "दोहराएँ" },
   practice: { en: "Practice", hi: "अभ्यास" },
-  threads: { en: "Storylines", hi: "कहानी-क्रम" },
+  threads: { en: "Timelines", hi: "घटनाक्रम" },
   archive: { en: "Library", hi: "लाइब्रेरी" },
   progress: { en: "Progress", hi: "प्रगति" },
   saved: { en: "Saved", hi: "सहेजे गए" },
