@@ -8,10 +8,10 @@ import { currentProfile } from "@/lib/profile";
 export const metadata: Metadata = { title: "Welcome" };
 
 const PILLARS = [
-  { icon: Newspaper, title: "A calm daily plan", body: "10 stories ranked for your exam, then a short quiz.", cls: "", ink: "bg-accent-soft text-accent" },
-  { icon: Target, title: "Real exam-style tests", body: "UPSC statements, SSC one-liners, timed mocks.", cls: "", ink: "bg-accent-soft text-accent" },
-  { icon: Brain, title: "Revision that sticks", body: "Flashcards return right before you forget.", cls: "", ink: "bg-accent-soft text-accent" },
-  { icon: ShieldCheck, title: "Every fact sourced", body: "PIB, AIR, DD News, RBI. No ads, no pop-ups.", cls: "", ink: "bg-accent-soft text-accent" },
+  { icon: Newspaper, title: "A calm daily plan", body: "10 stories ranked for your exam, then a short quiz.", cls: "bg-accent-soft", ink: "bg-accent" },
+  { icon: Target, title: "Real exam-style tests", body: "UPSC statements, SSC one-liners, timed mocks.", cls: "bg-accent-2-soft", ink: "bg-accent-2" },
+  { icon: Brain, title: "Revision that sticks", body: "Flashcards return right before you forget.", cls: "bg-violet-soft", ink: "bg-violet" },
+  { icon: ShieldCheck, title: "Every fact sourced", body: "PIB, AIR, DD News, RBI. No ads, no pop-ups.", cls: "bg-good-soft", ink: "bg-good" },
 ];
 
 export default async function Welcome() {
@@ -44,7 +44,7 @@ export default async function Welcome() {
             <ul className="mt-6 hidden gap-x-6 gap-y-3 sm:grid sm:grid-cols-2">
               {PILLARS.map(({ icon: Icon, title, body, ink }) => (
                 <li key={title} className="flex gap-3">
-                  <span className={`grid size-9 shrink-0 place-items-center rounded-xl ${ink}`}>
+                  <span className={`grid size-9 shrink-0 place-items-center rounded-xl text-white ${ink}`}>
                     <Icon className="size-[18px]" strokeWidth={2.2} />
                   </span>
                   <span>

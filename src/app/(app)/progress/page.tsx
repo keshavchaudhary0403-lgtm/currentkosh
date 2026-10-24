@@ -23,11 +23,11 @@ export default function Progress() {
   const level = (n: number) => (n === 0 ? 0 : n < 5 ? 1 : n < 15 ? 2 : n < 30 ? 3 : 4);
 
   const stats = [
-    { label: L("Day streak", "दिन लगातार"), value: streak(p), cls: "border border-line bg-surface text-ink" },
-    { label: L("Stories read", "ख़बरें पढ़ीं"), value: tot.read, cls: "border border-line bg-surface text-ink" },
-    { label: L("Questions answered", "प्रश्न हल किए"), value: tot.answered, cls: "border border-line bg-surface text-ink" },
-    { label: L("Accuracy", "सटीकता"), value: tot.answered ? `${Math.round((tot.correct / tot.answered) * 100)}%` : "—", cls: "border border-line bg-surface text-ink" },
-    { label: L("Facts mastered", "पक्के तथ्य"), value: tot.mastered, hint: L("interval ≥ 21 days", "अंतराल ≥ 21 दिन"), cls: "border border-line bg-surface text-ink" },
+    { label: L("Day streak", "दिन लगातार"), value: streak(p), cls: "bg-accent-2-soft text-accent-2" },
+    { label: L("Stories read", "ख़बरें पढ़ीं"), value: tot.read, cls: "bg-accent-soft text-accent" },
+    { label: L("Questions answered", "प्रश्न हल किए"), value: tot.answered, cls: "bg-teal-soft text-teal" },
+    { label: L("Accuracy", "सटीकता"), value: tot.answered ? `${Math.round((tot.correct / tot.answered) * 100)}%` : "—", cls: "bg-good-soft text-good" },
+    { label: L("Facts mastered", "पक्के तथ्य"), value: tot.mastered, hint: L("interval ≥ 21 days", "अंतराल ≥ 21 दिन"), cls: "bg-violet-soft text-violet" },
   ];
 
   return (

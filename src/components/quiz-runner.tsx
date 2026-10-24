@@ -100,7 +100,7 @@ export function QuizRunner({
         >
           <X className="size-6" strokeWidth={2.6} />
         </button>
-        <Bar value={i + (revealed[i] || answers[i] !== null ? 1 : 0)} max={questions.length} color="bg-accent" className="h-4 flex-1" />
+        <Bar value={i + (revealed[i] || answers[i] !== null ? 1 : 0)} max={questions.length} color="bg-accent-2" className="h-4 flex-1" />
         {timed ? (
           <div className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 font-mono text-sm font-bold tabular-nums ${remaining < 60 ? "bg-bad-soft text-bad" : "bg-surface-2 text-ink-2"}`}>
             <Clock className="size-4" />

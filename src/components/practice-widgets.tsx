@@ -14,11 +14,11 @@ export function WeakDrillCard() {
   const href = weak.length ? `/practice/run?kind=weak&cats=${weak.join(",")}` : "/practice/run?kind=weak";
   const ui = lang === "bi" ? "en" : lang;
   return (
-    <Link id="weak" href={href} className="group scroll-mt-24 rounded-3xl border border-line bg-surface p-4 transition hover:border-line-strong active:scale-[.97]">
-      <span className="grid size-12 place-items-center rounded-2xl bg-accent-soft text-accent transition">
+    <Link id="weak" href={href} className="group scroll-mt-24 rounded-3xl bg-pink-soft p-4 transition active:scale-[.97]">
+      <span className="grid size-12 place-items-center rounded-2xl bg-pink text-white transition group-hover:-rotate-6">
         <Crosshair className="size-6" strokeWidth={2.4} />
       </span>
-      <span className="mt-3 block font-display text-[17px] leading-tight text-ink">{ui === "hi" ? "कमज़ोर विषय अभ्यास" : "Weak-area drill"}</span>
+      <span className="mt-3 block font-display text-[17px] leading-tight text-pink">{ui === "hi" ? "कमज़ोर विषय अभ्यास" : "Weak-area drill"}</span>
       <span className="mt-0.5 line-clamp-2 block text-xs font-semibold text-ink-2">{weak.length ? `15 ${ui === "hi" ? "प्रश्न" : "Qs"} · ${weak.map((c) => pick(categoryById(c)?.label, ui)).join(", ")}` : ui === "hi" ? "कुछ टेस्ट के बाद खुलेगा" : "Unlocks after a few tests"}</span>
     </Link>
   );
@@ -38,7 +38,7 @@ export function RecentAttempts() {
         title={hi ? "मेरे टेस्ट" : "My tests"}
         eyebrow={hi ? `${attempts.length} टेस्ट · ${Math.round((correct / Math.max(1, answered)) * 100)}% सटीकता` : `${attempts.length} taken · ${Math.round((correct / Math.max(1, answered)) * 100)}% accuracy`}
         right={
-          <Link href="/tests" className="text-sm font-semibold text-accent">
+          <Link href="/tests" className="text-sm font-extrabold text-accent-2">
             {hi ? "सभी देखें →" : "See all →"}
           </Link>
         }

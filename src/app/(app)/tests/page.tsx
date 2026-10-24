@@ -12,12 +12,12 @@ type Kind = { label: string; hi: string; icon: LucideIcon; tone: string };
 
 const KINDS: Record<string, Kind> = {
   daily: { label: "Daily quiz", hi: "डेली क्विज़", icon: Zap, tone: "bg-accent-soft text-accent" },
-  weekly: { label: "Weekly", hi: "साप्ताहिक", icon: CalendarRange, tone: "bg-accent-soft text-accent" },
-  monthly: { label: "Monthly", hi: "मासिक", icon: CalendarRange, tone: "bg-accent-soft text-accent" },
-  mock: { label: "Timed mock", hi: "टाइम्ड मॉक", icon: Timer, tone: "bg-accent-soft text-accent" },
-  weak: { label: "Weak-area drill", hi: "कमज़ोर विषय", icon: Crosshair, tone: "bg-accent-soft text-accent" },
-  thread: { label: "Timeline", hi: "घटनाक्रम", icon: Waypoints, tone: "bg-accent-soft text-accent" },
-  saved: { label: "Saved", hi: "सहेजे गए", icon: BookmarkCheck, tone: "bg-accent-soft text-accent" },
+  weekly: { label: "Weekly", hi: "साप्ताहिक", icon: CalendarRange, tone: "bg-teal-soft text-teal" },
+  monthly: { label: "Monthly", hi: "मासिक", icon: CalendarRange, tone: "bg-violet-soft text-violet" },
+  mock: { label: "Timed mock", hi: "टाइम्ड मॉक", icon: Timer, tone: "bg-accent-2-soft text-accent-2" },
+  weak: { label: "Weak-area drill", hi: "कमज़ोर विषय", icon: Crosshair, tone: "bg-pink-soft text-pink" },
+  thread: { label: "Timeline", hi: "घटनाक्रम", icon: Waypoints, tone: "bg-pink-soft text-pink" },
+  saved: { label: "Saved", hi: "सहेजे गए", icon: BookmarkCheck, tone: "bg-violet-soft text-violet" },
   custom: { label: "Custom", hi: "अपना टेस्ट", icon: Wrench, tone: "bg-surface-2 text-ink-2" },
 };
 
@@ -81,10 +81,10 @@ export default function MyTests() {
   }
 
   const stats = [
-    { label: L("Tests taken", "टेस्ट दिए"), value: attempts.length, cls: "border border-line bg-surface text-ink" },
-    { label: L("Accuracy", "सटीकता"), value: `${Math.round((totalCorrect / Math.max(1, totalAnswered)) * 100)}%`, cls: "border border-line bg-surface text-ink" },
-    { label: L("Questions", "प्रश्न"), value: totalQs, cls: "border border-line bg-surface text-ink" },
-    { label: L("Avg time / Q", "औसत समय / प्रश्न"), value: `${Math.round(totalSecs / Math.max(1, totalAnswered))}s`, cls: "border border-line bg-surface text-ink" },
+    { label: L("Tests taken", "टेस्ट दिए"), value: attempts.length, cls: "bg-accent-soft text-accent" },
+    { label: L("Accuracy", "सटीकता"), value: `${Math.round((totalCorrect / Math.max(1, totalAnswered)) * 100)}%`, cls: "bg-good-soft text-good" },
+    { label: L("Questions", "प्रश्न"), value: totalQs, cls: "bg-teal-soft text-teal" },
+    { label: L("Avg time / Q", "औसत समय / प्रश्न"), value: `${Math.round(totalSecs / Math.max(1, totalAnswered))}s`, cls: "bg-accent-2-soft text-accent-2" },
   ];
 
   return (

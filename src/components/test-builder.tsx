@@ -48,7 +48,7 @@ export function TestBuilder({ latest, lang }: { latest: string; lang: Lang }) {
   };
 
   const chip = (on: boolean) =>
-    `rounded-full border px-3 py-1.5 text-[13px] font-semibold transition active:scale-95 ${on ? "border-accent bg-accent-soft text-accent" : "border-line bg-surface text-ink-2 hover:border-line-strong"}`;
+    `rounded-full border px-3 py-1.5 text-[13px] font-semibold transition active:scale-95 ${on ? "border-accent-2 bg-accent-2-soft text-accent-2" : "border-line bg-surface text-ink-2 hover:border-line-strong"}`;
 
   return (
     <div className="space-y-4">
