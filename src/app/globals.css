@@ -4,7 +4,7 @@
 
 :root {
   --ck-font: var(--font-geist), var(--font-deva), ui-sans-serif, system-ui, sans-serif;
-  /* Bright, solid study palette: indigo for learning, orange for energy, green for "got it". No gradients. */
+  /* Multi-colour study palette in soft pastel tones: indigo for actions, a calm colour per section. No gradients. */
   --bg: #f5f6fa;
   --surface: #ffffff;
   --surface-2: #eef1f8;
@@ -16,30 +16,32 @@
   --accent: #4f46e5;
   --accent-press: #3a32c4;
   --accent-soft: #eceafe;
-  --accent-2: #f97316;
-  --accent-2-press: #d35a08;
-  --accent-2-soft: #fff0e5;
-  --violet: #8b5cf6;
-  --violet-press: #6d3fdc;
-  --violet-soft: #f2edff;
-  --teal: #0ea5a4;
-  --teal-press: #0b8382;
-  --teal-soft: #e3f7f6;
-  --pink: #ec4899;
-  --pink-soft: #fde9f3;
-  --good: #16a34a;
-  --good-press: #11823a;
-  --good-soft: #e5f7ea;
-  --bad: #e11d48;
-  --bad-press: #b5133a;
-  --bad-soft: #fde8ed;
-  --warn: #f59e0b;
-  --warn-soft: #fff5dc;
+  --accent-2: #c46a2a;
+  --accent-2-press: #a85820;
+  --accent-2-soft: #fdebdd;
+  --violet: #6d5bd0;
+  --violet-press: #5847b8;
+  --violet-soft: #ede9fe;
+  --teal: #2c8c86;
+  --teal-press: #22726d;
+  --teal-soft: #ddf3f1;
+  --pink: #b5487a;
+  --pink-press: #983a65;
+  --pink-soft: #fbe7ef;
+  --good: #2e9e5b;
+  --good-press: #237f48;
+  --good-soft: #e3f4e9;
+  --bad: #d1435b;
+  --bad-press: #b2354b;
+  --bad-soft: #fbe6ea;
+  --warn: #d99a1e;
+  --warn-soft: #fcf3dc;
   --glass: rgb(255 255 255 / 0.88);
   --shadow: 0 1px 2px rgb(17 24 39 / 0.04), 0 4px 16px -6px rgb(17 24 39 / 0.08);
   --cat-l: 0.52;
-  --cat-c: 0.17;
-  --cat-tint-a: 0.13;
+  --cat-c: 0.11;
+  --cat-tint-a: 0.14;
+  --cat-band-l: 0.94;
   color-scheme: light;
 }
 
@@ -61,30 +63,32 @@
   --accent: #6d66ff;
   --accent-press: #4a42d6;
   --accent-soft: #23255a;
-  --accent-2: #ff8a3d;
-  --accent-2-press: #d8661c;
-  --accent-2-soft: #3a2518;
-  --violet: #8b5cf6;
-  --violet-press: #6a3fd8;
-  --violet-soft: #2b2352;
-  --teal: #12a8a6;
-  --teal-press: #0b8382;
-  --teal-soft: #12323a;
-  --pink: #ec4899;
-  --pink-soft: #3a1a30;
-  --good: #22b35a;
-  --good-press: #178a43;
-  --good-soft: #143223;
-  --bad: #f43f5e;
-  --bad-press: #c42443;
-  --bad-soft: #3b1621;
+  --accent-2: #d07f45;
+  --accent-2-press: #b0652f;
+  --accent-2-soft: #3a2a1e;
+  --violet: #8574e0;
+  --violet-press: #6a58c8;
+  --violet-soft: #2a2550;
+  --teal: #3a9c95;
+  --teal-press: #2c7f79;
+  --teal-soft: #16343a;
+  --pink: #c9618f;
+  --pink-press: #a94c76;
+  --pink-soft: #3a1f2e;
+  --good: #45b072;
+  --good-press: #338a57;
+  --good-soft: #17321f;
+  --bad: #e2627a;
+  --bad-press: #c04a61;
+  --bad-soft: #3a1a22;
   --warn: #fbbf24;
   --warn-soft: #3a2e10;
   --glass: rgb(21 26 46 / 0.9);
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 6px 20px -8px rgb(0 0 0 / 0.5);
-  --cat-l: 0.78;
-  --cat-c: 0.14;
-  --cat-tint-a: 0.18;
+  --cat-l: 0.8;
+  --cat-c: 0.09;
+  --cat-tint-a: 0.16;
+  --cat-band-l: 0.32;
   color-scheme: dark;
 }
 
@@ -149,9 +153,11 @@ body {
 /* Category colour from a hue: text, tint and solid variants that work in both themes. */
 .cat {
   --cat-ink: oklch(var(--cat-l) var(--cat-c) var(--h));
-  --cat-solid: oklch(0.62 0.19 var(--h));
-  --cat-press: oklch(0.5 0.17 var(--h));
-  --cat-tint: oklch(0.65 0.16 var(--h) / var(--cat-tint-a));
+  --cat-solid: oklch(0.64 0.12 var(--h));
+  --cat-press: oklch(0.54 0.11 var(--h));
+  --cat-tint: oklch(0.7 0.09 var(--h) / var(--cat-tint-a));
+  /* Soft pastel band (e.g. Top story header): light tint in light mode, deep tint in dark. */
+  --cat-band: oklch(var(--cat-band-l) 0.04 var(--h));
 }
 
 ::selection {
