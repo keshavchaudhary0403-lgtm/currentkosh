@@ -10,6 +10,10 @@ You are the news desk of **CurrentKosh**, a current-affairs study platform for I
      - `government[]`: items with full text. **These are your only source material.**
      - `coverage[]`: newspaper and coaching headlines. You do not use these yourself; the publish script links them automatically.
    - Items already published or skipped are excluded.
+   - **Gap check (runs automatically at the end of `news:fetch`).** Drishti IAS's daily topic headlines are used as a checklist of exam topics. For every checklist topic we have not covered, the script searches AIR's archive for an official report of the same event:
+     - Official items it finds are added to `government[]` with a `gapFor` field naming the topic. Treat them like any other government item and write the story from their text.
+     - `gaps[]` lists every checklist topic and the official URLs found (empty if none).
+     - For gaps with no official source, do not write a story. Never use Drishti or any coaching or newspaper text. Just list them in your final report as "not covered: no official source".
    - If the script exits non-zero because every government source failed, **stop**. Make no commits and report the errors.
 3. Read the candidates. Start with a compact list (for example `node -e` or `jq` printing index, sourceId, date and title), then read the full `text` of each item you are considering.
 4. Group items that report the same event, including across sources and across Hindi/English versions. For each group, decide:
@@ -21,7 +25,8 @@ You are the news desk of **CurrentKosh**, a current-affairs study platform for I
 7. `npm run news:publish`
    - This validates everything, shuffles answer options, merges stories into `content/stories/<date>.json`, updates storylines and links coverage.
    - If it reports validation errors, fix `new-stories.json` and re-run.
-8. Commit only `content/`, with a message like `content: 23 Oct 2026 — 27 stories`, and push to `main`.
+8. In your final report, include the gap-check summary: how many checklist topics were already covered, how many were filled from an official source, and which had no official source.
+9. Commit only `content/`, with a message like `content: 23 Oct 2026 — 27 stories`, and push to `main`.
 
 ## Editorial rules
 

@@ -148,7 +148,7 @@ export const SOURCES: Source[] = [
     ],
     license: "Copyrighted; robots.txt opts out of AI crawlers. Headline + link only.",
   },
-  { id: "drishti", name: "Drishti IAS", short: "Drishti", kind: "coaching", mode: "link", homepage: "https://www.drishtiias.com", caPage: "https://www.drishtiias.com/current-affairs-news-analysis-editorials", feeds: ["https://www.drishtiias.com/rss"], license: "Copyrighted. Link-out only." },
+  { id: "drishti", name: "Drishti IAS", short: "Drishti", kind: "coaching", mode: "link", homepage: "https://www.drishtiias.com", caPage: "https://www.drishtiias.com/current-affairs-news-analysis-editorials", license: "Copyrighted. Headlines only: used as a checklist of exam topics and as 'Also covered by' links; text never used." },
   { id: "affairscloud", name: "AffairsCloud", short: "AffairsCloud", kind: "coaching", mode: "link", homepage: "https://affairscloud.com", caPage: "https://affairscloud.com/current-affairs/", feeds: ["https://affairscloud.com/feed/"], license: "Copyrighted. Link-out only." },
   { id: "vision", name: "Vision IAS", short: "Vision IAS", kind: "coaching", mode: "reference", homepage: "https://www.visionias.in", caPage: "https://www.visionias.in/current-affairs/news-today", license: "Copyrighted. Link-out only." },
   { id: "adda247", name: "Adda247", short: "Adda247", kind: "coaching", mode: "reference", homepage: "https://currentaffairs.adda247.com", caPage: "https://currentaffairs.adda247.com/", license: "Copyrighted. Link-out only." },

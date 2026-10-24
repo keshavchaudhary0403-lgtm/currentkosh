@@ -109,6 +109,33 @@ async function fromFeed(source: Source, url: string): Promise<Item[]> {
   });
 }
 
+/**
+ * Drishti's date-wise "News Analysis" page: we read ONLY the topic headlines (h1), never the article
+ * text. They serve as a checklist of exam topics (see news-gaps) and as "Also covered by" links.
+ */
+async function fromDrishtiDays(days: number): Promise<Item[]> {
+  const items: Item[] = [];
+  for (let back = 0; back < days; back++) {
+    const ist = new Date(Date.now() + 5.5 * 3600_000 - back * 86400_000).toISOString().slice(0, 10);
+    const [y, m, d] = ist.split("-");
+    const url = `https://www.drishtiias.com/current-affairs-news-analysis-editorials/news-analysis/${d}-${m}-${y}`;
+    let html: string;
+    try {
+      html = await get(url, "text/html");
+    } catch {
+      continue; // the day's page may not be up yet
+    }
+    for (const m2 of html.replace(/<script[\s\S]*?<\/script>/gi, "").matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/gi)) {
+      const title = htmlToText(m2[1]);
+      if (title.length < 6 || title.length > 160) continue;
+      const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60);
+      items.push({ sourceId: "drishti", url: `${url}#${slug}`, title, publishedAt: `${ist}T06:00:00.000Z`, text: null });
+    }
+    await sleep(1000);
+  }
+  return items;
+}
+
 /** PIB's "all releases" page lists the day's releases grouped by ministry. */
 async function fromPibListing(url: string): Promise<Item[]> {
   const html = await get(url);
@@ -157,6 +184,13 @@ for (const source of SOURCES) {
       errors.push(`api: ${(e as Error).message}`);
     }
   }
+  if (source.id === "drishti") {
+    try {
+      items.push(...(await fromDrishtiDays(2)));
+    } catch (e) {
+      errors.push(`day pages: ${(e as Error).message}`);
+    }
+  }
   for (const url of source.listings ?? []) {
     try {
       items.push(...(await fromPibListing(url)));
@@ -186,6 +220,9 @@ fs.mkdirSync(INBOX_DIR, { recursive: true });
 const out = path.join(INBOX_DIR, "candidates.json");
 fs.writeFileSync(out, JSON.stringify({ generatedAt: new Date().toISOString(), report, government, coverage }, null, 2));
 console.log(`\n${government.length} government items, ${coverage.length} coverage links → ${path.relative(process.cwd(), out)}`);
+// Make sure nothing exam-relevant is missed: find official coverage for any topic on the checklist we lack.
+await import("./news-gaps.mjs").then((m) => m.findGaps());
+
 if (!government.length && report.filter((r) => SOURCES.find((s) => s.short === r.source)?.mode === "ai").every((r) => r.errors.length)) {
   console.error("Every government source failed. Check network access before writing stories.");
   process.exit(2);

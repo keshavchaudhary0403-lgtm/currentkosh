@@ -140,7 +140,7 @@ const STOP = new Set(
     "current affairs daily quiz today news update updates analysis editorial explained upsc ssc exam questions answers " +
     "january february march april may june july august september october november december week year").split(" "),
 );
-const tokens = (s: string) => new Set(s.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter((w) => w.length > 2 && !STOP.has(w) && !/^\d+$/.test(w)));
+export const tokens = (s: string) => new Set(s.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter((w) => w.length > 2 && !STOP.has(w) && !/^\d+$/.test(w)));
 
 /** Attach headline-only links to the best matching recent story. Precision over recall: a wrong link misleads. */
 export function linkCoverage(items: { sourceId: string; url: string; title: string; publishedAt: string | null }[]): number {
