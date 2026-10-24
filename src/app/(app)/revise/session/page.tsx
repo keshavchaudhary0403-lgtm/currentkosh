@@ -22,12 +22,12 @@ function Session() {
   if (!due.length)
     return (
       <Empty title="Nothing due right now">
-        <Link href="/revise" className="text-accent underline">
+        <Link href="/revise" className="font-semibold underline underline-offset-4">
           Back to Revise
         </Link>
       </Empty>
     );
-  if (!items) return <div className="mx-auto h-72 max-w-2xl animate-pulse rounded-xl bg-surface" />;
+  if (!items) return <div className="skeleton mx-auto h-80 max-w-2xl rounded-[24px]" />;
 
   const cards = new Map(items.cards.map((c) => [c.id, c]));
   const mcqs = new Map(items.mcqs.map((m) => [m.id, m]));

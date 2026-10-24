@@ -2,9 +2,9 @@ import Link from "next/link";
 import { Select } from "@/components/form";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
-import { Search } from "lucide-react";
+import { ArrowRight, Search, SlidersHorizontal } from "lucide-react";
 import { StoryList } from "@/components/today";
-import { Empty, fmtDate } from "@/components/ui";
+import { Empty, PageHeader, fmtDate } from "@/components/ui";
 import { currentProfile } from "@/lib/profile";
 import { relevanceFor, searchStories, storyMonths, toCard } from "@/lib/store";
 import { CATEGORIES, EXAMS, STATES, pick, type ExamId } from "@/lib/taxonomy";
@@ -32,21 +32,35 @@ export default async function Library({ searchParams }: PageProps<"/library">) {
   const more = new URLSearchParams(Object.entries(sp).flatMap(([k, v]) => (typeof v === "string" && v && k !== "page" ? [[k, v]] : [])));
   more.set("page", String(page + 1));
   const months = storyMonths();
+  const filtersOn = !!(filter.month || filter.category || filter.exam || filter.state);
 
   return (
-    <div className="space-y-6">
-      <header>
-        <h1 className="font-display text-3xl sm:text-5xl">{ui === "hi" ? "लाइब्रेरी" : "Library"}</h1>
-        <p className="mt-1 text-sm font-medium text-ink-2">{L("Every story since April, searchable in English or Hindi.", "अप्रैल से अब तक की हर ख़बर, हिंदी या अंग्रेज़ी में खोजें।")}</p>
-      </header>
+    <div className="space-y-7">
+      <PageHeader
+        eyebrow={L("Archive · English + हिंदी", "संग्रह · हिंदी + English")}
+        title={ui === "hi" ? "लाइब्रेरी" : <>Library<span className="text-mint italic">.</span></>}
+        sub={L("Every story since April, searchable in English or Hindi.", "अप्रैल से अब तक की हर ख़बर, हिंदी या अंग्रेज़ी में खोजें।")}
+      />
 
-      <form className="space-y-3">
-        <label className="flex items-center gap-3 rounded-2xl border border-line bg-surface px-4 py-3 transition focus-within:border-teal">
-          <Search className="size-5 text-teal" strokeWidth={2} />
-          <input name="q" defaultValue={filter.q} placeholder={L("Search: repo rate, Ramsar, गवर्नर, INDRA…", "खोजें: रेपो दर, रामसर, गवर्नर, INDRA…")} className="w-full bg-transparent text-base font-medium outline-none placeholder:text-ink-3" />
+      <form className="space-y-3" role="search">
+        <label className="group flex h-16 items-center gap-3 rounded-full bg-card pr-2 pl-6 shadow-[inset_0_0_0_1px_var(--line-2)] transition focus-within:shadow-[inset_0_0_0_2px_var(--ink),0_14px_40px_-20px_rgb(0_0_0/0.35)]">
+          <Search className="size-5 shrink-0 text-ink-3 transition group-focus-within:text-ink" strokeWidth={2} />
+          <input
+            name="q"
+            defaultValue={filter.q}
+            placeholder={L("Search: repo rate, Ramsar, गवर्नर, INDRA…", "खोजें: रेपो दर, रामसर, गवर्नर, INDRA…")}
+            className="min-w-0 flex-1 bg-transparent text-base outline-none placeholder:text-ink-3 sm:text-lg"
+            aria-label={L("Search stories", "ख़बरें खोजें")}
+          />
+          <button className="btn h-12 shrink-0 px-5 text-[15px]" aria-label={L("Search", "खोजें")}>
+            <span className="hidden sm:inline">{L("Search", "खोजें")}</span>
+            <ArrowRight className="size-4" />
+          </button>
         </label>
-        <details className="peer sm:hidden" open={!!(filter.month || filter.category || filter.exam || filter.state)}>
-          <summary className="cursor-pointer list-none text-sm font-bold text-teal">{L("Filters", "फ़िल्टर")} {filter.month || filter.category || filter.exam || filter.state ? "· on" : ""}</summary>
+        <details className="peer sm:hidden" open={filtersOn}>
+          <summary className="chip cursor-pointer list-none" data-on={filtersOn}>
+            <SlidersHorizontal className="size-4" /> {L("Filters", "फ़िल्टर")} {filtersOn ? "· on" : ""}
+          </summary>
         </details>
         <div className="hidden grid-cols-2 gap-2 peer-open:grid sm:grid sm:grid-cols-5">
           <Select name="month" defaultValue={filter.month ?? ""}>
@@ -81,12 +95,12 @@ export default async function Library({ searchParams }: PageProps<"/library">) {
               </option>
             ))}
           </Select>
-          <button className="btn btn-teal col-span-2 h-11 px-4 text-[15px] sm:col-span-1">{L("Apply", "लागू करें")}</button>
+          <button className="btn btn-ink col-span-2 h-12 px-4 text-[15px] sm:col-span-1">{L("Apply", "लागू करें")}</button>
         </div>
       </form>
 
       <div>
-        <div className="mb-3 text-sm font-bold text-ink-3">
+        <div className="eyebrow mb-4 text-ink-3">
           {all.length} {L(all.length === 1 ? "story" : "stories", "ख़बरें")}
           {all.length > results.length && L(` · showing the latest ${results.length}`, ` · ताज़ा ${results.length} दिख रही हैं`)}
         </div>
@@ -94,13 +108,15 @@ export default async function Library({ searchParams }: PageProps<"/library">) {
           <>
             <StoryList items={results.map((story) => ({ story: toCard(story), relevance: relevanceFor(story, profile) }))} lang={profile.lang} showDate />
             {all.length > results.length && (
-              <Link href={`/library?${more}`} scroll={false} className="btn btn-ghost mt-4 w-full py-3 text-[15px] sm:mx-auto sm:flex sm:w-auto sm:px-8">
+              <Link href={`/library?${more}`} scroll={false} className="btn btn-ghost mt-6 w-full text-[15px] sm:mx-auto sm:flex sm:w-auto sm:px-8">
                 {L(`Show 50 more · ${all.length - results.length} left`, `50 और दिखाएँ · ${all.length - results.length} बाकी`)}
               </Link>
             )}
           </>
         ) : (
-          <Empty title={L("No stories match", "कोई ख़बर नहीं मिली")}>{L("Try removing a filter or searching a different word.", "कोई फ़िल्टर हटाएँ या दूसरा शब्द खोजें।")}</Empty>
+          <Empty title={L("No stories match", "कोई ख़बर नहीं मिली")} icon={<Search className="size-6" />}>
+            {L("Try removing a filter or searching a different word.", "कोई फ़िल्टर हटाएँ या दूसरा शब्द खोजें।")}
+          </Empty>
         )}
       </div>
     </div>

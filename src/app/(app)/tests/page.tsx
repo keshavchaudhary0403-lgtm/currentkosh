@@ -4,31 +4,31 @@ import Link from "next/link";
 import { useState } from "react";
 import { BookmarkCheck, CalendarRange, ClipboardList, Clock, Crosshair, Eye, RotateCcw, Target, Timer, Waypoints, Wrench, Zap, type LucideIcon } from "lucide-react";
 import { useLang } from "@/components/lang-context";
-import { Bar, Empty, SectionTitle, cx } from "@/components/ui";
+import { Bar, Empty, PageHeader, ProgressRing, SectionTitle, cx } from "@/components/ui";
 import { accuracyByCategory, useProgress, type Attempt } from "@/lib/progress-store";
 import { categoryById, pick } from "@/lib/taxonomy";
 
 type Kind = { label: string; hi: string; icon: LucideIcon; tone: string };
 
 const KINDS: Record<string, Kind> = {
-  daily: { label: "Daily quiz", hi: "डेली क्विज़", icon: Zap, tone: "bg-accent-soft text-accent" },
-  weekly: { label: "Weekly", hi: "साप्ताहिक", icon: CalendarRange, tone: "bg-teal-soft text-teal" },
-  monthly: { label: "Monthly", hi: "मासिक", icon: CalendarRange, tone: "bg-violet-soft text-violet" },
-  mock: { label: "Timed mock", hi: "टाइम्ड मॉक", icon: Timer, tone: "bg-accent-2-soft text-accent-2" },
-  weak: { label: "Weak-area drill", hi: "कमज़ोर विषय", icon: Crosshair, tone: "bg-pink-soft text-pink" },
-  thread: { label: "Timeline", hi: "घटनाक्रम", icon: Waypoints, tone: "bg-pink-soft text-pink" },
-  saved: { label: "Saved", hi: "सहेजे गए", icon: BookmarkCheck, tone: "bg-violet-soft text-violet" },
-  custom: { label: "Custom", hi: "अपना टेस्ट", icon: Wrench, tone: "bg-surface-2 text-ink-2" },
+  daily: { label: "Daily quiz", hi: "डेली क्विज़", icon: Zap, tone: "bg-signal text-on-signal" },
+  weekly: { label: "Weekly", hi: "साप्ताहिक", icon: CalendarRange, tone: "bg-mint-soft text-mint-ink" },
+  monthly: { label: "Monthly", hi: "मासिक", icon: CalendarRange, tone: "bg-cobalt-soft text-cobalt-ink" },
+  mock: { label: "Timed mock", hi: "टाइम्ड मॉक", icon: Timer, tone: "bg-solid text-on-solid" },
+  weak: { label: "Weak-area drill", hi: "कमज़ोर विषय", icon: Crosshair, tone: "bg-flare-soft text-flare-ink" },
+  thread: { label: "Timeline", hi: "घटनाक्रम", icon: Waypoints, tone: "bg-amber-soft text-amber-ink" },
+  saved: { label: "Saved", hi: "सहेजे गए", icon: BookmarkCheck, tone: "bg-cobalt-soft text-cobalt-ink" },
+  custom: { label: "Custom", hi: "अपना टेस्ट", icon: Wrench, tone: "bg-card-2 text-ink-2" },
 };
 
 // Saved-story tests are stored as "custom"; tell them apart by title so they get their own filter.
-const kindOf = (a: Attempt) => (a.kind === "custom" && /saved/i.test(a.title) ? "saved" : (KINDS[a.kind] ? a.kind : "custom"));
+const kindOf = (a: Attempt) => (a.kind === "custom" && /saved/i.test(a.title) ? "saved" : KINDS[a.kind] ? a.kind : "custom");
 
 const pct = (a: Attempt) => Math.round((a.correct / Math.max(1, a.mcqIds.length)) * 100);
 const seconds = (a: Attempt) => Math.max(1, Math.round((new Date(a.finishedAt).getTime() - new Date(a.startedAt).getTime()) / 1000));
 const answeredCount = (a: Attempt) => a.answers.filter((x) => x !== null && x !== undefined).length;
-const tone = (p: number) => (p >= 70 ? "text-good" : p >= 40 ? "text-accent-2" : "text-bad");
-const barTone = (p: number) => (p >= 70 ? "bg-good" : p >= 40 ? "bg-accent-2" : "bg-bad");
+const ringTone = (p: number) => (p >= 70 ? "var(--good)" : p >= 40 ? "var(--amber)" : "var(--bad)");
+const barTone = (p: number) => (p >= 70 ? "bg-good" : p >= 40 ? "bg-amber" : "bg-bad");
 
 function fmtDuration(s: number) {
   const m = Math.floor(s / 60);
@@ -48,12 +48,12 @@ export default function MyTests() {
 
   if (!attempts.length)
     return (
-      <div className="space-y-5">
-        <h1 className="font-display text-3xl sm:text-5xl">{L("My tests", "मेरे टेस्ट")}</h1>
+      <div className="space-y-6">
+        <PageHeader eyebrow={L("Scores · analysis · retries", "अंक · विश्लेषण · दोबारा")} title={L("My tests", "मेरे टेस्ट")} />
         <Empty title={L("No tests yet", "अभी कोई टेस्ट नहीं")} icon={<ClipboardList className="size-7" />}>
           {L("Every test you take (daily quiz, mocks, your own tests) is listed here with its score, accuracy, time and review.", "आपका हर टेस्ट यहाँ अंक, सटीकता, समय और समीक्षा के साथ दिखेगा।")}
-          <div className="mt-4">
-            <Link href="/practice/run?kind=daily" className="btn px-5 py-2.5 text-[15px]">
+          <div className="mt-5">
+            <Link href="/practice/run?kind=daily" className="btn px-5 text-[15px]">
               {L("Take today's quiz", "आज का क्विज़ दें")}
             </Link>
           </div>
@@ -81,141 +81,135 @@ export default function MyTests() {
   }
 
   const stats = [
-    { label: L("Tests taken", "टेस्ट दिए"), value: attempts.length, cls: "bg-accent-soft text-accent" },
-    { label: L("Accuracy", "सटीकता"), value: `${Math.round((totalCorrect / Math.max(1, totalAnswered)) * 100)}%`, cls: "bg-good-soft text-good" },
-    { label: L("Questions", "प्रश्न"), value: totalQs, cls: "bg-teal-soft text-teal" },
-    { label: L("Avg time / Q", "औसत समय / प्रश्न"), value: `${Math.round(totalSecs / Math.max(1, totalAnswered))}s`, cls: "bg-accent-2-soft text-accent-2" },
+    { label: L("Tests taken", "टेस्ट दिए"), value: attempts.length, cls: "bg-solid text-on-solid" },
+    { label: L("Accuracy", "सटीकता"), value: `${Math.round((totalCorrect / Math.max(1, totalAnswered)) * 100)}%`, cls: "bg-signal text-on-signal" },
+    { label: L("Questions", "प्रश्न"), value: totalQs, cls: "card" },
+    { label: L("Avg time / Q", "औसत समय / प्रश्न"), value: `${Math.round(totalSecs / Math.max(1, totalAnswered))}s`, cls: "bg-cobalt-soft text-cobalt-ink" },
   ];
 
   return (
-    <div className="space-y-7">
-      <header className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <h1 className="font-display text-3xl sm:text-5xl">{L("My tests", "मेरे टेस्ट")}</h1>
-          <p className="mt-1 text-sm font-medium text-ink-2">{L("Every test you've taken, with scores, analysis and retries.", "आपके सभी टेस्ट: अंक, विश्लेषण और दोबारा प्रयास।")}</p>
-        </div>
-        <Link href="/practice" className="btn btn-orange px-4 py-2.5 text-[15px]">
-          <Target className="size-4" strokeWidth={2.6} /> {L("Take a test", "टेस्ट दें")}
-        </Link>
-      </header>
+    <div className="space-y-8">
+      <PageHeader
+        eyebrow={L("Scores · analysis · retries", "अंक · विश्लेषण · दोबारा")}
+        title={L("My tests", "मेरे टेस्ट")}
+        sub={L("Every test you've taken, with scores, analysis and retries.", "आपके सभी टेस्ट: अंक, विश्लेषण और दोबारा प्रयास।")}
+        right={
+          <Link href="/practice" className="btn px-5 text-[15px]">
+            <Target className="size-4" strokeWidth={2.4} /> {L("Take a test", "टेस्ट दें")}
+          </Link>
+        }
+      />
 
-      <section className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+      <section className="stagger grid grid-cols-2 gap-3 sm:grid-cols-4">
         {stats.map((s) => (
-          <div key={s.label} className={`rounded-3xl p-4 ${s.cls}`}>
-            <div className="font-display text-3xl leading-none">{s.value}</div>
-            <div className="mt-1.5 text-xs font-bold">{s.label}</div>
+          <div key={s.label} className={cx("rounded-[22px] p-4 sm:p-5", s.cls)}>
+            <div className="font-display text-[44px] leading-none tnum">{s.value}</div>
+            <div className="mt-2 text-xs font-semibold opacity-80">{s.label}</div>
           </div>
         ))}
       </section>
 
       <section className="grid gap-4 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-        <div className="rounded-3xl border border-line bg-surface p-5">
+        <div className="card p-5 sm:p-6">
           <SectionTitle title={L("Accuracy trend", "सटीकता का रुझान")} eyebrow={L(`Last ${recent.length} tests · best ${pct(best)}%`, `पिछले ${recent.length} टेस्ट · सर्वश्रेष्ठ ${pct(best)}%`)} />
-          <div className="flex h-36 items-end gap-1.5">
-            {recent.map((a) => (
-              <Link key={a.id} href={`/practice/result?id=${a.id}`} title={`${a.title}: ${pct(a)}%`} className="group flex h-full flex-1 flex-col items-center justify-end gap-1">
-                <span className="text-xs font-extrabold text-ink-3 tabular-nums">{pct(a)}</span>
-                <span className={`w-full rounded-md transition group-hover:opacity-80 ${barTone(pct(a))}`} style={{ height: `${Math.max(4, pct(a))}%` }} />
+          <div className="flex h-40 items-end gap-1.5">
+            {recent.map((a, i) => (
+              <Link key={a.id} href={`/practice/result?id=${a.id}`} title={`${a.title}: ${pct(a)}%`} className="group flex h-full flex-1 flex-col items-center justify-end gap-1.5">
+                <span className="font-mono text-[11px] text-ink-3 tnum">{pct(a)}</span>
+                <span className={cx("grow-y w-full rounded-t-xl rounded-b-md transition group-hover:brightness-110", barTone(pct(a)))} style={{ height: `${Math.max(4, pct(a))}%`, "--i": i } as React.CSSProperties} />
               </Link>
             ))}
           </div>
-          <div className="mt-2 flex justify-between text-xs font-bold text-ink-3">
+          <div className="eyebrow mt-3 flex justify-between text-ink-3">
             <span>{L("older", "पुराने")}</span>
             <span>{L("latest", "ताज़ा")}</span>
           </div>
         </div>
 
-        <div className="rounded-3xl border border-line bg-surface p-5">
+        <div className="card p-5 sm:p-6">
           <SectionTitle title={L("Topics", "विषय")} eyebrow={L("From all your answers", "आपके सभी उत्तरों से")} />
           {topics.length ? (
-            <div className="space-y-3">
+            <div className="space-y-4">
               {[
-                { title: L("Needs work", "सुधार चाहिए"), list: weak, cls: "text-bad" },
-                { title: L("Strongest", "सबसे मज़बूत"), list: strong, cls: "text-good" },
+                { title: L("Needs work", "सुधार चाहिए"), list: weak, cls: "text-bad-ink" },
+                { title: L("Strongest", "सबसे मज़बूत"), list: strong, cls: "text-good-ink" },
               ].map((g) => (
                 <div key={g.title}>
-                  <div className={`mb-1.5 text-xs font-extrabold ${g.cls}`}>{g.title}</div>
+                  <div className={cx("eyebrow mb-2", g.cls)}>{g.title}</div>
                   {g.list.map((t) => {
                     const v = Math.round((t.correct / t.total) * 100);
                     return (
-                      <div key={t.category} className="mb-1.5 flex items-center gap-2 text-sm font-semibold">
+                      <div key={t.category} className="mb-2 flex items-center gap-2 text-sm font-medium">
                         <span className="w-32 shrink-0 truncate sm:w-40">{pick(categoryById(t.category)?.label, hi ? "hi" : "en")}</span>
                         <Bar value={v} max={100} color={barTone(v)} className="h-2 flex-1" />
-                        <span className="w-9 text-right text-xs tabular-nums">{v}%</span>
+                        <span className="w-9 text-right font-mono text-[11px] tnum">{v}%</span>
                       </div>
                     );
                   })}
                 </div>
               ))}
               {weak.length > 0 && (
-                <Link href={`/practice/run?kind=weak&cats=${weak.map((w) => w.category).join(",")}`} className="btn btn-ghost mt-1 w-full py-2.5 text-[15px]">
+                <Link href={`/practice/run?kind=weak&cats=${weak.map((w) => w.category).join(",")}`} className="btn btn-ghost mt-1 w-full text-sm">
                   <Crosshair className="size-4" /> {L("Drill weak topics", "कमज़ोर विषयों का अभ्यास")}
                 </Link>
               )}
             </div>
           ) : (
-            <p className="text-sm font-medium text-ink-2">{L("Answer a few more questions and your strong and weak topics will show here.", "कुछ और प्रश्न हल करें, आपके मज़बूत और कमज़ोर विषय यहाँ दिखेंगे।")}</p>
+            <p className="text-sm text-ink-2">{L("Answer a few more questions and your strong and weak topics will show here.", "कुछ और प्रश्न हल करें, आपके मज़बूत और कमज़ोर विषय यहाँ दिखेंगे।")}</p>
           )}
         </div>
       </section>
 
       <section>
-        <div className="no-scrollbar -mx-4 mb-4 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:flex-wrap sm:px-0">
+        <div className="no-scrollbar -mx-4 mb-5 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:flex-wrap sm:px-0">
           {[["all", L("All", "सभी"), attempts.length] as const, ...[...counts.entries()].map(([k, n]) => [k, hi ? KINDS[k].hi : KINDS[k].label, n] as const)].map(([k, label, n]) => (
-            <button
-              key={k}
-              onClick={() => setFilter(k)}
-              className={cx(
-                "shrink-0 rounded-full border-2 px-3.5 py-1.5 text-sm font-bold whitespace-nowrap transition active:scale-95",
-                filter === k ? "border-accent bg-accent-soft text-accent" : "border-line bg-surface text-ink-2",
-              )}
-            >
-              {label} · {n}
+            <button key={k} onClick={() => setFilter(k)} className="chip shrink-0" aria-pressed={filter === k}>
+              {label} <span className="font-mono text-[11px] opacity-60">{n}</span>
             </button>
           ))}
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-8">
           {[...byMonth.entries()].map(([month, list]) => (
             <div key={month}>
-              <h2 className="mb-2.5 text-sm font-extrabold text-ink-3">{month}</h2>
-              <div className="grid gap-2.5 lg:grid-cols-2">
+              <h2 className="eyebrow mb-3 text-ink-3">{month}</h2>
+              <div className="stagger grid gap-3 lg:grid-cols-2">
                 {list.map((a) => {
                   const k = KINDS[kindOf(a)];
                   const v = pct(a);
                   const wrong = answeredCount(a) - a.correct;
                   const skipped = a.mcqIds.length - answeredCount(a);
                   return (
-                    <article key={a.id} className="rounded-3xl border border-line bg-surface p-4">
+                    <article key={a.id} className="card lift p-4 sm:p-5">
                       <div className="flex items-start gap-3">
-                        <span className={`grid size-10 shrink-0 place-items-center rounded-xl ${k.tone}`}>
+                        <span className={cx("grid size-11 shrink-0 place-items-center rounded-[14px]", k.tone)}>
                           <k.icon className="size-5" strokeWidth={2} />
                         </span>
                         <div className="min-w-0 flex-1">
-                          <div className="truncate text-[15px] font-bold">{a.title}</div>
-                          <div className="text-xs font-semibold text-ink-3">
+                          <div className="truncate text-[15px] font-semibold">{a.title}</div>
+                          <div className="mt-0.5 text-xs text-ink-3">
                             {new Date(a.finishedAt).toLocaleString(hi ? "hi-IN" : "en-IN", { day: "numeric", month: "short", hour: "numeric", minute: "2-digit" })} · {hi ? k.hi : k.label}
                             {a.config.timed && ` · ${L("timed", "समयबद्ध")}`}
                             {a.config.negative > 0 && ` · −${Math.abs(a.config.negative - 1 / 3) < 0.01 ? "⅓" : a.config.negative}`}
                           </div>
-                        </div>
-                        <div className="text-right">
-                          <div className={`font-display text-2xl leading-none ${tone(v)}`}>{v}%</div>
-                          <div className="mt-1 text-xs font-bold text-ink-3 tabular-nums">
-                            {a.score.toFixed(a.config.negative ? 2 : 0)}/{a.mcqIds.length}
+                          <div className="mt-1 font-mono text-[11px] text-ink-3 tnum">
+                            {L("Score", "अंक")} {a.score.toFixed(a.config.negative ? 2 : 0)}/{a.mcqIds.length}
                           </div>
                         </div>
+                        <ProgressRing value={v} max={100} size={52} stroke={5} color={ringTone(v)} label={`${v}%`}>
+                          <span className="font-mono text-xs font-semibold tnum">{v}</span>
+                        </ProgressRing>
                       </div>
 
-                      <div className="mt-3 flex h-2.5 overflow-hidden rounded-full bg-line">
+                      <div className="mt-4 flex h-2 overflow-hidden rounded-full bg-line">
                         <span className="bg-good" style={{ width: `${(a.correct / a.mcqIds.length) * 100}%` }} />
                         <span className="bg-bad" style={{ width: `${(wrong / a.mcqIds.length) * 100}%` }} />
                       </div>
-                      <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1 text-xs font-semibold text-ink-2">
-                        <span className="text-good">
+                      <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[11px] text-ink-2">
+                        <span className="text-good-ink">
                           {a.correct} {L("correct", "सही")}
                         </span>
-                        <span className="text-bad">
+                        <span className="text-bad-ink">
                           {wrong} {L("wrong", "ग़लत")}
                         </span>
                         <span>
@@ -226,15 +220,15 @@ export default function MyTests() {
                         </span>
                       </div>
 
-                      <div className="mt-3 flex flex-wrap gap-2">
-                        <Link href={`/practice/result?id=${a.id}`} className="btn btn-ghost px-3 py-2 text-xs">
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        <Link href={`/practice/result?id=${a.id}`} className="btn btn-ghost px-4 text-xs">
                           <Eye className="size-4" /> {L("Review & analysis", "समीक्षा व विश्लेषण")}
                         </Link>
-                        <Link href={retryHref(a, a.mcqIds, hi ? "दोबारा" : "Retry")} className="btn btn-ghost px-3 py-2 text-xs">
+                        <Link href={retryHref(a, a.mcqIds, hi ? "दोबारा" : "Retry")} className="btn btn-ghost px-4 text-xs">
                           <RotateCcw className="size-4" /> {L("Retry", "दोबारा दें")}
                         </Link>
                         {a.missedIds && a.missedIds.length > 0 && (
-                          <Link href={retryHref(a, a.missedIds, hi ? "ग़लतियाँ" : "Mistakes")} className="btn btn-red px-3 py-2 text-xs">
+                          <Link href={retryHref(a, a.missedIds, hi ? "ग़लतियाँ" : "Mistakes")} className="btn btn-bad px-4 text-xs">
                             {L(`Retry ${a.missedIds.length} mistakes`, `${a.missedIds.length} ग़लतियाँ दोबारा`)}
                           </Link>
                         )}
@@ -248,7 +242,7 @@ export default function MyTests() {
         </div>
       </section>
 
-      <p className="text-xs font-medium text-ink-3">{L("Test history is stored on this device (last 100 tests).", "टेस्ट इतिहास इसी डिवाइस पर सहेजा है (पिछले 100 टेस्ट)।")}</p>
+      <p className="eyebrow text-ink-3">{L("Test history is stored on this device (last 100 tests).", "टेस्ट इतिहास इसी डिवाइस पर सहेजा है (पिछले 100 टेस्ट)।")}</p>
     </div>
   );
 }

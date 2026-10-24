@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { CalendarRange, Timer, Zap } from "lucide-react";
+import { ArrowUpRight, CalendarRange, Timer, Zap } from "lucide-react";
 import { RecentAttempts, WeakDrillCard } from "@/components/practice-widgets";
 import { TestBuilder } from "@/components/test-builder";
-import { SectionTitle, fmtDate } from "@/components/ui";
+import { PageHeader, SectionTitle, fmtDate } from "@/components/ui";
 import { istDate } from "@/lib/dates";
 import { currentProfile } from "@/lib/profile";
 import { latestStoryDate, storyMonths } from "@/lib/store";
@@ -18,94 +18,85 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
   const ui = profile.lang === "bi" ? "en" : profile.lang;
   const latest = latestStoryDate() ?? istDate();
   const months = storyMonths();
-
   const hi = ui === "hi";
-  const quick = [
-    {
-      href: `/practice/run?kind=daily&from=${latest}&to=${latest}`,
-      icon: <Zap className="size-6" strokeWidth={2} />,
-      title: hi ? "डेली क्विज़" : "Daily quiz",
-      body: hi ? "10 प्रश्न · ताज़ा दिन" : "10 Qs · latest day",
-      tone: "bg-accent-soft",
-      ink: "text-accent",
-      solid: "bg-accent",
-    },
-    {
-      href: "/practice/run?kind=weekly",
-      icon: <CalendarRange className="size-6" strokeWidth={2} />,
-      title: hi ? "साप्ताहिक टेस्ट" : "Weekly test",
-      body: hi ? "25 प्रश्न · पिछले 7 दिन" : "25 Qs · last 7 days",
-      tone: "bg-teal-soft",
-      ink: "text-teal",
-      solid: "bg-teal",
-    },
-    {
-      href: "/practice/run?kind=mock",
-      icon: <Timer className="size-6" strokeWidth={2} />,
-      title: hi ? "टाइम्ड मॉक" : "Timed mock",
-      body: hi ? "50 प्रश्न · −⅓ नेगेटिव" : "50 Qs · −⅓ negative",
-      tone: "bg-accent-2-soft",
-      ink: "text-accent-2",
-      solid: "bg-accent-2",
-    },
-  ];
 
   return (
-    <div className="space-y-7">
-      <header>
-        <h1 className="font-display text-3xl sm:text-5xl">{ui === "hi" ? "अभ्यास" : "Practice"}</h1>
-        <p className="mt-1 text-sm font-medium text-ink-2">
-          {hi ? "आधिकारिक स्रोतों से परीक्षा-शैली के प्रश्न।" : "Exam-style questions from official sources."}
-        </p>
-      </header>
+    <div className="space-y-8">
+      <PageHeader
+        eyebrow={hi ? "परीक्षा-शैली · आधिकारिक स्रोत" : "Exam-style · from official sources"}
+        title={hi ? "अभ्यास" : <>Practice<span className="text-flare italic">.</span></>}
+        sub={hi ? "आधिकारिक स्रोतों से परीक्षा-शैली के प्रश्न।" : "Quick quizzes, timed mocks and your own tests, all built from the day's official sources."}
+      />
 
       {empty && (
-        <div className="rounded-2xl bg-warn-soft p-4 text-sm font-semibold">
-          {hi
-            ? "इस चयन के लिए अभी पर्याप्त प्रश्न नहीं हैं। लंबी अवधि या कम विषय चुनें।"
-            : "Not enough questions for that selection yet. Try a wider period or fewer topic filters."}
+        <div className="pop rounded-[20px] bg-amber-soft p-4 text-sm font-semibold text-amber-ink">
+          {hi ? "इस चयन के लिए अभी पर्याप्त प्रश्न नहीं हैं। लंबी अवधि या कम विषय चुनें।" : "Not enough questions for that selection yet. Try a wider period or fewer topic filters."}
         </div>
       )}
 
-      <div className="space-y-7 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start lg:gap-6 lg:space-y-0">
-        <div className="space-y-7">
-          <section className="grid grid-cols-2 gap-3">
-            {quick.map((q) => (
-              <Link key={q.href} href={q.href} className={`group rounded-3xl p-4 transition active:scale-[.97] ${q.tone}`}>
-                <span className={`grid size-12 place-items-center rounded-2xl text-white transition group-hover:-rotate-6 ${q.solid}`}>{q.icon}</span>
-                <span className={`mt-3 block font-display text-[17px] leading-tight ${q.ink}`}>{q.title}</span>
-                <span className="mt-0.5 block text-xs font-semibold text-ink-2">{q.body}</span>
-              </Link>
-            ))}
+      <div className="space-y-8 lg:grid lg:grid-cols-[minmax(0,1fr)_420px] lg:items-start lg:gap-6 lg:space-y-0">
+        <div className="space-y-8">
+          <section className="stagger grid grid-cols-2 gap-3">
+            <Link href={`/practice/run?kind=daily&from=${latest}&to=${latest}`} className="lift group relative col-span-2 flex min-h-[220px] flex-col overflow-hidden rounded-[28px] bg-signal p-6 text-on-signal">
+              <span aria-hidden className="absolute -right-4 -bottom-10 font-display text-[200px] leading-none opacity-[0.08] transition duration-700 group-hover:-translate-y-2">
+                10
+              </span>
+              <span className="flex items-center justify-between">
+                <span className="grid size-12 place-items-center rounded-[16px] bg-[#10110e] text-[#c8f135] transition duration-500 group-hover:-rotate-12">
+                  <Zap className="size-6" strokeWidth={2} />
+                </span>
+                <span className="grid size-11 place-items-center rounded-full bg-black/10 transition group-hover:rotate-45 group-hover:bg-[#10110e] group-hover:text-[#c8f135]">
+                  <ArrowUpRight className="size-5" />
+                </span>
+              </span>
+              <span className="mt-auto pt-6">
+                <span className="eyebrow block opacity-60">{hi ? "ताज़ा दिन" : "Latest day"}</span>
+                <span className="mt-1 block font-display text-[40px] leading-none sm:text-[48px]">{hi ? "डेली क्विज़" : "Daily quiz"}</span>
+                <span className="mt-1 block text-sm font-medium opacity-70">{hi ? "10 प्रश्न · लगभग 5 मिनट" : "10 questions · about 5 minutes"}</span>
+              </span>
+            </Link>
+            <Link href="/practice/run?kind=weekly" className="card lift group flex min-h-[180px] flex-col p-5">
+              <span className="grid size-11 place-items-center rounded-[14px] bg-mint-soft text-mint-ink transition group-hover:-rotate-6">
+                <CalendarRange className="size-5" />
+              </span>
+              <span className="mt-auto pt-4">
+                <span className="block font-display text-[28px] leading-none">{hi ? "साप्ताहिक" : "Weekly"}</span>
+                <span className="mt-1 block text-xs font-medium text-ink-2">{hi ? "25 प्रश्न · पिछले 7 दिन" : "25 Qs · last 7 days"}</span>
+              </span>
+            </Link>
+            <Link href="/practice/run?kind=mock" className="lift group flex min-h-[180px] flex-col rounded-[24px] bg-[#10110e] p-5 text-[#f3f2ec] dark:bg-card dark:shadow-[inset_0_0_0_1px_var(--line-2)]">
+              <span className="grid size-11 place-items-center rounded-[14px] bg-white/10 text-[#c8f135] transition group-hover:rotate-6">
+                <Timer className="size-5" />
+              </span>
+              <span className="mt-auto pt-4">
+                <span className="block font-display text-[28px] leading-none">{hi ? "टाइम्ड मॉक" : "Timed mock"}</span>
+                <span className="mt-1 block text-xs font-medium text-white/60 dark:text-ink-2">{hi ? "50 प्रश्न · −⅓ नेगेटिव" : "50 Qs · −⅓ negative"}</span>
+              </span>
+            </Link>
             <WeakDrillCard />
           </section>
 
-          <RecentAttempts />
-
           {months.length > 0 && (
-            <section>
+            <section className="reveal">
               <SectionTitle title={hi ? "मासिक टेस्ट" : "Monthly tests"} eyebrow={hi ? "पूरे महीने से 50 प्रश्न" : "50 questions from a whole month"} />
-              <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:flex-wrap sm:px-0">
+              <div className="no-scrollbar -mx-4 flex snap-x gap-2.5 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0">
                 {months.map((m) => (
-                  <Link
-                    key={m}
-                    href={`/practice/run?kind=monthly&from=${m}-01&to=${m}-31`}
-                    className="tap shrink-0 rounded-2xl bg-surface px-4 py-2.5 text-left"
-                  >
-                    <span className="block font-display text-base">{fmtDate(`${m}-01`, ui, { month: "short" })}</span>
-                    <span className="block text-xs text-ink-3">
-                      {m.slice(0, 4)} · 50 {hi ? "प्रश्न" : "Qs"}
-                    </span>
+                  <Link key={m} href={`/practice/run?kind=monthly&from=${m}-01&to=${m}-31`} className="card lift group w-[104px] shrink-0 snap-start p-3.5 text-left">
+                    <span className="eyebrow block text-ink-3">{m.slice(0, 4)}</span>
+                    <span className="mt-1 block font-display text-[30px] leading-none group-hover:italic">{fmtDate(`${m}-01`, ui, { month: "short" })}</span>
+                    <span className="mt-2 block font-mono text-[11px] text-ink-3">50 {hi ? "प्रश्न" : "Qs"}</span>
                   </Link>
                 ))}
               </div>
             </section>
           )}
+
+          <RecentAttempts />
         </div>
-        <section className="rounded-3xl border border-line bg-surface p-5 lg:sticky lg:top-20">
-          <div className="mb-4">
-            <h2 className="font-display text-lg leading-tight">{hi ? "अपना टेस्ट बनाएँ" : "Build your own test"}</h2>
-            <p className="text-xs text-ink-3">{hi ? "अवधि, विषय और मोड चुनें" : "Pick period, topics and mode"}</p>
+        <section className="card p-5 sm:p-6 lg:sticky lg:top-24">
+          <div className="mb-5">
+            <div className="eyebrow mb-1 text-ink-3">{hi ? "अवधि, विषय और मोड चुनें" : "Pick period, topics and mode"}</div>
+            <h2 className="font-display text-[32px] leading-none">{hi ? "अपना टेस्ट बनाएँ" : <>Build your <span className="italic">own</span></>}</h2>
           </div>
           <TestBuilder latest={latest} lang={profile.lang} />
         </section>

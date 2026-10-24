@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { Search, X } from "lucide-react";
+import { ArrowUpRight, Search, X } from "lucide-react";
 import type { ThreadSummary } from "@/lib/store";
 import { CATEGORIES, pick, type Lang } from "@/lib/taxonomy";
-import { CategoryIcon } from "./category-icon";
+import { CategoryIcon, catStyle } from "./category-icon";
 import { Select } from "./form";
-import { Empty, cx, fmtDate } from "./ui";
+import { Empty, fmtDate } from "./ui";
 
 type Sort = "latest" | "updates" | "az";
 
@@ -37,9 +37,9 @@ export function TimelineBrowser({ threads, lang }: { threads: ThreadSummary[]; l
   }, [threads, q, cat, sort, ui]);
 
   return (
-    <div className="space-y-4">
-      <div className="grid gap-2 sm:grid-cols-[minmax(0,1fr)_200px]">
-        <label className="flex h-11 items-center gap-2.5 rounded-xl border border-line bg-surface px-3.5 transition focus-within:border-accent focus-within:ring-2 focus-within:ring-accent/15">
+    <div className="space-y-5">
+      <div className="grid gap-2 sm:grid-cols-[minmax(0,1fr)_220px]">
+        <label className="flex h-12 items-center gap-2.5 rounded-full bg-card px-5 shadow-[inset_0_0_0_1px_var(--line-2)] transition focus-within:shadow-[inset_0_0_0_2px_var(--ink)]">
           <Search className="size-4 text-ink-3" />
           <input
             value={q}
@@ -48,10 +48,11 @@ export function TimelineBrowser({ threads, lang }: { threads: ThreadSummary[]; l
               setLimit(60);
             }}
             placeholder={hi ? "खोजें: भारत-चीन, चुनाव, RBI, चक्रवात…" : "Search: India–China, elections, RBI, cyclone…"}
-            className="w-full bg-transparent text-sm outline-none placeholder:text-ink-3"
+            className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-ink-3"
+            aria-label="Search timelines"
           />
           {q && (
-            <button onClick={() => setQ("")} aria-label="Clear search" className="text-ink-3 hover:text-ink">
+            <button onClick={() => setQ("")} aria-label="Clear search" className="grid size-8 place-items-center rounded-full text-ink-3 hover:bg-card-2 hover:text-ink">
               <X className="size-4" />
             </button>
           )}
@@ -63,8 +64,7 @@ export function TimelineBrowser({ threads, lang }: { threads: ThreadSummary[]; l
         </Select>
       </div>
 
-      {/* Topic filter: chips on desktop, a dropdown on phones. */}
-      <div className="hidden flex-wrap gap-2 md:flex">
+      <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:flex-wrap sm:px-0">
         {[{ id: "", label: hi ? "सभी विषय" : "All topics", n: threads.length }, ...topics].map((t) => (
           <button
             key={t.id || "all"}
@@ -72,42 +72,45 @@ export function TimelineBrowser({ threads, lang }: { threads: ThreadSummary[]; l
               setCat(t.id);
               setLimit(60);
             }}
-            className={cx(
-              "rounded-full border px-3 py-1.5 text-[13px] font-semibold transition",
-              cat === t.id ? "border-pink bg-pink-soft text-pink" : "border-line bg-surface text-ink-2 hover:border-line-strong",
-            )}
+            aria-pressed={cat === t.id}
+            className={t.id ? "chip cat shrink-0" : "chip shrink-0"}
+            style={t.id ? catStyle(t.id) : undefined}
           >
-            {t.label} <span className="font-normal opacity-70">{t.n}</span>
+            {t.id && <span className="size-1.5 rounded-full bg-(--cat-solid)" />}
+            {t.label} <span className="font-mono text-[11px] opacity-60">{t.n}</span>
           </button>
         ))}
       </div>
-      <Select value={cat} onChange={(e) => setCat(e.target.value)} className="md:hidden" aria-label="Topic">
-        <option value="">{hi ? "सभी विषय" : "All topics"}</option>
-        {topics.map((t) => (
-          <option key={t.id} value={t.id}>
-            {t.label} ({t.n})
-          </option>
-        ))}
-      </Select>
 
-      <div className="text-xs text-ink-3">
+      <div className="eyebrow text-ink-3">
         {shown.length} {hi ? "घटनाक्रम" : shown.length === 1 ? "timeline" : "timelines"}
       </div>
 
       {shown.length ? (
-        <div className="grid gap-2.5 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
           {shown.slice(0, limit).map((t) => (
-            <Link key={t.key} href={`/thread/${t.key}`} className="tap flex gap-3 rounded-2xl bg-surface p-4">
-              <CategoryIcon id={t.category} size="sm" />
-              <span className="min-w-0 flex-1">
-                <span lang={hi ? "hi" : undefined} className="block leading-snug font-semibold">
-                  {pick(t.title, ui)}
+            <Link key={t.key} href={`/thread/${t.key}`} className="card lift group flex flex-col p-4 sm:p-5">
+              <span className="flex items-center gap-3">
+                <CategoryIcon id={t.category} size="sm" />
+                <span className="font-mono text-[11px] text-ink-3 uppercase">
+                  {fmtDate(t.firstDate, ui, { day: "numeric", month: "short" })} → {fmtDate(t.lastDate, ui, { day: "numeric", month: "short" })}
                 </span>
-                <span lang={hi ? "hi" : undefined} className="mt-1 line-clamp-1 block text-xs text-ink-2">
-                  {pick(t.latest, ui)}
+                <ArrowUpRight className="ml-auto size-4 text-ink-3 transition group-hover:rotate-45 group-hover:text-ink" />
+              </span>
+              <span lang={hi ? "hi" : undefined} className="mt-3 block text-[16px] leading-snug font-semibold">
+                {pick(t.title, ui)}
+              </span>
+              <span lang={hi ? "hi" : undefined} className="mt-1.5 line-clamp-2 block text-sm text-ink-2">
+                {pick(t.latest, ui)}
+              </span>
+              <span className="mt-auto flex items-center gap-2 pt-4">
+                <span className="flex -space-x-1">
+                  {Array.from({ length: Math.min(5, t.count) }, (_, j) => (
+                    <span key={j} className="size-2.5 rounded-full bg-amber ring-2 ring-card" style={{ opacity: 1 - j * 0.16 }} />
+                  ))}
                 </span>
-                <span className="mt-1.5 block text-xs text-ink-3">
-                  {t.count} {hi ? "अपडेट" : t.count === 1 ? "update" : "updates"} · {fmtDate(t.firstDate, ui, { day: "numeric", month: "short" })} – {fmtDate(t.lastDate, ui, { day: "numeric", month: "short" })}
+                <span className="text-xs font-semibold text-ink-2">
+                  {t.count} {hi ? "अपडेट" : t.count === 1 ? "update" : "updates"}
                 </span>
               </span>
             </Link>
@@ -115,13 +118,11 @@ export function TimelineBrowser({ threads, lang }: { threads: ThreadSummary[]; l
         </div>
       ) : null}
       {shown.length > limit && (
-        <button onClick={() => setLimit((n) => n + 60)} className="btn btn-ghost mx-auto flex h-11 w-full px-8 text-[15px] sm:w-auto">
+        <button onClick={() => setLimit((n) => n + 60)} className="btn btn-ghost mx-auto flex w-full px-8 text-[15px] sm:w-auto">
           {hi ? `और दिखाएँ · ${shown.length - limit} बाकी` : `Show more · ${shown.length - limit} left`}
         </button>
       )}
-      {shown.length === 0 && (
-        <Empty title={hi ? "कुछ नहीं मिला" : "No timelines match"}>{hi ? "दूसरा शब्द या विषय आज़माएँ।" : "Try another word or topic."}</Empty>
-      )}
+      {shown.length === 0 && <Empty title={hi ? "कुछ नहीं मिला" : "No timelines match"}>{hi ? "दूसरा शब्द या विषय आज़माएँ।" : "Try another word or topic."}</Empty>}
     </div>
   );
 }
