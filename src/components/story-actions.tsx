@@ -39,8 +39,8 @@ export function ReadButton({
           <Check className="size-4" strokeWidth={2.6} /> {labels.done}
         </span>
         {nextHref && (
-          <Link href={nextHref} className="btn h-10 shrink-0 px-3.5 text-sm">
-            {labels.next} <ArrowRight className="size-4" strokeWidth={2.4} />
+          <Link href={nextHref} className="btn h-10 shrink-0 px-3.5 text-[15px]">
+            {labels.next} <ArrowRight className="size-4" strokeWidth={2} />
           </Link>
         )}
       </span>
@@ -51,9 +51,9 @@ export function ReadButton({
         setCelebrate(true);
         markRead(storyId, cardIds);
       }}
-      className={`btn h-10 px-4 text-sm whitespace-nowrap ${className}`}
+      className={`btn h-10 px-4 text-[15px] whitespace-nowrap ${className}`}
     >
-      <BookOpenCheck className="size-4" strokeWidth={2.2} /> {labels.mark}
+      <BookOpenCheck className="size-4" strokeWidth={2} /> {labels.mark}
     </button>
   );
 }
@@ -62,8 +62,8 @@ export function ReadButton({
 export function QuizButton({ storyId, label }: { storyId: string; label: string }) {
   const read = !!useProgress().reads[storyId];
   return (
-    <a href="#quick-check" aria-label={label} className="btn h-10 shrink-0 px-3 text-sm [--b:var(--accent-2-soft)] [--bt:var(--accent-2)]">
-      <Target className="size-4" strokeWidth={2.2} />
+    <a href="#quick-check" aria-label={label} className="btn h-10 shrink-0 px-3 text-[15px] [--b:var(--accent-2-soft)] [--bt:var(--accent-2)]">
+      <Target className="size-4" strokeWidth={2} />
       <span className={read ? "hidden lg:inline" : ""}>{label}</span>
     </a>
   );
@@ -85,9 +85,9 @@ export function BookmarkButton({ storyId, label }: { storyId: string; label?: st
           } else setToast(0);
         }}
         aria-label={saved ? "Remove from saved" : "Save for later"}
-        className={`btn h-10 min-w-10 shrink-0 px-2.5 text-sm ${saved ? "pop border border-accent bg-accent-soft [--b:var(--accent-soft)] [--bt:var(--accent)]" : "btn-ghost"}`}
+        className={`btn h-10 min-w-10 shrink-0 px-2.5 text-[15px] ${saved ? "pop border border-accent bg-accent-soft [--b:var(--accent-soft)] [--bt:var(--accent)]" : "btn-ghost"}`}
       >
-        <Icon className="size-[18px]" strokeWidth={2.2} />
+        <Icon className="size-[18px]" strokeWidth={2} />
         {label && <span className="hidden pr-1 lg:inline">{label}</span>}
       </button>
       {toast > 0 && (

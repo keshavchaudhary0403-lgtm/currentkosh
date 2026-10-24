@@ -53,7 +53,7 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
             <div className="text-xs font-bold text-white/80">{hi ? "कल फिर" : "back tomorrow"}</div>
           </div>
         </div>
-        <Link href="/revise" className="btn btn-white mt-6 w-full py-3 text-sm [--bt:var(--violet)]">
+        <Link href="/revise" className="btn btn-white mt-6 w-full py-3 text-[15px] [--bt:var(--violet)]">
           {hi ? "दोहराव पर लौटें" : "Back to Revise"}
         </Link>
       </div>
@@ -97,9 +97,9 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
               <div className="mb-2 text-center text-sm font-bold text-ink-2">{hi ? "कितना याद रहा?" : "How well did you remember?"}</div>
               <div className="grid grid-cols-4 gap-2">
                 {GRADES.map((g) => (
-                  <button key={g.g} onClick={() => next(g.g)} className={`btn flex-col gap-0 py-2.5 text-sm ${g.cls}`}>
+                  <button key={g.g} onClick={() => next(g.g)} className={`btn flex-col gap-0 py-2.5 text-[15px] ${g.cls}`}>
                     {hi ? g.hiLabel : g.label}
-                    <span className="text-[11px] font-semibold opacity-80">{hi ? g.hiHint : g.hint}</span>
+                    <span className="text-xs font-semibold opacity-80">{hi ? g.hiHint : g.hint}</span>
                   </button>
                 ))}
               </div>

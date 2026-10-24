@@ -13,10 +13,10 @@ export default function NotFound() {
         <h1 className="mt-3 font-display text-2xl">Page not found</h1>
         <p className="mt-1 text-sm font-medium text-ink-2">This story or page doesn&apos;t exist, or its link has changed.</p>
         <div className="mt-5 flex justify-center gap-2">
-          <Link href="/" className="btn px-5 py-2.5 text-sm">
+          <Link href="/" className="btn px-5 py-2.5 text-[15px]">
             Go to Today
           </Link>
-          <Link href="/library" className="btn btn-ghost px-5 py-2.5 text-sm">
+          <Link href="/library" className="btn btn-ghost px-5 py-2.5 text-[15px]">
             Search the library
           </Link>
         </div>

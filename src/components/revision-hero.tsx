@@ -21,7 +21,7 @@ export function RevisionHero({ countdown }: { countdown?: number | null }) {
     <section className="grid gap-4 rounded-3xl border border-line bg-surface p-4 sm:p-5 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-center md:gap-8">
       <div className="flex items-center gap-4">
         <span className={`grid size-14 shrink-0 place-items-center rounded-2xl ${due ? "bg-violet text-white" : "bg-violet-soft text-violet"}`}>
-          {due ? <Brain className="size-7" strokeWidth={2} /> : <Check className="size-7" strokeWidth={2.4} />}
+          {due ? <Brain className="size-7" strokeWidth={2} /> : <Check className="size-7" strokeWidth={2} />}
         </span>
         <div className="min-w-0 flex-1">
           <div className="flex items-baseline gap-2">
@@ -34,11 +34,11 @@ export function RevisionHero({ countdown }: { countdown?: number | null }) {
           </p>
           <div className="mt-3">
             {due > 0 ? (
-              <Link href="/revise/session" className="btn btn-violet h-10 w-full px-5 text-sm sm:w-auto">
+              <Link href="/revise/session" className="btn btn-violet h-10 w-full px-5 text-[15px] sm:w-auto">
                 {hi ? "दोहराव शुरू करें" : "Start revising"} <ArrowRight className="size-4" />
               </Link>
             ) : soon > 0 ? (
-              <Link href="/revise/session?ahead=1" className="btn btn-ghost h-10 w-full px-5 text-sm sm:w-auto">
+              <Link href="/revise/session?ahead=1" className="btn btn-ghost h-10 w-full px-5 text-[15px] sm:w-auto">
                 {hi ? `आगे का दोहराव (${soon})` : `Revise ahead · ${soon} coming up`}
               </Link>
             ) : null}
@@ -51,9 +51,9 @@ export function RevisionHero({ countdown }: { countdown?: number | null }) {
         <div className="flex h-20 items-end gap-2">
           {days.map((f, i) => (
             <div key={f.date} className="flex flex-1 flex-col items-center gap-1">
-              <span className="text-[10px] font-semibold text-ink-3 tabular-nums">{f.count || ""}</span>
+              <span className="text-xs font-semibold text-ink-3 tabular-nums">{f.count || ""}</span>
               <div className={`w-full rounded-md ${i === 0 ? "bg-violet" : f.count ? "bg-violet/35" : "bg-line"}`} style={{ height: `${Math.max(4, (f.count / max) * 48)}px` }} />
-              <span className="text-[10px] text-ink-3">{i === 0 ? (hi ? "आज" : "Today") : fmtDate(f.date, ui, { weekday: "narrow" })}</span>
+              <span className="text-xs text-ink-3">{i === 0 ? (hi ? "आज" : "Today") : fmtDate(f.date, ui, { weekday: "narrow" })}</span>
             </div>
           ))}
         </div>

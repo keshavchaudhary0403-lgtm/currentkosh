@@ -18,9 +18,9 @@ export function MyStats() {
     <div className="grid grid-cols-4 gap-2">
       {stats.map(({ icon: Icon, cls, value, label }) => (
         <div key={label} className={`rounded-2xl px-2 py-3 text-center ${cls}`}>
-          <Icon className="mx-auto size-5" strokeWidth={2.4} />
+          <Icon className="mx-auto size-5" strokeWidth={2} />
           <div className="mt-1 font-display text-2xl leading-none">{value}</div>
-          <div className="mt-1 text-[10px] leading-tight font-bold opacity-80">{label}</div>
+          <div className="mt-1 text-xs leading-tight font-bold opacity-80">{label}</div>
         </div>
       ))}
     </div>

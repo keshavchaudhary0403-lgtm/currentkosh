@@ -40,7 +40,7 @@ export default async function Revise({ searchParams }: PageProps<"/revise">) {
           right={
             <Link
               href={month ? `/practice/run?kind=monthly&from=${from}&to=${to}` : "/practice/run?kind=weekly"}
-              className="btn btn-orange shrink-0 px-3.5 py-2 text-sm"
+              className="btn btn-orange shrink-0 px-3.5 py-2 text-[15px]"
             >
               <ListChecks className="size-4" strokeWidth={2.6} /> {hi ? "टेस्ट" : "Test it"}
             </Link>

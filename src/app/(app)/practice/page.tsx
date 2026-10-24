@@ -23,7 +23,7 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
   const quick = [
     {
       href: `/practice/run?kind=daily&from=${latest}&to=${latest}`,
-      icon: <Zap className="size-6" strokeWidth={2.4} />,
+      icon: <Zap className="size-6" strokeWidth={2} />,
       title: hi ? "डेली क्विज़" : "Daily quiz",
       body: hi ? "10 प्रश्न · ताज़ा दिन" : "10 Qs · latest day",
       tone: "bg-accent-soft",
@@ -32,7 +32,7 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
     },
     {
       href: "/practice/run?kind=weekly",
-      icon: <CalendarRange className="size-6" strokeWidth={2.4} />,
+      icon: <CalendarRange className="size-6" strokeWidth={2} />,
       title: hi ? "साप्ताहिक टेस्ट" : "Weekly test",
       body: hi ? "25 प्रश्न · पिछले 7 दिन" : "25 Qs · last 7 days",
       tone: "bg-teal-soft",
@@ -41,7 +41,7 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
     },
     {
       href: "/practice/run?kind=mock",
-      icon: <Timer className="size-6" strokeWidth={2.4} />,
+      icon: <Timer className="size-6" strokeWidth={2} />,
       title: hi ? "टाइम्ड मॉक" : "Timed mock",
       body: hi ? "50 प्रश्न · −⅓ नेगेटिव" : "50 Qs · −⅓ negative",
       tone: "bg-accent-2-soft",

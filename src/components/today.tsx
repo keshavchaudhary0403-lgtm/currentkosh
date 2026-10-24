@@ -113,25 +113,25 @@ export function TodayHeader({
                 )}
               >
                 <span className={cx("grid size-8 shrink-0 place-items-center rounded-xl", r.done ? "bg-good text-white" : "bg-accent-soft text-accent")}>
-                  {r.done ? <Check className="size-4" strokeWidth={2.8} /> : <r.icon className="size-4" strokeWidth={2.2} />}
+                  {r.done ? <Check className="size-4" strokeWidth={2.8} /> : <r.icon className="size-4" strokeWidth={2} />}
                 </span>
                 <span className="min-w-0">
                   <span className="block text-sm font-semibold">{r.short}</span>
-                  <span className="hidden truncate text-[11px] text-ink-3 sm:block">{r.done ? (hi ? "हो गया" : "Done") : (r.status ?? r.hint)}</span>
+                  <span className="hidden truncate text-xs text-ink-3 sm:block">{r.done ? (hi ? "हो गया" : "Done") : (r.status ?? r.hint)}</span>
                 </span>
               </Link>
             </li>
           ))}
         </ol>
         {cta && (
-          <Link href={cta.href} className="btn hidden shrink-0 px-5 text-sm sm:inline-flex">
+          <Link href={cta.href} className="btn hidden shrink-0 px-5 text-[15px] sm:inline-flex">
             {cta.label} <ArrowRight className="size-4" />
           </Link>
         )}
       </div>
 
       {cta && (
-        <Link href={cta.href} className="btn mt-2 w-full py-2.5 text-sm sm:hidden">
+        <Link href={cta.href} className="btn mt-2 w-full py-2.5 text-[15px] sm:hidden">
           {cta.label} <ArrowRight className="size-4" />
         </Link>
       )}
@@ -208,7 +208,7 @@ export function MoreStories({ items, lang }: { items: Item[]; lang: Lang }) {
   const hi = lang === "hi";
   if (!open)
     return (
-      <button onClick={() => setOpen(true)} className="btn btn-ghost w-full py-3 text-sm sm:mx-auto sm:flex sm:w-auto sm:px-8">
+      <button onClick={() => setOpen(true)} className="btn btn-ghost w-full py-3 text-[15px] sm:mx-auto sm:flex sm:w-auto sm:px-8">
         {hi ? `${items.length} और ख़बरें देखें (कम प्राथमिकता)` : `Show ${items.length} more stories (lower priority for your exams)`}
       </button>
     );
@@ -227,13 +227,13 @@ export function NextSteps({ date, lang }: { date: string; lang: Lang }) {
   return (
     <section className="flex items-center gap-4 rounded-3xl bg-accent-2-soft p-5">
       <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-accent-2 text-white">
-        <Target className="size-6" strokeWidth={2.4} />
+        <Target className="size-6" strokeWidth={2} />
       </span>
       <div className="min-w-0 flex-1">
         <div className="font-display text-lg leading-tight">{hi ? "पढ़ लिया? अब परखें!" : "Read it? Now lock it in!"}</div>
         <div className="text-sm text-ink-2">{hi ? "आज की ख़बरों पर 10 प्रश्न" : "10 quick questions on today's news"}</div>
       </div>
-      <Link href={`/practice/run?kind=daily&from=${date}&to=${date}`} className="btn btn-orange shrink-0 px-4 py-2.5 text-sm">
+      <Link href={`/practice/run?kind=daily&from=${date}&to=${date}`} className="btn btn-orange shrink-0 px-4 py-2.5 text-[15px]">
         {hi ? "शुरू" : "Start"} <ArrowRight className="size-4" strokeWidth={2.6} />
       </Link>
     </section>
@@ -278,7 +278,7 @@ export function TodayRail({
                   <span lang={ui === "hi" ? "hi" : undefined} className="truncate">
                     {pick(th.title, ui)}
                   </span>
-                  <span className="shrink-0 rounded-full bg-pink-soft px-2 py-0.5 text-[11px] font-extrabold text-pink">{th.count}</span>
+                  <span className="shrink-0 rounded-full bg-pink-soft px-2 py-0.5 text-xs font-extrabold text-pink">{th.count}</span>
                 </Link>
               </li>
             ))}

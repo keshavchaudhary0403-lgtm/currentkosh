@@ -21,7 +21,7 @@ export default function Saved() {
     <div className="space-y-5">
       <header className="flex items-center gap-4 rounded-3xl bg-violet-soft p-5">
         <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-violet text-white">
-          <Bookmark className="size-6" strokeWidth={2.4} />
+          <Bookmark className="size-6" strokeWidth={2} />
         </span>
         <div className="min-w-0 flex-1">
           <h1 className="font-display text-2xl leading-tight">{hi ? "सहेजे गए" : "Saved"}</h1>
@@ -32,7 +32,7 @@ export default function Saved() {
         {ids.length > 0 && (
           <Link
             href={`/practice/run?kind=custom&from=2000-01-01&stories=${ids.join(",")}&count=${Math.min(50, ids.length * 3)}&title=${encodeURIComponent("Saved stories test")}`}
-            className="btn btn-violet shrink-0 px-3.5 py-2.5 text-sm"
+            className="btn btn-violet shrink-0 px-3.5 py-2.5 text-[15px]"
           >
             {hi ? "टेस्ट दें" : "Test me"}
           </Link>

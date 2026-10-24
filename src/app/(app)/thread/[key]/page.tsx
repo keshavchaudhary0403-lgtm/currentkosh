@@ -35,7 +35,7 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
             </div>
             <BiText v={thread.title} lang={lang} as="h1" className="mt-2 font-display text-2xl leading-tight sm:text-[28px]" hiClassName="font-sans text-xl" />
           </div>
-          <Link href={testHref} className="btn btn-orange px-4 py-2.5 text-sm lg:hidden">
+          <Link href={testHref} className="btn btn-orange px-4 py-2.5 text-[15px] lg:hidden">
             {L("Test this timeline", "इस घटनाक्रम का टेस्ट दें")}
           </Link>
         </div>
@@ -69,7 +69,7 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
           <div className="grid grid-cols-2 gap-2 text-center">
             <div className="rounded-2xl bg-pink-soft p-3 text-pink">
               <div className="font-display text-2xl leading-none">{thread.stories.length}</div>
-              <div className="mt-1 text-[11px] font-bold">{L("updates", "अपडेट")}</div>
+              <div className="mt-1 text-xs font-bold">{L("updates", "अपडेट")}</div>
             </div>
             <div className="rounded-2xl bg-surface-2 p-3 text-ink-2">
               <div className="font-display text-base leading-tight">
@@ -78,7 +78,7 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
                   month: "short",
                 })}
               </div>
-              <div className="mt-1 text-[11px] font-bold">{L("first update", "पहला अपडेट")}</div>
+              <div className="mt-1 text-xs font-bold">{L("first update", "पहला अपडेट")}</div>
             </div>
           </div>
           <div>
@@ -91,7 +91,7 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
                 ))}
             </div>
           </div>
-          <Link href={testHref} className="btn btn-orange w-full py-3 text-sm">
+          <Link href={testHref} className="btn btn-orange w-full py-3 text-[15px]">
             {L("Test this timeline", "इस घटनाक्रम का टेस्ट दें")}
           </Link>
           <p className="text-xs font-medium text-ink-3">{L("Questions from every update, oldest to newest, so you can revise how the issue evolved.", "हर अपडेट से प्रश्न, ताकि आप मुद्दे का पूरा विकास दोहरा सकें।")}</p>

@@ -16,11 +16,11 @@ function IosSteps() {
     <ol className="space-y-2 text-sm font-medium text-ink-2">
       <li className="flex items-center gap-2">
         <span className="grid size-6 shrink-0 place-items-center rounded-full bg-accent-soft text-xs font-extrabold text-accent">1</span>
-        Tap <Share className="inline size-4 text-accent" strokeWidth={2.4} /> <b className="text-ink">Share</b> in Safari&apos;s toolbar
+        Tap <Share className="inline size-4 text-accent" strokeWidth={2} /> <b className="text-ink">Share</b> in Safari&apos;s toolbar
       </li>
       <li className="flex items-center gap-2">
         <span className="grid size-6 shrink-0 place-items-center rounded-full bg-accent-soft text-xs font-extrabold text-accent">2</span>
-        Choose <PlusSquare className="inline size-4 text-accent" strokeWidth={2.4} /> <b className="text-ink">Add to Home Screen</b>
+        Choose <PlusSquare className="inline size-4 text-accent" strokeWidth={2} /> <b className="text-ink">Add to Home Screen</b>
       </li>
       <li className="flex items-center gap-2">
         <span className="grid size-6 shrink-0 place-items-center rounded-full bg-accent-soft text-xs font-extrabold text-accent">3</span>
@@ -52,7 +52,7 @@ export function InstallCard() {
       </div>
       {state === "prompt" && (
         <button onClick={() => promptInstall()} className="btn mt-4 w-full py-3 text-[15px] sm:w-auto sm:px-6">
-          <Download className="size-5" strokeWidth={2.4} /> Install CurrentKosh
+          <Download className="size-5" strokeWidth={2} /> Install CurrentKosh
         </button>
       )}
       {state === "ios" &&
@@ -62,7 +62,7 @@ export function InstallCard() {
           </div>
         ) : (
           <button onClick={() => setShowIos(true)} className="btn mt-4 w-full py-3 text-[15px] sm:w-auto sm:px-6">
-            <Download className="size-5" strokeWidth={2.4} /> How to install on iPhone
+            <Download className="size-5" strokeWidth={2} /> How to install on iPhone
           </button>
         ))}
       {state === "manual" && (
@@ -90,7 +90,7 @@ export function InstallBanner() {
         </div>
         <button
           onClick={() => (state === "prompt" ? promptInstall() : setShowIos((v) => !v))}
-          className="btn shrink-0 px-3.5 py-2 text-sm"
+          className="btn shrink-0 px-3.5 py-2 text-[15px]"
         >
           Install
         </button>
@@ -113,7 +113,7 @@ export function InstallSidebarButton() {
   if (state !== "prompt") return null;
   return (
     <button onClick={() => promptInstall()} className="mb-3 flex w-full items-center gap-3 rounded-xl px-3 py-2 text-sm font-bold text-accent hover:bg-accent-soft">
-      <Download className="size-4" strokeWidth={2.4} /> Install app
+      <Download className="size-4" strokeWidth={2} /> Install app
     </button>
   );
 }

@@ -42,7 +42,7 @@ export default async function Library({ searchParams }: PageProps<"/library">) {
 
       <form className="space-y-3">
         <label className="flex items-center gap-3 rounded-2xl border border-line bg-surface px-4 py-3 transition focus-within:border-teal">
-          <Search className="size-5 text-teal" strokeWidth={2.5} />
+          <Search className="size-5 text-teal" strokeWidth={2} />
           <input name="q" defaultValue={filter.q} placeholder={L("Search: repo rate, Ramsar, गवर्नर, INDRA…", "खोजें: रेपो दर, रामसर, गवर्नर, INDRA…")} className="w-full bg-transparent text-base font-medium outline-none placeholder:text-ink-3" />
         </label>
         <details className="peer sm:hidden" open={!!(filter.month || filter.category || filter.exam || filter.state)}>
@@ -81,7 +81,7 @@ export default async function Library({ searchParams }: PageProps<"/library">) {
               </option>
             ))}
           </Select>
-          <button className="btn btn-teal col-span-2 h-11 px-4 text-sm sm:col-span-1">{L("Apply", "लागू करें")}</button>
+          <button className="btn btn-teal col-span-2 h-11 px-4 text-[15px] sm:col-span-1">{L("Apply", "लागू करें")}</button>
         </div>
       </form>
 
@@ -94,7 +94,7 @@ export default async function Library({ searchParams }: PageProps<"/library">) {
           <>
             <StoryList items={results.map((story) => ({ story, relevance: relevanceFor(story, profile) }))} lang={profile.lang} showDate />
             {all.length > results.length && (
-              <Link href={`/library?${more}`} scroll={false} className="btn btn-ghost mt-4 w-full py-3 text-sm sm:mx-auto sm:flex sm:w-auto sm:px-8">
+              <Link href={`/library?${more}`} scroll={false} className="btn btn-ghost mt-4 w-full py-3 text-[15px] sm:mx-auto sm:flex sm:w-auto sm:px-8">
                 {L(`Show 50 more · ${all.length - results.length} left`, `50 और दिखाएँ · ${all.length - results.length} बाकी`)}
               </Link>
             )}

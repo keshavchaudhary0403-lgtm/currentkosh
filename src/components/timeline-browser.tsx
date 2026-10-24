@@ -98,7 +98,7 @@ export function TimelineBrowser({ threads, lang }: { threads: ThreadSummary[]; l
                 <span lang={hi ? "hi" : undefined} className="mt-1 line-clamp-1 block text-xs text-ink-2">
                   {pick(t.latest, ui)}
                 </span>
-                <span className="mt-1.5 block text-[11px] text-ink-3">
+                <span className="mt-1.5 block text-xs text-ink-3">
                   {t.count} {hi ? "अपडेट" : t.count === 1 ? "update" : "updates"} · {fmtDate(t.firstDate, ui, { day: "numeric", month: "short" })} – {fmtDate(t.lastDate, ui, { day: "numeric", month: "short" })}
                 </span>
               </span>

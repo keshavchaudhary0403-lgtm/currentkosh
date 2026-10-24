@@ -53,7 +53,7 @@ export default function MyTests() {
         <Empty title={L("No tests yet", "अभी कोई टेस्ट नहीं")} icon={<ClipboardList className="size-7" />}>
           {L("Every test you take (daily quiz, mocks, your own tests) is listed here with its score, accuracy, time and review.", "आपका हर टेस्ट यहाँ अंक, सटीकता, समय और समीक्षा के साथ दिखेगा।")}
           <div className="mt-4">
-            <Link href="/practice/run?kind=daily" className="btn px-5 py-2.5 text-sm">
+            <Link href="/practice/run?kind=daily" className="btn px-5 py-2.5 text-[15px]">
               {L("Take today's quiz", "आज का क्विज़ दें")}
             </Link>
           </div>
@@ -94,7 +94,7 @@ export default function MyTests() {
           <h1 className="font-display text-2xl sm:text-[28px]">{L("My tests", "मेरे टेस्ट")}</h1>
           <p className="mt-1 text-sm font-medium text-ink-2">{L("Every test you've taken, with scores, analysis and retries.", "आपके सभी टेस्ट: अंक, विश्लेषण और दोबारा प्रयास।")}</p>
         </div>
-        <Link href="/practice" className="btn btn-orange px-4 py-2.5 text-sm">
+        <Link href="/practice" className="btn btn-orange px-4 py-2.5 text-[15px]">
           <Target className="size-4" strokeWidth={2.6} /> {L("Take a test", "टेस्ट दें")}
         </Link>
       </header>
@@ -114,12 +114,12 @@ export default function MyTests() {
           <div className="flex h-36 items-end gap-1.5">
             {recent.map((a) => (
               <Link key={a.id} href={`/practice/result?id=${a.id}`} title={`${a.title}: ${pct(a)}%`} className="group flex h-full flex-1 flex-col items-center justify-end gap-1">
-                <span className="text-[10px] font-extrabold text-ink-3 tabular-nums">{pct(a)}</span>
+                <span className="text-xs font-extrabold text-ink-3 tabular-nums">{pct(a)}</span>
                 <span className={`w-full rounded-md transition group-hover:opacity-80 ${barTone(pct(a))}`} style={{ height: `${Math.max(4, pct(a))}%` }} />
               </Link>
             ))}
           </div>
-          <div className="mt-2 flex justify-between text-[10px] font-bold text-ink-3">
+          <div className="mt-2 flex justify-between text-xs font-bold text-ink-3">
             <span>{L("older", "पुराने")}</span>
             <span>{L("latest", "ताज़ा")}</span>
           </div>
@@ -148,7 +148,7 @@ export default function MyTests() {
                 </div>
               ))}
               {weak.length > 0 && (
-                <Link href={`/practice/run?kind=weak&cats=${weak.map((w) => w.category).join(",")}`} className="btn btn-ghost mt-1 w-full py-2.5 text-sm">
+                <Link href={`/practice/run?kind=weak&cats=${weak.map((w) => w.category).join(",")}`} className="btn btn-ghost mt-1 w-full py-2.5 text-[15px]">
                   <Crosshair className="size-4" /> {L("Drill weak topics", "कमज़ोर विषयों का अभ्यास")}
                 </Link>
               )}
@@ -189,7 +189,7 @@ export default function MyTests() {
                     <article key={a.id} className="rounded-3xl border border-line bg-surface p-4">
                       <div className="flex items-start gap-3">
                         <span className={`grid size-10 shrink-0 place-items-center rounded-xl ${k.tone}`}>
-                          <k.icon className="size-5" strokeWidth={2.4} />
+                          <k.icon className="size-5" strokeWidth={2} />
                         </span>
                         <div className="min-w-0 flex-1">
                           <div className="truncate text-[15px] font-bold">{a.title}</div>
@@ -201,7 +201,7 @@ export default function MyTests() {
                         </div>
                         <div className="text-right">
                           <div className={`font-display text-2xl leading-none ${tone(v)}`}>{v}%</div>
-                          <div className="mt-1 text-[11px] font-bold text-ink-3 tabular-nums">
+                          <div className="mt-1 text-xs font-bold text-ink-3 tabular-nums">
                             {a.score.toFixed(a.config.negative ? 2 : 0)}/{a.mcqIds.length}
                           </div>
                         </div>

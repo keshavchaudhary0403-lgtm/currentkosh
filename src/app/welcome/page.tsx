@@ -20,7 +20,7 @@ export default async function Welcome() {
     <div className="flex min-h-dvh items-center">
       <div className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:py-6">
         <Link href="/" aria-label="CurrentKosh home" className="mb-6 flex w-fit items-center gap-2.5 lg:mb-8">
-          <Wordmark size={30} />
+          <Wordmark size={32} text={20} />
           <span lang="hi" className="text-sm text-ink-3">
             · करंट कोश
           </span>
@@ -45,7 +45,7 @@ export default async function Welcome() {
               {PILLARS.map(({ icon: Icon, title, body, ink }) => (
                 <li key={title} className="flex gap-3">
                   <span className={`grid size-9 shrink-0 place-items-center rounded-xl text-white ${ink}`}>
-                    <Icon className="size-[18px]" strokeWidth={2.2} />
+                    <Icon className="size-[18px]" strokeWidth={2} />
                   </span>
                   <span>
                     <span className="block text-sm font-semibold">{title}</span>

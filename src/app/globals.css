@@ -4,7 +4,12 @@
 
 :root {
   --ck-font: var(--font-geist), var(--font-deva), ui-sans-serif, system-ui, sans-serif;
-  /* Multi-colour study palette in soft pastel tones: indigo for actions, a calm colour per section. No gradients. */
+  /*
+   * "Calm Study" palette: every colour is built from one tone (same OKLCH lightness and chroma),
+   * only the hue changes, so buttons and section colours read as one family.
+   *   indigo 272 = action · violet 300 = Revise · peach 55 = Practice · teal 190 = Library
+   *   rose 350 = Timelines · green 150 = correct · red 25 = wrong · amber 78 = must-know
+   */
   --bg: #f5f6fa;
   --surface: #ffffff;
   --surface-2: #eef1f8;
@@ -13,35 +18,37 @@
   --ink-3: #8d95a5;
   --line: #e7eaf1;
   --line-strong: #d6dbe5;
-  --accent: #4f46e5;
-  --accent-press: #3a32c4;
-  --accent-soft: #eceafe;
-  --accent-2: #c46a2a;
-  --accent-2-press: #a85820;
-  --accent-2-soft: #fdebdd;
-  --violet: #6d5bd0;
-  --violet-press: #5847b8;
-  --violet-soft: #ede9fe;
-  --teal: #2c8c86;
-  --teal-press: #22726d;
-  --teal-soft: #ddf3f1;
-  --pink: #b5487a;
-  --pink-press: #983a65;
-  --pink-soft: #fbe7ef;
-  --good: #2e9e5b;
-  --good-press: #237f48;
-  --good-soft: #e3f4e9;
-  --bad: #d1435b;
-  --bad-press: #b2354b;
-  --bad-soft: #fbe6ea;
-  --warn: #d99a1e;
-  --warn-soft: #fcf3dc;
+  --accent: oklch(0.56 0.13 272);
+  --accent-press: oklch(0.48 0.13 272);
+  --accent-soft: oklch(0.95 0.035 272);
+  --violet: oklch(0.56 0.13 300);
+  --violet-press: oklch(0.48 0.13 300);
+  --violet-soft: oklch(0.95 0.035 300);
+  --accent-2: oklch(0.56 0.13 55);
+  --accent-2-press: oklch(0.48 0.13 55);
+  --accent-2-soft: oklch(0.95 0.035 55);
+  --teal: oklch(0.56 0.13 190);
+  --teal-press: oklch(0.48 0.13 190);
+  --teal-soft: oklch(0.95 0.035 190);
+  --pink: oklch(0.56 0.13 350);
+  --pink-press: oklch(0.48 0.13 350);
+  --pink-soft: oklch(0.95 0.035 350);
+  --good: oklch(0.56 0.13 150);
+  --good-press: oklch(0.48 0.13 150);
+  --good-soft: oklch(0.95 0.035 150);
+  --bad: oklch(0.56 0.13 25);
+  --bad-press: oklch(0.48 0.13 25);
+  --bad-soft: oklch(0.95 0.035 25);
+  --warn: oklch(0.56 0.13 78);
+  --warn-soft: oklch(0.95 0.035 78);
+  --warn-ink: oklch(0.46 0.12 78);
   --glass: rgb(255 255 255 / 0.88);
   --shadow: 0 1px 2px rgb(17 24 39 / 0.04), 0 4px 16px -6px rgb(17 24 39 / 0.08);
-  --cat-l: 0.52;
-  --cat-c: 0.11;
-  --cat-tint-a: 0.14;
-  --cat-band-l: 0.94;
+  --cat-l: 0.46;
+  --cat-c: 0.12;
+  --cat-solid-l: 0.56;
+  --cat-soft-c: 0.035;
+  --cat-band-l: 0.95;
   color-scheme: light;
 }
 
@@ -60,34 +67,36 @@
   --ink-3: #6f7894;
   --line: #262d4a;
   --line-strong: #343c5e;
-  --accent: #6d66ff;
-  --accent-press: #4a42d6;
-  --accent-soft: #23255a;
-  --accent-2: #d07f45;
-  --accent-2-press: #b0652f;
-  --accent-2-soft: #3a2a1e;
-  --violet: #8574e0;
-  --violet-press: #6a58c8;
-  --violet-soft: #2a2550;
-  --teal: #3a9c95;
-  --teal-press: #2c7f79;
-  --teal-soft: #16343a;
-  --pink: #c9618f;
-  --pink-press: #a94c76;
-  --pink-soft: #3a1f2e;
-  --good: #45b072;
-  --good-press: #338a57;
-  --good-soft: #17321f;
-  --bad: #e2627a;
-  --bad-press: #c04a61;
-  --bad-soft: #3a1a22;
-  --warn: #fbbf24;
-  --warn-soft: #3a2e10;
+  --accent: oklch(0.6 0.13 272);
+  --accent-press: oklch(0.52 0.13 272);
+  --accent-soft: oklch(0.32 0.05 272);
+  --violet: oklch(0.6 0.13 300);
+  --violet-press: oklch(0.52 0.13 300);
+  --violet-soft: oklch(0.32 0.05 300);
+  --accent-2: oklch(0.6 0.13 55);
+  --accent-2-press: oklch(0.52 0.13 55);
+  --accent-2-soft: oklch(0.32 0.05 55);
+  --teal: oklch(0.6 0.13 190);
+  --teal-press: oklch(0.52 0.13 190);
+  --teal-soft: oklch(0.32 0.05 190);
+  --pink: oklch(0.6 0.13 350);
+  --pink-press: oklch(0.52 0.13 350);
+  --pink-soft: oklch(0.32 0.05 350);
+  --good: oklch(0.6 0.13 150);
+  --good-press: oklch(0.52 0.13 150);
+  --good-soft: oklch(0.32 0.05 150);
+  --bad: oklch(0.6 0.13 25);
+  --bad-press: oklch(0.52 0.13 25);
+  --bad-soft: oklch(0.32 0.05 25);
+  --warn: oklch(0.6 0.13 78);
+  --warn-soft: oklch(0.32 0.05 78);
+  --warn-ink: oklch(0.84 0.09 78);
   --glass: rgb(21 26 46 / 0.9);
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 6px 20px -8px rgb(0 0 0 / 0.5);
-  --cat-l: 0.8;
+  --cat-l: 0.84;
   --cat-c: 0.09;
-  --cat-tint-a: 0.16;
+  --cat-solid-l: 0.6;
+  --cat-soft-c: 0.05;
   --cat-band-l: 0.32;
   color-scheme: dark;
 }
@@ -118,6 +127,7 @@
   --color-bad-soft: var(--bad-soft);
   --color-warn: var(--warn);
   --color-warn-soft: var(--warn-soft);
+  --color-warn-ink: var(--warn-ink);
   --font-sans: var(--ck-font);
   --font-display: var(--ck-font);
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
@@ -153,11 +163,10 @@ body {
 /* Category colour from a hue: text, tint and solid variants that work in both themes. */
 .cat {
   --cat-ink: oklch(var(--cat-l) var(--cat-c) var(--h));
-  --cat-solid: oklch(0.64 0.12 var(--h));
-  --cat-press: oklch(0.54 0.11 var(--h));
-  --cat-tint: oklch(0.7 0.09 var(--h) / var(--cat-tint-a));
-  /* Soft pastel band (e.g. Top story header): light tint in light mode, deep tint in dark. */
-  --cat-band: oklch(var(--cat-band-l) 0.04 var(--h));
+  --cat-solid: oklch(var(--cat-solid-l) 0.13 var(--h));
+  --cat-press: oklch(calc(var(--cat-solid-l) - 0.08) 0.13 var(--h));
+  --cat-tint: oklch(var(--cat-band-l) var(--cat-soft-c) var(--h));
+  --cat-band: oklch(var(--cat-band-l) var(--cat-soft-c) var(--h));
 }
 
 ::selection {

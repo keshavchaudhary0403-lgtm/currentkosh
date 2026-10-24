@@ -42,7 +42,7 @@ export default function Progress() {
           <div key={x.label} className={`rounded-3xl p-4 ${x.cls}`}>
             <div className="font-display text-3xl leading-none">{x.value}</div>
             <div className="mt-2 text-xs font-bold">{x.label}</div>
-            {x.hint && <div className="text-[11px] font-semibold opacity-70">{x.hint}</div>}
+            {x.hint && <div className="text-xs font-semibold opacity-70">{x.hint}</div>}
           </div>
         ))}
       </section>

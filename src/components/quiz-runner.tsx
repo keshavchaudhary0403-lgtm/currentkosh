@@ -116,13 +116,13 @@ export function QuizRunner({
       {quitAsk && (
         <div className="pop mb-4 flex flex-wrap items-center gap-2 rounded-2xl bg-bad-soft p-3">
           <span className="flex-1 text-sm font-bold text-bad">{hi ? `छोड़ें? आपके ${answered} उत्तर सहेजे नहीं जाएँगे।` : `Quit? Your ${answered} answers won't be saved.`}</span>
-          <button onClick={() => setQuitAsk(false)} className="btn btn-ghost px-3 py-2 text-sm">
+          <button onClick={() => setQuitAsk(false)} className="btn btn-ghost px-3 py-2 text-[15px]">
             {hi ? "जारी रखें" : "Keep going"}
           </button>
-          <button onClick={finish} className="btn px-3 py-2 text-sm">
+          <button onClick={finish} className="btn px-3 py-2 text-[15px]">
             {hi ? "अभी जमा करें" : "Submit now"}
           </button>
-          <button onClick={() => router.push("/practice")} className="btn btn-red px-3 py-2 text-sm">
+          <button onClick={() => router.push("/practice")} className="btn btn-red px-3 py-2 text-[15px]">
             {hi ? "छोड़ें" : "Quit"}
           </button>
         </div>
@@ -140,7 +140,7 @@ export function QuizRunner({
           onClick={() => setFlags((f) => f.map((x, j) => (j === i ? !x : x)))}
           className={`inline-flex items-center gap-1.5 rounded-full border-2 px-3 py-1 text-xs font-bold transition ${flags[i] ? "border-warn bg-warn-soft text-warn" : "border-line text-ink-3 hover:text-ink"}`}
         >
-          <Flag className="size-3.5" strokeWidth={2.5} /> {flags[i] ? (hi ? "चिह्नित" : "Flagged") : hi ? "चिह्नित करें" : "Flag"}
+          <Flag className="size-3.5" strokeWidth={2} /> {flags[i] ? (hi ? "चिह्नित" : "Flagged") : hi ? "चिह्नित करें" : "Flag"}
         </button>
       </div>
 

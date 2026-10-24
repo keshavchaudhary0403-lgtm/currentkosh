@@ -87,7 +87,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
         </header>
 
         <section className="mt-5 rounded-3xl border border-line bg-surface p-5 sm:mt-7 sm:p-7">
-          <BiText v={c.summary} lang={lang} as="p" className="text-[17px] leading-[1.75]" hiClassName="mt-4 text-base" />
+          <BiText v={c.summary} lang={lang} as="p" className="text-[17px] leading-[1.7] sm:text-[18px]" hiClassName="mt-4 text-base" />
         </section>
 
         <section className="mt-6 grid gap-4 sm:grid-cols-[1.2fr_1fr]">
@@ -163,9 +163,9 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
 
         {mcqs.length > 0 && (
           <section id="quick-check" className="mt-10 scroll-mt-20">
-            <h2 className="mb-3 flex items-center gap-2 font-display text-xl sm:text-2xl">
+            <h2 className="mb-3 flex items-center gap-2 font-display text-lg sm:text-xl">
               <span className="grid size-9 place-items-center rounded-xl bg-accent-2 text-white">
-                <Target className="size-5" strokeWidth={2.4} />
+                <Target className="size-5" strokeWidth={2} />
               </span>
               {t("quickCheck", ui)}
             </h2>
@@ -178,7 +178,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
             <div className="mb-1 inline-flex items-center gap-1.5 rounded-full bg-pink-soft px-2.5 py-0.5 text-xs font-extrabold text-pink">
               <Waypoints className="size-3.5" /> {ui === "hi" ? "घटनाक्रम" : "Timeline"}
             </div>
-            <h2 className="mb-1 font-display text-xl sm:text-2xl">{pick(thread.title, ui)}</h2>
+            <h2 className="mb-1 font-display text-lg sm:text-xl">{pick(thread.title, ui)}</h2>
             <p className="mb-4 text-sm text-ink-2">{ui === "hi" ? "यह मुद्दा कैसे आगे बढ़ा" : "How this issue has developed"}</p>
             <ol className="relative space-y-4 border-l-[3px] border-pink-soft pl-5">
               {nearby.map((s) => (
@@ -269,7 +269,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
                     <span
                       className={`absolute top-1 -left-[23px] size-3 rounded-full ring-4 ring-surface ${s.id === story.id ? "bg-pink" : "bg-line-strong"}`}
                     />
-                    <div className="text-[11px] font-bold text-ink-3">{fmtDate(s.date, ui, { day: "numeric", month: "short" })}</div>
+                    <div className="text-xs font-bold text-ink-3">{fmtDate(s.date, ui, { day: "numeric", month: "short" })}</div>
                     {s.id === story.id ? (
                       <div className="text-sm leading-snug font-extrabold">{pick(s.content.title, ui)}</div>
                     ) : (

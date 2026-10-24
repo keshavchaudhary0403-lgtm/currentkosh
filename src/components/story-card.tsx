@@ -29,7 +29,7 @@ export function StoryCard({ story, lang, relevance, read, showDate }: { story: S
           <RelevanceBadge level={relevance} lang={ui} />
           {showDate && <span className="text-xs font-semibold text-ink-3">{fmtDate(story.date, ui, { day: "numeric", month: "short" })}</span>}
         </div>
-        <h3 lang={ui === "hi" ? "hi" : undefined} className={cx("mt-1 text-[15px] leading-snug font-bold sm:text-base", read && "text-ink-2")}>
+        <h3 lang={ui === "hi" ? "hi" : undefined} className={cx("mt-1 text-base leading-snug font-semibold sm:text-[17px]", read && "text-ink-2")}>
           {pick(story.content.title, ui)}
         </h3>
         {lang === "bi" && (
@@ -66,7 +66,7 @@ export function FeaturedStory({ story, lang, relevance, read }: { story: Story; 
         )}
       </div>
       <div className="p-4 sm:p-5">
-        <h2 lang={ui === "hi" ? "hi" : undefined} className="font-display text-lg leading-snug sm:text-xl">
+        <h2 lang={ui === "hi" ? "hi" : undefined} className="font-display text-[19px] leading-snug sm:text-[22px]">
           {pick(story.content.title, ui)}
         </h2>
         {lang === "bi" && (

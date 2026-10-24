@@ -33,7 +33,7 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
         <header className="sticky top-0 z-30 border-b border-line bg-(--glass) backdrop-blur-xl">
           <div className="mx-auto flex h-14 max-w-6xl items-center gap-2 px-4 sm:gap-3 sm:px-6">
             <Link href="/" className="lg:hidden" aria-label="CurrentKosh home">
-              <Wordmark size={24} lang={lang} />
+              <Wordmark size={28} text={18} lang={lang} />
             </Link>
             <Link href="/settings" className="no-scrollbar hidden min-w-0 items-center gap-1.5 overflow-x-auto sm:flex">
               {profile.exams.map((e) => (

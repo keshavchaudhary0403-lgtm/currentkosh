@@ -15,7 +15,7 @@ export function ResetProgress() {
     <section className="rounded-3xl border border-line bg-surface p-4">
       <div className="flex items-start gap-3">
         <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-surface-2 text-ink-2">
-          <HardDrive className="size-5" strokeWidth={2.3} />
+          <HardDrive className="size-5" strokeWidth={2} />
         </span>
         <div className="min-w-0 flex-1">
           <div className="text-sm font-extrabold">Progress on this device</div>
@@ -30,7 +30,7 @@ export function ResetProgress() {
       ) : confirm ? (
         <div className="mt-3 flex items-center gap-2">
           <span className="flex-1 text-sm font-bold text-bad">Delete all progress on this device?</span>
-          <button onClick={() => setConfirm(false)} className="btn btn-ghost px-3 py-2 text-sm">
+          <button onClick={() => setConfirm(false)} className="btn btn-ghost px-3 py-2 text-[15px]">
             Cancel
           </button>
           <button
@@ -39,7 +39,7 @@ export function ResetProgress() {
               setConfirm(false);
               setDone(true);
             }}
-            className="btn btn-red px-3 py-2 text-sm"
+            className="btn btn-red px-3 py-2 text-[15px]"
           >
             Delete
           </button>

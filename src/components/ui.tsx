@@ -32,7 +32,7 @@ export function CategoryPill({ id, lang, size = "sm" }: { id: string; lang: Lang
   const c = categoryById(id) ?? CATEGORIES[0];
   return (
     <span
-      className={cx("cat inline-flex items-center gap-1.5 rounded-full bg-(--cat-tint) font-bold whitespace-nowrap text-(--cat-ink)", size === "sm" ? "px-2.5 py-1 text-xs" : "px-2 py-0.5 text-[11px]")}
+      className={cx("cat inline-flex items-center gap-1.5 rounded-full bg-(--cat-tint) font-bold whitespace-nowrap text-(--cat-ink)", size === "sm" ? "px-2.5 py-1 text-xs" : "px-2 py-0.5 text-xs")}
       style={{ "--h": c.hue } as React.CSSProperties}
     >
       {pick(c.label, lang === "bi" ? "en" : lang)}
@@ -45,8 +45,8 @@ export function RelevanceBadge({ level, lang }: { level: number; lang: Lang }) {
   if (level <= 1) return null;
   const must = level >= 3;
   return (
-    <span className={cx("inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-bold", must ? "bg-accent-2-soft text-accent-2" : "bg-accent-soft text-accent")}>
-      {must ? <Flame className="size-3" strokeWidth={2.5} /> : <TrendingUp className="size-3" strokeWidth={2.5} />}
+    <span className={cx("inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-bold", must ? "bg-warn-soft text-warn-ink" : "bg-accent-soft text-accent")}>
+      {must ? <Flame className="size-3" strokeWidth={2} /> : <TrendingUp className="size-3" strokeWidth={2} />}
       {must ? t("mustKnow", lang) : t("likely", lang)}
     </span>
   );
@@ -57,11 +57,11 @@ export function SourceChips({ sources, max = 3 }: { sources: { sourceId: string;
   return (
     <span className="flex flex-wrap items-center gap-1.5">
       {unique.slice(0, max).map((s) => (
-        <span key={s.sourceId} className="rounded-full bg-surface-2 px-2 py-0.5 text-[11px] font-semibold text-ink-2">
+        <span key={s.sourceId} className="rounded-full bg-surface-2 px-2 py-0.5 text-xs font-semibold text-ink-2">
           {sourceById(s.sourceId)?.short ?? s.sourceId}
         </span>
       ))}
-      {unique.length > max && <span className="text-[11px] text-ink-3">+{unique.length - max}</span>}
+      {unique.length > max && <span className="text-xs text-ink-3">+{unique.length - max}</span>}
     </span>
   );
 }
@@ -154,7 +154,7 @@ export function Card({ className, children }: { className?: string; children: Re
 export function ButtonLink({ href, children, variant = "primary", className }: { href: string; children: React.ReactNode; variant?: "primary" | "orange" | "green" | "violet" | "ghost"; className?: string }) {
   const v = variant === "primary" ? "" : `btn-${variant}`;
   return (
-    <Link href={href} className={cx("btn px-5 py-3 text-sm", v, className)}>
+    <Link href={href} className={cx("btn px-5 py-3 text-[15px]", v, className)}>
       {children}
     </Link>
   );

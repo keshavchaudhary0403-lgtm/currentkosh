@@ -70,9 +70,9 @@ export function Sidebar({ labels, youLabel, lang }: { labels: Labels; youLabel: 
               href={href}
               className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-[15px] font-bold transition ${active ? `${tone.soft} ${tone.text}` : "text-ink-2 hover:bg-surface-2 hover:text-ink"}`}
             >
-              <Icon className="size-5" strokeWidth={active ? 2.5 : 2} />
+              <Icon className="size-5" strokeWidth={active ? 2 : 1.75} />
               {labels[key]}
-              {key === "revise" && due > 0 && <span className="ml-auto rounded-full bg-violet px-2 py-0.5 text-[11px] font-extrabold text-white">{due}</span>}
+              {key === "revise" && due > 0 && <span className="ml-auto rounded-full bg-violet px-2 py-0.5 text-xs font-extrabold text-white">{due}</span>}
             </Link>
           );
         })}
@@ -83,7 +83,7 @@ export function Sidebar({ labels, youLabel, lang }: { labels: Labels; youLabel: 
           const active = isActive(path, href);
           return (
             <Link key={href} href={href} className={`flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition ${active ? "bg-surface-2 text-ink" : "text-ink-2 hover:bg-surface-2 hover:text-ink"}`}>
-              <Icon className="size-4" strokeWidth={2.2} />
+              <Icon className="size-4" strokeWidth={2} />
               {labels[key]}
             </Link>
           );
@@ -93,7 +93,7 @@ export function Sidebar({ labels, youLabel, lang }: { labels: Labels; youLabel: 
         <InstallSidebarButton />
       </div>
       <div className="flex items-center gap-3 rounded-2xl bg-accent-2-soft p-4">
-        <Flame className={`size-8 shrink-0 text-accent-2 ${days > 0 ? "wiggle" : ""}`} strokeWidth={2.4} />
+        <Flame className={`size-8 shrink-0 text-accent-2 ${days > 0 ? "wiggle" : ""}`} strokeWidth={2} />
         <div>
           <div className="font-display text-xl leading-none text-accent-2">
             {days} {days === 1 ? "day" : "days"}
@@ -117,13 +117,13 @@ export function BottomNav({ labels }: { labels: Labels }) {
           const active = isActive(path, href) || also.some((p) => path.startsWith(p));
           const tone = TONE[key];
           return (
-            <Link key={href} href={href} className={`relative flex flex-col items-center gap-0.5 pt-1.5 pb-1.5 text-[11px] font-bold ${active ? tone.text : "text-ink-3"}`}>
+            <Link key={href} href={href} className={`relative flex flex-col items-center gap-0.5 pt-1.5 pb-1.5 text-xs font-bold ${active ? tone.text : "text-ink-3"}`}>
               <span className={`grid h-8 w-12 place-items-center rounded-full transition ${active ? `${tone.soft} pop` : ""}`}>
-                <Icon className="size-[22px]" strokeWidth={active ? 2.5 : 2} />
+                <Icon className="size-[22px]" strokeWidth={active ? 2 : 1.75} />
               </span>
               {labels[key]}
               {key === "revise" && due > 0 && (
-                <span className="absolute top-0.5 left-1/2 ml-2.5 grid min-w-[18px] place-items-center rounded-full border-2 border-surface bg-violet px-1 text-[10px] leading-[14px] font-extrabold text-white">
+                <span className="absolute top-0.5 left-1/2 ml-2.5 grid min-w-[18px] place-items-center rounded-full border-2 border-surface bg-violet px-1 text-xs leading-[14px] font-extrabold text-white">
                   {due}
                 </span>
               )}
@@ -221,9 +221,9 @@ export function SavedLink() {
       title="Saved"
       className={`relative grid size-9 place-items-center rounded-full border-2 transition active:scale-90 ${active ? "border-violet bg-violet-soft text-violet" : "border-line bg-surface text-ink-2 hover:text-ink"}`}
     >
-      <Bookmark className="size-4" strokeWidth={2.4} />
+      <Bookmark className="size-4" strokeWidth={2} />
       {n > 0 && (
-        <span key={n} className="pop absolute -top-1.5 -right-1.5 grid min-w-[18px] place-items-center rounded-full border-2 border-surface bg-violet px-1 text-[10px] leading-[14px] font-extrabold text-white">
+        <span key={n} className="pop absolute -top-1.5 -right-1.5 grid min-w-[18px] place-items-center rounded-full border-2 border-surface bg-violet px-1 text-xs leading-[14px] font-extrabold text-white">
           {n}
         </span>
       )}
@@ -260,11 +260,12 @@ export function Logo({ size = 28 }: { size?: number }) {
 }
 
 /** "CurrentKosh"; in Hindi and bilingual modes the second half reads कोश. */
-export function Wordmark({ size = 28, lang = "en" }: { size?: number; lang?: Lang }) {
+/** Logo + name. Sizes follow the app's scale: logo 32 / name 20 on desktop, 28 / 18 on phones. */
+export function Wordmark({ size = 32, text = 20, lang = "en" }: { size?: number; text?: number; lang?: Lang }) {
   return (
-    <span className="flex items-center gap-2">
+    <span className="flex items-center gap-2.5">
       <Logo size={size} />
-      <span className="font-display leading-none" style={{ fontSize: size * 0.7 }}>
+      <span className="font-display leading-none" style={{ fontSize: text }}>
         Current<span className="text-accent">{lang === "en" ? "Kosh" : "कोश"}</span>
       </span>
     </span>

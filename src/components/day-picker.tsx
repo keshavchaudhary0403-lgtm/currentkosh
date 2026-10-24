@@ -91,7 +91,7 @@ export function DayPicker({ dates, selected, latest, lang }: { dates: { date: st
           </div>
           <div className="grid grid-cols-7 gap-1 text-center">
             {weekdays.map((w, i) => (
-              <span key={i} className="py-1 text-[11px] font-semibold text-ink-3">
+              <span key={i} className="py-1 text-xs font-semibold text-ink-3">
                 {w}
               </span>
             ))}

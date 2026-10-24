@@ -102,7 +102,7 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
           </div>
           <p className="mt-1 text-sm font-semibold text-white/85">{tier.sub}</p>
           <div className="mt-5 flex flex-wrap justify-center gap-2">
-            <Link href="/practice#weak" className="btn btn-white px-5 py-3 text-sm">
+            <Link href="/practice#weak" className="btn btn-white px-5 py-3 text-[15px]">
               <RotateCcw className="size-4" strokeWidth={2.6} /> {L("More practice", "और अभ्यास")}
             </Link>
             {wrong + skipped > 0 && (
@@ -111,13 +111,13 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
                   .filter((r) => r.picked !== r.q.content.answer)
                   .map((r) => r.q.id)
                   .join(",")}&title=${encodeURIComponent(`${L("Mistakes", "ग़लतियाँ")} · ${attempt.title}`)}`}
-                className="btn px-5 py-3 text-sm [--b:rgb(255_255_255/0.18)]"
+                className="btn px-5 py-3 text-[15px] [--b:rgb(255_255_255/0.18)]"
               >
                 {L("Retry mistakes", "ग़लतियाँ दोबारा")}
               </Link>
             )}
             {wrong + skipped > 0 && (
-              <Link href="/revise" className="btn px-5 py-3 text-sm [--b:rgb(255_255_255/0.18)]">
+              <Link href="/revise" className="btn px-5 py-3 text-[15px] [--b:rgb(255_255_255/0.18)]">
                 {L("Revise missed", "छूटे दोहराएँ")}
               </Link>
             )}
@@ -127,9 +127,9 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
         <section className="grid grid-cols-4 gap-2">
           {tiles.map(({ icon: Icon, value, label, cls }) => (
             <div key={label} className={`rounded-2xl px-2 py-3 text-center ${cls}`}>
-              <Icon className="mx-auto size-5" strokeWidth={2.4} />
+              <Icon className="mx-auto size-5" strokeWidth={2} />
               <div className="mt-1 font-display text-xl leading-none">{value}</div>
-              <div className="mt-1 text-[11px] font-bold opacity-80">{label}</div>
+              <div className="mt-1 text-xs font-bold opacity-80">{label}</div>
             </div>
           ))}
         </section>

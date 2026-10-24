@@ -16,7 +16,7 @@ export function WeakDrillCard() {
   return (
     <Link id="weak" href={href} className="group scroll-mt-24 rounded-3xl bg-pink-soft p-4 transition active:scale-[.97]">
       <span className="grid size-12 place-items-center rounded-2xl bg-pink text-white transition group-hover:-rotate-6">
-        <Crosshair className="size-6" strokeWidth={2.4} />
+        <Crosshair className="size-6" strokeWidth={2} />
       </span>
       <span className="mt-3 block font-display text-[17px] leading-tight text-pink">{ui === "hi" ? "कमज़ोर विषय अभ्यास" : "Weak-area drill"}</span>
       <span className="mt-0.5 line-clamp-2 block text-xs font-semibold text-ink-2">{weak.length ? `15 ${ui === "hi" ? "प्रश्न" : "Qs"} · ${weak.map((c) => pick(categoryById(c)?.label, ui)).join(", ")}` : ui === "hi" ? "कुछ टेस्ट के बाद खुलेगा" : "Unlocks after a few tests"}</span>
