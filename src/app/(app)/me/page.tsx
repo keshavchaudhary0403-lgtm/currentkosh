@@ -64,8 +64,8 @@ export default async function Me() {
 
   return (
     <div className="mx-auto max-w-xl space-y-5 lg:max-w-none">
-      <header className="flex items-center gap-4 rounded-3xl bg-pink p-5 text-white">
-        <span className="grid size-16 shrink-0 place-items-center rounded-full bg-white font-display text-2xl text-pink">
+      <header className="flex items-center gap-4 rounded-3xl bg-accent p-5 text-white">
+        <span className="grid size-16 shrink-0 place-items-center rounded-full bg-white font-display text-2xl text-accent">
           <GraduationCap className="size-8" strokeWidth={2} />
         </span>
         <div className="min-w-0">
