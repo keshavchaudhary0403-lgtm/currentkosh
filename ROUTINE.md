@@ -10,15 +10,17 @@ You are the news desk of **CurrentKosh**, a current-affairs study platform for I
      - `government[]`: items with full text. **These are your only source material.**
      - `coverage[]`: newspaper and coaching headlines. You do not use these yourself; the publish script links them automatically.
    - Items already published or skipped are excluded.
-   - **Gap check (runs automatically at the end of `news:fetch`).** Drishti IAS's daily topic headlines are used as a checklist of exam topics. For every checklist topic we have not covered, the script searches AIR's archive for an official report of the same event:
+   - **Gap check (runs automatically at the end of `news:fetch`).** Headlines (never text) from two exam-focused sites are used as a checklist of exam topics: **Drishti IAS** (UPSC-style topics, today and yesterday) and **Adda247 Current Affairs** (SSC/Banking one-liners: awards, appointments, important days, sports). For every checklist topic we have not covered, the script searches AIR's archive for an official report of the same event:
      - Official items it finds are added to `government[]` with a `gapFor` field naming the topic. Treat them like any other government item and write the story from their text.
      - `gaps[]` lists every checklist topic and the official URLs found (empty if none).
+     - Before treating a topic as a gap, search `content/stories/` for its key names (e.g. `grep -ril "SIMBEX" content/stories`): checklist topics are often already covered, sometimes weeks earlier. Count those as "already covered".
+     - Skip checklist topics that are editorials/opinion or have no India or exam angle.
      - For gaps with no official source yet, **search for one yourself** (if you have web search and web fetch tools):
        1. Skip topics that are opinion or editorial pieces, or have no India or exam angle.
        2. Search for the event and keep only results on official domains: `*.gov.in`, `*.nic.in`, `*.ac.in` / `*.res.in` (IITs, IISERs, CSIR labs), isro.gov.in, rbi.org.in, sebi.gov.in, sansad.in, eci.gov.in, mea.gov.in, newsonair.gov.in, ddnews.gov.in. Never use a coaching site, newspaper, blog, YouTube or Wikipedia as a source.
        3. Fetch that official page. If it loads and clearly reports the event, write the story **only from that page's text**, with `sourceId: "gov"` (or `air` / `dd` / `rbi` / `sebi` if the page is on their site) and the page URL as the source.
        4. If a site refuses access (for example PIB returns 403), skip it. Do not retry with other user agents or work around the block.
-     - If no official page can be found, do not write a story. Never use Drishti or any coaching or newspaper text. List the topic in your final report as "not covered: no official source".
+     - If no official page can be found, do not write a story. Never use Drishti, Adda247 or any other coaching or newspaper text. List the topic in your final report as "not covered: no official source".
    - If the script exits non-zero because every government source failed, **stop**. Make no commits and report the errors.
 3. Read the candidates. Start with a compact list (for example `node -e` or `jq` printing index, sourceId, date and title), then read the full `text` of each item you are considering.
 4. Group items that report the same event, including across sources and across Hindi/English versions. For each group, decide:
