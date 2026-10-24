@@ -5,8 +5,8 @@
 :root {
   --ck-font: var(--font-geist), var(--font-deva), ui-sans-serif, system-ui, sans-serif;
   /*
-   * "Calm Study" palette: every colour is built from one tone (same OKLCH lightness and chroma),
-   * only the hue changes, so buttons and section colours read as one family.
+   * Matched palette: every colour is the same strength as the indigo button (Tailwind 600 family:
+   * solid 600, pressed 700, soft 100; dark mode 500 / 600 / 950), so the whole app reads as one family.
    *   indigo 272 = action · violet 300 = Revise · peach 55 = Practice · teal 190 = Library
    *   rose 350 = Timelines · green 150 = correct · red 25 = wrong · amber 78 = must-know
    */
@@ -21,33 +21,33 @@
   --accent: oklch(0.52 0.2 272);
   --accent-press: oklch(0.45 0.2 272);
   --accent-soft: oklch(0.95 0.035 272);
-  --violet: oklch(0.56 0.13 300);
-  --violet-press: oklch(0.48 0.13 300);
-  --violet-soft: oklch(0.95 0.035 300);
-  --accent-2: oklch(0.56 0.13 55);
-  --accent-2-press: oklch(0.48 0.13 55);
-  --accent-2-soft: oklch(0.95 0.035 55);
-  --teal: oklch(0.56 0.13 190);
-  --teal-press: oklch(0.48 0.13 190);
-  --teal-soft: oklch(0.95 0.035 190);
-  --pink: oklch(0.56 0.13 350);
-  --pink-press: oklch(0.48 0.13 350);
-  --pink-soft: oklch(0.95 0.035 350);
-  --good: oklch(0.56 0.13 150);
-  --good-press: oklch(0.48 0.13 150);
-  --good-soft: oklch(0.95 0.035 150);
-  --bad: oklch(0.56 0.13 25);
-  --bad-press: oklch(0.48 0.13 25);
-  --bad-soft: oklch(0.95 0.035 25);
-  --warn: oklch(0.56 0.13 78);
-  --warn-soft: oklch(0.95 0.035 78);
-  --warn-ink: oklch(0.46 0.12 78);
+  --violet: #7c3aed;
+  --violet-press: #6d28d9;
+  --violet-soft: #ede9fe;
+  --accent-2: #ea580c;
+  --accent-2-press: #c2410c;
+  --accent-2-soft: #ffedd5;
+  --teal: #0d9488;
+  --teal-press: #0f766e;
+  --teal-soft: #ccfbf1;
+  --pink: #e11d48;
+  --pink-press: #be123c;
+  --pink-soft: #ffe4e6;
+  --good: #16a34a;
+  --good-press: #15803d;
+  --good-soft: #dcfce7;
+  --bad: #dc2626;
+  --bad-press: #b91c1c;
+  --bad-soft: #fee2e2;
+  --warn: #d97706;
+  --warn-soft: #fef3c7;
+  --warn-ink: #92400e;
   --glass: rgb(255 255 255 / 0.88);
   --shadow: 0 1px 2px rgb(17 24 39 / 0.04), 0 4px 16px -6px rgb(17 24 39 / 0.08);
-  --cat-l: 0.46;
-  --cat-c: 0.12;
+  --cat-l: 0.5;
+  --cat-c: 0.17;
   --cat-solid-l: 0.56;
-  --cat-soft-c: 0.035;
+  --cat-soft-c: 0.05;
   --cat-band-l: 0.95;
   color-scheme: light;
 }
@@ -70,31 +70,31 @@
   --accent: oklch(0.6 0.19 272);
   --accent-press: oklch(0.52 0.19 272);
   --accent-soft: oklch(0.32 0.05 272);
-  --violet: oklch(0.6 0.13 300);
-  --violet-press: oklch(0.52 0.13 300);
-  --violet-soft: oklch(0.32 0.05 300);
-  --accent-2: oklch(0.6 0.13 55);
-  --accent-2-press: oklch(0.52 0.13 55);
-  --accent-2-soft: oklch(0.32 0.05 55);
-  --teal: oklch(0.6 0.13 190);
-  --teal-press: oklch(0.52 0.13 190);
-  --teal-soft: oklch(0.32 0.05 190);
-  --pink: oklch(0.6 0.13 350);
-  --pink-press: oklch(0.52 0.13 350);
-  --pink-soft: oklch(0.32 0.05 350);
-  --good: oklch(0.6 0.13 150);
-  --good-press: oklch(0.52 0.13 150);
-  --good-soft: oklch(0.32 0.05 150);
-  --bad: oklch(0.6 0.13 25);
-  --bad-press: oklch(0.52 0.13 25);
-  --bad-soft: oklch(0.32 0.05 25);
-  --warn: oklch(0.6 0.13 78);
-  --warn-soft: oklch(0.32 0.05 78);
-  --warn-ink: oklch(0.84 0.09 78);
+  --violet: #8b5cf6;
+  --violet-press: #7c3aed;
+  --violet-soft: #2e1065;
+  --accent-2: #f97316;
+  --accent-2-press: #ea580c;
+  --accent-2-soft: #431407;
+  --teal: #14b8a6;
+  --teal-press: #0d9488;
+  --teal-soft: #042f2e;
+  --pink: #f43f5e;
+  --pink-press: #e11d48;
+  --pink-soft: #4c0519;
+  --good: #22c55e;
+  --good-press: #16a34a;
+  --good-soft: #052e16;
+  --bad: #ef4444;
+  --bad-press: #dc2626;
+  --bad-soft: #450a0a;
+  --warn: #f59e0b;
+  --warn-soft: #451a03;
+  --warn-ink: #fcd34d;
   --glass: rgb(21 26 46 / 0.9);
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 6px 20px -8px rgb(0 0 0 / 0.5);
-  --cat-l: 0.84;
-  --cat-c: 0.09;
+  --cat-l: 0.78;
+  --cat-c: 0.14;
   --cat-solid-l: 0.6;
   --cat-soft-c: 0.05;
   --cat-band-l: 0.32;
@@ -163,8 +163,8 @@ body {
 /* Category colour from a hue: text, tint and solid variants that work in both themes. */
 .cat {
   --cat-ink: oklch(var(--cat-l) var(--cat-c) var(--h));
-  --cat-solid: oklch(var(--cat-solid-l) 0.13 var(--h));
-  --cat-press: oklch(calc(var(--cat-solid-l) - 0.08) 0.13 var(--h));
+  --cat-solid: oklch(var(--cat-solid-l) 0.18 var(--h));
+  --cat-press: oklch(calc(var(--cat-solid-l) - 0.08) 0.18 var(--h));
   --cat-tint: oklch(var(--cat-band-l) var(--cat-soft-c) var(--h));
   --cat-band: oklch(var(--cat-band-l) var(--cat-soft-c) var(--h));
 }
