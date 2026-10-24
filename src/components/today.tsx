@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, BookOpenCheck, Brain, CalendarDays, Check, Target, Waypoints } from "lucide-react";
+import { CalendarDays, Check, Target, Waypoints } from "lucide-react";
 import { dueCount, useProgress } from "@/lib/progress-store";
 import type { StoryCardData as Story } from "@/lib/store";
 import { istDate } from "@/lib/dates";
@@ -24,11 +24,13 @@ function useMission(date: string, briefIds: string[], isLatest = true) {
   return { p, read, quizDone, due, steps, done: steps.filter(Boolean).length };
 }
 
-/** Today's study plan: read and understand, recall with a short quiz, revise. A guide, not a race. */
+/**
+ * One slim line above the news: the date control on the left; reading progress, today's quiz
+ * and revision as small links on the right. Keeps the stories at the top of the screen.
+ */
 export function TodayHeader({
   date,
   briefIds,
-  focus = [],
   lang,
   isLatest = true,
   picker,
@@ -42,99 +44,30 @@ export function TodayHeader({
 }) {
   const ui = lang === "bi" ? "en" : lang;
   const hi = ui === "hi";
-  const { p, read, quizDone, due, steps, done } = useMission(date, briefIds, isLatest);
+  const { p, read, quizDone, due } = useMission(date, briefIds, isLatest);
   const total = briefIds.length;
   const nextUnread = briefIds.find((id) => !p.reads[id]);
-  const quizHref = `/practice/run?kind=daily&from=${date}&to=${date}`;
-  const rows = [
-    {
-      icon: BookOpenCheck,
-      title: hi ? "पढ़ें और समझें" : "Read & understand",
-      short: hi ? "पढ़ें" : "Read",
-      hint: hi ? `${total} ख़बरें` : `${total} stories`,
-      status: read > 0 && !steps[0] ? `${read}/${total}` : null,
-      href: nextUnread ? `/story/${nextUnread}` : "#brief",
-      done: steps[0],
-    },
-    {
-      icon: Target,
-      title: hi ? "क्विज़ से परखें" : "Recall with a quiz",
-      short: hi ? "क्विज़" : "Quiz",
-      hint: hi ? "10 प्रश्न" : "10 questions",
-      status: null,
-      href: quizHref,
-      done: steps[1],
-    },
-    {
-      icon: Brain,
-      title: hi ? "पढ़ी ख़बरें दोहराएँ" : "Revise what you learned",
-      short: hi ? "दोहराएँ" : "Revise",
-      hint: due ? (hi ? `${due} कार्ड` : `${due} cards`) : hi ? "कल से" : "From tomorrow",
-      status: null,
-      href: "/revise",
-      done: steps[2],
-    },
-  ];
-  const cta = !steps[0] && nextUnread
-    ? { href: `/story/${nextUnread}`, label: read ? (hi ? "जारी रखें" : "Continue reading") : hi ? "पढ़ना शुरू करें" : "Start reading" }
-    : !quizDone
-      ? { href: quizHref, label: hi ? "क्विज़ से परखें" : "Check your recall" }
-      : due
-        ? { href: "/revise/session", label: hi ? "दोहराव शुरू करें" : "Start revising" }
-        : null;
-
+  const link = "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-sm font-semibold transition hover:bg-surface-2";
   return (
-    <header className="rounded-3xl border border-line bg-surface p-4 sm:p-5">
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div className="min-w-0">
-          <h1 className="font-display text-xl leading-tight sm:text-2xl">
-            {done === 3 ? (hi ? "आज की पढ़ाई पूरी 🌱" : "Today's essentials covered 🌱") : isLatest ? (hi ? "आज की पढ़ाई" : "Today's study plan") : hi ? "इस दिन की पढ़ाई" : "Study this day"}
-          </h1>
-          {focus.length > 0 && (
-            <p className="mt-0.5 truncate text-sm text-ink-2">
-              {hi ? "फ़ोकस: " : "Focus: "}
-              <span className="font-semibold text-ink">{focus.join(" · ")}</span>
-            </p>
-          )}
-        </div>
-        {picker}
-      </div>
-
-      <div className="mt-3 flex items-stretch gap-2">
-        <ol className="grid min-w-0 flex-1 grid-cols-3 gap-2">
-          {rows.map((r, i) => (
-            <li key={i}>
-              <Link
-                href={r.href}
-                title={r.title}
-                className={cx(
-                  "flex h-full flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-center transition hover:brightness-[.97] sm:flex-row sm:justify-start sm:gap-2.5 sm:px-3 sm:text-left",
-                  r.done ? "bg-good-soft" : "bg-surface-2",
-                )}
-              >
-                <span className={cx("grid size-8 shrink-0 place-items-center rounded-xl", r.done ? "bg-good text-white" : "bg-accent-soft text-accent")}>
-                  {r.done ? <Check className="size-4" strokeWidth={2.8} /> : <r.icon className="size-4" strokeWidth={2} />}
-                </span>
-                <span className="min-w-0">
-                  <span className="block text-sm font-semibold">{r.short}</span>
-                  <span className="hidden truncate text-xs text-ink-3 sm:block">{r.done ? (hi ? "हो गया" : "Done") : (r.status ?? r.hint)}</span>
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ol>
-        {cta && (
-          <Link href={cta.href} className="btn hidden shrink-0 px-5 text-[15px] sm:inline-flex">
-            {cta.label} <ArrowRight className="size-4" />
-          </Link>
-        )}
-      </div>
-
-      {cta && (
-        <Link href={cta.href} className="btn mt-2 w-full py-2.5 text-[15px] sm:hidden">
-          {cta.label} <ArrowRight className="size-4" />
+    <header className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+      <h1 className="sr-only">{isLatest ? (hi ? "आज की ख़बरें" : "Today's news") : hi ? "इस दिन की ख़बरें" : "News for this day"}</h1>
+      {picker}
+      <nav className="flex flex-wrap items-center gap-1" aria-label={hi ? "आज की प्रगति" : "Today's progress"}>
+        <Link href={nextUnread ? `/story/${nextUnread}` : "#brief"} className={cx(link, read === total && total > 0 ? "text-good" : "text-ink-2")}>
+          {read === total && total > 0 && <Check className="size-4" strokeWidth={2.4} />}
+          {read}/{total} {hi ? "पढ़ीं" : "read"}
         </Link>
-      )}
+        <span className="text-ink-3">·</span>
+        <Link href={`/practice/run?kind=daily&from=${date}&to=${date}`} className={cx(link, quizDone ? "text-good" : "text-accent-2")}>
+          {quizDone && <Check className="size-4" strokeWidth={2.4} />}
+          {hi ? "क्विज़" : "Quiz"}
+        </Link>
+        <span className="text-ink-3">·</span>
+        <Link href="/revise" className={cx(link, "text-violet")}>
+          {hi ? "दोहराएँ" : "Revise"}
+          {due > 0 && <span className="rounded-full bg-violet px-1.5 text-xs leading-5 text-white">{due}</span>}
+        </Link>
+      </nav>
     </header>
   );
 }
@@ -225,18 +158,17 @@ export function NextSteps({ date, lang }: { date: string; lang: Lang }) {
   const ui = lang === "bi" ? "en" : lang;
   const hi = ui === "hi";
   return (
-    <section className="flex items-center gap-4 rounded-3xl bg-accent-2-soft p-5">
-      <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-accent-2 text-white">
-        <Target className="size-6" strokeWidth={2} />
+    <Link
+      href={`/practice/run?kind=daily&from=${date}&to=${date}`}
+      className="tap flex items-center gap-3 rounded-2xl bg-accent-2-soft px-4 py-3.5 sm:px-5"
+    >
+      <Target className="size-5 shrink-0 text-accent-2" strokeWidth={2} />
+      <span className="min-w-0 flex-1 text-[15px] font-semibold">
+        {hi ? "पढ़ लिया? अब आज का क्विज़ दें" : "Done reading? Take today's quiz"}
+        <span className="block text-xs font-normal text-ink-2">{hi ? "10 प्रश्न · लगभग 5 मिनट" : "10 questions · about 5 min"}</span>
       </span>
-      <div className="min-w-0 flex-1">
-        <div className="font-display text-lg leading-tight">{hi ? "पढ़ लिया? अब परखें!" : "Read it? Now lock it in!"}</div>
-        <div className="text-sm text-ink-2">{hi ? "आज की ख़बरों पर 10 प्रश्न" : "10 quick questions on today's news"}</div>
-      </div>
-      <Link href={`/practice/run?kind=daily&from=${date}&to=${date}`} className="btn btn-orange shrink-0 px-4 py-2.5 text-[15px]">
-        {hi ? "शुरू" : "Start"} <ArrowRight className="size-4" strokeWidth={2.6} />
-      </Link>
-    </section>
+      <span className="text-sm font-semibold text-accent-2">{hi ? "शुरू करें" : "Start"} →</span>
+    </Link>
   );
 }
 

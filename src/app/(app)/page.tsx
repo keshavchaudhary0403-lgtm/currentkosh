@@ -1,12 +1,11 @@
 import { redirect } from "next/navigation";
 import { DayPicker } from "@/components/day-picker";
 import { InstallBanner } from "@/components/install";
-import { Brief, MoreStories, TodayHeader, TodayRail } from "@/components/today";
+import { Brief, MoreStories, NextSteps, TodayHeader, TodayRail } from "@/components/today";
 import { Empty } from "@/components/ui";
 import { daysUntil, istDate } from "@/lib/dates";
 import { t } from "@/lib/i18n";
 import { currentProfile } from "@/lib/profile";
-import { categoryById, pick } from "@/lib/taxonomy";
 import { activeThreads, feedFor, latestStoryDate, relevanceFor, storyDates, toCard } from "@/lib/store";
 
 
@@ -23,13 +22,6 @@ export default async function Today({ searchParams }: PageProps<"/">) {
   const brief = feed.slice(0, profile.dailyGoal).map((x) => ({ ...x, story: toCard(x.story, true) }));
   const more = feed.slice(profile.dailyGoal).map((x) => ({ ...x, story: toCard(x.story) }));
   const briefIds = brief.map((b) => b.story.id);
-  // The day's main subjects, most stories first, as a gentle "what today is about".
-  const topicCount = new Map<string, number>();
-  for (const { story } of brief) topicCount.set(story.category, (topicCount.get(story.category) ?? 0) + 1);
-  const focus = [...topicCount.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 3)
-    .map(([c]) => pick(categoryById(c)?.label, ui));
   const dates = storyDates(400);
   const threads = activeThreads(8);
   const countdown = profile.examDate ? daysUntil(profile.examDate) : null;
@@ -40,7 +32,6 @@ export default async function Today({ searchParams }: PageProps<"/">) {
         <TodayHeader
           date={date}
           briefIds={briefIds}
-          focus={focus}
           lang={lang}
           isLatest={date === latest}
           picker={dates.length > 1 && <DayPicker key={date} dates={dates} selected={date} latest={latest ?? date} lang={lang} />}
@@ -50,6 +41,7 @@ export default async function Today({ searchParams }: PageProps<"/">) {
         ) : (
           <Empty title={t("noStories", ui)}>{ui === "hi" ? "नई ख़बरें रोज़ जोड़ी जाती हैं।" : "New stories are added every day from PIB, AIR, DD News and RBI."}</Empty>
         )}
+        {brief.length > 0 && <NextSteps date={date} lang={lang} />}
         {more.length > 0 && <MoreStories items={more} lang={lang} />}
         <InstallBanner />
       </div>
