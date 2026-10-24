@@ -89,6 +89,15 @@ export function useProgress(): State {
 
 // ── Mutations ──────────────────────────────────────────────────────────────
 
+/** Wipes reading, test and revision history stored in this browser. */
+export function resetProgress() {
+  ensureLoaded();
+  try {
+    localStorage.removeItem(KEY);
+  } catch {}
+  commit(EMPTY);
+}
+
 const reviewKey = (type: ItemType, id: string) => `${type}:${id}`;
 const inDays = (days: number) => new Date(Date.now() + days * 86400_000 - 4 * 3600_000).toISOString();
 

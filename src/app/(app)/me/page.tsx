@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { BarChart3, BookOpen, Bookmark, ChevronRight, GraduationCap, Settings, Waypoints } from "lucide-react";
 import { InstallCard } from "@/components/install";
 import { MyStats } from "@/components/my-stats";
+import { ResetProgress } from "@/components/reset-progress";
 import { LangPicker, ThemeToggle } from "@/components/nav";
 import { daysUntil } from "@/lib/dates";
 import { currentProfile } from "@/lib/profile";
@@ -76,11 +77,7 @@ export default async function Me() {
         </div>
       </section>
 
-      <p className="px-1 text-xs leading-relaxed text-ink-3">
-        {ui === "hi"
-          ? "आपकी प्रगति इसी ब्राउज़र में सुरक्षित रहती है। कोई विज्ञापन नहीं, कोई पॉप-अप नहीं।"
-          : "Your progress is saved privately in this browser. No ads, no pop-ups."}
-      </p>
+      <ResetProgress />
     </div>
   );
 }
