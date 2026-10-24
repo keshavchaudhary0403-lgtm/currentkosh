@@ -52,20 +52,20 @@ export function TodayHeader({
     <header className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
       <h1 className="sr-only">{isLatest ? (hi ? "आज की ख़बरें" : "Today's news") : hi ? "इस दिन की ख़बरें" : "News for this day"}</h1>
       {picker}
-      <nav className="flex flex-wrap items-center gap-2" aria-label={hi ? "आज की प्रगति" : "Today's progress"}>
-        <Link href={nextUnread ? `/story/${nextUnread}` : "#brief"} className={cx(link, read === total && total > 0 ? "text-good" : "text-ink-2")}>
+      <nav className="flex w-full flex-nowrap items-center gap-2 sm:w-auto" aria-label={hi ? "आज की प्रगति" : "Today's progress"}>
+        <Link href={nextUnread ? `/story/${nextUnread}` : "#brief"} className={cx(link, "mr-auto whitespace-nowrap sm:mr-0", read === total && total > 0 ? "text-good" : "text-ink-2")}>
           {read === total && total > 0 && <Check className="size-4" strokeWidth={2.4} />}
           {read}/{total} {hi ? "पढ़ीं" : "read"}
         </Link>
         <Link
           href={`/practice/run?kind=daily&from=${date}&to=${date}`}
-          className="inline-flex h-9 items-center gap-1.5 rounded-xl px-3.5 text-sm font-semibold transition hover:brightness-95 data-[done=true]:bg-good-soft data-[done=true]:text-good bg-accent-2-soft text-accent-2"
+          className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-xl px-3.5 text-sm font-semibold whitespace-nowrap transition hover:brightness-95 data-[done=true]:bg-good-soft data-[done=true]:text-good bg-accent-2-soft text-accent-2"
           data-done={quizDone}
         >
           {quizDone && <Check className="size-4" strokeWidth={2.4} />}
           {hi ? "क्विज़" : "Quiz"}
         </Link>
-        <Link href="/revise" className="inline-flex h-9 items-center gap-1.5 rounded-xl bg-violet-soft px-3.5 text-sm font-semibold text-violet transition hover:brightness-95">
+        <Link href="/revise" className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-xl bg-violet-soft whitespace-nowrap px-3.5 text-sm font-semibold text-violet transition hover:brightness-95">
           {hi ? "दोहराएँ" : "Revise"}
           {due > 0 && <span className="rounded-full bg-violet px-1.5 text-xs leading-5 text-white">{due}</span>}
         </Link>
