@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import { ArrowDown, ExternalLink, Landmark, Lightbulb, PenLine, ShieldCheck, Sparkles, Target, Waypoints } from "lucide-react";
+import { ExternalLink, Landmark, Lightbulb, PenLine, ShieldCheck, Sparkles, Target, Waypoints } from "lucide-react";
 import { BackButton } from "@/components/back-button";
 import { BookmarkButton, QuickCheck, ReadButton } from "@/components/story-actions";
 import { CategoryIcon, catStyle } from "@/components/category-icon";
@@ -35,7 +35,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
   const next = pos >= 0 ? (dayFeed[pos + 1] ?? null) : null;
   const nextHref = next ? `/story/${next.id}` : null;
   const dayHref = story.date === latestStoryDate() ? "/" : `/?date=${story.date}`;
-  const readLabels = { mark: t("markRead", ui), done: ui === "hi" ? "पढ़ लिया!" : "Done! In Revise", next: ui === "hi" ? "अगली ख़बर" : "Next story" };
+  const readLabels = { mark: ui === "hi" ? "पढ़ लिया" : "Done", done: ui === "hi" ? "पढ़ा" : "Read", next: ui === "hi" ? "अगली" : "Next" };
   // Long storylines (some have 200+ updates): show the few updates around this one.
   const at = thread ? thread.stories.findIndex((s) => s.id === story.id) : -1;
   const nearby = thread ? thread.stories.slice(Math.max(0, at - 3), at + 4) : [];
@@ -159,12 +159,12 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
         <div className="fixed inset-x-0 bottom-[calc(62px+env(safe-area-inset-bottom))] z-30 flex justify-center px-4 lg:hidden">
           <div className="flex w-full items-center gap-2 rounded-2xl border border-line bg-surface p-2 shadow-[0_12px_40px_-12px_rgb(0_0_0/0.3)] sm:w-auto">
             <BackButton fallback={dayHref} variant="icon" />
-            <ReadButton storyId={story.id} cardIds={story.cardIds} labels={readLabels} nextHref={nextHref} className="min-w-0 flex-1 sm:flex-none" />
+            <ReadButton storyId={story.id} cardIds={story.cardIds} labels={readLabels} nextHref={nextHref} className="h-10 min-w-0 flex-1 sm:flex-none" />
             <BookmarkButton storyId={story.id} />
             {mcqs.length > 0 && (
-              <a href="#quick-check" aria-label={ui === "hi" ? "क्विज़" : "Quiz"} className="btn btn-orange h-11 shrink-0 px-3 text-sm">
-                <Target className="size-5" strokeWidth={2.4} />
-                <span className="hidden min-[400px]:inline">{ui === "hi" ? "क्विज़" : "Quiz"}</span>
+              <a href="#quick-check" aria-label={ui === "hi" ? "क्विज़" : "Quiz"} className="btn btn-ghost h-10 shrink-0 px-3.5 text-sm">
+                <Target className="size-4" strokeWidth={2.2} />
+                <span>{ui === "hi" ? "क्विज़" : "Quiz"}</span>
               </a>
             )}
           </div>
@@ -239,18 +239,14 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
 
       <aside className="hidden lg:block">
         <div className="no-scrollbar sticky top-20 max-h-[calc(100dvh-6rem)] space-y-4 overflow-y-auto pb-2">
-          <div className="space-y-2.5 rounded-3xl border border-line bg-surface p-4">
-            <div className="flex items-center gap-2">
-              <div className="min-w-0 flex-1 [&>*]:w-full">
-                <ReadButton storyId={story.id} cardIds={story.cardIds} labels={readLabels} nextHref={nextHref} />
-              </div>
-              <BookmarkButton storyId={story.id} />
-            </div>
+          <div className="flex items-center gap-2 rounded-3xl border border-line bg-surface p-3">
+            <ReadButton storyId={story.id} cardIds={story.cardIds} labels={readLabels} nextHref={nextHref} className="h-10 flex-1" />
             {mcqs.length > 0 && (
-              <a href="#quick-check" className="btn btn-orange w-full py-2.5 text-sm">
-                {ui === "hi" ? "क्विज़ दें" : "Take the quick quiz"} <ArrowDown className="size-4" strokeWidth={2.6} />
+              <a href="#quick-check" className="btn btn-ghost h-10 px-3.5 text-sm">
+                <Target className="size-4" strokeWidth={2.2} /> {ui === "hi" ? "क्विज़" : "Quiz"}
               </a>
             )}
+            <BookmarkButton storyId={story.id} />
           </div>
 
           <div className="rounded-3xl border border-line bg-surface p-4">

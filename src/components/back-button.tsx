@@ -21,8 +21,8 @@ export function BackButton({ fallback, label, variant = "pill" }: { fallback: st
   const go = () => (views > 1 ? router.back() : router.push(fallback));
   if (variant === "icon")
     return (
-      <button onClick={go} aria-label="Go back" className="btn btn-ghost size-11 shrink-0">
-        <ArrowLeft className="size-5" strokeWidth={2.6} />
+      <button onClick={go} aria-label="Go back" className="btn btn-ghost size-10 shrink-0">
+        <ArrowLeft className="size-[18px]" strokeWidth={2.2} />
       </button>
     );
   return (

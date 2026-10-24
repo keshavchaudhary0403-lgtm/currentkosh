@@ -27,16 +27,16 @@ export function ReadButton({
   const [celebrate, setCelebrate] = useState(false);
   if (read && nextHref)
     return (
-      <Link href={nextHref} className={`btn relative px-4 py-2.5 text-sm ${celebrate ? "pop" : ""} ${className}`}>
+      <Link href={nextHref} className={`btn relative px-4 text-sm ${celebrate ? "pop" : ""} ${className}`}>
         {celebrate && <Confetti />}
-        <CheckCircle2 className="size-5 text-white/80" strokeWidth={2.6} /> {labels.next ?? "Next story"} <ArrowRight className="size-4" strokeWidth={2.6} />
+        <Check className="size-4 text-white/80" strokeWidth={2.6} /> {labels.next ?? "Next"} <ArrowRight className="size-4" strokeWidth={2.4} />
       </Link>
     );
   if (read)
     return (
-      <span className={`pop relative inline-flex items-center justify-center gap-2 rounded-[14px] bg-good-soft px-4 py-2.5 text-sm font-extrabold whitespace-nowrap text-good ${className}`}>
+      <span className={`pop relative inline-flex items-center justify-center gap-1.5 rounded-[14px] bg-good-soft px-4 text-sm font-semibold whitespace-nowrap text-good ${className}`}>
         {celebrate && <Confetti />}
-        <CheckCircle2 className="size-5" strokeWidth={2.6} /> {labels.done}
+        <CheckCircle2 className="size-4" strokeWidth={2.4} /> {labels.done}
       </span>
     );
   return (
@@ -45,9 +45,9 @@ export function ReadButton({
         setCelebrate(true);
         markRead(storyId, cardIds);
       }}
-      className={`btn btn-green px-4 py-2.5 text-sm ${className}`}
+      className={`btn px-4 text-sm ${className}`}
     >
-      <Check className="size-5" strokeWidth={3} /> {labels.mark}
+      <Check className="size-4" strokeWidth={2.6} /> {labels.mark}
     </button>
   );
 }
@@ -68,9 +68,9 @@ export function BookmarkButton({ storyId }: { storyId: string }) {
           } else setToast(0);
         }}
         aria-label={saved ? "Remove from saved" : "Save for later"}
-        className={`btn size-11 ${saved ? "btn-violet pop" : "btn-ghost"}`}
+        className={`btn size-10 shrink-0 ${saved ? "pop border border-accent bg-accent-soft [--b:var(--accent-soft)] [--bt:var(--accent)]" : "btn-ghost"}`}
       >
-        <Icon className="size-5" strokeWidth={2.4} />
+        <Icon className="size-[18px]" strokeWidth={2.2} />
       </button>
       {toast > 0 && (
         <div className="rise fixed inset-x-4 top-16 z-50 mx-auto flex max-w-sm items-center gap-3 rounded-2xl bg-ink px-4 py-3 text-sm font-semibold text-bg shadow-xl">
