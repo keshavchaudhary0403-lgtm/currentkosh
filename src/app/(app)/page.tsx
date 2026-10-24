@@ -41,8 +41,8 @@ export default async function Today({ searchParams }: PageProps<"/">) {
         ) : (
           <Empty title={t("noStories", ui)}>{ui === "hi" ? "नई ख़बरें रोज़ जोड़ी जाती हैं।" : "New stories are added every day from PIB, AIR, DD News and RBI."}</Empty>
         )}
-        {brief.length > 0 && <NextSteps date={date} lang={lang} />}
         {more.length > 0 && <MoreStories items={more} lang={lang} />}
+        {brief.length > 0 && <NextSteps date={date} lang={lang} />}
         <InstallBanner />
       </div>
 

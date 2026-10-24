@@ -137,19 +137,15 @@ export function StoryList({ items, lang, showDate }: { items: Item[]; lang: Lang
   );
 }
 
-/** Lower-priority stories, folded away until asked for. */
+/** Lower-priority stories for the day, always shown under the main brief. */
 export function MoreStories({ items, lang }: { items: Item[]; lang: Lang }) {
-  const [open, setOpen] = useState(false);
   const hi = lang === "hi";
-  if (!open)
-    return (
-      <button onClick={() => setOpen(true)} className="btn btn-ghost w-full py-3 text-[15px] sm:mx-auto sm:flex sm:w-auto sm:px-8">
-        {hi ? `${items.length} और ख़बरें देखें (कम प्राथमिकता)` : `Show ${items.length} more stories (lower priority for your exams)`}
-      </button>
-    );
   return (
-    <section>
-      <h2 className="mb-3 font-display text-lg">{hi ? "और भी आज" : "Also today"}</h2>
+    <section className="space-y-3 pt-2">
+      <div>
+        <h2 className="font-display text-lg sm:text-xl">{hi ? "और भी आज" : "Also today"}</h2>
+        <p className="text-xs text-ink-3">{hi ? "आपकी परीक्षाओं के लिए कम प्राथमिकता" : "Lower priority for your exams"}</p>
+      </div>
       <StoryList items={items} lang={lang} />
     </section>
   );
