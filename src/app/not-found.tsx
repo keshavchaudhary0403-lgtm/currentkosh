@@ -16,8 +16,8 @@ export default function NotFound() {
           <Link href="/" className="btn px-5 py-2.5 text-sm">
             Go to Today
           </Link>
-          <Link href="/archive" className="btn btn-ghost px-5 py-2.5 text-sm">
-            Search archive
+          <Link href="/library" className="btn btn-ghost px-5 py-2.5 text-sm">
+            Search the library
           </Link>
         </div>
       </div>

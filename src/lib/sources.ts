@@ -68,6 +68,16 @@ export const SOURCES: Source[] = [
     license: "Prasar Bharati public broadcaster. Summarised with attribution; not republished verbatim.",
   },
   {
+    id: "sebi",
+    name: "Securities and Exchange Board of India (SEBI)",
+    short: "SEBI",
+    kind: "government",
+    mode: "ai",
+    homepage: "https://www.sebi.gov.in",
+    feeds: ["https://www.sebi.gov.in/sebirss.xml"],
+    license: "Official regulator releases. Summarised with attribution.",
+  },
+  {
     id: "rbi",
     name: "Reserve Bank of India — Press Releases",
     short: "RBI",

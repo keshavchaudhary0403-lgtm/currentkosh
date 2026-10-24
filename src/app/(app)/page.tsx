@@ -7,6 +7,7 @@ import { Empty, SectionTitle } from "@/components/ui";
 import { daysUntil, istDate } from "@/lib/dates";
 import { t } from "@/lib/i18n";
 import { currentProfile } from "@/lib/profile";
+import { categoryById, pick } from "@/lib/taxonomy";
 import { activeThreads, feedFor, latestStoryDate, relevanceFor, storyDates } from "@/lib/store";
 
 
@@ -23,6 +24,13 @@ export default async function Today({ searchParams }: PageProps<"/">) {
   const brief = feed.slice(0, profile.dailyGoal);
   const more = feed.slice(profile.dailyGoal);
   const briefIds = brief.map((b) => b.story.id);
+  // The day's main subjects, most stories first, as a gentle "what today is about".
+  const topicCount = new Map<string, number>();
+  for (const { story } of brief) topicCount.set(story.category, (topicCount.get(story.category) ?? 0) + 1);
+  const focus = [...topicCount.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3)
+    .map(([c]) => pick(categoryById(c)?.label, ui));
   const dates = storyDates(400);
   const threads = activeThreads(8);
   const countdown = profile.examDate ? daysUntil(profile.examDate) : null;
@@ -31,7 +39,7 @@ export default async function Today({ searchParams }: PageProps<"/">) {
     <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]">
       <div className="min-w-0 space-y-6">
         <div>
-          <TodayHeader date={date} briefIds={briefIds} lang={lang} isLatest={date === latest} />
+          <TodayHeader date={date} briefIds={briefIds} focus={focus} lang={lang} isLatest={date === latest} />
           {dates.length > 1 && <DayPicker key={date} dates={dates} selected={date} latest={latest ?? date} lang={lang} />}
           {brief.length ? (
             <Brief items={brief} lang={lang} />

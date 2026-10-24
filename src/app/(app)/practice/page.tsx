@@ -48,6 +48,8 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
         <WeakDrillCard />
       </section>
 
+      <RecentAttempts />
+
       {months.length > 0 && (
         <section>
           <SectionTitle title={hi ? "मासिक टेस्ट" : "Monthly tests"} eyebrow={hi ? "पूरे महीने से 50 प्रश्न" : "50 questions from a whole month"} />
@@ -69,7 +71,6 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
         </Card>
       </section>
 
-      <RecentAttempts />
     </div>
   );
 }

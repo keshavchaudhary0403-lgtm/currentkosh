@@ -100,14 +100,9 @@ export default async function RunTest({ searchParams }: PageProps<"/practice/run
   const presetTitle = profile.lang === "hi" ? HI_TITLES[kind] : preset.title;
   const title = str(sp.title) ?? (kind === "monthly" ? `${presetTitle} · ${from.slice(0, 7)}` : presetTitle);
 
-  const ids = pickMcqs(profile, {
-    from,
-    to,
-    categories,
-    count,
-    storyIds,
-    seed,
-  });
+  // A retry names its questions directly (same paper again, or only the ones missed).
+  const direct = str(sp.mcqs)?.split(",").filter(Boolean).slice(0, 100);
+  const ids = direct?.length ? direct : pickMcqs(profile, { from, to, categories, count, storyIds, seed });
   if (!ids.length) redirect("/practice?empty=1");
   // Observances filed under another subject still show (and score) as the topic the reader chose.
   const shownAs = (c: string) => (categories.length && !categories.includes(c) && categories.includes("days") ? "days" : c);

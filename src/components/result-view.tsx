@@ -80,10 +80,10 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
     <div className="mx-auto max-w-3xl space-y-6 lg:grid lg:max-w-none lg:grid-cols-[380px_minmax(0,1fr)] lg:items-start lg:gap-8 lg:space-y-0">
       <div className="space-y-6">
         <Link
-          href="/practice"
+          href="/tests"
           className="inline-flex items-center gap-1.5 rounded-full border-2 border-line bg-surface px-3 py-1 text-sm font-bold text-ink-2 hover:text-ink"
         >
-          <ArrowLeft className="size-4" /> {L("Practice", "अभ्यास")}
+          <ArrowLeft className="size-4" /> {L("My tests", "मेरे टेस्ट")}
         </Link>
         <section className={`pop relative overflow-hidden rounded-3xl p-6 text-center text-white sm:p-8 ${tier.bg}`}>
           {pct >= 70 && <Confetti pieces={44} />}
@@ -105,6 +105,17 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
             <Link href="/practice#weak" className="btn btn-white px-5 py-3 text-sm">
               <RotateCcw className="size-4" strokeWidth={2.6} /> {L("More practice", "और अभ्यास")}
             </Link>
+            {wrong + skipped > 0 && (
+              <Link
+                href={`/practice/run?kind=${attempt.kind}&mcqs=${rows
+                  .filter((r) => r.picked !== r.q.content.answer)
+                  .map((r) => r.q.id)
+                  .join(",")}&title=${encodeURIComponent(`${L("Mistakes", "ग़लतियाँ")} · ${attempt.title}`)}`}
+                className="btn px-5 py-3 text-sm [--b:rgb(255_255_255/0.18)]"
+              >
+                {L("Retry mistakes", "ग़लतियाँ दोबारा")}
+              </Link>
+            )}
             {wrong + skipped > 0 && (
               <Link href="/revise" className="btn px-5 py-3 text-sm [--b:rgb(255_255_255/0.18)]">
                 {L("Revise missed", "छूटे दोहराएँ")}

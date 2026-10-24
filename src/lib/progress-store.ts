@@ -19,6 +19,8 @@ export type Attempt = {
   score: number;
   startedAt: string;
   finishedAt: string;
+  /** Questions answered wrong or skipped (attempts saved before Oct 2026 lack this). */
+  missedIds?: string[];
 };
 export type AnswerLog = { mcqId: string; category: string; correct: boolean; at: string };
 export type ReviewState = SrsState & { due: string; last: string | null };
@@ -143,7 +145,8 @@ export function saveAttempt(a: Omit<Attempt, "id" | "correct" | "score" | "finis
     }
     if (!ok) graded(reviews, "mcq", q.id, "again");
   });
-  const attempt: Attempt = { ...a, id: `${Date.now().toString(36)}`, correct, score, finishedAt: now };
+  const missedIds = questions.filter((q, i) => (a.answers[i] ?? null) !== q.answer).map((q) => q.id);
+  const attempt: Attempt = { ...a, id: `${Date.now().toString(36)}`, correct, score, finishedAt: now, missedIds };
   commit({ ...state, reviews, answers: [...state.answers, ...logs].slice(-5000), attempts: [attempt, ...state.attempts].slice(0, 100) });
   return attempt;
 }

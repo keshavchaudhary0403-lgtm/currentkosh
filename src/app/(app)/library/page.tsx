@@ -8,11 +8,11 @@ import { currentProfile } from "@/lib/profile";
 import { relevanceFor, searchStories, storyMonths } from "@/lib/store";
 import { CATEGORIES, EXAMS, STATES, pick, type ExamId } from "@/lib/taxonomy";
 
-export const metadata: Metadata = { title: "Archive" };
+export const metadata: Metadata = { title: "Library" };
 
 const str = (v: string | string[] | undefined) => (typeof v === "string" && v ? v : undefined);
 
-export default async function Archive({ searchParams }: PageProps<"/archive">) {
+export default async function Library({ searchParams }: PageProps<"/library">) {
   const profile = await currentProfile();
   if (!profile) redirect("/welcome");
   const sp = await searchParams;
@@ -36,8 +36,8 @@ export default async function Archive({ searchParams }: PageProps<"/archive">) {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="font-display text-[28px] sm:text-4xl">{ui === "hi" ? "संग्रह" : "Archive"}</h1>
-        <p className="mt-1 text-sm font-medium text-ink-2">{L("Search 6 months of stories in English or Hindi.", "6 महीने की ख़बरें हिंदी या अंग्रेज़ी में खोजें।")}</p>
+        <h1 className="font-display text-[28px] sm:text-4xl">{ui === "hi" ? "लाइब्रेरी" : "Library"}</h1>
+        <p className="mt-1 text-sm font-medium text-ink-2">{L("Every story since April, searchable in English or Hindi.", "अप्रैल से अब तक की हर ख़बर, हिंदी या अंग्रेज़ी में खोजें।")}</p>
       </header>
 
       <form className="space-y-3">
@@ -94,7 +94,7 @@ export default async function Archive({ searchParams }: PageProps<"/archive">) {
           <>
             <StoryList items={results.map((story) => ({ story, relevance: relevanceFor(story, profile) }))} lang={profile.lang} showDate />
             {all.length > results.length && (
-              <Link href={`/archive?${more}`} scroll={false} className="btn btn-ghost mt-4 w-full py-3 text-sm">
+              <Link href={`/library?${more}`} scroll={false} className="btn btn-ghost mt-4 w-full py-3 text-sm">
                 {L(`Show 50 more · ${all.length - results.length} left`, `50 और दिखाएँ · ${all.length - results.length} बाकी`)}
               </Link>
             )}

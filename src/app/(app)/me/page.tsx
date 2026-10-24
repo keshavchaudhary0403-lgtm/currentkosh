@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { BarChart3, BookOpen, Bookmark, ChevronRight, GraduationCap, Settings, Waypoints } from "lucide-react";
+import { BarChart3, BookOpen, Bookmark, ChevronRight, ClipboardList, GraduationCap, Settings, Waypoints } from "lucide-react";
 import { InstallCard } from "@/components/install";
 import { MyStats } from "@/components/my-stats";
 import { ResetProgress } from "@/components/reset-progress";
@@ -24,6 +24,13 @@ export default async function Me() {
       icon: BarChart3,
       label: ui === "hi" ? "प्रगति" : "Progress",
       hint: ui === "hi" ? "स्ट्रीक, सटीकता, कमज़ोर विषय" : "Streak, accuracy, weak topics",
+    },
+    {
+      href: "/tests",
+      tone: "bg-accent-2-soft text-accent-2",
+      icon: ClipboardList,
+      label: ui === "hi" ? "मेरे टेस्ट" : "My tests",
+      hint: ui === "hi" ? "अंक, विश्लेषण, दोबारा प्रयास" : "Scores, analysis and retries",
     },
     {
       href: "/saved",

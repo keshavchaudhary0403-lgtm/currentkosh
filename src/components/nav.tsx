@@ -3,20 +3,21 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, useTransition } from "react";
-import { BarChart3, BookOpen, Bookmark, Brain, Check, ChevronDown, Flame, Library, Moon, Newspaper, Settings, Sun, Target, UserRound, Waypoints } from "lucide-react";
+import { BarChart3, BookOpen, Bookmark, Brain, Check, ChevronDown, ClipboardList, Flame, Library, Moon, Newspaper, Settings, Sun, Target, UserRound, Waypoints } from "lucide-react";
 import { setLang } from "@/app/actions";
 import { InstallSidebarButton } from "./install";
 import { dueCount, streak, useProgress } from "@/lib/progress-store";
 import { setTheme, useTheme } from "@/lib/theme";
 import type { Lang } from "@/lib/taxonomy";
 
-type Labels = Record<"today" | "revise" | "practice" | "threads" | "archive" | "progress" | "saved" | "sources" | "settings" | "you", string>;
+type Labels = Record<"today" | "revise" | "practice" | "tests" | "threads" | "archive" | "progress" | "saved" | "sources" | "settings" | "you", string>;
 
 // Each destination has its own colour so the app feels like distinct "rooms".
 const TONE = {
   today: { text: "text-accent", soft: "bg-accent-soft" },
   revise: { text: "text-violet", soft: "bg-violet-soft" },
   practice: { text: "text-accent-2", soft: "bg-accent-2-soft" },
+  tests: { text: "text-accent-2", soft: "bg-accent-2-soft" },
   threads: { text: "text-pink", soft: "bg-pink-soft" },
   archive: { text: "text-teal", soft: "bg-teal-soft" },
   you: { text: "text-pink", soft: "bg-pink-soft" },
@@ -26,8 +27,9 @@ const MAIN = [
   { href: "/", key: "today", icon: Newspaper },
   { href: "/revise", key: "revise", icon: Brain },
   { href: "/practice", key: "practice", icon: Target },
+  { href: "/tests", key: "tests", icon: ClipboardList },
   { href: "/threads", key: "threads", icon: Waypoints },
-  { href: "/archive", key: "archive", icon: Library },
+  { href: "/library", key: "archive", icon: Library },
 ] as const;
 
 const MORE = [
@@ -43,12 +45,12 @@ const isActive = (path: string, href: string) => (href === "/" ? path === "/" ||
 const TABS = [
   { href: "/", key: "today", icon: Newspaper, also: [] as string[] },
   { href: "/revise", key: "revise", icon: Brain, also: [] as string[] },
-  { href: "/practice", key: "practice", icon: Target, also: [] as string[] },
-  { href: "/archive", key: "archive", icon: Library, also: [] as string[] },
+  { href: "/practice", key: "practice", icon: Target, also: ["/tests"] as string[] },
+  { href: "/library", key: "archive", icon: Library, also: [] as string[] },
   { href: "/me", key: "you", icon: UserRound, also: ["/progress", "/saved", "/threads", "/thread", "/sources", "/settings"] },
 ] as const;
 
-export function Sidebar({ labels, youLabel }: { labels: Labels; youLabel: string }) {
+export function Sidebar({ labels, youLabel, lang }: { labels: Labels; youLabel: string; lang: Lang }) {
   const path = usePathname();
   const p = useProgress();
   const due = dueCount(p);
@@ -56,7 +58,7 @@ export function Sidebar({ labels, youLabel }: { labels: Labels; youLabel: string
   return (
     <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r-2 border-line bg-surface px-4 py-5 lg:flex">
       <Link href="/" className="mb-7 px-2">
-        <Wordmark />
+        <Wordmark lang={lang} />
       </Link>
       <nav className="flex flex-col gap-1">
         {MAIN.map(({ href, key, icon: Icon }) => {
@@ -257,12 +259,13 @@ export function Logo({ size = 28 }: { size?: number }) {
   );
 }
 
-export function Wordmark({ size = 28 }: { size?: number }) {
+/** "CurrentKosh"; in Hindi and bilingual modes the second half reads कोश. */
+export function Wordmark({ size = 28, lang = "en" }: { size?: number; lang?: Lang }) {
   return (
     <span className="flex items-center gap-2">
       <Logo size={size} />
       <span className="font-display leading-none" style={{ fontSize: size * 0.7 }}>
-        Current<span className="text-accent">Kosh</span>
+        Current<span className="text-accent">{lang === "en" ? "Kosh" : "कोश"}</span>
       </span>
     </span>
   );

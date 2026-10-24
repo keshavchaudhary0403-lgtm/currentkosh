@@ -13,10 +13,47 @@ const parser = new Parser({ customFields: { item: [["content:encoded", "contentE
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const MAX_AGE_DAYS = 3;
 
-async function get(url: string): Promise<string> {
-  const res = await fetch(url, { headers: { "User-Agent": UA, Accept: "application/rss+xml, application/xml, text/html;q=0.9" }, redirect: "follow", signal: AbortSignal.timeout(25_000) });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.text();
+// Government sites are often slow; give each request time and one retry before giving up.
+async function get(url: string, accept = "application/rss+xml, application/xml, text/html;q=0.9"): Promise<string> {
+  let last: Error | null = null;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const res = await fetch(url, { headers: { "User-Agent": UA, Accept: accept }, redirect: "follow", signal: AbortSignal.timeout(45_000) });
+      if (res.status === 403) throw new Error("HTTP 403 (site blocks automated readers)");
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return await res.text();
+    } catch (e) {
+      last = e as Error;
+      if (last.message.includes("403")) break;
+      await sleep(3000);
+    }
+  }
+  throw last!;
+}
+
+/** AIR's RSS often times out; its WordPress API is reliable and gives full text. English posts only. */
+async function fromAirApi(since: Date): Promise<Item[]> {
+  const latinShare = (t: string) => (t.match(/[A-Za-z]/g)?.length ?? 0) / Math.max(1, t.replace(/[\s\d\p{P}]/gu, "").length);
+  const items: Item[] = [];
+  for (let page = 1; page <= 5; page++) {
+    const url = `https://newsonair.gov.in/wp-json/wp/v2/posts?per_page=100&page=${page}&after=${since.toISOString().slice(0, 19)}&_fields=link,title,content,date_gmt&orderby=date&order=desc`;
+    let posts: { link: string; title: { rendered: string }; content: { rendered: string }; date_gmt: string }[];
+    try {
+      posts = JSON.parse(await get(url, "application/json"));
+    } catch (e) {
+      if (page === 1) throw e;
+      break;
+    }
+    for (const p of posts) {
+      const title = htmlToText(p.title.rendered);
+      const text = htmlToText(p.content.rendered);
+      if (latinShare(title) < 0.6 || text.length < 120) continue;
+      items.push({ sourceId: "air", url: normalizeUrl(p.link), title, publishedAt: `${p.date_gmt}Z`, text: text.slice(0, 12_000) });
+    }
+    if (posts.length < 100) break;
+    await sleep(700);
+  }
+  return items;
 }
 
 function htmlToText(html: string): string {
@@ -105,6 +142,13 @@ for (const source of SOURCES) {
       errors.push(`${new URL(url).pathname}: ${(e as Error).message}`);
     }
     await sleep(700);
+  }
+  if (source.id === "air") {
+    try {
+      items.push(...(await fromAirApi(new Date(Date.now() - MAX_AGE_DAYS * 86400_000))));
+    } catch (e) {
+      errors.push(`api: ${(e as Error).message}`);
+    }
   }
   for (const url of source.listings ?? []) {
     try {

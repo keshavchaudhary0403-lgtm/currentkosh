@@ -110,4 +110,4 @@ The exact schema is `NewStorySchema` in `src/lib/content.ts`. Every bilingual fi
 ]
 ```
 
-`mains_angle` may be `null` for pure one-liner news (sports results, appointments). `sources[].sourceId` must be the `sourceId` of the candidate item(s) you used: pib, air, dd or rbi.
+`mains_angle` may be `null` for pure one-liner news (sports results, appointments). `sources[].sourceId` must be the `sourceId` of the candidate item(s) you used: pib, air, dd, rbi or sebi. SEBI enforcement orders, recovery notices and routine circulars are noise; publish only policy decisions an exam could ask about.

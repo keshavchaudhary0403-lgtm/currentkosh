@@ -2,15 +2,15 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, BookOpenCheck, Brain, CalendarDays, Check, Flame, PartyPopper, Target, Waypoints } from "lucide-react";
-import { dueCount, streak, useProgress } from "@/lib/progress-store";
+import { ArrowRight, BookOpenCheck, Brain, CalendarDays, Check, ChevronRight, PartyPopper, Target, Waypoints } from "lucide-react";
+import { dueCount, useProgress } from "@/lib/progress-store";
 import type { Story } from "@/lib/store";
 import { istDate } from "@/lib/dates";
 import { t } from "@/lib/i18n";
 import { categoryById, pick, type Bi, type Lang } from "@/lib/taxonomy";
 import { catStyle } from "./category-icon";
 import { FeaturedStory, StoryCard, StoryRows } from "./story-card";
-import { Confetti, ProgressRing, cx, fmtDate } from "./ui";
+import { ProgressRing, cx, fmtDate } from "./ui";
 
 type Item = { story: Story; relevance: number };
 
@@ -24,79 +24,95 @@ function useMission(date: string, briefIds: string[], isLatest = true) {
   return { p, read, quizDone, due, steps, done: steps.filter(Boolean).length };
 }
 
-/** The daily mission: read the brief, take the quiz, clear revision. */
-export function TodayHeader({ date, briefIds, lang, isLatest = true }: { date: string; briefIds: string[]; lang: Lang; isLatest?: boolean }) {
+/** Today's study plan: read and understand, recall with a short quiz, revise. A guide, not a race. */
+export function TodayHeader({
+  date,
+  briefIds,
+  focus = [],
+  lang,
+  isLatest = true,
+}: {
+  date: string;
+  briefIds: string[];
+  focus?: string[];
+  lang: Lang;
+  isLatest?: boolean;
+}) {
   const ui = lang === "bi" ? "en" : lang;
+  const hi = ui === "hi";
   const { p, read, quizDone, due, steps, done } = useMission(date, briefIds, isLatest);
   const total = briefIds.length;
-  const days = streak(p);
-  const hi = ui === "hi";
+  const nextUnread = briefIds.find((id) => !p.reads[id]);
+  const quizHref = `/practice/run?kind=daily&from=${date}&to=${date}`;
   const rows = [
     {
-      href: "#brief",
       icon: BookOpenCheck,
-      short: hi ? "पढ़ें" : "Read",
-      hint: `${read}/${total} ${hi ? "पढ़ीं" : "done"}`,
+      title: hi ? "पढ़ें और समझें" : "Read and understand",
+      hint: hi ? `${total} चुनी हुई ख़बरें · लगभग ${total * 2} मिनट` : `${total} hand-picked stories · about ${total * 2} min`,
+      status: read > 0 && !steps[0] ? (hi ? `${read}/${total} पढ़ीं` : `${read} of ${total} read`) : null,
+      href: nextUnread ? `/story/${nextUnread}` : "#brief",
       done: steps[0],
     },
     {
-      href: `/practice/run?kind=daily&from=${date}&to=${date}`,
       icon: Target,
-      short: hi ? "क्विज़" : "Quiz",
-      hint: quizDone ? (hi ? "पूरा" : "Done") : hi ? "10 प्रश्न" : "10 questions",
+      title: hi ? "याद करके परखें" : "Recall with a short quiz",
+      hint: hi ? "आज की ख़बरों पर 10 प्रश्न · 5 मिनट" : "10 questions on today's news · 5 min",
+      status: null,
+      href: quizHref,
       done: steps[1],
     },
     {
-      href: "/revise",
       icon: Brain,
-      short: hi ? "दोहराएँ" : "Revise",
-      hint: due ? `${due} ${hi ? "बाकी" : "due"}` : read ? (hi ? "सब पूरा" : "All clear") : hi ? "पढ़ने के बाद" : "After reading",
+      title: hi ? "पिछला दोहराएँ" : "Revise what you learned",
+      hint: due ? (hi ? `${due} फ़्लैशकार्ड तैयार` : `${due} flashcards ready`) : hi ? "पढ़ी ख़बरें कल यहाँ लौटेंगी" : "Stories you read return here tomorrow",
+      status: null,
+      href: "/revise",
       done: steps[2],
     },
   ];
+  const cta = !steps[0] && nextUnread
+    ? { href: `/story/${nextUnread}`, label: read ? (hi ? "पढ़ना जारी रखें" : "Continue reading") : hi ? "पढ़ना शुरू करें" : "Start reading" }
+    : !quizDone
+      ? { href: quizHref, label: hi ? "क्विज़ से परखें" : "Check your recall" }
+      : due
+        ? { href: "/revise/session", label: hi ? "दोहराव शुरू करें" : "Start revising" }
+        : null;
 
   return (
-    <header className="relative mb-5 overflow-hidden rounded-3xl bg-accent p-5 text-white sm:p-6">
-      {done === 3 && <Confetti key="mission" />}
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <div className="text-[13px] font-semibold text-white/75">{fmtDate(date, ui, { weekday: "long", day: "numeric", month: "long" })}</div>
-          <h1 className="mt-0.5 font-display text-[26px] leading-tight sm:text-3xl">{done === 3 ? (hi ? "मिशन पूरा! 🎉" : "Mission complete! 🎉") : isLatest ? (hi ? "आज का मिशन" : "Today's mission") : hi ? "इस दिन की ख़बरें" : "Catch up on this day"}</h1>
-        </div>
-        <div className="flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-accent-2" title={t("streak", ui)}>
-          <Flame className={cx("size-[18px]", days > 0 && "wiggle")} strokeWidth={2.6} />
-          <span className="font-display text-base leading-none">{days}</span>
-        </div>
-      </div>
+    <header className="mb-5 rounded-3xl border-2 border-line bg-surface p-5 sm:p-6">
+      <div className="text-[13px] font-semibold text-ink-3">{fmtDate(date, ui, { weekday: "long", day: "numeric", month: "long" })}</div>
+      <h1 className="mt-0.5 font-display text-[26px] leading-tight sm:text-3xl">
+        {done === 3 ? (hi ? "आज की पढ़ाई पूरी 🌱" : "Today's essentials covered 🌱") : isLatest ? (hi ? "आज की पढ़ाई" : "Today's study plan") : hi ? "इस दिन की पढ़ाई" : "Study this day"}
+      </h1>
+      {focus.length > 0 && (
+        <p className="mt-1.5 text-sm font-medium text-ink-2">
+          {hi ? "आज का फ़ोकस: " : "Today's focus: "}
+          <span className="font-bold text-ink">{focus.join(" · ")}</span>
+        </p>
+      )}
 
-      <div className="mt-4 flex items-center gap-3">
-        <div className="h-3 flex-1 overflow-hidden rounded-full bg-accent-press">
-          <div className="h-full rounded-full bg-white transition-all duration-700" style={{ width: `${(done / 3) * 100}%` }} />
-        </div>
-        <span className="text-sm font-extrabold tabular-nums">{done}/3</span>
-      </div>
-
-      <ol className="mt-4 grid grid-cols-3 gap-2">
+      <ol className="mt-4 space-y-1">
         {rows.map((r, i) => (
           <li key={i}>
-            <Link
-              href={r.href}
-              className={cx(
-                "flex h-full flex-col items-center gap-1.5 rounded-2xl px-1.5 py-3 text-center transition active:scale-[.98] sm:flex-row sm:gap-3 sm:px-3 sm:text-left",
-                r.done ? "bg-white/15" : "bg-white text-[#111827]",
-              )}
-            >
-              <span className={cx("grid size-9 shrink-0 place-items-center rounded-xl", r.done ? "pop bg-good text-white" : "bg-[#eceafe] text-[#4f46e5]")}>
-                {r.done ? <Check className="size-5" strokeWidth={3.5} /> : <r.icon className="size-5" strokeWidth={2.4} />}
+            <Link href={r.href} className="group -mx-2 flex items-center gap-3 rounded-2xl px-2 py-2 transition hover:bg-surface-2">
+              <span className={cx("grid size-10 shrink-0 place-items-center rounded-xl", r.done ? "bg-good-soft text-good" : "bg-accent-soft text-accent")}>
+                {r.done ? <Check className="size-5" strokeWidth={3} /> : <r.icon className="size-5" strokeWidth={2.3} />}
               </span>
-              <span className="min-w-0">
-                <span className="block text-[13px] leading-tight font-extrabold sm:text-sm">{r.short}</span>
-                <span className={cx("mt-0.5 block text-[11px] leading-tight font-semibold sm:text-xs", r.done ? "text-white/80" : "text-[#6b7280]")}>{r.hint}</span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-[15px] font-bold">{r.title}</span>
+                <span className="block text-xs font-medium text-ink-3">{r.done ? (hi ? "हो गया" : "Done") : (r.status ?? r.hint)}</span>
               </span>
+              <ChevronRight className="size-4 text-ink-3 transition group-hover:translate-x-0.5" />
             </Link>
           </li>
         ))}
       </ol>
+
+      {cta && (
+        <Link href={cta.href} className="btn mt-4 w-full py-3 text-[15px] sm:w-auto sm:px-6">
+          {cta.label} <ArrowRight className="size-4" strokeWidth={2.6} />
+        </Link>
+      )}
     </header>
   );
 }
@@ -152,7 +168,7 @@ function Chip({ active, onClick, cat, children }: { active: boolean; onClick: ()
   );
 }
 
-/** Cards used by Archive, Saved and "Also today". */
+/** Cards used by Library, Saved and "Also today". */
 export function StoryList({ items, lang, showDate }: { items: Item[]; lang: Lang; showDate?: boolean }) {
   const p = useProgress();
   return (

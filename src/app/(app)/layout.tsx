@@ -15,6 +15,7 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
     today: t("today", lang),
     revise: t("revise", lang),
     practice: t("practice", lang),
+    tests: lang === "hi" ? "मेरे टेस्ट" : "My tests",
     threads: t("threads", lang),
     archive: t("archive", lang),
     progress: t("progress", lang),
@@ -27,12 +28,12 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
 
   return (
     <div className="flex min-h-dvh">
-      <Sidebar labels={labels} youLabel={ui === "hi" ? "आप" : "You"} />
+      <Sidebar labels={labels} youLabel={ui === "hi" ? "आप" : "You"} lang={lang} />
       <div className="min-w-0 flex-1">
         <header className="sticky top-0 z-30 border-b-2 border-line bg-(--glass) backdrop-blur-xl">
           <div className="mx-auto flex h-14 max-w-6xl items-center gap-2 px-4 sm:gap-3 sm:px-6">
             <Link href="/" className="lg:hidden" aria-label="CurrentKosh home">
-              <Wordmark size={24} />
+              <Wordmark size={24} lang={lang} />
             </Link>
             <Link href="/settings" className="no-scrollbar hidden min-w-0 items-center gap-1.5 overflow-x-auto sm:flex">
               {profile.exams.map((e) => (
