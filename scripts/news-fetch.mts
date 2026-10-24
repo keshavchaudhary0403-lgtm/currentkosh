@@ -20,6 +20,8 @@ async function get(url: string, accept = "application/rss+xml, application/xml, 
     try {
       const res = await fetch(url, { headers: { "User-Agent": UA, Accept: accept }, redirect: "follow", signal: AbortSignal.timeout(45_000) });
       if (res.status === 403) throw new Error("HTTP 403 (site blocks automated readers)");
+      // Some servers (RBI from cloud networks) answer 406 to a specific Accept list; ask again accepting anything.
+      if (res.status === 406 && accept !== "*/*") return await get(url, "*/*");
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       return await res.text();
     } catch (e) {
@@ -198,7 +200,9 @@ for (const source of SOURCES) {
       errors.push(`listing: ${(e as Error).message}`);
     }
   }
-  const unique = [...new Map(items.filter((i) => i.url && i.title).map((i) => [i.url, i])).values()];
+  // SEBI's feed is mostly enforcement orders and recovery notices; keep press releases, circulars and regulations.
+  const kept = source.id === "sebi" ? items.filter((i) => /\/(media-and-notifications\/press-releases|legal\/circulars|legal\/regulations)\//.test(i.url)) : items;
+  const unique = [...new Map(kept.filter((i) => i.url && i.title).map((i) => [i.url, i])).values()];
   const fresh = unique.filter((i) => !seen.has(i.url) && (!i.publishedAt || new Date(i.publishedAt).getTime() >= cutoff));
   if (source.mode === "ai") {
     if (source.id === "pib") {
