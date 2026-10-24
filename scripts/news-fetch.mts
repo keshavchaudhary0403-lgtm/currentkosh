@@ -86,6 +86,13 @@ function normalizeUrl(u: string): string {
   }
 }
 
+// Some feeds use non-standard dates, e.g. SEBI's "23 Oct, 2026 +0530".
+function parseDate(raw?: string): string | null {
+  if (!raw) return null;
+  const d = new Date(raw.replace(/(\d{1,2} \w{3}),/, "$1"));
+  return Number.isNaN(d.getTime()) ? null : d.toISOString();
+}
+
 type Item = { sourceId: string; url: string; title: string; publishedAt: string | null; text: string | null };
 
 async function fromFeed(source: Source, url: string): Promise<Item[]> {
@@ -96,7 +103,7 @@ async function fromFeed(source: Source, url: string): Promise<Item[]> {
       sourceId: source.id,
       url: normalizeUrl(it.link ?? it.guid ?? ""),
       title: htmlToText(it.title ?? ""),
-      publishedAt: it.isoDate ?? (it.pubDate ? new Date(it.pubDate).toISOString() : null),
+      publishedAt: it.isoDate ?? parseDate(it.pubDate),
       text: text.length > 200 ? text.slice(0, 12_000) : null,
     };
   });
