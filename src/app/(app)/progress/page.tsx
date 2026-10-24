@@ -33,64 +33,68 @@ export default function Progress() {
   return (
     <div className="space-y-7">
       <header>
-        <h1 className="font-display text-[28px] sm:text-4xl">{ui === "hi" ? "प्रगति" : "Progress"}</h1>
+        <h1 className="font-display text-2xl sm:text-[28px]">{ui === "hi" ? "प्रगति" : "Progress"}</h1>
         <p className="mt-2 text-sm text-ink-3">{L("Saved privately in this browser.", "इसी ब्राउज़र में निजी रूप से सहेजा।")}</p>
       </header>
 
       <section className="grid grid-cols-2 gap-3 sm:grid-cols-5">
         {stats.map((x) => (
           <div key={x.label} className={`rounded-3xl p-4 ${x.cls}`}>
-            <div className="font-display text-4xl leading-none">{x.value}</div>
+            <div className="font-display text-3xl leading-none">{x.value}</div>
             <div className="mt-2 text-xs font-bold">{x.label}</div>
             {x.hint && <div className="text-[11px] font-semibold opacity-70">{x.hint}</div>}
           </div>
         ))}
       </section>
 
-      <section>
-        <SectionTitle title={L("Your consistency", "आपकी नियमितता")} eyebrow={L("Last 18 weeks", "पिछले 18 सप्ताह")} />
-        <Card className="overflow-x-auto p-5">
-          <div className="flex gap-1">
-            {weeks.map((w, i) => (
-              <div key={i} className="flex flex-col gap-1">
-                {w.map((d) => {
-                  const l = d > today ? -1 : level(days.get(d) ?? 0);
-                  return (
-                    <div
-                      key={d}
-                      title={`${d}: ${days.get(d) ?? 0} actions`}
-                      className="size-3.5 rounded-[4px]"
-                      style={{ background: l < 0 ? "transparent" : l === 0 ? "var(--line)" : `color-mix(in oklab, var(--good) ${l * 25}%, var(--line))` }}
-                    />
-                  );
-                })}
-              </div>
-            ))}
-          </div>
-        </Card>
-      </section>
-
-      <section>
-        <SectionTitle title={L("Accuracy by topic", "विषयवार सटीकता")} eyebrow={L("Red bars are where to focus", "लाल पट्टियों पर ध्यान दें")} />
-        {acc.length ? (
-          <Card className="divide-y divide-line">
-            {acc.map((a) => {
-              const pct = Math.round((a.correct / a.total) * 100);
-              return (
-                <div key={a.category} className="flex items-center gap-4 px-5 py-3.5">
-                  <span className="w-32 shrink-0 text-sm font-bold sm:w-56">{pick(categoryById(a.category)?.label, ui)}</span>
-                  <Bar value={pct} max={100} color={pct >= 70 ? "bg-good" : pct >= 40 ? "bg-warn" : "bg-bad"} className="h-2.5 flex-1" />
-                  <span className="w-20 text-right text-sm tabular-nums">
-                    {pct}% <span className="text-ink-3">· {a.total}</span>
-                  </span>
+      <div className="space-y-7 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6 lg:space-y-0">
+        <section>
+          <SectionTitle title={L("Your consistency", "आपकी नियमितता")} eyebrow={L("Last 18 weeks", "पिछले 18 सप्ताह")} />
+          <Card className="overflow-x-auto p-5">
+            <div className="flex gap-1">
+              {weeks.map((w, i) => (
+                <div key={i} className="flex flex-col gap-1">
+                  {w.map((d) => {
+                    const l = d > today ? -1 : level(days.get(d) ?? 0);
+                    return (
+                      <div
+                        key={d}
+                        title={`${d}: ${days.get(d) ?? 0} actions`}
+                        className="size-3.5 rounded-[4px]"
+                        style={{ background: l < 0 ? "transparent" : l === 0 ? "var(--line)" : `color-mix(in oklab, var(--good) ${l * 25}%, var(--line))` }}
+                      />
+                    );
+                  })}
                 </div>
-              );
-            })}
+              ))}
+            </div>
           </Card>
-        ) : (
-          <Empty title={L("No test data yet", "अभी कोई टेस्ट डेटा नहीं")}>{L("Take the daily quiz and your topic-wise accuracy will show up here.", "डेली क्विज़ दें, विषयवार सटीकता यहाँ दिखेगी।")}</Empty>
-        )}
-      </section>
+        </section>
+
+        <section>
+          <SectionTitle title={L("Accuracy by topic", "विषयवार सटीकता")} eyebrow={L("Red bars are where to focus", "लाल पट्टियों पर ध्यान दें")} />
+          {acc.length ? (
+            <Card className="divide-y divide-line">
+              {acc.map((a) => {
+                const pct = Math.round((a.correct / a.total) * 100);
+                return (
+                  <div key={a.category} className="flex items-center gap-4 px-5 py-3.5">
+                    <span className="w-32 shrink-0 text-sm font-bold sm:w-56">{pick(categoryById(a.category)?.label, ui)}</span>
+                    <Bar value={pct} max={100} color={pct >= 70 ? "bg-good" : pct >= 40 ? "bg-warn" : "bg-bad"} className="h-2.5 flex-1" />
+                    <span className="w-20 text-right text-sm tabular-nums">
+                      {pct}% <span className="text-ink-3">· {a.total}</span>
+                    </span>
+                  </div>
+                );
+              })}
+            </Card>
+          ) : (
+            <Empty title={L("No test data yet", "अभी कोई टेस्ट डेटा नहीं")}>
+              {L("Take the daily quiz and your topic-wise accuracy will show up here.", "डेली क्विज़ दें, विषयवार सटीकता यहाँ दिखेगी।")}
+            </Empty>
+          )}
+        </section>
+      </div>
     </div>
   );
 }

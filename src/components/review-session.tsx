@@ -42,7 +42,7 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
       <div className="pop relative mx-auto max-w-md overflow-hidden rounded-3xl bg-violet p-8 text-center text-white">
         <Confetti pieces={44} />
         <PartyPopper className="mx-auto mb-3 size-12" strokeWidth={2} />
-        <h2 className="font-display text-3xl">{hi ? "सत्र पूरा!" : "Session complete!"}</h2>
+        <h2 className="font-display text-2xl">{hi ? "सत्र पूरा!" : "Session complete!"}</h2>
         <div className="mt-5 grid grid-cols-2 gap-2">
           <div className="rounded-2xl bg-white/15 p-3">
             <div className="font-display text-3xl">{tally.good}</div>
@@ -80,7 +80,7 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
         <div key={`c${item.id}`} className="rise">
           <button onClick={() => setFlipped((f) => !f)} className="flip block w-full text-center" aria-label={flipped ? "Show question" : "Reveal answer"}>
             <div className={`flip-inner min-h-72 ${flipped ? "flipped" : ""}`}>
-              <div className="flip-face flex min-h-72 flex-col items-center justify-center rounded-3xl border-2 border-line bg-surface p-7">
+              <div className="flip-face flex min-h-72 flex-col items-center justify-center rounded-3xl border border-line bg-surface p-7">
                 <BiText v={item.content.front} lang={lang} as="div" className="font-display text-2xl leading-snug" hiClassName="font-sans text-lg mt-3" />
                 <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-violet-soft px-3 py-1.5 text-sm font-bold text-violet">
                   <RotateCw className="size-4" /> {hi ? "पलटने के लिए टैप करें" : "Tap to flip"}
@@ -114,7 +114,7 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
           </Link>
         </div>
       ) : (
-        <div key={`m${item.id}`} className="rise rounded-3xl border-2 border-line bg-surface p-4 sm:p-6">
+        <div key={`m${item.id}`} className="rise rounded-3xl border border-line bg-surface p-4 sm:p-6">
           <McqView mcq={item.content} lang={lang} selected={picked} reveal={picked !== null} onSelect={setPicked} />
           {picked !== null && (
             <button

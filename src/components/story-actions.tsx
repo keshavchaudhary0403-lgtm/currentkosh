@@ -90,7 +90,7 @@ export function QuickCheck({ mcqs, category, lang }: { mcqs: { id: string; conte
   return (
     <div className="space-y-6">
       {mcqs.map((m, i) => (
-        <div key={m.id} className="rounded-3xl border-2 border-line bg-surface p-4 sm:p-5">
+        <div key={m.id} className="rounded-3xl border border-line bg-surface p-4 sm:p-5">
           <McqView
             mcq={m.content}
             lang={lang}

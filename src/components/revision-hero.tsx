@@ -22,7 +22,7 @@ export function RevisionHero() {
           {due > 0 ? <Brain className="size-7" strokeWidth={2.2} /> : <Check className="size-7" strokeWidth={3} />}
         </span>
         <div className="min-w-0 flex-1">
-          <div className="font-display text-4xl leading-none tabular-nums">{due}</div>
+          <div className="font-display text-3xl leading-none tabular-nums">{due}</div>
           <div className="mt-1 text-sm font-bold text-white/85">{hi ? "आज दोहराने हैं" : due === 1 ? "card due today" : "cards due today"}</div>
         </div>
       </div>

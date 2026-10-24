@@ -12,7 +12,7 @@ export function ResetProgress() {
   const tot = totals(p);
   const stored = tot.read + p.bookmarks.length + p.attempts.length;
   return (
-    <section className="rounded-3xl border-2 border-line bg-surface p-4">
+    <section className="rounded-3xl border border-line bg-surface p-4">
       <div className="flex items-start gap-3">
         <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-surface-2 text-ink-2">
           <HardDrive className="size-5" strokeWidth={2.3} />

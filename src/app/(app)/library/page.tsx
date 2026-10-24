@@ -31,17 +31,17 @@ export default async function Library({ searchParams }: PageProps<"/library">) {
   const more = new URLSearchParams(Object.entries(sp).flatMap(([k, v]) => (typeof v === "string" && v && k !== "page" ? [[k, v]] : [])));
   more.set("page", String(page + 1));
   const months = storyMonths();
-  const select = "rounded-xl border-2 border-line bg-surface px-3 py-2.5 text-sm font-semibold";
+  const select = "rounded-xl border border-line bg-surface px-3 py-2.5 text-sm font-semibold";
 
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="font-display text-[28px] sm:text-4xl">{ui === "hi" ? "लाइब्रेरी" : "Library"}</h1>
+        <h1 className="font-display text-2xl sm:text-[28px]">{ui === "hi" ? "लाइब्रेरी" : "Library"}</h1>
         <p className="mt-1 text-sm font-medium text-ink-2">{L("Every story since April, searchable in English or Hindi.", "अप्रैल से अब तक की हर ख़बर, हिंदी या अंग्रेज़ी में खोजें।")}</p>
       </header>
 
       <form className="space-y-3">
-        <label className="flex items-center gap-3 rounded-2xl border-2 border-line bg-surface px-4 py-3 transition focus-within:border-teal">
+        <label className="flex items-center gap-3 rounded-2xl border border-line bg-surface px-4 py-3 transition focus-within:border-teal">
           <Search className="size-5 text-teal" strokeWidth={2.5} />
           <input name="q" defaultValue={filter.q} placeholder={L("Search: repo rate, Ramsar, गवर्नर, INDRA…", "खोजें: रेपो दर, रामसर, गवर्नर, INDRA…")} className="w-full bg-transparent text-base font-medium outline-none placeholder:text-ink-3" />
         </label>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, BookOpenCheck, Brain, CalendarDays, Check, ChevronRight, PartyPopper, Target, Waypoints } from "lucide-react";
+import { ArrowRight, BookOpenCheck, Brain, CalendarDays, Check, Target, Waypoints } from "lucide-react";
 import { dueCount, useProgress } from "@/lib/progress-store";
 import type { Story } from "@/lib/store";
 import { istDate } from "@/lib/dates";
@@ -10,7 +10,7 @@ import { t } from "@/lib/i18n";
 import { categoryById, pick, type Bi, type Lang } from "@/lib/taxonomy";
 import { catStyle } from "./category-icon";
 import { FeaturedStory, StoryCard, StoryRows } from "./story-card";
-import { ProgressRing, cx, fmtDate } from "./ui";
+import { cx } from "./ui";
 
 type Item = { story: Story; relevance: number };
 
@@ -31,12 +31,14 @@ export function TodayHeader({
   focus = [],
   lang,
   isLatest = true,
+  picker,
 }: {
   date: string;
   briefIds: string[];
   focus?: string[];
   lang: Lang;
   isLatest?: boolean;
+  picker?: React.ReactNode;
 }) {
   const ui = lang === "bi" ? "en" : lang;
   const hi = ui === "hi";
@@ -47,24 +49,24 @@ export function TodayHeader({
   const rows = [
     {
       icon: BookOpenCheck,
-      title: hi ? "पढ़ें और समझें" : "Read and understand",
-      hint: hi ? `${total} चुनी हुई ख़बरें · लगभग ${total * 2} मिनट` : `${total} hand-picked stories · about ${total * 2} min`,
+      title: hi ? "पढ़ें और समझें" : "Read & understand",
+      hint: hi ? `${total} ख़बरें · ~${total * 2} मिनट` : `${total} stories · ~${total * 2} min`,
       status: read > 0 && !steps[0] ? (hi ? `${read}/${total} पढ़ीं` : `${read} of ${total} read`) : null,
       href: nextUnread ? `/story/${nextUnread}` : "#brief",
       done: steps[0],
     },
     {
       icon: Target,
-      title: hi ? "याद करके परखें" : "Recall with a short quiz",
-      hint: hi ? "आज की ख़बरों पर 10 प्रश्न · 5 मिनट" : "10 questions on today's news · 5 min",
+      title: hi ? "क्विज़ से परखें" : "Recall with a quiz",
+      hint: hi ? "10 प्रश्न · ~5 मिनट" : "10 questions · ~5 min",
       status: null,
       href: quizHref,
       done: steps[1],
     },
     {
       icon: Brain,
-      title: hi ? "पिछला दोहराएँ" : "Revise what you learned",
-      hint: due ? (hi ? `${due} फ़्लैशकार्ड तैयार` : `${due} flashcards ready`) : hi ? "पढ़ी ख़बरें कल यहाँ लौटेंगी" : "Stories you read return here tomorrow",
+      title: hi ? "दोहराएँ" : "Revise",
+      hint: due ? (hi ? `${due} कार्ड तैयार` : `${due} cards ready`) : hi ? "कल से कार्ड आएँगे" : "Cards arrive tomorrow",
       status: null,
       href: "/revise",
       done: steps[2],
@@ -79,38 +81,46 @@ export function TodayHeader({
         : null;
 
   return (
-    <header className="mb-5 rounded-3xl border-2 border-line bg-surface p-5 sm:p-6">
-      <div className="text-[13px] font-semibold text-ink-3">{fmtDate(date, ui, { weekday: "long", day: "numeric", month: "long" })}</div>
-      <h1 className="mt-0.5 font-display text-[26px] leading-tight sm:text-3xl">
-        {done === 3 ? (hi ? "आज की पढ़ाई पूरी 🌱" : "Today's essentials covered 🌱") : isLatest ? (hi ? "आज की पढ़ाई" : "Today's study plan") : hi ? "इस दिन की पढ़ाई" : "Study this day"}
-      </h1>
-      {focus.length > 0 && (
-        <p className="mt-1.5 text-sm font-medium text-ink-2">
-          {hi ? "आज का फ़ोकस: " : "Today's focus: "}
-          <span className="font-bold text-ink">{focus.join(" · ")}</span>
-        </p>
-      )}
+    <header className="rounded-3xl border border-line bg-surface p-4 sm:p-5">
+      {picker}
+      <div className="mt-4 flex flex-wrap items-end justify-between gap-3">
+        <div className="min-w-0">
+          <h1 className="font-display text-xl leading-tight sm:text-2xl">
+            {done === 3 ? (hi ? "आज की पढ़ाई पूरी 🌱" : "Today's essentials covered 🌱") : isLatest ? (hi ? "आज की पढ़ाई" : "Today's study plan") : hi ? "इस दिन की पढ़ाई" : "Study this day"}
+          </h1>
+          {focus.length > 0 && (
+            <p className="mt-1 text-sm text-ink-2">
+              {hi ? "फ़ोकस: " : "Focus: "}
+              <span className="font-semibold text-ink">{focus.join(" · ")}</span>
+            </p>
+          )}
+        </div>
+        {cta && (
+          <Link href={cta.href} className="btn hidden px-5 py-2.5 text-sm sm:inline-flex">
+            {cta.label} <ArrowRight className="size-4" />
+          </Link>
+        )}
+      </div>
 
-      <ol className="mt-4 space-y-1">
+      <ol className="mt-3 grid gap-1 sm:grid-cols-3 sm:gap-2">
         {rows.map((r, i) => (
           <li key={i}>
-            <Link href={r.href} className="group -mx-2 flex items-center gap-3 rounded-2xl px-2 py-2 transition hover:bg-surface-2">
-              <span className={cx("grid size-10 shrink-0 place-items-center rounded-xl", r.done ? "bg-good-soft text-good" : "bg-accent-soft text-accent")}>
-                {r.done ? <Check className="size-5" strokeWidth={3} /> : <r.icon className="size-5" strokeWidth={2.3} />}
+            <Link href={r.href} className="flex items-center gap-3 rounded-2xl px-2 py-2 transition hover:bg-surface-2 sm:bg-surface-2/60 sm:px-3">
+              <span className={cx("grid size-9 shrink-0 place-items-center rounded-xl", r.done ? "bg-good-soft text-good" : "bg-accent-soft text-accent")}>
+                {r.done ? <Check className="size-[18px]" strokeWidth={2.6} /> : <r.icon className="size-[18px]" strokeWidth={2.1} />}
               </span>
-              <span className="min-w-0 flex-1">
-                <span className="block text-[15px] font-bold">{r.title}</span>
-                <span className="block text-xs font-medium text-ink-3">{r.done ? (hi ? "हो गया" : "Done") : (r.status ?? r.hint)}</span>
+              <span className="min-w-0">
+                <span className="block truncate text-sm font-semibold">{r.title}</span>
+                <span className="block truncate text-xs text-ink-3">{r.done ? (hi ? "हो गया" : "Done") : (r.status ?? r.hint)}</span>
               </span>
-              <ChevronRight className="size-4 text-ink-3 transition group-hover:translate-x-0.5" />
             </Link>
           </li>
         ))}
       </ol>
 
       {cta && (
-        <Link href={cta.href} className="btn mt-4 w-full py-3 text-[15px] sm:w-auto sm:px-6">
-          {cta.label} <ArrowRight className="size-4" strokeWidth={2.6} />
+        <Link href={cta.href} className="btn mt-3 w-full py-2.5 text-sm sm:hidden">
+          {cta.label} <ArrowRight className="size-4" />
         </Link>
       )}
     </header>
@@ -130,7 +140,7 @@ export function Brief({ items, lang }: { items: Item[]; lang: Lang }) {
   return (
     <div id="brief" className="scroll-mt-20 space-y-3">
       {counts.size > 1 && (
-        <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0">
+        <div className="hidden flex-wrap gap-2 sm:flex">
           <Chip active={!topic} onClick={() => setTopic(null)}>
             {ui === "hi" ? "सभी" : "All"} · {items.length}
           </Chip>
@@ -180,6 +190,24 @@ export function StoryList({ items, lang, showDate }: { items: Item[]; lang: Lang
   );
 }
 
+/** Lower-priority stories, folded away until asked for. */
+export function MoreStories({ items, lang }: { items: Item[]; lang: Lang }) {
+  const [open, setOpen] = useState(false);
+  const hi = lang === "hi";
+  if (!open)
+    return (
+      <button onClick={() => setOpen(true)} className="btn btn-ghost w-full py-3 text-sm">
+        {hi ? `${items.length} और ख़बरें देखें (कम प्राथमिकता)` : `Show ${items.length} more stories (lower priority for your exams)`}
+      </button>
+    );
+  return (
+    <section>
+      <h2 className="mb-3 font-display text-lg">{hi ? "और भी आज" : "Also today"}</h2>
+      <StoryList items={items} lang={lang} />
+    </section>
+  );
+}
+
 /** After the brief: nudge to lock it in with the quiz. */
 export function NextSteps({ date, lang }: { date: string; lang: Lang }) {
   const ui = lang === "bi" ? "en" : lang;
@@ -202,39 +230,27 @@ export function NextSteps({ date, lang }: { date: string; lang: Lang }) {
 
 /** Desktop side panel: progress, countdown, storylines. */
 export function TodayRail({
-  date,
-  briefIds,
   countdown,
   threads,
   lang,
 }: {
-  date: string;
-  briefIds: string[];
   countdown: number | null;
   threads: { key: string; title: Bi; count: number; lastDate: string }[];
   lang: Lang;
 }) {
   const ui = lang === "bi" ? "en" : lang;
-  const { read } = useMission(date, briefIds);
   return (
-    <aside className="sticky top-20 hidden space-y-4 lg:block">
-      <div className="rounded-3xl border-2 border-line bg-surface p-5 text-center">
-        <ProgressRing value={read} max={briefIds.length || 1} size={110} stroke={12} color="var(--good)">
-          <div>
-            <div className="font-display text-2xl leading-none tabular-nums">
-              {read}/{briefIds.length}
-            </div>
-            <div className="mt-1 text-[11px] font-bold text-ink-3">{ui === "hi" ? "पढ़ीं" : "read"}</div>
-          </div>
-        </ProgressRing>
-        {countdown !== null && countdown >= 0 && (
-          <div className="mt-4 flex items-center justify-center gap-2 rounded-2xl bg-pink-soft px-3 py-2 text-sm font-bold text-pink">
-            <CalendarDays className="size-4" /> {countdown} {ui === "hi" ? "दिन परीक्षा तक" : "days to your exam"}
-          </div>
-        )}
-      </div>
+    <aside className="sticky top-20 hidden space-y-4 self-start lg:block">
+      {countdown !== null && countdown >= 0 && (
+        <div className="flex items-center gap-3 rounded-3xl bg-pink-soft p-4">
+          <CalendarDays className="size-5 shrink-0 text-pink" />
+          <span className="text-sm font-semibold text-ink-2">
+            <b className="font-display text-lg text-pink">{countdown}</b> {ui === "hi" ? "दिन परीक्षा तक" : "days to your exam"}
+          </span>
+        </div>
+      )}
       {threads.length > 0 && (
-        <div className="rounded-3xl border-2 border-line bg-surface p-4">
+        <div className="rounded-3xl border border-line bg-surface p-4">
           <div className="mb-2 flex items-center justify-between px-1">
             <span className="flex items-center gap-2 font-display text-base">
               <Waypoints className="size-4 text-pink" /> {t("threads", ui)}
@@ -257,10 +273,6 @@ export function TodayRail({
           </ul>
         </div>
       )}
-      <div className="flex items-center gap-3 rounded-3xl bg-violet-soft p-4">
-        <PartyPopper className="size-6 shrink-0 text-violet" />
-        <p className="text-xs font-semibold text-ink-2">{ui === "hi" ? "पढ़ी हर ख़बर कल दोहराव में लौटेगी।" : "Every story you read comes back in Revise, right before you'd forget it."}</p>
-      </div>
     </aside>
   );
 }

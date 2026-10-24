@@ -5,7 +5,7 @@ import { Logo } from "@/components/nav";
 export default function NotFound() {
   return (
     <div className="grid min-h-dvh place-items-center px-4">
-      <div className="max-w-sm rounded-3xl border-2 border-line bg-surface p-8 text-center">
+      <div className="max-w-sm rounded-3xl border border-line bg-surface p-8 text-center">
         <div className="mx-auto mb-4 w-fit">
           <Logo size={48} />
         </div>

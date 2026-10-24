@@ -43,7 +43,7 @@ export function RecentAttempts() {
           </Link>
         }
       />
-      <div className="divide-y-2 divide-line overflow-hidden rounded-3xl border-2 border-line bg-surface">
+      <div className="divide-y divide-line overflow-hidden rounded-3xl border border-line bg-surface">
         {attempts.slice(0, 3).map((a) => {
           const pct = Math.round((a.correct / Math.max(1, a.mcqIds.length)) * 100);
           return (

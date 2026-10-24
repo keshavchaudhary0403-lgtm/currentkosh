@@ -95,7 +95,7 @@ export default async function Me() {
           <ResetProgress />
         </div>
         <div className="space-y-5">
-          <nav className="divide-y-2 divide-line overflow-hidden rounded-3xl border-2 border-line bg-surface">
+          <nav className="divide-y divide-line overflow-hidden rounded-3xl border border-line bg-surface">
             {links.map(({ href, icon: Icon, label, hint, tone }) => (
               <Link key={href} href={href} className="flex items-center gap-3.5 px-4 py-3.5 transition hover:bg-surface-2 active:bg-surface-2">
                 <span className={`grid size-10 place-items-center rounded-xl ${tone}`}>
@@ -110,10 +110,10 @@ export default async function Me() {
             ))}
           </nav>
 
-          <section className="space-y-3 rounded-3xl border-2 border-line bg-surface p-4">
+          <section className="space-y-3 rounded-3xl border border-line bg-surface p-4">
             <div className="text-sm font-extrabold">{ui === "hi" ? "पढ़ने की भाषा" : "Reading language"}</div>
             <LangPicker lang={profile.lang} />
-            <div className="flex items-center justify-between border-t-2 border-line pt-3">
+            <div className="flex items-center justify-between border-t border-line pt-3">
               <span className="text-sm font-extrabold">{ui === "hi" ? "थीम" : "Theme"}</span>
               <ThemeToggle />
             </div>

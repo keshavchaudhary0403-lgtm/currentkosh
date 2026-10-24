@@ -150,7 +150,7 @@ export function QuizRunner({
         </div>
       )}
 
-      <div key={q.id} className="rise relative rounded-3xl border-2 border-line bg-surface p-4 sm:p-6">
+      <div key={q.id} className="rise relative rounded-3xl border border-line bg-surface p-4 sm:p-6">
         {revealed[i] && isRight(i) && <Confetti key={`f${i}`} pieces={18} />}
         <div className="cat mb-3 inline-flex rounded-full bg-(--cat-tint) px-2.5 py-0.5 text-xs font-bold text-(--cat-ink)" style={catStyle(q.category)}>
           {pick(categoryById(q.category)?.label, ui)}
@@ -196,7 +196,7 @@ export function QuizRunner({
         )}
       </details>
 
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t-2 border-line bg-surface px-4 pt-3 pb-[calc(12px+env(safe-area-inset-bottom))] lg:pl-68">
+      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-surface px-4 pt-3 pb-[calc(12px+env(safe-area-inset-bottom))] lg:pl-68">
         <div className="mx-auto flex max-w-3xl items-center gap-2">
           <button onClick={() => setI((x) => Math.max(0, x - 1))} disabled={i === 0} className="btn btn-ghost size-12 shrink-0" aria-label="Previous question">
             <ArrowLeft className="size-5" strokeWidth={2.6} />

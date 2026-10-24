@@ -66,14 +66,14 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
             v={c.title}
             lang={lang}
             as="h1"
-            className="font-display text-[28px] leading-[1.15] sm:text-[38px] xl:text-[42px]"
+            className="font-display text-2xl leading-snug sm:text-[30px]"
             hiClassName="font-sans text-xl sm:text-2xl font-semibold tracking-normal mt-3"
           />
           <div className="mt-4 flex flex-wrap gap-2 lg:hidden">
             {profile.exams.map((e) => (
               <span
                 key={e}
-                className="inline-flex items-center gap-1.5 rounded-full border-2 border-line bg-surface px-2.5 py-0.5 text-xs font-bold text-ink-2 has-[>span]:pr-1"
+                className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-2.5 py-0.5 text-xs font-bold text-ink-2 has-[>span]:pr-1"
               >
                 {pick(examById(e)?.label, ui)} <RelevanceBadge level={story.relevance[e] ?? 0} lang={ui} />
               </span>
@@ -81,12 +81,12 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
           </div>
         </header>
 
-        <section className="mt-5 rounded-3xl border-2 border-line bg-surface p-5 sm:mt-7 sm:p-7">
+        <section className="mt-5 rounded-3xl border border-line bg-surface p-5 sm:mt-7 sm:p-7">
           <BiText v={c.summary} lang={lang} as="p" className="text-[17px] leading-[1.75]" hiClassName="mt-4 text-base" />
         </section>
 
         <section className="mt-6 grid gap-4 sm:grid-cols-[1.2fr_1fr]">
-          <div className="cat rounded-3xl border-2 border-line bg-surface p-5 sm:p-6" style={catStyle(story.category)}>
+          <div className="cat rounded-3xl border border-line bg-surface p-5 sm:p-6" style={catStyle(story.category)}>
             <h2 className="mb-4 flex items-center gap-2 font-display text-lg">
               <Sparkles className="size-5 text-(--cat-ink)" /> {t("keyFacts", ui)}
             </h2>
@@ -130,7 +130,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
           </section>
         )}
 
-        <section className="mt-6 rounded-3xl border-2 border-line bg-surface p-5 sm:p-6">
+        <section className="mt-6 rounded-3xl border border-line bg-surface p-5 sm:p-6">
           <h2 className="mb-3 flex items-center gap-2 font-display text-lg">
             <ShieldCheck className="size-5 text-good" /> {ui === "hi" ? "आधिकारिक स्रोत" : "Official sources"}
           </h2>
@@ -157,7 +157,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
         </section>
 
         <div className="fixed inset-x-0 bottom-[calc(62px+env(safe-area-inset-bottom))] z-30 flex justify-center px-4 lg:hidden">
-          <div className="flex w-full items-center gap-2 rounded-2xl border-2 border-line bg-surface p-2 shadow-[0_12px_40px_-12px_rgb(0_0_0/0.3)] sm:w-auto">
+          <div className="flex w-full items-center gap-2 rounded-2xl border border-line bg-surface p-2 shadow-[0_12px_40px_-12px_rgb(0_0_0/0.3)] sm:w-auto">
             <BackButton fallback={dayHref} variant="icon" />
             <ReadButton storyId={story.id} cardIds={story.cardIds} labels={readLabels} nextHref={nextHref} className="min-w-0 flex-1 sm:flex-none" />
             <BookmarkButton storyId={story.id} />
@@ -239,7 +239,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
 
       <aside className="hidden lg:block">
         <div className="no-scrollbar sticky top-20 max-h-[calc(100dvh-6rem)] space-y-4 overflow-y-auto pb-2">
-          <div className="space-y-2.5 rounded-3xl border-2 border-line bg-surface p-4">
+          <div className="space-y-2.5 rounded-3xl border border-line bg-surface p-4">
             <div className="flex items-center gap-2">
               <div className="min-w-0 flex-1 [&>*]:w-full">
                 <ReadButton storyId={story.id} cardIds={story.cardIds} labels={readLabels} nextHref={nextHref} />
@@ -253,7 +253,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
             )}
           </div>
 
-          <div className="rounded-3xl border-2 border-line bg-surface p-4">
+          <div className="rounded-3xl border border-line bg-surface p-4">
             <h2 className="mb-3 font-display text-base">{ui === "hi" ? "आपकी परीक्षाओं के लिए" : "For your exams"}</h2>
             <ul className="space-y-2">
               {profile.exams.map((e) => (
@@ -270,7 +270,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
           </div>
 
           {thread && thread.stories.length > 1 && (
-            <div className="rounded-3xl border-2 border-line bg-surface p-4">
+            <div className="rounded-3xl border border-line bg-surface p-4">
               <div className="mb-1 inline-flex items-center gap-1.5 rounded-full bg-pink-soft px-2.5 py-0.5 text-xs font-extrabold text-pink">
                 <Waypoints className="size-3.5" /> {ui === "hi" ? "कहानी-क्रम" : "Storyline"}
               </div>

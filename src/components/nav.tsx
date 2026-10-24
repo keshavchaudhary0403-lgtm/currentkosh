@@ -56,7 +56,7 @@ export function Sidebar({ labels, youLabel, lang }: { labels: Labels; youLabel: 
   const due = dueCount(p);
   const days = streak(p);
   return (
-    <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r-2 border-line bg-surface px-4 py-5 lg:flex">
+    <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-line bg-surface px-4 py-5 lg:flex">
       <Link href="/" className="mb-7 px-2">
         <Wordmark lang={lang} />
       </Link>
@@ -98,7 +98,7 @@ export function Sidebar({ labels, youLabel, lang }: { labels: Labels; youLabel: 
           <div className="font-display text-xl leading-none text-accent-2">
             {days} {days === 1 ? "day" : "days"}
           </div>
-          <div className="mt-1 text-xs font-semibold text-ink-2">{days > 0 ? "Streak going. Keep it alive!" : "Read one story to start a streak"}</div>
+          <div className="mt-1 text-xs font-semibold text-ink-2">{days > 0 ? "of steady study. Small daily steps add up." : "Read a story today to begin."}</div>
         </div>
       </div>
     </aside>
@@ -111,7 +111,7 @@ export function BottomNav({ labels }: { labels: Labels }) {
   // Tests and revision sessions are focus mode: no tab bar.
   if (path.startsWith("/practice/run") || path.startsWith("/revise/session")) return null;
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-40 border-t-2 border-line bg-surface pb-[env(safe-area-inset-bottom)] lg:hidden">
+    <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] lg:hidden">
       <div className="mx-auto grid max-w-lg grid-cols-5 px-1">
         {TABS.map(({ href, key, icon: Icon, also }) => {
           const active = isActive(path, href) || also.some((p) => path.startsWith(p));
@@ -162,13 +162,13 @@ export function LangMenu({ lang }: { lang: Lang }) {
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label="Reading language"
-        className={`flex h-9 items-center gap-1 rounded-full border-2 border-line bg-surface px-3 text-xs font-bold text-ink-2 hover:text-ink ${pending ? "opacity-60" : ""}`}
+        className={`flex h-9 items-center gap-1 rounded-full border border-line bg-surface px-3 text-xs font-bold text-ink-2 hover:text-ink ${pending ? "opacity-60" : ""}`}
       >
         {current.short}
         <ChevronDown className="size-3.5" />
       </button>
       {open && (
-        <div role="menu" className="pop absolute right-0 z-50 mt-2 w-48 overflow-hidden rounded-2xl border-2 border-line bg-surface p-1.5 shadow-xl">
+        <div role="menu" className="pop absolute right-0 z-50 mt-2 w-48 overflow-hidden rounded-2xl border border-line bg-surface p-1.5 shadow-xl">
           {LANGS.map((l) => (
             <button
               key={l.v}
@@ -240,7 +240,7 @@ export function ThemeToggle() {
       onClick={() => setTheme(dark ? "light" : "dark")}
       aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
       title={dark ? "Light theme" : "Dark theme"}
-      className="grid size-9 place-items-center rounded-full border-2 border-line bg-surface text-ink-2 transition hover:text-ink active:scale-90"
+      className="grid size-9 place-items-center rounded-full border border-line bg-surface text-ink-2 transition hover:text-ink active:scale-90"
     >
       {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
     </button>

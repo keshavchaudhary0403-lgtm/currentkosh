@@ -30,7 +30,7 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
     <div className="flex min-h-dvh">
       <Sidebar labels={labels} youLabel={ui === "hi" ? "आप" : "You"} lang={lang} />
       <div className="min-w-0 flex-1">
-        <header className="sticky top-0 z-30 border-b-2 border-line bg-(--glass) backdrop-blur-xl">
+        <header className="sticky top-0 z-30 border-b border-line bg-(--glass) backdrop-blur-xl">
           <div className="mx-auto flex h-14 max-w-6xl items-center gap-2 px-4 sm:gap-3 sm:px-6">
             <Link href="/" className="lg:hidden" aria-label="CurrentKosh home">
               <Wordmark size={24} lang={lang} />

@@ -28,7 +28,7 @@ export function BackButton({ fallback, label, variant = "pill" }: { fallback: st
   return (
     <button
       onClick={go}
-      className="mb-4 inline-flex items-center gap-1.5 rounded-full border-2 border-line bg-surface px-3 py-1 text-sm font-bold text-ink-2 hover:text-ink sm:mb-6"
+      className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 text-sm font-bold text-ink-2 hover:text-ink sm:mb-6"
     >
       <ArrowLeft className="size-4" /> {label ?? "Back"}
     </button>

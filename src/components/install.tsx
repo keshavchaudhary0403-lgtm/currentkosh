@@ -42,7 +42,7 @@ export function InstallCard() {
       </div>
     );
   return (
-    <section className="rounded-3xl border-2 border-line bg-surface p-4">
+    <section className="rounded-3xl border border-line bg-surface p-4">
       <div className="flex items-center gap-3">
         <Logo size={44} />
         <div className="min-w-0 flex-1">

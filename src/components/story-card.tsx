@@ -66,7 +66,7 @@ export function FeaturedStory({ story, lang, relevance, read }: { story: Story; 
         )}
       </div>
       <div className="p-4 sm:p-5">
-        <h2 lang={ui === "hi" ? "hi" : undefined} className="font-display text-xl leading-snug sm:text-2xl">
+        <h2 lang={ui === "hi" ? "hi" : undefined} className="font-display text-lg leading-snug sm:text-xl">
           {pick(story.content.title, ui)}
         </h2>
         {lang === "bi" && (

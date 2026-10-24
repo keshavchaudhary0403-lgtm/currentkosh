@@ -49,7 +49,7 @@ export default function MyTests() {
   if (!attempts.length)
     return (
       <div className="space-y-5">
-        <h1 className="font-display text-[28px] sm:text-4xl">{L("My tests", "मेरे टेस्ट")}</h1>
+        <h1 className="font-display text-2xl sm:text-[28px]">{L("My tests", "मेरे टेस्ट")}</h1>
         <Empty title={L("No tests yet", "अभी कोई टेस्ट नहीं")} icon={<ClipboardList className="size-7" />}>
           {L("Every test you take (daily quiz, mocks, your own tests) is listed here with its score, accuracy, time and review.", "आपका हर टेस्ट यहाँ अंक, सटीकता, समय और समीक्षा के साथ दिखेगा।")}
           <div className="mt-4">
@@ -91,7 +91,7 @@ export default function MyTests() {
     <div className="space-y-7">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="font-display text-[28px] sm:text-4xl">{L("My tests", "मेरे टेस्ट")}</h1>
+          <h1 className="font-display text-2xl sm:text-[28px]">{L("My tests", "मेरे टेस्ट")}</h1>
           <p className="mt-1 text-sm font-medium text-ink-2">{L("Every test you've taken, with scores, analysis and retries.", "आपके सभी टेस्ट: अंक, विश्लेषण और दोबारा प्रयास।")}</p>
         </div>
         <Link href="/practice" className="btn btn-orange px-4 py-2.5 text-sm">
@@ -109,7 +109,7 @@ export default function MyTests() {
       </section>
 
       <section className="grid gap-4 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-        <div className="rounded-3xl border-2 border-line bg-surface p-5">
+        <div className="rounded-3xl border border-line bg-surface p-5">
           <SectionTitle title={L("Accuracy trend", "सटीकता का रुझान")} eyebrow={L(`Last ${recent.length} tests · best ${pct(best)}%`, `पिछले ${recent.length} टेस्ट · सर्वश्रेष्ठ ${pct(best)}%`)} />
           <div className="flex h-36 items-end gap-1.5">
             {recent.map((a) => (
@@ -125,7 +125,7 @@ export default function MyTests() {
           </div>
         </div>
 
-        <div className="rounded-3xl border-2 border-line bg-surface p-5">
+        <div className="rounded-3xl border border-line bg-surface p-5">
           <SectionTitle title={L("Topics", "विषय")} eyebrow={L("From all your answers", "आपके सभी उत्तरों से")} />
           {topics.length ? (
             <div className="space-y-3">
@@ -186,7 +186,7 @@ export default function MyTests() {
                   const wrong = answeredCount(a) - a.correct;
                   const skipped = a.mcqIds.length - answeredCount(a);
                   return (
-                    <article key={a.id} className="rounded-3xl border-2 border-line bg-surface p-4">
+                    <article key={a.id} className="rounded-3xl border border-line bg-surface p-4">
                       <div className="flex items-start gap-3">
                         <span className={`grid size-10 shrink-0 place-items-center rounded-xl ${k.tone}`}>
                           <k.icon className="size-5" strokeWidth={2.4} />

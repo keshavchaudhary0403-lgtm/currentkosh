@@ -148,7 +148,7 @@ export function Confetti({ pieces = 36 }: { pieces?: number }) {
 }
 
 export function Card({ className, children }: { className?: string; children: React.ReactNode }) {
-  return <div className={cx("rounded-2xl border-2 border-line bg-surface", className)}>{children}</div>;
+  return <div className={cx("rounded-2xl border border-line bg-surface", className)}>{children}</div>;
 }
 
 export function ButtonLink({ href, children, variant = "primary", className }: { href: string; children: React.ReactNode; variant?: "primary" | "orange" | "green" | "violet" | "ghost"; className?: string }) {

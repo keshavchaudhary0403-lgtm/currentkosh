@@ -81,18 +81,18 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
       <div className="space-y-6">
         <Link
           href="/tests"
-          className="inline-flex items-center gap-1.5 rounded-full border-2 border-line bg-surface px-3 py-1 text-sm font-bold text-ink-2 hover:text-ink"
+          className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 text-sm font-bold text-ink-2 hover:text-ink"
         >
           <ArrowLeft className="size-4" /> {L("My tests", "मेरे टेस्ट")}
         </Link>
         <section className={`pop relative overflow-hidden rounded-3xl p-6 text-center text-white sm:p-8 ${tier.bg}`}>
           {pct >= 70 && <Confetti pieces={44} />}
           <div className="text-xs font-bold text-white/80">{attempt.title}</div>
-          <h1 className="mt-1 font-display text-3xl sm:text-4xl">{tier.msg}</h1>
+          <h1 className="mt-1 font-display text-2xl sm:text-3xl">{tier.msg}</h1>
           <div className="mx-auto mt-5 w-fit">
             <ProgressRing value={correct} max={rows.length || 1} size={140} stroke={14} color="#fff" track={tier.press}>
               <div>
-                <div className="font-display text-4xl leading-none">{pct}%</div>
+                <div className="font-display text-3xl leading-none">{pct}%</div>
                 <div className="mt-1 text-xs font-bold text-white/80">{L("accuracy", "सटीकता")}</div>
               </div>
             </ProgressRing>
@@ -138,7 +138,7 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
           <h2 className="mb-3 font-display text-lg">{L("By topic", "विषयवार")}</h2>
           <div className="grid gap-2 sm:grid-cols-2">
             {[...byCat.entries()].map(([cat, v]) => (
-              <div key={cat} className="rounded-2xl border-2 border-line bg-surface p-3.5">
+              <div key={cat} className="rounded-2xl border border-line bg-surface p-3.5">
                 <div className="flex justify-between text-sm font-bold">
                   <span>{pick(categoryById(cat)?.label, ui)}</span>
                   <span className="tabular-nums">

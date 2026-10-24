@@ -17,7 +17,7 @@ export default async function Threads() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="font-display text-[28px] sm:text-4xl">{ui === "hi" ? "कहानी-क्रम" : "Storylines"}</h1>
+        <h1 className="font-display text-2xl sm:text-[28px]">{ui === "hi" ? "कहानी-क्रम" : "Storylines"}</h1>
         <p className="mt-1 max-w-2xl text-sm font-medium text-ink-2">{L("Every update on one issue, in order. Revise how it evolved, not just the headline.", "एक मुद्दे के सभी अपडेट, क्रम से। केवल शीर्षक नहीं, पूरा विकास दोहराएँ।")}</p>
       </header>
       {threads.length ? (

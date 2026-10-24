@@ -24,7 +24,7 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
       <div className="min-w-0">
         <Link
           href="/threads"
-          className="mb-5 inline-flex items-center gap-1.5 rounded-full border-2 border-line bg-surface px-3 py-1 text-sm font-bold text-ink-2 hover:text-ink"
+          className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 text-sm font-bold text-ink-2 hover:text-ink"
         >
           <ArrowLeft className="size-4" /> {L("Storylines", "कहानी-क्रम")}
         </Link>
@@ -33,7 +33,7 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
             <div className="inline-flex rounded-full bg-pink-soft px-2.5 py-0.5 text-xs font-extrabold text-pink">
               {L("Storyline", "कहानी-क्रम")} · {thread.stories.length} {L(thread.stories.length === 1 ? "update" : "updates", "अपडेट")}
             </div>
-            <BiText v={thread.title} lang={lang} as="h1" className="mt-2 font-display text-[28px] leading-tight sm:text-4xl" hiClassName="font-sans text-xl" />
+            <BiText v={thread.title} lang={lang} as="h1" className="mt-2 font-display text-2xl leading-tight sm:text-[28px]" hiClassName="font-sans text-xl" />
           </div>
           <Link href={testHref} className="btn btn-orange px-4 py-2.5 text-sm lg:hidden">
             {L("Test this storyline", "इस क्रम का टेस्ट दें")}
@@ -65,7 +65,7 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
       </div>
 
       <aside className="hidden lg:block">
-        <div className="sticky top-20 space-y-4 rounded-3xl border-2 border-line bg-surface p-5">
+        <div className="sticky top-20 space-y-4 rounded-3xl border border-line bg-surface p-5">
           <div className="grid grid-cols-2 gap-2 text-center">
             <div className="rounded-2xl bg-pink-soft p-3 text-pink">
               <div className="font-display text-2xl leading-none">{thread.stories.length}</div>
