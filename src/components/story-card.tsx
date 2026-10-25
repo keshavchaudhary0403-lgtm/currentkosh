@@ -85,7 +85,7 @@ export function StoryRow({ story, lang, relevance, read, showDate }: { story: St
 
 /** Grid of story tiles. */
 export function StoryRows({ children }: { children: React.ReactNode }) {
-  return <div className="stagger grid gap-3 sm:grid-cols-2 xl:grid-cols-3">{children}</div>;
+  return <div className="stagger grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">{children}</div>;
 }
 
 /** The day's most important story: a big tile with a mesh wash in the category colour. */

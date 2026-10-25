@@ -32,9 +32,23 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
 
   return (
     <div className="pb-16">
-      <BackButton fallback={dayHref} label={hi ? "वापस" : "Back"} />
       <div className="px-5 sm:px-8">
-        <ReaderBody story={toDeckStory(story, profile)} lang={lang} variant="page" nextHref={next ? `/story/${next.id}` : null} />
+        <ReaderBody
+          story={toDeckStory(story, profile)}
+          lang={lang}
+          variant="page"
+          nextHref={next ? `/story/${next.id}` : null}
+          back={
+            <>
+              <span className="sm:hidden">
+                <BackButton fallback={dayHref} label={hi ? "वापस" : "Back"} variant="icon" />
+              </span>
+              <span className="hidden sm:block">
+                <BackButton fallback={dayHref} label={hi ? "वापस" : "Back"} />
+              </span>
+            </>
+          }
+        />
       </div>
       <nav className="mt-12 grid gap-3 px-5 sm:grid-cols-2 sm:px-8" aria-label="Keep reading">
         {next ? (

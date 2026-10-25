@@ -13,6 +13,9 @@ export const metadata: Metadata = { title: "Library" };
 
 const str = (v: string | string[] | undefined) => (typeof v === "string" && v ? v : undefined);
 
+// Stories per page: 6 rows of 4 on a laptop.
+const PAGE = 24;
+
 export default async function Library({ searchParams }: PageProps<"/library">) {
   const profile = await currentProfile();
   if (!profile) redirect("/welcome");
@@ -28,7 +31,7 @@ export default async function Library({ searchParams }: PageProps<"/library">) {
   };
   const all = searchStories(filter, Infinity);
   const page = Math.max(1, Number(str(sp.page)) || 1);
-  const results = all.slice(0, page * 50);
+  const results = all.slice(0, page * PAGE);
   const more = new URLSearchParams(Object.entries(sp).flatMap(([k, v]) => (typeof v === "string" && v && k !== "page" ? [[k, v]] : [])));
   more.set("page", String(page + 1));
   const months = storyMonths();
@@ -109,7 +112,7 @@ export default async function Library({ searchParams }: PageProps<"/library">) {
             <StoryList items={results.map((story) => ({ story: toCard(story), relevance: relevanceFor(story, profile) }))} lang={profile.lang} showDate />
             {all.length > results.length && (
               <Link href={`/library?${more}`} scroll={false} className="btn btn-ghost mt-6 w-full text-[15px] sm:mx-auto sm:flex sm:w-auto sm:px-8">
-                {L(`Show 50 more · ${all.length - results.length} left`, `50 और दिखाएँ · ${all.length - results.length} बाकी`)}
+                {L(`Show ${PAGE} more · ${all.length - results.length} left`, `${PAGE} और दिखाएँ · ${all.length - results.length} बाकी`)}
               </Link>
             )}
           </>

@@ -45,6 +45,7 @@ export function McqView({
   number,
   compact = false,
   tight = false,
+  split = false,
 }: {
   mcq: McqContent;
   lang: Lang;
@@ -56,83 +57,89 @@ export function McqView({
   compact?: boolean;
   /** Even smaller question text, for short phone screens. */
   tight?: boolean;
+  /** Wide screens: question on the left, options and the explanation on the right. */
+  split?: boolean;
 }) {
   const right = selected === mcq.answer;
   // Short options (e.g. "Only one", "All three") sit two-up on a deck card.
   const short = [...mcq.options.en, ...mcq.options.hi].every((o) => o.length <= 26 && !o.includes("\n"));
   const hi = lang === "hi";
   return (
-    <div>
-      {number !== undefined && <div className="eyebrow mb-2 text-ink-3">Q{String(number).padStart(2, "0")}</div>}
-      <Text
-        en={mcq.question.en}
-        hi={mcq.question.hi}
-        lang={lang}
-        className={cx(
-          compact ? (tight ? "text-[14px] leading-snug font-semibold" : "text-[15px] leading-snug font-semibold") : "text-[17px] leading-relaxed font-semibold tracking-[-0.005em] sm:text-lg",
-          // Once answered on a deck card, the question shrinks so the explanation fits.
-          compact && reveal && "line-clamp-2",
-        )}
-      />
-      <div className={cx("grid", compact ? "mt-2.5 gap-1.5" : "mt-5 gap-2.5", compact && short && "grid-cols-2")} role="radiogroup">
-        {mcq.options.en.map((opt, i) => {
-          const isAnswer = i === mcq.answer;
-          const isPicked = i === selected;
-          if (compact && reveal && !isAnswer && !isPicked) return null;
-          const state = reveal ? (isAnswer ? "right" : isPicked ? "wrong" : "idle") : isPicked ? "picked" : "idle";
-          const locked = reveal || !onSelect;
-          return (
-            <button
-              key={i}
-              type="button"
-              role="radio"
-              aria-checked={isPicked}
-              disabled={locked}
-              onClick={() => onSelect?.(i)}
-              className={cx(
-                "group relative flex items-start gap-3 text-left font-medium transition duration-200",
-                compact ? "min-h-11 rounded-[14px] px-2.5 py-1.5 text-[14px] leading-snug" : "min-h-14 rounded-[18px] px-3.5 py-3 text-[15px]",
-                state === "right" && "burst pop bg-good text-white shadow-[0_10px_30px_-12px_var(--good)]",
-                state === "wrong" && "shake bg-bad-soft text-ink shadow-[inset_0_0_0_2px_var(--bad)]",
-                state === "picked" && "bg-solid text-on-solid",
-                state === "idle" && (locked ? "bg-card-2 text-ink-2 opacity-60" : "bg-card-2 shadow-[inset_0_0_0_1px_var(--line)] hover:-translate-y-px hover:bg-card hover:shadow-[inset_0_0_0_1.5px_var(--ink)] active:scale-[.98]"),
-              )}
-            >
-              <span
+    <div className={cx(split && "lg:grid lg:grid-cols-2 lg:items-start lg:gap-10")}>
+      <div>
+        {number !== undefined && <div className="eyebrow mb-2 text-ink-3">Q{String(number).padStart(2, "0")}</div>}
+        <Text
+          en={mcq.question.en}
+          hi={mcq.question.hi}
+          lang={lang}
+          className={cx(
+            compact ? (tight ? "text-[14px] leading-snug font-semibold" : "text-[15px] leading-snug font-semibold") : "text-[17px] leading-relaxed font-semibold tracking-[-0.005em] sm:text-lg",
+            // Once answered on a deck card, the question shrinks so the explanation fits.
+            compact && reveal && "line-clamp-2",
+          )}
+        />
+      </div>
+      <div>
+        <div className={cx("grid", compact ? "mt-2.5 gap-1.5" : "mt-5 gap-2.5", split && "lg:mt-0", compact && short && "grid-cols-2")} role="radiogroup">
+          {mcq.options.en.map((opt, i) => {
+            const isAnswer = i === mcq.answer;
+            const isPicked = i === selected;
+            if (compact && reveal && !isAnswer && !isPicked) return null;
+            const state = reveal ? (isAnswer ? "right" : isPicked ? "wrong" : "idle") : isPicked ? "picked" : "idle";
+            const locked = reveal || !onSelect;
+            return (
+              <button
+                key={i}
+                type="button"
+                role="radio"
+                aria-checked={isPicked}
+                disabled={locked}
+                onClick={() => onSelect?.(i)}
                 className={cx(
-                  "grid shrink-0 place-items-center rounded-full font-mono text-xs font-semibold transition",
-                  compact ? "size-7" : "size-8",
-                  state === "right" && "bg-white text-good-ink",
-                  state === "wrong" && "bg-bad text-white",
-                  state === "picked" && "bg-solid-accent text-solid",
-                  state === "idle" && "bg-card text-ink-2 shadow-[inset_0_0_0_1px_var(--line-2)] group-hover:bg-ink group-hover:text-bg",
+                  "group relative flex items-start gap-3 text-left font-medium transition duration-200",
+                  compact ? "min-h-11 rounded-[14px] px-2.5 py-1.5 text-[14px] leading-snug" : "min-h-14 rounded-[18px] px-3.5 py-3 text-[15px]",
+                  state === "right" && "burst pop bg-good text-white shadow-[0_10px_30px_-12px_var(--good)]",
+                  state === "wrong" && "shake bg-bad-soft text-ink shadow-[inset_0_0_0_2px_var(--bad)]",
+                  state === "picked" && "bg-solid text-on-solid",
+                  state === "idle" && (locked ? "bg-card-2 text-ink-2 opacity-60" : "bg-card-2 shadow-[inset_0_0_0_1px_var(--line)] hover:-translate-y-px hover:bg-card hover:shadow-[inset_0_0_0_1.5px_var(--ink)] active:scale-[.98]"),
                 )}
               >
-                {state === "right" ? <Check className="size-4" strokeWidth={3.5} /> : state === "wrong" ? <X className="size-4" strokeWidth={3.5} /> : LETTERS[i]}
-              </span>
-              <Text en={opt} hi={mcq.options.hi[i] ?? opt} lang={lang} className={cx(compact ? "pt-0.5" : "pt-1", state === "right" && "[&_div]:text-white/80", state === "picked" && "[&_div]:text-on-solid/70")} />
-            </button>
-          );
-        })}
-      </div>
-      {reveal && (
-        <div className={cx("rise rounded-[18px] leading-relaxed", compact ? "mt-2 p-3 text-[13px] leading-snug" : "mt-4 p-4 text-sm", selected === null ? "bg-card-2" : right ? "bg-good-soft" : "bg-bad-soft")}>
-          <div className={cx("mb-1 flex items-center gap-2 font-display", compact ? "text-[15px]" : "text-[17px]", selected === null ? "text-ink-2" : right ? "text-good-ink" : "text-bad-ink")}>
-            {hi
-              ? selected === null
-                ? "छोड़ा"
-                : right
-                  ? PRAISE_HI[(number ?? mcq.answer) % PRAISE_HI.length]
-                  : "सही नहीं। कारण:"
-              : selected === null
-                ? "Skipped"
-                : right
-                  ? PRAISE[(number ?? mcq.answer) % PRAISE.length]
-                  : "Not quite. Here's why:"}
-          </div>
-          <Text en={mcq.explanation.en} hi={mcq.explanation.hi} lang={lang} className="text-ink" />
+                <span
+                  className={cx(
+                    "grid shrink-0 place-items-center rounded-full font-mono text-xs font-semibold transition",
+                    compact ? "size-7" : "size-8",
+                    state === "right" && "bg-white text-good-ink",
+                    state === "wrong" && "bg-bad text-white",
+                    state === "picked" && "bg-solid-accent text-solid",
+                    state === "idle" && "bg-card text-ink-2 shadow-[inset_0_0_0_1px_var(--line-2)] group-hover:bg-ink group-hover:text-bg",
+                  )}
+                >
+                  {state === "right" ? <Check className="size-4" strokeWidth={3.5} /> : state === "wrong" ? <X className="size-4" strokeWidth={3.5} /> : LETTERS[i]}
+                </span>
+                <Text en={opt} hi={mcq.options.hi[i] ?? opt} lang={lang} className={cx(compact ? "pt-0.5" : "pt-1", state === "right" && "[&_div]:text-white/80", state === "picked" && "[&_div]:text-on-solid/70")} />
+              </button>
+            );
+          })}
         </div>
-      )}
+        {reveal && (
+          <div className={cx("rise rounded-[18px] leading-relaxed", compact ? "mt-2 p-3 text-[13px] leading-snug" : "mt-4 p-4 text-sm", selected === null ? "bg-card-2" : right ? "bg-good-soft" : "bg-bad-soft")}>
+            <div className={cx("mb-1 flex items-center gap-2 font-display", compact ? "text-[15px]" : "text-[17px]", selected === null ? "text-ink-2" : right ? "text-good-ink" : "text-bad-ink")}>
+              {hi
+                ? selected === null
+                  ? "छोड़ा"
+                  : right
+                    ? PRAISE_HI[(number ?? mcq.answer) % PRAISE_HI.length]
+                    : "सही नहीं। कारण:"
+                : selected === null
+                  ? "Skipped"
+                  : right
+                    ? PRAISE[(number ?? mcq.answer) % PRAISE.length]
+                    : "Not quite. Here's why:"}
+            </div>
+            <Text en={mcq.explanation.en} hi={mcq.explanation.hi} lang={lang} className="text-ink" />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

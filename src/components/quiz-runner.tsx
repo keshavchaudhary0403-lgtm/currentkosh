@@ -93,8 +93,56 @@ export function QuizRunner({
   const segmented = questions.length <= 30;
   const timeFrac = timed && seconds ? remaining / seconds : 1;
 
+  const palette = (
+    <div className="grid grid-cols-6 gap-2 sm:grid-cols-10 lg:grid-cols-5">
+      {questions.map((_, j) => (
+        <button
+          key={j}
+          onClick={() => setI(j)}
+          aria-label={`Question ${j + 1}`}
+          className={cx(
+            "aspect-square min-h-11 rounded-2xl font-mono text-xs font-semibold transition active:scale-90",
+            j === i && "ring-2 ring-ink ring-offset-2 ring-offset-card",
+            flags[j]
+              ? "bg-amber text-[#10110e]"
+              : revealed[j]
+                ? isRight(j)
+                  ? "bg-good text-white"
+                  : "bg-bad text-white"
+                : answers[j] !== null
+                  ? "bg-solid text-on-solid"
+                  : "bg-card-2 text-ink-2",
+          )}
+        >
+          {j + 1}
+        </button>
+      ))}
+    </div>
+  );
+  const submitEarly = answered < questions.length && (
+    <button onClick={finish} className="mt-4 block text-sm font-semibold text-ink-3 underline underline-offset-4 hover:text-ink">
+      {hi ? `${questions.length - answered} बिना उत्तर के अभी जमा करें` : `Submit now with ${questions.length - answered} unanswered`}
+    </button>
+  );
+  const navButtons = (
+    <>
+      <button onClick={() => setI((x) => Math.max(0, x - 1))} disabled={i === 0} className="btn btn-ghost size-12 shrink-0 px-0" aria-label="Previous question">
+        <ArrowLeft className="size-5" strokeWidth={2.4} />
+      </button>
+      {!timed && !revealed[i] ? (
+        <button onClick={next} className="btn btn-ghost h-12 flex-1 text-[15px]">
+          {last ? (hi ? "टेस्ट जमा करें" : "Submit test") : hi ? "छोड़ें" : "Skip"}
+        </button>
+      ) : (
+        <button onClick={next} className={cx("btn h-12 flex-1 text-[15px]", timed ? (last ? "btn-ink" : "") : isRight(i) ? "btn-good" : "btn-ink")}>
+          {last ? (hi ? "टेस्ट जमा करें" : "Submit test") : hi ? "आगे" : "Continue"} <ArrowRight className="size-5" strokeWidth={2.4} />
+        </button>
+      )}
+    </>
+  );
+
   return (
-    <div className="mx-auto max-w-3xl pb-28">
+    <div className="mx-auto max-w-3xl pb-28 lg:max-w-[1240px] lg:pb-10">
       <div className="sticky top-0 z-30 -mx-4 mb-6 px-4 pt-1 pb-3 sm:-mx-6 sm:px-6">
         <div className="glass absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 [mask-image:linear-gradient(#000_75%,transparent)]" />
         <div className="flex items-center gap-3 pt-2">
@@ -147,90 +195,66 @@ export function QuizRunner({
         </div>
       )}
 
-      <div className="mb-4 flex items-end justify-between gap-3">
+      <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_300px] lg:items-start lg:gap-6">
         <div className="min-w-0">
-          <div className="eyebrow truncate text-ink-3">{title}</div>
-          <div className="mt-1 font-display text-[31px] leading-none sm:text-[41px]">
-            <span className="tnum">{String(i + 1).padStart(2, "0")}</span>
-            <span className="text-ink-3"> / {questions.length}</span>
+          <div className="mb-4 flex items-end justify-between gap-3">
+            <div className="min-w-0">
+              <div className="eyebrow truncate text-ink-3">{title}</div>
+              <div className="mt-1 font-display text-[31px] leading-none sm:text-[41px]">
+                <span className="tnum">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-ink-3"> / {questions.length}</span>
+              </div>
+            </div>
+            <button
+              onClick={() => setFlags((f) => f.map((x, j) => (j === i ? !x : x)))}
+              aria-pressed={flags[i]}
+              className={cx(
+                "inline-flex h-11 shrink-0 items-center gap-1.5 rounded-full px-4 text-sm font-semibold transition active:scale-95",
+                flags[i] ? "bg-amber text-[#10110e]" : "bg-card text-ink-2 shadow-[inset_0_0_0_1px_var(--line-2)] hover:text-ink",
+              )}
+            >
+              <Flag className={cx("size-4", flags[i] && "fill-current")} strokeWidth={2} /> {flags[i] ? (hi ? "चिह्नित" : "Flagged") : hi ? "चिह्नित करें" : "Flag"}
+            </button>
+          </div>
+
+          <div key={q.id} className="card rise relative p-5 sm:p-7">
+            {revealed[i] && isRight(i) && <Confetti key={`f${i}`} pieces={22} />}
+            <div className="cat mb-4 inline-flex h-7 items-center gap-1.5 rounded-full bg-(--cat-tint) px-2.5 text-xs font-semibold text-(--cat-ink)" style={catStyle(q.category)}>
+              <span className="size-1.5 rounded-full bg-(--cat-solid)" />
+              {pick(categoryById(q.category)?.label, ui)}
+            </div>
+            <McqView mcq={q.content} lang={lang} selected={answers[i]} reveal={revealed[i]} onSelect={revealed[i] ? undefined : select} split />
+            {revealed[i] && (
+              <Link href={`/story/${q.storyId}`} className="mt-4 inline-flex h-11 items-center gap-1.5 text-sm font-semibold text-ink-2 hover:text-ink">
+                {hi ? "ख़बर पढ़ें" : "Read the story"} <ArrowUpRight className="size-4" />
+              </Link>
+            )}
           </div>
         </div>
-        <button
-          onClick={() => setFlags((f) => f.map((x, j) => (j === i ? !x : x)))}
-          aria-pressed={flags[i]}
-          className={cx(
-            "inline-flex h-11 shrink-0 items-center gap-1.5 rounded-full px-4 text-sm font-semibold transition active:scale-95",
-            flags[i] ? "bg-amber text-[#10110e]" : "bg-card text-ink-2 shadow-[inset_0_0_0_1px_var(--line-2)] hover:text-ink",
-          )}
-        >
-          <Flag className={cx("size-4", flags[i] && "fill-current")} strokeWidth={2} /> {flags[i] ? (hi ? "चिह्नित" : "Flagged") : hi ? "चिह्नित करें" : "Flag"}
-        </button>
+
+        {/* Desktop: question palette and the controls sit beside the question, no bottom bar. */}
+        <aside className="sticky top-24 hidden space-y-4 lg:block">
+          <div className="card p-5">
+            <div className="eyebrow mb-3 text-ink-3">{hi ? `सभी प्रश्न · ${answered}/${questions.length} हल` : `All questions · ${answered}/${questions.length} answered`}</div>
+            {palette}
+            {submitEarly}
+          </div>
+          <div className="flex items-center gap-2">{navButtons}</div>
+        </aside>
       </div>
 
-      <div key={q.id} className="card rise relative p-5 sm:p-7">
-        {revealed[i] && isRight(i) && <Confetti key={`f${i}`} pieces={22} />}
-        <div className="cat mb-4 inline-flex h-7 items-center gap-1.5 rounded-full bg-(--cat-tint) px-2.5 text-xs font-semibold text-(--cat-ink)" style={catStyle(q.category)}>
-          <span className="size-1.5 rounded-full bg-(--cat-solid)" />
-          {pick(categoryById(q.category)?.label, ui)}
-        </div>
-        <McqView mcq={q.content} lang={lang} selected={answers[i]} reveal={revealed[i]} onSelect={revealed[i] ? undefined : select} />
-        {revealed[i] && (
-          <Link href={`/story/${q.storyId}`} className="mt-4 inline-flex h-11 items-center gap-1.5 text-sm font-semibold text-ink-2 hover:text-ink">
-            {hi ? "ख़बर पढ़ें" : "Read the story"} <ArrowUpRight className="size-4" />
-          </Link>
-        )}
-      </div>
-
-      <details className="group card mt-5 p-4 sm:p-5">
+      <details className="group card mt-5 p-4 sm:p-5 lg:hidden">
         <summary className="flex min-h-8 cursor-pointer list-none items-center gap-2 text-sm font-semibold text-ink-2">
           <LayoutGrid className="size-4" /> {hi ? `सभी प्रश्न · ${answered}/${questions.length} हल` : `All questions · ${answered}/${questions.length} answered`}
           <ChevronDown className="ml-auto size-4 transition group-open:rotate-180" />
         </summary>
-        <div className="mt-4 grid grid-cols-6 gap-2 sm:grid-cols-10">
-          {questions.map((_, j) => (
-            <button
-              key={j}
-              onClick={() => setI(j)}
-              aria-label={`Question ${j + 1}`}
-              className={cx(
-                "aspect-square min-h-11 rounded-2xl font-mono text-xs font-semibold transition active:scale-90",
-                j === i && "ring-2 ring-ink ring-offset-2 ring-offset-card",
-                flags[j]
-                  ? "bg-amber text-[#10110e]"
-                  : revealed[j]
-                    ? isRight(j)
-                      ? "bg-good text-white"
-                      : "bg-bad text-white"
-                    : answers[j] !== null
-                      ? "bg-solid text-on-solid"
-                      : "bg-card-2 text-ink-2",
-              )}
-            >
-              {j + 1}
-            </button>
-          ))}
-        </div>
-        {answered < questions.length && (
-          <button onClick={finish} className="mt-4 text-sm font-semibold text-ink-3 underline underline-offset-4 hover:text-ink">
-            {hi ? `${questions.length - answered} बिना उत्तर के अभी जमा करें` : `Submit now with ${questions.length - answered} unanswered`}
-          </button>
-        )}
+        <div className="mt-4">{palette}</div>
+        {submitEarly}
       </details>
 
-      <div className="fixed inset-x-0 bottom-0 z-30 px-3 pb-[calc(10px+env(safe-area-inset-bottom))]">
+      <div className="fixed inset-x-0 bottom-0 z-30 px-3 lg:hidden pb-[calc(10px+env(safe-area-inset-bottom))]">
         <div className="glass mx-auto flex max-w-3xl items-center gap-2 rounded-full p-1.5 shadow-float ring-1 ring-line-2">
-          <button onClick={() => setI((x) => Math.max(0, x - 1))} disabled={i === 0} className="btn btn-ghost size-12 shrink-0 px-0" aria-label="Previous question">
-            <ArrowLeft className="size-5" strokeWidth={2.4} />
-          </button>
-          {!timed && !revealed[i] ? (
-            <button onClick={next} className="btn btn-ghost h-12 flex-1 text-[15px]">
-              {last ? (hi ? "टेस्ट जमा करें" : "Submit test") : hi ? "छोड़ें" : "Skip"}
-            </button>
-          ) : (
-            <button onClick={next} className={cx("btn h-12 flex-1 text-[15px]", timed ? (last ? "btn-ink" : "") : isRight(i) ? "btn-good" : "btn-ink")}>
-              {last ? (hi ? "टेस्ट जमा करें" : "Submit test") : hi ? "आगे" : "Continue"} <ArrowRight className="size-5" strokeWidth={2.4} />
-            </button>
-          )}
+          {navButtons}
         </div>
       </div>
     </div>

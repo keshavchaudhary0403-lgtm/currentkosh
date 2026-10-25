@@ -19,7 +19,7 @@ export function TimelineBrowser({ threads, lang }: { threads: ThreadSummary[]; l
   const [cat, setCat] = useState("");
   const [sort, setSort] = useState<Sort>("latest");
   // Render a page at a time; search and filters still cover every timeline.
-  const [limit, setLimit] = useState(60);
+  const [limit, setLimit] = useState(24);
 
   const topics = useMemo(() => {
     const n = new Map<string, number>();
@@ -45,7 +45,7 @@ export function TimelineBrowser({ threads, lang }: { threads: ThreadSummary[]; l
             value={q}
             onChange={(e) => {
               setQ(e.target.value);
-              setLimit(60);
+              setLimit(24);
             }}
             placeholder={hi ? "खोजें: भारत-चीन, चुनाव, RBI, चक्रवात…" : "Search: India–China, elections, RBI, cyclone…"}
             className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-ink-3"
@@ -70,7 +70,7 @@ export function TimelineBrowser({ threads, lang }: { threads: ThreadSummary[]; l
             key={t.id || "all"}
             onClick={() => {
               setCat(t.id);
-              setLimit(60);
+              setLimit(24);
             }}
             aria-pressed={cat === t.id}
             className={t.id ? "chip cat shrink-0" : "chip shrink-0"}
@@ -87,7 +87,7 @@ export function TimelineBrowser({ threads, lang }: { threads: ThreadSummary[]; l
       </div>
 
       {shown.length ? (
-        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {shown.slice(0, limit).map((t) => (
             <Link key={t.key} href={`/thread/${t.key}`} className="card lift group flex flex-col p-4 sm:p-5">
               <span className="flex items-center gap-3">
@@ -118,7 +118,7 @@ export function TimelineBrowser({ threads, lang }: { threads: ThreadSummary[]; l
         </div>
       ) : null}
       {shown.length > limit && (
-        <button onClick={() => setLimit((n) => n + 60)} className="btn btn-ghost mx-auto flex w-full px-8 text-[15px] sm:w-auto">
+        <button onClick={() => setLimit((n) => n + 24)} className="btn btn-ghost mx-auto flex w-full px-8 text-[15px] sm:w-auto">
           {hi ? `और दिखाएँ · ${shown.length - limit} बाकी` : `Show more · ${shown.length - limit} left`}
         </button>
       )}

@@ -54,7 +54,7 @@ export default async function Revise({ searchParams }: PageProps<"/revise">) {
           ))}
         </div>
         {oneLiners.length ? (
-          <ol className="card divide-y divide-line overflow-hidden">
+          <ol className="card divide-y divide-line overflow-hidden lg:columns-2 lg:gap-0 [&>li]:break-inside-avoid">
             {oneLiners.map((s, i) => (
               <li key={s.id}>
                 <Link href={`/story/${s.id}`} className="group flex gap-4 px-4 py-4 transition hover:bg-card-2 sm:px-6">
@@ -63,14 +63,14 @@ export default async function Revise({ searchParams }: PageProps<"/revise">) {
                     <span lang={hi ? "hi" : undefined} className="block text-[15px] leading-snug font-semibold">
                       {pick(s.content.title, ui)}
                     </span>
-                    <span lang={hi ? "hi" : undefined} className="mt-1 block text-sm text-ink-2">
+                    <span lang={hi ? "hi" : undefined} className="mt-1 line-clamp-2 block text-sm text-ink-2">
                       {s.content.key_facts
                         .slice(0, 2)
                         .map((f) => pick(f, ui))
                         .join(" · ")}
                     </span>
                   </span>
-                  <span className="hidden shrink-0 items-start gap-3 sm:flex">
+                  <span className="hidden shrink-0 items-start gap-3 sm:flex lg:hidden">
                     <CategoryPill id={s.category} lang={profile.lang} size="xs" />
                     <ArrowUpRight className="size-4 text-ink-3 transition group-hover:rotate-45 group-hover:text-ink" />
                   </span>

@@ -198,15 +198,16 @@ export function Deck({
   return (
     <div className="grid h-full min-h-0 grid-cols-[minmax(0,1fr)] gap-2 lg:grid-cols-[272px_minmax(0,1fr)_340px] lg:grid-rows-1 lg:gap-5 xl:grid-cols-[300px_minmax(0,1fr)_380px]">
       {/* Left pane (desktop): the day's queue. */}
-      <aside className="hidden min-h-0 flex-col lg:flex" aria-label={hi ? "आज की सूची" : "Today's queue"}>
-        <div className="card flex min-h-0 flex-1 flex-col overflow-hidden">
+      <aside className="relative z-20 hidden min-h-0 flex-col lg:flex" aria-label={hi ? "आज की सूची" : "Today's queue"}>
+        {/* No overflow clipping here: the day picker's calendar pops out over the feed. */}
+        <div className="card flex min-h-0 flex-1 flex-col">
           <div className="flex items-center justify-between gap-2 border-b border-line p-3">
             {picker}
             <span className="font-mono text-[11px] text-ink-3 tnum">
               {readN}/{mainStories.length} {hi ? "पढ़ीं" : "read"} · {right}/{answered.length} {hi ? "सही" : "right"}
             </span>
           </div>
-          <ol className="flex-1 overflow-y-auto p-2">
+          <ol className="min-h-0 flex-1 overflow-y-auto p-2">
             {items.map((it, i) =>
               it.kind === "end" ? (
                 <li key="end" className="eyebrow px-3 pt-4 pb-2 text-ink-3">

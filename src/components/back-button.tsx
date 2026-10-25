@@ -26,7 +26,7 @@ export function BackButton({ fallback, label, variant = "pill" }: { fallback: st
       </button>
     );
   return (
-    <button onClick={go} className="group mb-5 inline-flex h-11 items-center gap-2 rounded-full bg-card pr-4 pl-2 text-sm font-semibold text-ink-2 shadow-[inset_0_0_0_1px_var(--line-2)] transition hover:text-ink sm:mb-7">
+    <button onClick={go} className="group inline-flex h-11 items-center gap-2 rounded-full bg-card pr-4 pl-2 text-sm font-semibold text-ink-2 shadow-[inset_0_0_0_1px_var(--line-2)] transition hover:text-ink sm:mb-7">
       <span className="grid size-7 place-items-center rounded-full bg-card-2 transition group-hover:-translate-x-0.5 group-hover:bg-solid group-hover:text-on-solid">
         <ArrowLeft className="size-4" />
       </span>

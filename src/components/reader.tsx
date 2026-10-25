@@ -13,7 +13,7 @@ import { ThemeSwitch } from "./theme-switch";
 import { BiText, RelevanceBadge, cx, fmtDate } from "./ui";
 
 /** The full story: summary, facts, insights, glossary, sources, all MCQs and the storyline. */
-export function ReaderBody({ story, lang, variant, nextHref, onClose }: { story: DeckStory; lang: Lang; variant: "sheet" | "page"; nextHref?: string | null; onClose?: () => void }) {
+export function ReaderBody({ story, lang, variant, nextHref, onClose, back }: { story: DeckStory; lang: Lang; variant: "sheet" | "page"; nextHref?: string | null; onClose?: () => void; back?: React.ReactNode }) {
   const ui = lang === "bi" ? "en" : lang;
   const hi = ui === "hi";
   const c = story.content;
@@ -37,27 +37,30 @@ export function ReaderBody({ story, lang, variant, nextHref, onClose }: { story:
 
   return (
     <article className="cat" style={catStyle(story.category)}>
-      {/* Action bar: sticky at the top of the sheet, or of the page under the app header. */}
+      {/* Action bar: sticky at the top of the sheet, or of the page under the app header. Back/close left, actions right. */}
       <div className={cx("glass sticky z-20 -mx-5 flex items-center gap-1.5 border-b border-line px-3 py-2 sm:-mx-8 sm:px-6", variant === "sheet" ? "top-0" : "top-16")}>
         {onClose && (
           <button onClick={onClose} aria-label={hi ? "बंद करें" : "Close"} className="btn btn-ghost size-11 shrink-0 px-0">
             <X className="size-5" />
           </button>
         )}
-        <ReadButton
-          storyId={story.id}
-          cardIds={story.cardIds}
-          labels={{ mark: hi ? "पढ़ा" : "Read", next: hi ? "अगली" : "Next", doneHint: hi ? "इसके तथ्य दोहराव में जुड़ गए" : "Its facts are now in your Revise queue" }}
-          nextHref={variant === "page" ? nextHref : undefined}
-          className="min-w-0 flex-1 sm:flex-none"
-        />
-        <BookmarkButton storyId={story.id} label={hi ? "सहेजें" : "Save"} />
-        {story.mcqs.length > 0 && (
-          <a href={`#${quizId}`} aria-label={t("quickCheck", ui)} title={t("quickCheck", ui)} className="btn btn-flare size-11 shrink-0 px-0">
-            <Target className="size-[18px]" />
-          </a>
-        )}
-        {variant === "sheet" && <ThemeSwitch className="ml-auto" />}
+        {back}
+        <span className="ml-auto flex min-w-0 items-center gap-1.5">
+          <ReadButton
+            storyId={story.id}
+            cardIds={story.cardIds}
+            labels={{ mark: hi ? "पढ़ा" : "Read", next: hi ? "अगली" : "Next", doneHint: hi ? "इसके तथ्य दोहराव में जुड़ गए" : "Its facts are now in your Revise queue" }}
+            nextHref={variant === "page" ? nextHref : undefined}
+            className="min-w-0"
+          />
+          <BookmarkButton storyId={story.id} label={hi ? "सहेजें" : "Save"} />
+          {story.mcqs.length > 0 && (
+            <a href={`#${quizId}`} aria-label={t("quickCheck", ui)} title={t("quickCheck", ui)} className="btn btn-flare size-11 shrink-0 px-0">
+              <Target className="size-[18px]" />
+            </a>
+          )}
+          {variant === "sheet" && <ThemeSwitch />}
+        </span>
       </div>
 
       {/* On a desktop page the reading column sits beside an aside with sources, glossary and the storyline. */}

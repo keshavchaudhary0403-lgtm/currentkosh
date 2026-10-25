@@ -37,23 +37,25 @@ export default function Sources() {
           </div>
         ))}
       </div>
-      {groups.map((g) => (
-        <section key={g.title} className="reveal">
-          <SectionTitle title={g.title} eyebrow={`${g.ids.length} sources`} />
-          <div className="card divide-y divide-line overflow-hidden">
-            {g.ids.map((s) => (
-              <a key={s.id} href={s.caPage ?? s.homepage} target="_blank" rel="noopener noreferrer" className="group flex flex-wrap items-center gap-x-4 gap-y-1 px-5 py-4 transition hover:bg-card-2">
-                <span className="flex min-w-0 flex-1 items-center gap-2 font-semibold">
-                  {s.name}
-                  <ArrowUpRight className="size-4 text-ink-3 transition group-hover:rotate-45 group-hover:text-ink" />
-                </span>
-                <span className={`eyebrow inline-flex h-7 items-center rounded-full px-2.5 ${MODE[s.mode].cls}`}>{MODE[s.mode].label}</span>
-                <p className="w-full text-xs text-ink-3">{s.license}</p>
-              </a>
-            ))}
-          </div>
-        </section>
-      ))}
+      <div className="space-y-8 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6 lg:space-y-0">
+        {groups.map((g) => (
+          <section key={g.title} className="reveal">
+            <SectionTitle title={g.title} eyebrow={`${g.ids.length} sources`} />
+            <div className="card divide-y divide-line overflow-hidden">
+              {g.ids.map((s) => (
+                <a key={s.id} href={s.caPage ?? s.homepage} target="_blank" rel="noopener noreferrer" className="group flex flex-wrap items-center gap-x-4 gap-y-1 px-5 py-4 transition hover:bg-card-2">
+                  <span className="flex min-w-0 flex-1 items-center gap-2 font-semibold">
+                    {s.name}
+                    <ArrowUpRight className="size-4 text-ink-3 transition group-hover:rotate-45 group-hover:text-ink" />
+                  </span>
+                  <span className={`eyebrow inline-flex h-7 items-center rounded-full px-2.5 ${MODE[s.mode].cls}`}>{MODE[s.mode].label}</span>
+                  <p className="w-full text-xs text-ink-3">{s.license}</p>
+                </a>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
     </div>
   );
 }
