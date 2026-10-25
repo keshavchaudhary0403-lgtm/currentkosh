@@ -394,7 +394,7 @@ function StoryCardDeck({
   const primary = done
     ? { label: hi ? "अगली ख़बर" : "Next story", icon: ArrowDown, go: onNext }
     : layer === 0
-      ? { label: hi ? "तथ्य खोलें" : "Unfold key facts", icon: Layers3, go: () => onReveal() }
+      ? { label: hi ? "तथ्य खोलें" : "Key facts", icon: Layers3, go: () => onReveal() }
       : layer === 1
         ? { label: hi ? "ख़ुद को परखें" : "Test yourself", icon: Zap, go: () => onReveal() }
         : { label: hi ? "छोड़ें" : "Skip", icon: ArrowDown, go: onNext };
