@@ -189,7 +189,7 @@ export function PageHeader({ eyebrow, title, sub, right, className }: { eyebrow?
     <header className={cx("rise flex flex-wrap items-end justify-between gap-4", className)}>
       <div className="min-w-0">
         {eyebrow && <div className="eyebrow mb-2 text-ink-3">{eyebrow}</div>}
-        <h1 className="font-display text-[34px] sm:text-[50px]">{title}</h1>
+        <h1 className="font-display text-[30px] sm:text-[40px]">{title}</h1>
         {sub && <p className="mt-2 max-w-2xl text-[15px] text-ink-2">{sub}</p>}
       </div>
       {right}

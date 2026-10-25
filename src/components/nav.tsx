@@ -156,12 +156,7 @@ export function AppHeader({ lang }: { lang: Lang }) {
             <SavedLink />
           </span>
           <LangMenu lang={lang} />
-          <span className="lg:hidden">
-            <ThemeSwitch />
-          </span>
-          <span className="hidden lg:block">
-            <ThemeSwitch labeled />
-          </span>
+          <ThemeSwitch />
         </div>
       </div>
     </header>
@@ -172,7 +167,7 @@ export function AppHeader({ lang }: { lang: Lang }) {
 export function AppMain({ children }: { children: React.ReactNode }) {
   const path = usePathname();
   if (path === "/") return <main className="min-w-0">{children}</main>;
-  return <main className="mx-auto max-w-[1240px] px-4 pt-5 pb-32 sm:px-6 sm:pt-8 lg:px-8 lg:pb-16">{children}</main>;
+  return <main className="mx-auto max-w-[1240px] px-4 pt-5 pb-32 sm:px-6 sm:pt-6 lg:px-8 lg:pb-8">{children}</main>;
 }
 
 export function BottomNav({ labels }: { labels: NavLabels }) {
@@ -331,7 +326,7 @@ export function SavedLink() {
 
 /** Labeled theme switch (kept under the old name for existing imports). */
 export function ThemeToggle() {
-  return <ThemeSwitch labeled />;
+  return <ThemeSwitch />;
 }
 
 /** CurrentKosh mark: an ink tile with three lines of a brief and a lime "live" signal dot. */

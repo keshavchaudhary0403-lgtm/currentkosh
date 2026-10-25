@@ -30,30 +30,25 @@ export default async function Me() {
 
   return (
     <div className="space-y-6">
-      <header className="rise relative overflow-hidden rounded-[28px] bg-[#10110e] p-6 text-[#f3f2ec] dark:bg-card dark:shadow-[inset_0_0_0_1px_var(--line-2)] sm:p-8">
-        <div aria-hidden className="pointer-events-none absolute -top-24 -right-10 size-72 rounded-full bg-[#c8f135] opacity-20 blur-3xl" />
-        <div className="eyebrow relative text-white/50 dark:text-ink-3">{hi ? "आपकी तैयारी" : "Your prep"}</div>
-        <h1 className="relative mt-2 font-display text-[34px] leading-none sm:text-[47px]">
-          {hi ? "आप" : (
-            <>
-              Hello, <span>aspirant.</span>
-            </>
-          )}
-        </h1>
-        <div className="relative mt-5 flex flex-wrap gap-2">
+      <header className="rise flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
+        <div>
+          <div className="eyebrow mb-2 text-ink-3">{hi ? "आपकी तैयारी" : "Your prep"}</div>
+          <h1 className="font-display text-[30px] leading-none sm:text-[40px]">{hi ? "आप" : "Hello, aspirant."}</h1>
+        </div>
+        <div className="flex flex-wrap gap-2">
           {profile.exams.map((e) => (
-            <span key={e} className="inline-flex h-8 items-center rounded-full bg-white/10 px-3 text-xs font-semibold dark:bg-card-2">
+            <span key={e} className="inline-flex h-8 items-center rounded-full bg-card px-3 text-xs font-semibold shadow-[inset_0_0_0_1px_var(--line-2)]">
               {pick(examById(e)?.label, ui)}
             </span>
           ))}
           {profile.state && (
-            <span className="inline-flex h-8 items-center gap-1.5 rounded-full bg-white/10 px-3 text-xs font-semibold dark:bg-card-2">
+            <span className="inline-flex h-8 items-center gap-1.5 rounded-full bg-card px-3 text-xs font-semibold shadow-[inset_0_0_0_1px_var(--line-2)]">
               <span className="size-1.5 rounded-full bg-mint" />
               {pick(stateById(profile.state)?.label, ui)}
             </span>
           )}
           {countdown !== null && countdown >= 0 && (
-            <span className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[#c8f135] px-3 text-xs font-semibold text-[#10110e]">
+            <span className="inline-flex h-8 items-center gap-1.5 rounded-full bg-signal px-3 text-xs font-semibold text-on-signal">
               <CalendarDays className="size-3.5" /> {countdown} {hi ? "दिन परीक्षा तक" : "days to your exam"}
             </span>
           )}
@@ -77,19 +72,17 @@ export default async function Me() {
           <InstallCard />
           <ResetProgress />
         </div>
-        <nav className="stagger grid grid-cols-2 gap-3">
-          {links.map(({ href, icon: Icon, label, hint, tone }, i) => (
-            <Link key={href} href={href} className={`card lift group flex min-h-[148px] flex-col p-4 sm:p-5 ${i === 0 ? "col-span-2" : ""}`}>
-              <span className="flex items-center justify-between">
-                <span className={`grid size-11 place-items-center rounded-[14px] ${tone}`}>
-                  <Icon className="size-5" strokeWidth={2} />
-                </span>
-                <ArrowUpRight className="size-4 text-ink-3 transition group-hover:rotate-45 group-hover:text-ink" />
+        <nav className="card divide-y divide-line overflow-hidden">
+          {links.map(({ href, icon: Icon, label, hint, tone }) => (
+            <Link key={href} href={href} className="group flex items-center gap-4 px-4 py-3 transition hover:bg-card-2 sm:px-5">
+              <span className={`grid size-10 shrink-0 place-items-center rounded-[12px] ${tone}`}>
+                <Icon className="size-5" strokeWidth={2} />
               </span>
-              <span className="mt-auto pt-4">
-                <span className="block font-display text-[20px] leading-none">{label}</span>
-                <span className="mt-1 block text-xs text-ink-3">{hint}</span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-[15px] font-semibold">{label}</span>
+                <span className="block truncate text-xs text-ink-3">{hint}</span>
               </span>
+              <ArrowUpRight className="size-4 shrink-0 text-ink-3 transition group-hover:rotate-45 group-hover:text-ink" />
             </Link>
           ))}
         </nav>

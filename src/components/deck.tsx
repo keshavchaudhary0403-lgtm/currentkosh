@@ -1,17 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowDown,
   ArrowRight,
   BookOpenText,
   Brain,
   Check,
-  ChevronDown,
-  ChevronUp,
   Flame,
-  Layers3,
   Lightbulb,
   Newspaper,
   ShieldCheck,
@@ -33,25 +30,12 @@ import { BookmarkButton } from "./story-actions";
 import { Confetti, Count, RelevanceBadge, cx, fmtDate } from "./ui";
 import { XP, useXp } from "./xp";
 
-// Phones get a card that never scrolls inside (it would fight the deck swipe); desktop may.
-const DESKTOP = "(min-width: 1024px)";
-const useIsDesktop = () =>
-  useSyncExternalStore(
-    (cb) => {
-      const m = matchMedia(DESKTOP);
-      m.addEventListener("change", cb);
-      return () => m.removeEventListener("change", cb);
-    },
-    () => matchMedia(DESKTOP).matches,
-    () => false,
-  );
-
 type Item = { kind: "story"; s: DeckStory; group: "main" | "more"; n: number; of: number } | { kind: "end" };
 
 /**
- * Today as a deck: one story per screen, snapping vertically. Each card unfolds in place —
- * headline → key facts → one MCQ — and a reader sheet holds the deep dive.
- * On desktop the same deck sits between a queue (left) and a live context panel (right).
+ * Today as one continuous scroll: each story reads top to bottom — headline and summary, key facts,
+ * then a quick question — and scrolling on brings the next story. A reader sheet holds the deep dive.
+ * On desktop the feed sits between a queue (left) and a live context panel (right).
  */
 export function Deck({
   main,
@@ -71,7 +55,6 @@ export function Deck({
   const hi = ui === "hi";
   const p = useProgress();
   const [topic, setTopic] = useState<string | null>(null);
-  const [layers, setLayers] = useState<Record<string, number>>({});
   const [picks, setPicks] = useState<Record<string, number>>({});
   const [combo, setCombo] = useState(0);
   const [pop, setPop] = useState<{ id: string; text: string; key: number } | null>(null);
@@ -103,8 +86,6 @@ export function Deck({
     const log = [...p.answers].reverse().find((a) => a.mcqId === m.id);
     return log ? (log.correct ? "right" : "wrong") : null;
   };
-  const maxLayer = (s: DeckStory) => (s.mcqs.length ? 2 : 1);
-  const layerOf = (s: DeckStory) => layers[s.id] ?? (result(s) ? 2 : 0);
 
   const goTo = useCallback((i: number) => {
     const el = cards.current[i];
@@ -114,23 +95,18 @@ export function Deck({
     box.scrollTo({ top: el.offsetTop - box.offsetTop, behavior: smooth ? "smooth" : "auto" });
   }, []);
 
-  const reveal = (s: DeckStory, to?: number) => {
-    const next = Math.min(maxLayer(s), to ?? layerOf(s) + 1);
-    setLayers((l) => ({ ...l, [s.id]: next }));
-    if (next >= 1 && !p.reads[s.id]) markRead(s.id, s.cardIds);
-  };
-
   const answer = (s: DeckStory, i: number) => {
     const m = s.mcqs[0];
     const ok = i === m.content.answer;
     setPicks((x) => ({ ...x, [s.id]: i }));
     answerQuestion(m.id, s.category, ok);
+    if (!p.reads[s.id]) markRead(s.id, s.cardIds);
     const c = ok ? combo + 1 : 0;
     setCombo(c);
     setPop({ id: s.id, text: ok ? `+${XP.right} XP${c >= 2 ? ` · ×${c} combo` : ""}` : `+${XP.wrong} XP`, key: Date.now() });
   };
 
-  // Track the card in view.
+  // The story crossing a line a third of the way down the feed is the active one.
   useEffect(() => {
     const box = scroller.current;
     if (!box) return;
@@ -144,13 +120,34 @@ export function Deck({
             if (it?.kind === "story") setSeen((s) => (s.has(it.s.id) ? s : new Set(s).add(it.s.id)));
           }
       },
-      { root: box, threshold: 0.6 },
+      { root: box, rootMargin: "-33% 0px -66% 0px" },
     );
     cards.current.forEach((c) => c && io.observe(c));
     return () => io.disconnect();
   }, [items]);
 
-  // Keyboard: ↑/↓ or j/k move between cards, → / Enter / Space unfold, ← folds, D opens the deep dive.
+  // A story counts as read once its key facts have been on screen.
+  const reads = useRef(p.reads);
+  useEffect(() => {
+    reads.current = p.reads;
+  });
+  useEffect(() => {
+    const box = scroller.current;
+    if (!box) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          const s = e.isIntersecting ? byId.get((e.target as HTMLElement).dataset.facts ?? "") : null;
+          if (s && !reads.current[s.id]) markRead(s.id, s.cardIds);
+        }
+      },
+      { root: box, threshold: 0.35 },
+    );
+    box.querySelectorAll("[data-facts]").forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [items, byId]);
+
+  // Keyboard: j/k jump between stories, D opens the deep dive, 1–4 answer the active story's question.
   const keys = useRef<(e: KeyboardEvent) => void>(() => {});
   useEffect(() => {
     keys.current = (e: KeyboardEvent) => {
@@ -158,23 +155,10 @@ export function Deck({
       if ((e.target as HTMLElement)?.closest?.("input,textarea,select,[role=dialog]")) return;
       const it = items[active];
       const k = e.key;
-      if (k === "ArrowDown" || k === "j") {
-        e.preventDefault();
-        goTo(Math.min(items.length - 1, active + 1));
-      } else if (k === "ArrowUp" || k === "k") {
-        e.preventDefault();
-        goTo(Math.max(0, active - 1));
-      } else if (it?.kind === "story" && (k === "ArrowRight" || k === "Enter" || k === " ")) {
-        e.preventDefault();
-        if (layerOf(it.s) < maxLayer(it.s)) reveal(it.s);
-        else goTo(Math.min(items.length - 1, active + 1));
-      } else if (it?.kind === "story" && k === "ArrowLeft") {
-        setLayers((l) => ({ ...l, [it.s.id]: Math.max(0, layerOf(it.s) - 1) }));
-      } else if (it?.kind === "story" && (k === "d" || k === "D")) {
-        setReader(it.s.id);
-      } else if (it?.kind === "story" && layerOf(it.s) === 2 && picks[it.s.id] === undefined && !result(it.s) && ["1", "2", "3", "4"].includes(k)) {
-        answer(it.s, Number(k) - 1);
-      }
+      if (k === "j") goTo(Math.min(items.length - 1, active + 1));
+      else if (k === "k") goTo(Math.max(0, active - 1));
+      else if (it?.kind === "story" && (k === "d" || k === "D")) setReader(it.s.id);
+      else if (it?.kind === "story" && it.s.mcqs[0] && picks[it.s.id] === undefined && !result(it.s) && ["1", "2", "3", "4"].includes(k)) answer(it.s, Number(k) - 1);
     };
   });
   useEffect(() => {
@@ -199,7 +183,7 @@ export function Deck({
   const toolbar = (
     <div className="flex min-w-0 items-center gap-2">
       <div className="shrink-0 lg:hidden">{picker}</div>
-      <div className="no-scrollbar max-lg:fade-x flex min-w-0 gap-1.5 overflow-x-auto py-0.5 pr-4" role="toolbar" aria-label={hi ? "फ़िल्टर" : "Filter the deck"}>
+      <div className="no-scrollbar max-lg:fade-x flex min-w-0 gap-1.5 overflow-x-auto py-0.5 pr-4" role="toolbar" aria-label={hi ? "फ़िल्टर" : "Filter the stories"}>
         <button className="chip shrink-0" aria-pressed={!topic} onClick={() => setTopic(null)}>
           {hi ? "सभी" : "All"} <span className="font-mono text-[11px] opacity-60">{all.length}</span>
         </button>
@@ -220,13 +204,13 @@ export function Deck({
 
   return (
     <div className="grid h-full min-h-0 grid-cols-[minmax(0,1fr)] gap-2 lg:grid-cols-[272px_minmax(0,1fr)_340px] lg:grid-rows-1 lg:gap-5 xl:grid-cols-[300px_minmax(0,1fr)_380px]">
-      {/* Left pane (desktop): the deck queue. */}
+      {/* Left pane (desktop): the day's queue. */}
       <aside className="hidden min-h-0 flex-col lg:flex" aria-label={hi ? "आज की सूची" : "Today's queue"}>
         <div className="card flex min-h-0 flex-1 flex-col overflow-hidden">
           <div className="flex items-center justify-between gap-2 border-b border-line p-3">
             {picker}
             <span className="font-mono text-[11px] text-ink-3 tnum">
-              {readN}/{mainStories.length} {hi ? "खुलीं" : "read"} · {right}/{answered.length} {hi ? "सही" : "right"}
+              {readN}/{mainStories.length} {hi ? "पढ़ीं" : "read"} · {right}/{answered.length} {hi ? "सही" : "right"}
             </span>
           </div>
           <ol className="flex-1 overflow-y-auto p-2">
@@ -255,11 +239,11 @@ export function Deck({
         </div>
       </aside>
 
-      {/* Centre: toolbar + the snapping deck. */}
+      {/* Centre: toolbar + the scrolling feed. */}
       <div className="flex min-h-0 flex-col gap-2 lg:gap-3">
         <div className="px-3 lg:px-0">{toolbar}</div>
-        <div className="relative min-h-0 flex-1 lg:pr-14">
-          <div ref={scroller} className="deck h-full overflow-y-auto" tabIndex={-1} aria-label={hi ? "ख़बरों की डेक" : "Story deck"}>
+        <div className="relative min-h-0 flex-1">
+          <div ref={scroller} className="feed h-full overflow-y-auto px-2 pb-[96px] sm:px-3 lg:px-0 lg:pb-6" tabIndex={-1} aria-label={hi ? "आज की ख़बरें" : "Today's stories"}>
             {items.map((it, i) => (
               <section
                 key={it.kind === "end" ? "end" : it.s.id}
@@ -267,25 +251,21 @@ export function Deck({
                   cards.current[i] = el;
                 }}
                 data-i={i}
-                className="h-full px-2 pb-[84px] sm:px-3 lg:px-0 lg:pb-3"
-                aria-roledescription="card"
+                className="pb-3 lg:pb-5"
+                aria-roledescription={it.kind === "end" ? undefined : "story"}
               >
                 {it.kind === "end" ? (
                   <EndCard lang={lang} date={date} readN={readN} total={mainStories.length} right={right} answered={answered.length} moreCount={items.length - i - 1} onMore={() => goTo(i + 1)} />
                 ) : (
-                  <StoryCardDeck
+                  <StoryBlock
                     it={it}
                     lang={lang}
-                    layer={layerOf(it.s)}
-                    max={maxLayer(it.s)}
                     read={!!p.reads[it.s.id]}
                     picked={picks[it.s.id] ?? null}
                     earlier={picks[it.s.id] === undefined ? result(it.s) : null}
                     pop={pop?.id === it.s.id ? pop : null}
                     combo={combo}
-                    onReveal={(to) => reveal(it.s, to)}
                     onAnswer={(a) => answer(it.s, a)}
-                    onNext={() => goTo(i + 1)}
                     onDeep={() => setReader(it.s.id)}
                   />
                 )}
@@ -314,19 +294,10 @@ export function Deck({
               />
             ))}
           </div>
-          {/* Desktop up/down controls */}
-          <div className="absolute top-1/2 right-0 hidden -translate-y-1/2 flex-col gap-2 lg:flex">
-            <button onClick={() => goTo(Math.max(0, active - 1))} aria-label="Previous card" className="btn btn-ghost size-11 px-0 shadow-card">
-              <ChevronUp className="size-5" />
-            </button>
-            <button onClick={() => goTo(Math.min(items.length - 1, active + 1))} aria-label="Next card" className="btn btn-ink size-11 px-0 shadow-card">
-              <ChevronDown className="size-5" />
-            </button>
-          </div>
         </div>
       </div>
 
-      {/* Right pane (desktop): live context for the active card. */}
+      {/* Right pane (desktop): live context for the story in view. */}
       <aside className="hidden min-h-0 lg:block" aria-label={hi ? "संदर्भ" : "Context"}>
         <div className="card h-full overflow-y-auto p-5">
           {activeStory ? <ContextPanel key={activeStory.id} s={activeStory} lang={lang} /> : <DayContext lang={lang} />}
@@ -354,107 +325,37 @@ function StateDot({ state }: { state: "right" | "wrong" | "read" | "seen" | null
   return <span className={cx("mt-1.5 size-2.5 shrink-0 rounded-full", state === "read" ? "bg-ink-2" : state === "seen" ? "bg-ink-3/50" : "shadow-[inset_0_0_0_1.5px_var(--line-2)]")} aria-label={state ?? "Not opened"} />;
 }
 
-const LAYER_NAMES = { en: ["Headline", "Key facts", "Test"], hi: ["शीर्षक", "मुख्य तथ्य", "प्रश्न"] };
-
-function StoryCardDeck({
+/** One story in the feed, read top to bottom: headline and summary → key facts → quick question. */
+function StoryBlock({
   it,
   lang,
-  layer,
-  max,
   read,
   picked,
   earlier,
   pop,
   combo,
-  onReveal,
   onAnswer,
-  onNext,
   onDeep,
 }: {
   it: Extract<Item, { kind: "story" }>;
   lang: Lang;
-  layer: number;
-  max: number;
   read: boolean;
   picked: number | null;
   earlier: "right" | "wrong" | null;
   pop: { text: string; key: number } | null;
   combo: number;
-  onReveal: (to?: number) => void;
   onAnswer: (i: number) => void;
-  onNext: () => void;
   onDeep: () => void;
 }) {
   const s = it.s;
   const ui = lang === "bi" ? "en" : lang;
   const hi = ui === "hi";
   const mcq = s.mcqs[0];
-  const done = layer >= max && (!mcq || picked !== null || earlier);
-  const names = LAYER_NAMES[hi ? "hi" : "en"];
-  const primary = done
-    ? { label: hi ? "अगली ख़बर" : "Next story", icon: ArrowDown, go: onNext }
-    : layer === 0
-      ? { label: hi ? "तथ्य खोलें" : "Key facts", icon: Layers3, go: () => onReveal() }
-      : layer === 1
-        ? { label: hi ? "ख़ुद को परखें" : "Test yourself", icon: Zap, go: () => onReveal() }
-        : { label: hi ? "छोड़ें" : "Skip", icon: ArrowDown, go: onNext };
-  const body = useRef<HTMLDivElement>(null);
-  const desktop = useIsDesktop();
-  // Phones: if a layer still overflows the card, tighten in steps. 1: smaller type; 2: fewer facts and
-  // no inner question card; 3: hide the card's top row. Only step 4 lets the body scroll, so nothing is cut off.
-  const fitKey = `${layer}:${picked}:${earlier}`;
-  const [fitState, setFit] = useState({ key: fitKey, level: 0 });
-  const tight = fitState.key === fitKey ? fitState.level : 0;
-  useEffect(() => {
-    if (desktop || layer === 0) return;
-    const id = setTimeout(
-      () => {
-        const el = body.current;
-        if (el && el.scrollHeight - el.clientHeight > 1 && tight < 4) setFit({ key: fitKey, level: tight + 1 });
-      },
-      tight === 0 ? 560 : 40,
-    );
-    return () => clearTimeout(id);
-  }, [desktop, layer, fitKey, tight]);
-  // Phone layer 0: clamp the summary to the lines that fit under the headline; Deep dive has the rest.
-  const sumBox = useRef<HTMLDivElement>(null);
-  const sumText = useRef<HTMLParagraphElement>(null);
-  const [lines, setLines] = useState(0);
-  useLayoutEffect(() => {
-    const box = sumBox.current;
-    const p = sumText.current;
-    if (!box || !p || desktop || layer !== 0) return;
-    const fit = () => {
-      const lh = parseFloat(getComputedStyle(p).lineHeight) || 26;
-      setLines(Math.max(2, Math.floor(box.clientHeight / lh)));
-    };
-    fit();
-    const ro = new ResizeObserver(fit);
-    ro.observe(box);
-    return () => ro.disconnect();
-  }, [desktop, layer]);
-  // Desktop: bring each new layer into view as it unfolds.
-  useEffect(() => {
-    const el = body.current;
-    if (!el || layer < 2 || !desktop) return;
-    const id = setTimeout(() => {
-      const target = el.querySelector<HTMLElement>(`[data-layer="${layer}"]`);
-      if (target) el.scrollTo({ top: target.offsetTop - 12, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
-    }, 220);
-    return () => clearTimeout(id);
-  }, [layer, desktop]);
 
   return (
-    <div
-      className="cat mesh card group relative flex h-full flex-col overflow-hidden rounded-[28px] shadow-card"
-      style={catStyle(s.category)}
-      onClick={(e) => {
-        if ((e.target as HTMLElement).closest("button,a,[role=radio]")) return;
-        if (layer < max) onReveal();
-      }}
-    >
+    <article className="cat mesh card relative overflow-hidden rounded-[28px] shadow-card" style={catStyle(s.category)}>
       {/* Top row */}
-      <div className={cx("relative flex items-center gap-2 px-4 pt-4 sm:px-6 sm:pt-5 [@media(max-height:720px)]:pt-3", tight >= 3 && "max-lg:hidden")}>
+      <div className="relative flex items-center gap-2 px-4 pt-4 sm:px-6 sm:pt-5">
         <span className="inline-flex h-8 shrink-0 items-center rounded-full bg-solid px-3 font-mono text-xs font-semibold text-on-solid tnum">
           {it.group === "more" && <span className="mr-1.5 opacity-70">{hi ? "और" : "MORE"}</span>}
           {String(it.n).padStart(2, "0")}
@@ -472,146 +373,80 @@ function StoryCardDeck({
         </span>
       </div>
 
-      {/* Body: unfolds in place */}
-      <div
-        ref={body}
-        data-tight={tight}
-        className={cx(
-          "relative flex min-h-0 flex-1 flex-col px-4 pt-3 pb-2 sm:px-6 lg:overflow-y-auto lg:overscroll-contain lg:pt-4",
-          tight >= 4 ? "overflow-y-auto overscroll-contain" : "overflow-hidden",
-        )}
-      >
-        <h2
-          lang={hi ? "hi" : undefined}
-          className={cx(
-            "shrink-0 font-display transition-all duration-500",
-            layer === 0 ? "text-[28px] sm:text-[34px] lg:text-[38px]" : layer === 1
-              ? "text-[20px] max-lg:line-clamp-2 sm:text-[24px]"
-              : "text-[17px] max-lg:line-clamp-2 max-lg:[@media(max-height:720px)]:hidden sm:text-[22px] lg:text-[24px]",
-            layer >= 2 && tight >= 1 && "max-lg:hidden",
-          )}
-        >
+      <div className="relative px-4 pt-3 pb-5 sm:px-6 lg:pt-4 lg:pb-6">
+        <h2 lang={hi ? "hi" : undefined} className="font-display text-[26px] sm:text-[30px] lg:text-[34px]">
           {pick(s.content.title, ui)}
         </h2>
         {lang === "bi" && (
-          <p lang="hi" className={cx("mt-2 shrink-0 text-base font-medium text-ink-2", layer >= 2 && "max-lg:hidden")}>
+          <p lang="hi" className="mt-2 text-base font-medium text-ink-2">
             {s.content.title.hi}
           </p>
         )}
-        {/* Layer 0 shows the whole short summary; once facts unfold it shrinks to the one-line hook. */}
-        {layer === 0 ? (
-          <div ref={sumBox} className="mt-3 min-h-0 flex-1 overflow-hidden lg:flex-none lg:overflow-visible">
-            <p
-              ref={sumText}
-              lang={hi ? "hi" : undefined}
-              className="text-[16px] leading-relaxed text-ink-2 sm:text-[17px]"
-              style={
-                !desktop && lines
-                  ? { display: "-webkit-box", WebkitBoxOrient: "vertical", WebkitLineClamp: lines, overflow: "hidden", maskImage: "linear-gradient(#000 calc(100% - 1.7em), transparent)" }
-                  : undefined
-              }
-            >
-              {pick(s.content.summary, ui)}
-            </p>
-          </div>
-        ) : (
-          <p lang={hi ? "hi" : undefined} className="mt-2 line-clamp-2 shrink-0 text-sm text-ink-2 max-lg:hidden">
-            {pick(s.hook, ui)}
-          </p>
-        )}
+        <p lang={hi ? "hi" : undefined} className="mt-3 text-[16px] leading-relaxed text-ink-2 sm:text-[17px]">
+          {pick(s.content.summary, ui)}
+        </p>
 
-        <div className="unfold shrink-0" data-open={layer === 1 || (layer >= 2 && desktop)}>
-          <div>
-            <div data-layer="1" className="eyebrow mt-3 mb-2 flex lg:mt-5 items-center gap-1.5 text-(--cat-ink)">
+        {s.content.key_facts.length > 0 && (
+          <div data-facts={s.id}>
+            <div className="eyebrow mt-6 mb-2.5 flex items-center gap-1.5 text-(--cat-ink)">
               <Sparkles className="size-3.5" /> {t("keyFacts", ui)}
             </div>
-            <ol className={cx("space-y-1.5 lg:space-y-2 max-lg:[@media(max-height:720px)]:[&>li:nth-child(n+4)]:hidden", tight >= 2 && "max-lg:[&>li:nth-child(n+4)]:hidden")}>
-              {s.content.key_facts.slice(0, 4).map((f, i) => (
-                <li
-                  key={i}
-                  className={cx(
-                    "flex gap-3 rounded-2xl bg-card/80 px-3 py-2 text-[14px] leading-snug font-medium shadow-[inset_0_0_0_1px_var(--line)] lg:px-3.5 lg:py-2.5 lg:text-[15px]",
-                    tight >= 1 && "max-lg:py-1.5 max-lg:text-[13px]",
-                  )}
-                  style={{ transitionDelay: `${i * 60}ms` }}
-                >
+            <ol className="space-y-2">
+              {s.content.key_facts.map((f, i) => (
+                <li key={i} className="flex gap-3 rounded-2xl bg-card/80 px-3.5 py-2.5 text-[15px] leading-snug font-medium shadow-[inset_0_0_0_1px_var(--line)]">
                   <span className="pt-0.5 font-mono text-[11px] text-(--cat-ink)">{String(i + 1).padStart(2, "0")}</span>
-                  <span lang={hi ? "hi" : undefined} className="max-lg:line-clamp-3">
-                    {pick(f, ui)}
-                  </span>
+                  <span lang={hi ? "hi" : undefined}>{pick(f, ui)}</span>
                 </li>
               ))}
             </ol>
           </div>
-        </div>
+        )}
 
         {mcq && (
-          <div className="unfold shrink-0" data-open={layer >= 2}>
-            <div>
-              <div
-                data-layer="2"
-                className={cx(
-                  "relative mt-3 rounded-[22px] bg-card p-3 shadow-[inset_0_0_0_1px_var(--line-2)] sm:p-4 lg:mt-5 lg:p-5",
-                  tight >= 2 && "max-lg:mt-1 max-lg:bg-transparent max-lg:p-0 max-lg:shadow-none",
-                )}
-              >
-                {pop && (
-                  <span key={pop.key} className="xp-pop absolute -top-3 right-4 z-10 rounded-full bg-signal px-3 py-1 font-mono text-xs font-semibold text-on-signal shadow-card">
-                    {pop.text}
-                  </span>
-                )}
-                {picked !== null && picked === mcq.content.answer && <Confetti key={pop?.key} pieces={18} />}
-                <div className={cx("eyebrow mb-2 flex items-center justify-between text-ink-3 lg:mb-3", tight >= 1 && "max-lg:hidden")}>
-                  <span className="inline-flex items-center gap-1.5">
-                    <Zap className="size-3.5 text-flare" /> {hi ? "तुरंत प्रश्न" : "Quick question"} · +{XP.right} XP
-                  </span>
-                  {combo >= 2 && (
-                    <span className="inline-flex items-center gap-1 text-flare-ink">
-                      <Flame className="flicker size-3.5" /> ×{combo}
-                    </span>
-                  )}
-                </div>
-                {earlier && picked === null ? (
-                  <div className={cx("rounded-2xl p-3.5 text-sm", earlier === "right" ? "bg-good-soft text-good-ink" : "bg-bad-soft text-bad-ink")}>
-                    <div className="font-semibold">
-                      {earlier === "right" ? (hi ? "आपने यह पहले सही किया था" : "You got this right earlier") : hi ? "पहले छूट गया था · अब दोहराव में" : "Missed earlier · now in your Revise queue"}
-                    </div>
-                    <div className="mt-1 text-ink">
-                      {pick(mcq.content.question, ui).split("\n")[0]} → <b>{lang === "hi" ? mcq.content.options.hi[mcq.content.answer] : mcq.content.options.en[mcq.content.answer]}</b>
-                    </div>
-                  </div>
-                ) : (
-                  <McqView mcq={mcq.content} lang={lang} selected={picked} reveal={picked !== null} onSelect={picked === null ? onAnswer : undefined} compact={!desktop} tight={tight >= 1} />
-                )}
-              </div>
+          <div className="relative mt-6 rounded-[22px] bg-card p-4 shadow-[inset_0_0_0_1px_var(--line-2)] sm:p-5">
+            {pop && (
+              <span key={pop.key} className="xp-pop absolute -top-3 right-4 z-10 rounded-full bg-signal px-3 py-1 font-mono text-xs font-semibold text-on-signal shadow-card">
+                {pop.text}
+              </span>
+            )}
+            {picked !== null && picked === mcq.content.answer && <Confetti key={pop?.key} pieces={18} />}
+            <div className="eyebrow mb-2 flex items-center justify-between text-ink-3 lg:mb-3">
+              <span className="inline-flex items-center gap-1.5">
+                <Zap className="size-3.5 text-flare" /> {hi ? "तुरंत प्रश्न" : "Quick question"} · +{XP.right} XP
+              </span>
+              {combo >= 2 && (
+                <span className="inline-flex items-center gap-1 text-flare-ink">
+                  <Flame className="flicker size-3.5" /> ×{combo}
+                </span>
+              )}
             </div>
+            {earlier && picked === null ? (
+              <div className={cx("rounded-2xl p-3.5 text-sm", earlier === "right" ? "bg-good-soft text-good-ink" : "bg-bad-soft text-bad-ink")}>
+                <div className="font-semibold">
+                  {earlier === "right" ? (hi ? "आपने यह पहले सही किया था" : "You got this right earlier") : hi ? "पहले छूट गया था · अब दोहराव में" : "Missed earlier · now in your Revise queue"}
+                </div>
+                <div className="mt-1 text-ink">
+                  {pick(mcq.content.question, ui).split("\n")[0]} → <b>{lang === "hi" ? mcq.content.options.hi[mcq.content.answer] : mcq.content.options.en[mcq.content.answer]}</b>
+                </div>
+              </div>
+            ) : (
+              <McqView mcq={mcq.content} lang={lang} selected={picked} reveal={picked !== null} onSelect={picked === null ? onAnswer : undefined} />
+            )}
           </div>
         )}
       </div>
 
-      {/* Footer: layer meter + actions */}
-      <div className="relative flex items-center gap-2 border-t border-line bg-card/60 px-3 py-3 backdrop-blur-md sm:px-5 [@media(max-height:720px)]:py-2">
-        <div className="hidden items-center gap-1 sm:flex" aria-label={`${names[layer]} · ${layer + 1}/${max + 1}`}>
-          {Array.from({ length: max + 1 }, (_, i) => (
-            <button
-              key={i}
-              onClick={() => onReveal(i)}
-              title={names[i]}
-              aria-label={names[i]}
-              className={cx("h-2 rounded-full transition-all duration-300", i <= layer ? "w-7 bg-(--cat-solid)" : "w-2 bg-line-2 hover:bg-ink-3")}
-            />
-          ))}
-        </div>
+      {/* Footer: the deep dive and saving */}
+      <div className="relative flex items-center gap-2 border-t border-line bg-card/60 px-3 py-3 backdrop-blur-md sm:px-5">
         <button onClick={onDeep} className="btn btn-ghost h-11 shrink-0 px-4 text-sm">
           <BookOpenText className="size-4" /> {hi ? "विस्तार" : "Deep dive"}
         </button>
         <BookmarkButton storyId={s.id} />
-        <button onClick={primary.go} className={cx("btn group/p ml-auto h-11 min-w-0 px-4 text-sm sm:px-5", done && "btn-ink")}>
-          <span className="truncate">{primary.label}</span>
-          <primary.icon className="size-4 shrink-0 transition group-hover/p:translate-y-0.5" />
-        </button>
+        <span className="ml-auto inline-flex items-center gap-1 font-mono text-[11px] text-ink-3">
+          {hi ? "आगे स्क्रॉल करें" : "Scroll for next"} <ArrowDown className="size-3.5" />
+        </span>
       </div>
-    </div>
+    </article>
   );
 }
 
@@ -621,7 +456,7 @@ function EndCard({ lang, date, readN, total, right, answered, moreCount, onMore 
   const xp = useXp();
   const complete = total > 0 && readN === total;
   return (
-    <div className="relative flex h-full flex-col overflow-y-auto rounded-[28px] bg-[#10110e] p-6 text-[#f3f2ec] shadow-card dark:bg-card dark:shadow-[inset_0_0_0_1px_var(--line-2)] sm:p-8">
+    <div className="relative flex flex-col overflow-hidden rounded-[28px] bg-[#10110e] p-6 text-[#f3f2ec] shadow-card dark:bg-card dark:shadow-[inset_0_0_0_1px_var(--line-2)] sm:p-8">
       <div aria-hidden className="pointer-events-none absolute -top-24 left-1/2 size-80 -translate-x-1/2 rounded-full bg-[#c8f135] opacity-20 blur-3xl" />
       {complete && <Confetti pieces={40} />}
       <div className="relative flex items-center gap-3">
@@ -637,10 +472,10 @@ function EndCard({ lang, date, readN, total, right, answered, moreCount, onMore 
         {complete
           ? hi
             ? "आज की सभी ख़बरें खुल गईं। अब क्विज़ से पक्का करें।"
-            : "Every story unfolded. Lock it in with the quiz, then revise."
+            : "Every story read. Lock it in with the quiz, then revise."
           : hi
             ? `${total - readN} ख़बरें अभी खुली नहीं हैं।`
-            : `${total - readN} ${total - readN === 1 ? "story is" : "stories are"} still folded. Swipe back up to finish.`}
+            : `${total - readN} ${total - readN === 1 ? "story is" : "stories are"} still unread. Scroll back up to finish.`}
       </p>
 
       <div className="relative mt-6 grid grid-cols-3 gap-2">
@@ -649,7 +484,7 @@ function EndCard({ lang, date, readN, total, right, answered, moreCount, onMore 
             {readN}
             <span className="text-lg opacity-50">/{total}</span>
           </div>
-          <div className="mt-1 text-[11px] text-white/60 dark:text-ink-3">{hi ? "पढ़ीं" : "unfolded"}</div>
+          <div className="mt-1 text-[11px] text-white/60 dark:text-ink-3">{hi ? "पढ़ीं" : "read"}</div>
         </div>
         <div className="rounded-[18px] bg-white/8 p-3.5 dark:bg-card-2">
           <div className="font-display text-[27px] leading-none">
@@ -696,7 +531,7 @@ function ContextPanel({ s, lang }: { s: DeckStory; lang: Lang }) {
   ] as const;
   return (
     <div className="rise space-y-6">
-      <div className="eyebrow text-ink-3">{hi ? "इस कार्ड का संदर्भ" : "Context for this card"}</div>
+      <div className="eyebrow text-ink-3">{hi ? "इस ख़बर का संदर्भ" : "Context for this story"}</div>
       <div className="rounded-[20px] bg-signal-soft p-4 text-sm leading-relaxed">
         <div className="eyebrow mb-2 flex items-center gap-1.5 text-signal-ink">
           <Lightbulb className="size-3.5" /> {t("whyItMatters", ui)}
@@ -737,9 +572,7 @@ function ContextPanel({ s, lang }: { s: DeckStory; lang: Lang }) {
 function DayContext({ lang }: { lang: Lang }) {
   const hi = lang === "hi";
   const keys: [string, string][] = [
-    ["↑ ↓", hi ? "कार्ड बदलें" : "Move between cards"],
-    ["→", hi ? "अगली परत खोलें" : "Unfold the next layer"],
-    ["←", hi ? "परत बंद करें" : "Fold a layer"],
+    ["J K", hi ? "अगली / पिछली ख़बर" : "Next / previous story"],
     ["1–4", hi ? "उत्तर चुनें" : "Answer the question"],
     ["D", hi ? "पूरा पढ़ें" : "Open the deep dive"],
   ];

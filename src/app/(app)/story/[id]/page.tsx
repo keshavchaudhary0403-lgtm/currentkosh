@@ -31,12 +31,12 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
   const dayHref = story.date === latestStoryDate() ? "/" : `/?date=${story.date}`;
 
   return (
-    <div className="mx-auto max-w-3xl pb-16">
+    <div className="pb-16">
       <BackButton fallback={dayHref} label={hi ? "वापस" : "Back"} />
       <div className="px-5 sm:px-8">
         <ReaderBody story={toDeckStory(story, profile)} lang={lang} variant="page" nextHref={next ? `/story/${next.id}` : null} />
       </div>
-      <nav className="mt-12 grid gap-3 sm:grid-cols-2" aria-label="Keep reading">
+      <nav className="mt-12 grid gap-3 px-5 sm:grid-cols-2 sm:px-8" aria-label="Keep reading">
         {next ? (
           <Link href={`/story/${next.id}`} className="card lift group p-5 sm:order-2">
             <span className="eyebrow text-ink-3">{hi ? "अगली ख़बर" : "Up next"}</span>

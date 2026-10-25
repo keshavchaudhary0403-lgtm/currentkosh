@@ -83,7 +83,7 @@ export function TestBuilder({ latest, lang }: { latest: string; lang: Lang }) {
   };
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-4 [&_.chip]:min-h-8 [&_.chip]:px-3">
       <Row label={hi ? "अवधि" : "Period"}>
         {RANGES.map((r) => (
           <button key={r.id} className="chip" aria-pressed={range === r.id} onClick={() => setRange(r.id)}>

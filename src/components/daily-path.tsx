@@ -44,7 +44,7 @@ export function DailyPath({ current }: { current?: "read" | "quiz" | "revise" })
         </div>
       </div>
 
-      <ol className="relative mt-6 grid grid-cols-3 gap-2">
+      <ol className="relative mt-4 grid grid-cols-3 gap-2">
         {/* Track behind the nodes */}
         <span aria-hidden className="absolute top-7 right-[16.6%] left-[16.6%] h-1 rounded-full bg-white/10 dark:bg-line-2" />
         <span aria-hidden className="grow-x absolute top-7 left-[16.6%] h-1 rounded-full bg-[#c8f135] transition-all duration-700" style={{ width: `${(Math.min(2, lead) / 2) * 66.8}%` }} />
@@ -66,7 +66,7 @@ export function DailyPath({ current }: { current?: "read" | "quiz" | "revise" })
         ))}
       </ol>
 
-      <div className="relative mt-5 flex items-center gap-3">
+      <div className="relative mt-4 flex items-center gap-3">
         <span className="font-mono text-xs text-white/60 dark:text-ink-3">L{xp.level}</span>
         <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/10 dark:bg-line-2">
           <span className="grow-x block h-full rounded-full bg-[#c8f135]" style={{ width: `${(xp.into / LEVEL_SIZE) * 100}%` }} />

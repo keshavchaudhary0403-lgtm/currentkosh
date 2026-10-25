@@ -24,7 +24,7 @@ export default async function Today({ searchParams }: PageProps<"/">) {
   const picker = <DayPicker key={date} dates={dates} selected={date} latest={latest ?? date} lang={lang} />;
 
   return (
-    <div className="h-[calc(100dvh-4rem)] pt-2 lg:p-6 lg:pt-5">
+    <div className="h-[calc(100dvh-4rem-1px)] pt-2 lg:p-6 lg:pt-5">
       <h1 className="sr-only">{date === latest ? (ui === "hi" ? "आज की ख़बरें" : "Today's news") : ui === "hi" ? "इस दिन की ख़बरें" : "News for this day"}</h1>
       {main.length ? (
         <Deck main={main} more={more} lang={lang} date={date} isLatest={date === latest} picker={picker} />

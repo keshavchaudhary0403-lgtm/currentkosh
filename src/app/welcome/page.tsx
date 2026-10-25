@@ -31,12 +31,7 @@ export default async function Welcome() {
             <span lang="hi" className="eyebrow hidden text-ink-3 sm:block">
               करंट कोश
             </span>
-            <span className="sm:hidden">
-              <ThemeSwitch />
-            </span>
-            <span className="hidden sm:block">
-              <ThemeSwitch labeled />
-            </span>
+            <ThemeSwitch />
           </span>
         </div>
         <div className="mt-10 grid items-start gap-10 lg:mt-14 lg:grid-cols-[1fr_1.02fr] lg:gap-14">

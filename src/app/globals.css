@@ -807,35 +807,13 @@ body {
   }
 }
 
-/* Deck: each card fills the scroller and snaps. */
-.deck {
-  scroll-snap-type: y mandatory;
+/* Today's feed scrolls freely; the scrollbar stays out of the way. */
+.feed {
   overscroll-behavior-y: contain;
   scrollbar-width: none;
 }
-.deck::-webkit-scrollbar {
+.feed::-webkit-scrollbar {
   display: none;
-}
-.deck > * {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-/* Layers unfold in place. */
-.unfold {
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  transition:
-    grid-template-rows 0.5s var(--ease-out),
-    opacity 0.35s ease;
-}
-.unfold[data-open="true"] {
-  grid-template-rows: 1fr;
-  opacity: 1;
-}
-.unfold > * {
-  min-height: 0;
-  overflow: hidden;
 }
 /* XP pop */
 .xp-pop {

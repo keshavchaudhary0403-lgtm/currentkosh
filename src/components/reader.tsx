@@ -60,117 +60,123 @@ export function ReaderBody({ story, lang, variant, nextHref, onClose }: { story:
         {variant === "sheet" && <ThemeSwitch className="ml-auto" />}
       </div>
 
-      <header className="pt-6">
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-          <span className="inline-flex h-8 items-center gap-2 rounded-full bg-(--cat-tint) pr-3 pl-1 text-xs font-semibold text-(--cat-ink)">
-            <CategoryIcon id={story.category} size="sm" solid />
-            {pick(categoryById(story.category)?.label, ui)}
-          </span>
-          <span className="eyebrow text-ink-3">
-            {fmtDate(story.date, ui, { day: "numeric", month: "short", year: "numeric" })}
-            {story.gsPaper !== "none" && ` · UPSC ${story.gsPaper}`} · {minutes} min
-          </span>
-        </div>
-        <BiText
-          v={c.title}
-          lang={lang}
-          as="h1"
-          className={cx("mt-4 font-display", variant === "sheet" ? "text-[27px] sm:text-[32px]" : "text-[29px] sm:text-[42px]")}
-          hiClassName="font-sans text-lg sm:text-xl font-semibold tracking-normal mt-3 leading-snug"
-        />
-        <div className="mt-4 flex flex-wrap gap-2">
-          {story.exams.map((e, i) => (
-            <span key={i} className="inline-flex h-8 items-center gap-1.5 rounded-full bg-card px-3 text-xs font-semibold text-ink-2 shadow-[inset_0_0_0_1px_var(--line)] has-[>span]:pr-1">
-              {pick(e.label, ui)} <RelevanceBadge level={e.level} lang={ui} />
-            </span>
-          ))}
-        </div>
-      </header>
-
-      <section className="mt-7 border-l-[3px] border-(--cat-solid) pl-5">
-        <BiText v={c.summary} lang={lang} as="p" className="text-[17px] leading-[1.7] sm:text-[19px]" hiClassName="mt-4 text-base" />
-      </section>
-
-      <section className="card mt-7 overflow-hidden">
-        <h2 className="flex items-center gap-2.5 border-b border-line bg-(--cat-tint) px-5 py-3.5 text-[15px] font-semibold">
-          <Sparkles className="size-[18px] text-(--cat-ink)" /> {t("keyFacts", ui)}
-        </h2>
-        <ol className="divide-y divide-line">
-          {c.key_facts.map((f, i) => (
-            <li key={i} className="flex gap-4 px-5 py-3.5 text-[15px] leading-relaxed font-medium">
-              <span className="w-6 shrink-0 pt-0.5 font-mono text-xs text-(--cat-ink)">{String(i + 1).padStart(2, "0")}</span>
-              <BiText v={f} lang={lang} hiClassName="text-sm" />
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <section className="mt-4 grid gap-3 sm:grid-cols-2">
-        <Insight tone="signal" icon={<Lightbulb className="size-[18px]" />} title={t("whyItMatters", ui)}>
-          <BiText v={c.why_it_matters} lang={lang} as="p" />
-        </Insight>
-        <Insight tone="cobalt" icon={<Landmark className="size-[18px]" />} title={t("staticLink", ui)}>
-          <BiText v={c.static_link} lang={lang} as="p" />
-        </Insight>
-        {c.mains_angle && (
-          <Insight tone="ink" icon={<PenLine className="size-[18px]" />} title={t("mainsAngle", ui)} className="sm:col-span-2">
-            <BiText v={c.mains_angle} lang={lang} as="p" className="font-display text-[17px] leading-snug" hiClassName="font-sans text-base" />
-          </Insight>
-        )}
-      </section>
-
-      {c.glossary.length > 0 && (
-        <section className="mt-7">
-          <h2 className="eyebrow mb-3 text-ink-3">{t("glossary", ui)}</h2>
-          <div className="flex flex-wrap gap-2">
-            {c.glossary.map((g, i) => (
-              <span key={i} className="inline-flex min-h-10 items-center gap-2 rounded-full bg-card px-4 text-sm font-medium shadow-[inset_0_0_0_1px_var(--line-2)]">
-                {g.en} <span className="text-ink-3">⇄</span>
-                <span lang="hi" className="text-mint-ink">
-                  {g.hi}
-                </span>
+      {/* On a desktop page the reading column sits beside an aside with sources, glossary and the storyline. */}
+      <div className={cx(variant === "page" && "lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,360px)] lg:gap-10 xl:gap-14")}>
+        <div className="min-w-0">
+          <header className="pt-6">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+              <span className="inline-flex h-8 items-center gap-2 rounded-full bg-(--cat-tint) pr-3 pl-1 text-xs font-semibold text-(--cat-ink)">
+                <CategoryIcon id={story.category} size="sm" solid />
+                {pick(categoryById(story.category)?.label, ui)}
               </span>
-            ))}
-          </div>
-        </section>
-      )}
-
-      <section className="card mt-7 p-5">
-        <SourceGroup icon={<ShieldCheck className="size-[18px] text-good" />} title={hi ? "आधिकारिक स्रोत" : "Official sources"} items={official} />
-        <SourceGroup icon={<Newspaper className="size-[18px] text-amber-ink" />} title={hi ? "समाचार रिपोर्ट (तथ्य मिलान)" : "Press reports (facts cross-checked)"} items={press} />
-        <SourceGroup title={hi ? "यहाँ भी पढ़ें" : "Also covered by"} items={also} />
-        <p className="mt-4 rounded-2xl bg-card-2 p-3 text-xs leading-relaxed text-ink-3">{note}</p>
-      </section>
-
-      {story.mcqs.length > 0 && (
-        <section id={quizId} className="mt-10 scroll-mt-20">
-          <div className="mb-4 flex items-end gap-3">
-            <span className="grid size-11 place-items-center rounded-[14px] bg-flare text-white">
-              <Target className="size-5" />
-            </span>
-            <div>
-              <div className="eyebrow text-ink-3">
-                {story.mcqs.length} {hi ? "प्रश्न" : story.mcqs.length === 1 ? "question" : "questions"}
-              </div>
-              <h2 className="font-display text-[25px] leading-none">{t("quickCheck", ui)}</h2>
+              <span className="eyebrow text-ink-3">
+                {fmtDate(story.date, ui, { day: "numeric", month: "short", year: "numeric" })}
+                {story.gsPaper !== "none" && ` · UPSC ${story.gsPaper}`} · {minutes} min
+              </span>
             </div>
-          </div>
-          <QuickCheck mcqs={story.mcqs} category={story.category} lang={lang} />
-        </section>
-      )}
+            <BiText
+              v={c.title}
+              lang={lang}
+              as="h1"
+              className={cx("mt-4 font-display", variant === "sheet" ? "text-[27px] sm:text-[32px]" : "text-[29px] sm:text-[42px]")}
+              hiClassName="font-sans text-lg sm:text-xl font-semibold tracking-normal mt-3 leading-snug"
+            />
+            <div className="mt-4 flex flex-wrap gap-2">
+              {story.exams.map((e, i) => (
+                <span key={i} className="inline-flex h-8 items-center gap-1.5 rounded-full bg-card px-3 text-xs font-semibold text-ink-2 shadow-[inset_0_0_0_1px_var(--line)] has-[>span]:pr-1">
+                  {pick(e.label, ui)} <RelevanceBadge level={e.level} lang={ui} />
+                </span>
+              ))}
+            </div>
+          </header>
 
-      {story.thread && (
-        <section className="mt-10">
-          <div className="eyebrow mb-1 inline-flex items-center gap-1.5 text-amber-ink">
-            <Waypoints className="size-3.5" /> {hi ? "घटनाक्रम" : "Storyline"}
-          </div>
-          <h2 className="mb-5 text-xl font-semibold">{pick(story.thread.title, ui)}</h2>
-          <MiniTimeline items={story.thread.nearby} currentId={story.id} ui={ui} />
-          <Link href={`/thread/${story.thread.key}`} className="btn btn-ghost mt-5 h-11 w-full px-4 text-sm">
-            {hi ? `पूरा क्रम देखें (${story.thread.count})` : `See all ${story.thread.count} updates`} <ArrowRight className="size-4" />
-          </Link>
-        </section>
-      )}
+          <section className="mt-7 border-l-[3px] border-(--cat-solid) pl-5">
+            <BiText v={c.summary} lang={lang} as="p" className="text-[17px] leading-[1.7] sm:text-[19px]" hiClassName="mt-4 text-base" />
+          </section>
+
+          <section className="card mt-7 overflow-hidden">
+            <h2 className="flex items-center gap-2.5 border-b border-line bg-(--cat-tint) px-5 py-3.5 text-[15px] font-semibold">
+              <Sparkles className="size-[18px] text-(--cat-ink)" /> {t("keyFacts", ui)}
+            </h2>
+            <ol className="divide-y divide-line">
+              {c.key_facts.map((f, i) => (
+                <li key={i} className="flex gap-4 px-5 py-3.5 text-[15px] leading-relaxed font-medium">
+                  <span className="w-6 shrink-0 pt-0.5 font-mono text-xs text-(--cat-ink)">{String(i + 1).padStart(2, "0")}</span>
+                  <BiText v={f} lang={lang} hiClassName="text-sm" />
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <section className="mt-4 grid gap-3 sm:grid-cols-2">
+            <Insight tone="signal" icon={<Lightbulb className="size-[18px]" />} title={t("whyItMatters", ui)}>
+              <BiText v={c.why_it_matters} lang={lang} as="p" />
+            </Insight>
+            <Insight tone="cobalt" icon={<Landmark className="size-[18px]" />} title={t("staticLink", ui)}>
+              <BiText v={c.static_link} lang={lang} as="p" />
+            </Insight>
+            {c.mains_angle && (
+              <Insight tone="ink" icon={<PenLine className="size-[18px]" />} title={t("mainsAngle", ui)} className="sm:col-span-2">
+                <BiText v={c.mains_angle} lang={lang} as="p" className="font-display text-[17px] leading-snug" hiClassName="font-sans text-base" />
+              </Insight>
+            )}
+          </section>
+
+          {story.mcqs.length > 0 && (
+            <section id={quizId} className="mt-10 scroll-mt-20">
+              <div className="mb-4 flex items-end gap-3">
+                <span className="grid size-11 place-items-center rounded-[14px] bg-flare text-white">
+                  <Target className="size-5" />
+                </span>
+                <div>
+                  <div className="eyebrow text-ink-3">
+                    {story.mcqs.length} {hi ? "प्रश्न" : story.mcqs.length === 1 ? "question" : "questions"}
+                  </div>
+                  <h2 className="font-display text-[25px] leading-none">{t("quickCheck", ui)}</h2>
+                </div>
+              </div>
+              <QuickCheck mcqs={story.mcqs} category={story.category} lang={lang} />
+            </section>
+          )}
+        </div>
+        <aside className={cx(variant === "page" && "lg:pt-6 lg:[&>section:first-child]:mt-0")}>
+          <section className="card mt-7 p-5">
+            <SourceGroup icon={<ShieldCheck className="size-[18px] text-good" />} title={hi ? "आधिकारिक स्रोत" : "Official sources"} items={official} />
+            <SourceGroup icon={<Newspaper className="size-[18px] text-amber-ink" />} title={hi ? "समाचार रिपोर्ट (तथ्य मिलान)" : "Press reports (facts cross-checked)"} items={press} />
+            <SourceGroup title={hi ? "यहाँ भी पढ़ें" : "Also covered by"} items={also} />
+            <p className="mt-4 rounded-2xl bg-card-2 p-3 text-xs leading-relaxed text-ink-3">{note}</p>
+          </section>
+
+          {c.glossary.length > 0 && (
+            <section className="mt-7">
+              <h2 className="eyebrow mb-3 text-ink-3">{t("glossary", ui)}</h2>
+              <div className="flex flex-wrap gap-2">
+                {c.glossary.map((g, i) => (
+                  <span key={i} className="inline-flex min-h-10 items-center gap-2 rounded-full bg-card px-4 text-sm font-medium shadow-[inset_0_0_0_1px_var(--line-2)]">
+                    {g.en} <span className="text-ink-3">⇄</span>
+                    <span lang="hi" className="text-mint-ink">
+                      {g.hi}
+                    </span>
+                  </span>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {story.thread && (
+            <section className="mt-10">
+              <div className="eyebrow mb-1 inline-flex items-center gap-1.5 text-amber-ink">
+                <Waypoints className="size-3.5" /> {hi ? "घटनाक्रम" : "Storyline"}
+              </div>
+              <h2 className="mb-5 text-xl font-semibold">{pick(story.thread.title, ui)}</h2>
+              <MiniTimeline items={story.thread.nearby} currentId={story.id} ui={ui} />
+              <Link href={`/thread/${story.thread.key}`} className="btn btn-ghost mt-5 h-11 w-full px-4 text-sm">
+                {hi ? `पूरा क्रम देखें (${story.thread.count})` : `See all ${story.thread.count} updates`} <ArrowRight className="size-4" />
+              </Link>
+            </section>
+          )}
+        </aside>
+      </div>
     </article>
   );
 }

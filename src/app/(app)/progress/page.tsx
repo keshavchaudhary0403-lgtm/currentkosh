@@ -31,28 +31,28 @@ export default function Progress() {
     <div className="space-y-8">
       <PageHeader eyebrow={L("Saved privately in this browser", "इसी ब्राउज़र में निजी रूप से सहेजा")} title={ui === "hi" ? "प्रगति" : <>Progress<span className="text-signal-ink">.</span></>} />
 
-      <section className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        <div className="rise relative col-span-2 row-span-2 flex min-h-[260px] flex-col overflow-hidden rounded-[28px] bg-[#10110e] p-6 text-[#f3f2ec] dark:bg-card dark:shadow-[inset_0_0_0_1px_var(--line-2)]">
-          <div aria-hidden className="pointer-events-none absolute -right-16 -bottom-24 size-72 rounded-full bg-[#c8f135] opacity-20 blur-3xl" />
-          <span className="grid size-14 place-items-center rounded-[18px] bg-[#c8f135] text-[#10110e]">
-            <Flame className={cx("size-7", run > 0 && "flicker")} strokeWidth={2.2} />
+      <section className="card rise grid grid-cols-2 divide-line sm:grid-cols-3 lg:grid-cols-5 lg:divide-x">
+        <div className="col-span-2 flex items-center gap-4 p-5 sm:col-span-3 lg:col-span-1">
+          <span className="grid size-12 shrink-0 place-items-center rounded-[16px] bg-signal text-on-signal">
+            <Flame className={cx("size-6", run > 0 && "flicker")} strokeWidth={2.2} />
           </span>
-          <div className="relative mt-auto pt-6">
-            <div className="font-display text-[86px] leading-[0.8] sm:text-[109px]">
-              <Count to={run} />
-            </div>
-            <div className="mt-3 text-sm text-white/70 dark:text-ink-2">{L("day streak · small daily steps add up", "दिन लगातार · रोज़ के छोटे कदम")}</div>
-          </div>
+          <Stat value={<Count to={run} />} label={L("day streak", "दिन लगातार")} />
         </div>
-        <Tile value={tot.read} label={L("Stories read", "ख़बरें पढ़ीं")} cls="bg-signal text-on-signal" />
-        <Tile value={tot.answered} label={L("Questions answered", "प्रश्न हल किए")} cls="card" />
-        <div className="card rise flex items-center gap-4 p-4 sm:p-5">
-          <ProgressRing value={accuracy} max={100} size={72} stroke={8} color="var(--good)" label={`${accuracy}%`}>
-            <span className="font-mono text-sm font-semibold tnum">{tot.answered ? `${accuracy}%` : "—"}</span>
+        <div className="p-5">
+          <Stat value={<Count to={tot.read} />} label={L("Stories read", "ख़बरें पढ़ीं")} />
+        </div>
+        <div className="p-5">
+          <Stat value={<Count to={tot.answered} />} label={L("Questions answered", "प्रश्न हल किए")} />
+        </div>
+        <div className="flex items-center gap-3 p-5">
+          <ProgressRing value={accuracy} max={100} size={48} stroke={6} color="var(--good)" label={`${accuracy}%`}>
+            <span className="sr-only">{accuracy}%</span>
           </ProgressRing>
-          <div className="text-xs font-semibold">{L("Accuracy", "सटीकता")}</div>
+          <Stat value={tot.answered ? `${accuracy}%` : "—"} label={L("Accuracy", "सटीकता")} />
         </div>
-        <Tile value={tot.mastered} label={L("Facts mastered", "पक्के तथ्य")} hint={L("interval ≥ 21 days", "अंतराल ≥ 21 दिन")} cls="bg-cobalt-soft text-cobalt-ink" />
+        <div className="p-5">
+          <Stat value={<Count to={tot.mastered} />} label={L("Facts mastered", "पक्के तथ्य")} hint={L("interval ≥ 21 days", "अंतराल ≥ 21 दिन")} />
+        </div>
       </section>
 
       <div className="space-y-8 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6 lg:space-y-0">
@@ -122,14 +122,12 @@ export default function Progress() {
   );
 }
 
-function Tile({ value, label, hint, cls }: { value: number; label: string; hint?: string; cls: string }) {
+function Stat({ value, label, hint }: { value: React.ReactNode; label: string; hint?: string }) {
   return (
-    <div className={cx("rise flex flex-col justify-end rounded-[24px] p-4 sm:p-5", cls)}>
-      <div className="font-display text-[37px] leading-none">
-        <Count to={value} />
-      </div>
-      <div className="mt-2 text-xs font-semibold">{label}</div>
-      {hint && <div className="text-[11px] opacity-70">{hint}</div>}
+    <div>
+      <div className="font-display text-[30px] leading-none tnum">{value}</div>
+      <div className="mt-1.5 text-xs font-semibold text-ink-2">{label}</div>
+      {hint && <div className="text-[11px] text-ink-3">{hint}</div>}
     </div>
   );
 }
