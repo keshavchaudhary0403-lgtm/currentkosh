@@ -19,7 +19,7 @@ export function WeakDrillCard() {
         <Crosshair className="size-6" strokeWidth={2} />
       </span>
       <span className="min-w-0 flex-1">
-        <span className="block font-display text-[26px] leading-tight text-flare-ink">{ui === "hi" ? "कमज़ोर विषय अभ्यास" : "Weak-area drill"}</span>
+        <span className="block font-display text-[20px] leading-tight text-flare-ink">{ui === "hi" ? "कमज़ोर विषय अभ्यास" : "Weak-area drill"}</span>
         <span className="mt-0.5 line-clamp-2 block text-xs font-medium text-ink-2">
           {weak.length ? `15 ${ui === "hi" ? "प्रश्न" : "Qs"} · ${weak.map((c) => pick(categoryById(c)?.label, ui)).join(", ")}` : ui === "hi" ? "कुछ टेस्ट के बाद खुलेगा" : "Unlocks after a few tests"}
         </span>

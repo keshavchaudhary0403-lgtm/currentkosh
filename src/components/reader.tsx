@@ -75,7 +75,7 @@ export function ReaderBody({ story, lang, variant, nextHref, onClose }: { story:
           v={c.title}
           lang={lang}
           as="h1"
-          className={cx("mt-4 font-display", variant === "sheet" ? "text-[34px] sm:text-[42px]" : "text-[38px] sm:text-[56px]")}
+          className={cx("mt-4 font-display", variant === "sheet" ? "text-[27px] sm:text-[32px]" : "text-[29px] sm:text-[42px]")}
           hiClassName="font-sans text-lg sm:text-xl font-semibold tracking-normal mt-3 leading-snug"
         />
         <div className="mt-4 flex flex-wrap gap-2">
@@ -114,7 +114,7 @@ export function ReaderBody({ story, lang, variant, nextHref, onClose }: { story:
         </Insight>
         {c.mains_angle && (
           <Insight tone="ink" icon={<PenLine className="size-[18px]" />} title={t("mainsAngle", ui)} className="sm:col-span-2">
-            <BiText v={c.mains_angle} lang={lang} as="p" className="font-display text-[22px] leading-snug" hiClassName="font-sans text-base" />
+            <BiText v={c.mains_angle} lang={lang} as="p" className="font-display text-[17px] leading-snug" hiClassName="font-sans text-base" />
           </Insight>
         )}
       </section>
@@ -152,7 +152,7 @@ export function ReaderBody({ story, lang, variant, nextHref, onClose }: { story:
               <div className="eyebrow text-ink-3">
                 {story.mcqs.length} {hi ? "प्रश्न" : story.mcqs.length === 1 ? "question" : "questions"}
               </div>
-              <h2 className="font-display text-[32px] leading-none">{t("quickCheck", ui)}</h2>
+              <h2 className="font-display text-[25px] leading-none">{t("quickCheck", ui)}</h2>
             </div>
           </div>
           <QuickCheck mcqs={story.mcqs} category={story.category} lang={lang} />

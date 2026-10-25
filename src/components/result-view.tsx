@@ -59,11 +59,11 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
           <div aria-hidden className="pointer-events-none absolute -top-24 left-1/2 size-72 -translate-x-1/2 rounded-full opacity-25 blur-3xl" style={{ background: tier.ring }} />
           {pct >= 70 && <Confetti pieces={44} />}
           <div className="eyebrow relative text-white/55 dark:text-ink-3">{attempt.title}</div>
-          <h1 className="relative mt-2 font-display text-[40px] leading-none italic">{tier.msg}</h1>
+          <h1 className="relative mt-2 font-display text-[31px] leading-none">{tier.msg}</h1>
           <div className="relative mx-auto mt-6 w-fit">
             <ProgressRing value={correct} max={rows.length || 1} size={176} stroke={14} color={tier.ring} track="rgb(255 255 255 / 0.08)" label={`${pct}% accuracy`}>
               <div>
-                <div className="font-display text-[56px] leading-none">
+                <div className="font-display text-[44px] leading-none">
                   <Count to={pct} />
                   <span className="text-2xl text-white/50 dark:text-ink-3">%</span>
                 </div>
@@ -96,7 +96,7 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
           {tiles.map(({ icon: Icon, value, label, cls }) => (
             <div key={label} className={cx("rounded-[20px] px-2 py-3.5 text-center", cls)}>
               <Icon className="mx-auto size-5" strokeWidth={2} />
-              <div className="mt-1.5 font-display text-[28px] leading-none tnum">{value}</div>
+              <div className="mt-1.5 font-display text-[22px] leading-none tnum">{value}</div>
               <div className="mt-1 text-[11px] font-semibold opacity-80">{label}</div>
             </div>
           ))}
@@ -125,7 +125,7 @@ export function ResultView({ attempt, questions, lang }: { attempt: Attempt; que
       <section>
         <div className="mb-4">
           <div className="eyebrow mb-1 text-ink-3">{rows.length} {L("questions", "प्रश्न")}</div>
-          <h2 className="font-display text-[34px] sm:text-[42px]">{L("Review answers", "उत्तर देखें")}</h2>
+          <h2 className="font-display text-[27px] sm:text-[33px]">{L("Review answers", "उत्तर देखें")}</h2>
         </div>
         <McqReview
           items={rows.map((r) => ({

@@ -128,7 +128,7 @@ export function QuickCheck({ mcqs, category, lang }: { mcqs: { id: string; conte
       ))}
       {done && (
         <p className={cx("pop flex items-center gap-3 rounded-[20px] px-4 py-3.5 text-sm font-semibold", right === mcqs.length ? "bg-good-soft text-good-ink" : "bg-card-2 text-ink-2")}>
-          <span className="font-display text-[28px] leading-none text-ink tnum">
+          <span className="font-display text-[22px] leading-none text-ink tnum">
             {right}/{mcqs.length}
           </span>
           {lang === "hi" ? "सही। छूटे प्रश्न दोहराव में जुड़ गए हैं।" : "correct. Missed questions are added to Revise."}

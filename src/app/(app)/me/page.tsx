@@ -4,7 +4,6 @@ import { redirect } from "next/navigation";
 import { ArrowUpRight, BarChart3, BookOpen, Bookmark, CalendarDays, CalendarRange, ClipboardList, Settings, Waypoints } from "lucide-react";
 import { DailyPath } from "@/components/daily-path";
 import { InstallCard } from "@/components/install";
-import { MyStats } from "@/components/my-stats";
 import { ResetProgress } from "@/components/reset-progress";
 import { LangPicker, ThemeToggle } from "@/components/nav";
 import { daysUntil } from "@/lib/dates";
@@ -34,10 +33,10 @@ export default async function Me() {
       <header className="rise relative overflow-hidden rounded-[28px] bg-[#10110e] p-6 text-[#f3f2ec] dark:bg-card dark:shadow-[inset_0_0_0_1px_var(--line-2)] sm:p-8">
         <div aria-hidden className="pointer-events-none absolute -top-24 -right-10 size-72 rounded-full bg-[#c8f135] opacity-20 blur-3xl" />
         <div className="eyebrow relative text-white/50 dark:text-ink-3">{hi ? "आपकी तैयारी" : "Your prep"}</div>
-        <h1 className="relative mt-2 font-display text-[44px] leading-none sm:text-[60px]">
+        <h1 className="relative mt-2 font-display text-[34px] leading-none sm:text-[47px]">
           {hi ? "आप" : (
             <>
-              Hello, <span className="italic">aspirant.</span>
+              Hello, <span>aspirant.</span>
             </>
           )}
         </h1>
@@ -65,7 +64,6 @@ export default async function Me() {
 
       <div className="space-y-6 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6 lg:space-y-0">
         <div className="space-y-6">
-          <MyStats />
           <section className="card space-y-4 p-5">
             <div>
               <div className="eyebrow mb-2 text-ink-3">{hi ? "पढ़ने की भाषा" : "Reading language"}</div>
@@ -89,7 +87,7 @@ export default async function Me() {
                 <ArrowUpRight className="size-4 text-ink-3 transition group-hover:rotate-45 group-hover:text-ink" />
               </span>
               <span className="mt-auto pt-4">
-                <span className="block font-display text-[26px] leading-none">{label}</span>
+                <span className="block font-display text-[20px] leading-none">{label}</span>
                 <span className="mt-1 block text-xs text-ink-3">{hint}</span>
               </span>
             </Link>

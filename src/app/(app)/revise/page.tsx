@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ArrowUpRight, ListChecks } from "lucide-react";
-import { DailyPath } from "@/components/daily-path";
 import { RevisionHero } from "@/components/revision-hero";
 import { CategoryPill, Empty, PageHeader, SectionTitle, fmtDate } from "@/components/ui";
 import { addDays, daysUntil, istDate } from "@/lib/dates";
@@ -30,11 +29,9 @@ export default async function Revise({ searchParams }: PageProps<"/revise">) {
     <div className="space-y-8">
       <PageHeader
         eyebrow={hi ? "स्पेस्ड रिपिटिशन · 1 → 3 → 7 → 21 → 60 दिन" : "Spaced repetition · 1 → 3 → 7 → 21 → 60 days"}
-        title={hi ? "दोहराएँ" : <>Revise<span className="text-cobalt italic">.</span></>}
-        sub={hi ? "तथ्य भूलने से ठीक पहले लौटते हैं।" : "Facts come back right before you'd forget them."}
+        title={hi ? "दोहराएँ" : <>Revise<span className="text-cobalt">.</span></>}
       />
 
-      <DailyPath current="revise" />
       <RevisionHero countdown={countdown} />
       <section>
         <SectionTitle

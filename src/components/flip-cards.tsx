@@ -29,7 +29,7 @@ export function FlipCards({ cards, lang }: { cards: { front: Bi; back: Bi }[]; l
               </div>
               <div className="flip-face flip-back static! flex flex-col rounded-[24px] bg-cobalt p-5 text-white [grid-area:1/1]">
                 <span className="eyebrow mb-2 text-white/70">{hi ? "उत्तर" : "Answer"}</span>
-                <BiText v={c.back} lang={lang} as="p" className="font-display text-[22px] leading-snug" hiClassName="font-sans text-sm text-white/80" />
+                <BiText v={c.back} lang={lang} as="p" className="font-display text-[17px] leading-snug" hiClassName="font-sans text-sm text-white/80" />
               </div>
             </div>
           </button>

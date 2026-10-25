@@ -21,7 +21,7 @@ export default function Saved() {
     <div className="space-y-7">
       <PageHeader
         eyebrow={`${ids.length} ${hi ? "ख़बरें · अंतिम समय के दोहराव के लिए" : ids.length === 1 ? "story · for last-minute revision" : "stories · for last-minute revision"}`}
-        title={hi ? "सहेजे गए" : <>Saved<span className="text-cobalt italic">.</span></>}
+        title={hi ? "सहेजे गए" : <>Saved<span className="text-cobalt">.</span></>}
         right={
           ids.length > 0 && (
             <Link

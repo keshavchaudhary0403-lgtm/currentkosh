@@ -15,7 +15,6 @@ const PILLARS = [
   { icon: ShieldCheck, title: "Every fact sourced", body: "PIB, AIR, DD News, RBI. No ads, no pop-ups.", cls: "bg-mint text-white" },
 ];
 
-const EXAMS = ["UPSC CSE", "State PSC", "SSC CGL", "IBPS · SBI", "RRB NTPC", "CDS · NDA", "CTET", "यूपीएससी", "बैंकिंग", "रेलवे", "राज्य लोक सेवा आयोग"];
 
 export default async function Welcome() {
   const profile = await currentProfile();
@@ -45,10 +44,10 @@ export default async function Welcome() {
             <p className="eyebrow inline-flex h-8 items-center gap-2 rounded-full bg-card px-3 text-good-ink shadow-[inset_0_0_0_1px_var(--line-2)]">
               <span className="live-dot" /> Updated daily from official sources
             </p>
-            <h1 className="mt-6 font-display text-[56px] leading-[0.95] sm:text-[84px]">
+            <h1 className="mt-6 font-display text-[44px] leading-[0.95] sm:text-[66px]">
               Current affairs,
               <br />
-              <span className="italic">made exam-ready.</span>
+              <span>made exam-ready.</span>
             </h1>
             <p className="mt-6 max-w-md text-[17px] leading-relaxed text-ink-2">
               One feed for UPSC, State PSC, SSC, Banking, Railways and Defence. Read it, test yourself, and let spaced revision do the remembering.
@@ -56,15 +55,6 @@ export default async function Welcome() {
             <p lang="hi" className="mt-2 max-w-md text-sm text-ink-3">
               सभी सरकारी परीक्षाओं के लिए एक साफ़-सुथरा करंट अफ़ेयर्स मंच — हिंदी और अंग्रेज़ी में।
             </p>
-            <div className="fade-x mt-8 overflow-hidden" aria-hidden>
-              <div className="marquee">
-                {[...EXAMS, ...EXAMS].map((e, i) => (
-                  <span key={i} className="mr-2 inline-flex h-10 shrink-0 items-center rounded-full bg-card px-4 text-sm font-semibold whitespace-nowrap shadow-[inset_0_0_0_1px_var(--line-2)]">
-                    {e}
-                  </span>
-                ))}
-              </div>
-            </div>
             <ul className="stagger mt-8 grid grid-cols-2 gap-2.5">
               {PILLARS.map(({ icon: Icon, title, body, cls }) => (
                 <li key={title} className="card p-4">
@@ -81,8 +71,8 @@ export default async function Welcome() {
             <div className="mb-6 flex items-end justify-between gap-4">
               <div>
                 <div className="eyebrow text-ink-3">Free · no sign-up</div>
-                <h2 className="mt-1 font-display text-[38px] leading-none">
-                  Set up in <span className="italic">30 seconds</span>
+                <h2 className="mt-1 font-display text-[30px] leading-none">
+                  Set up in <span>30 seconds</span>
                 </h2>
               </div>
             </div>

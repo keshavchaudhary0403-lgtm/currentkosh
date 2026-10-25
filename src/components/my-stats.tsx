@@ -20,7 +20,7 @@ export function MyStats() {
       {stats.map(({ icon: Icon, cls, value, label }) => (
         <div key={label} className={cx("rounded-[22px] p-4", cls)}>
           <Icon className="size-5" strokeWidth={2} />
-          <div className="mt-4 font-display text-[40px] leading-none tnum">{value}</div>
+          <div className="mt-4 font-display text-[31px] leading-none tnum">{value}</div>
           <div className="mt-1 text-xs font-semibold opacity-80">{label}</div>
         </div>
       ))}

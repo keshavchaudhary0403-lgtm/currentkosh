@@ -47,7 +47,7 @@ export function InstallCard() {
       <div className="flex items-center gap-3">
         <Logo size={44} />
         <div className="min-w-0 flex-1">
-          <div className="font-display text-[24px] leading-none">Install the app</div>
+          <div className="font-display text-[19px] leading-none">Install the app</div>
           <div className="mt-1 text-xs text-ink-2">Opens full-screen from your home screen, works offline for stories you&apos;ve read.</div>
         </div>
       </div>

@@ -39,20 +39,20 @@ export function TodayHeader({ date, lang, isLatest = true, edition, exams, picke
             {hi ? "अंक" : "Edition"} {edition}
           </span>
         </div>
-        <h1 className="mt-2 font-display text-[46px] sm:text-[68px]">
+        <h1 className="mt-2 font-display text-[36px] sm:text-[53px]">
           {isLatest ? (
             hi ? (
               "आज का सार"
             ) : (
               <>
-                Today&apos;s <span className="italic">brief</span>
+                Today&apos;s <span>brief</span>
               </>
             )
           ) : hi ? (
             `${fmtDate(date, ui, { day: "numeric", month: "long" })} का सार`
           ) : (
             <>
-              Brief · <span className="italic">{fmtDate(date, ui, { day: "numeric", month: "long" })}</span>
+              Brief · <span>{fmtDate(date, ui, { day: "numeric", month: "long" })}</span>
             </>
           )}
         </h1>
@@ -100,14 +100,14 @@ export function MissionCard({ date, briefIds, lang, isLatest = true, countdown }
       <div aria-hidden className="pointer-events-none absolute -top-20 -right-16 size-56 rounded-full bg-[#c8f135] opacity-20 blur-3xl" />
       <div className="relative flex items-center gap-4">
         <ProgressRing value={read} max={total || 1} size={84} stroke={9} color="#c8f135" track="rgb(255 255 255 / 0.1)" label={`${read} of ${total} read`}>
-          <span className="font-display text-[28px] leading-none tnum">
+          <span className="font-display text-[22px] leading-none tnum">
             {read}
             <span className="text-base text-white/50">/{total}</span>
           </span>
         </ProgressRing>
         <div className="min-w-0">
           <div className="eyebrow text-white/50">{hi ? "आज का मिशन" : "Today's mission"}</div>
-          <div className="mt-1 font-display text-[28px] leading-tight">
+          <div className="mt-1 font-display text-[22px] leading-tight">
             {doneCount === 3 ? (hi ? "सब पूरा!" : "All done!") : hi ? `${doneCount}/3 पूरे` : `${doneCount} of 3 done`}
           </div>
         </div>
@@ -207,7 +207,7 @@ export function MoreStories({ items, lang }: { items: Item[]; lang: Lang }) {
     <section className="reveal space-y-3 pt-4">
       <div>
         <div className="eyebrow mb-1 text-ink-3">{hi ? "आपकी परीक्षाओं के लिए कम प्राथमिकता" : "Lower priority for your exams"}</div>
-        <h2 className="font-display text-[32px] sm:text-[40px]">{hi ? "और भी आज" : <>Also <span className="italic">today</span></>}</h2>
+        <h2 className="font-display text-[25px] sm:text-[31px]">{hi ? "और भी आज" : <>Also <span>today</span></>}</h2>
       </div>
       <StoryList items={items} lang={lang} variant="rows" />
     </section>
@@ -225,7 +225,7 @@ export function NextSteps({ date, lang }: { date: string; lang: Lang }) {
         <Target className="size-7" strokeWidth={2} />
       </span>
       <span className="relative min-w-0 flex-1">
-        <span className="block font-display text-[28px] leading-tight sm:text-[36px]">{hi ? "पढ़ लिया? अब क्विज़ दें" : "Done reading? Lock it in."}</span>
+        <span className="block font-display text-[22px] leading-tight sm:text-[28px]">{hi ? "पढ़ लिया? अब क्विज़ दें" : "Done reading? Lock it in."}</span>
         <span className="mt-0.5 block text-sm font-medium opacity-70">{hi ? "10 प्रश्न · लगभग 5 मिनट" : "Today's quiz · 10 questions · about 5 min"}</span>
       </span>
       <span className="relative hidden h-12 items-center gap-2 rounded-full bg-[#10110e] px-5 text-sm font-semibold text-[#f3f2ec] sm:inline-flex">
@@ -245,7 +245,7 @@ export function Storylines({ threads, lang }: { threads: { key: string; title: B
       <div className="flex items-end justify-between gap-4">
         <div>
           <div className="eyebrow mb-1 text-ink-3">{hi ? "पूरा संदर्भ, क्रम से" : "The whole context, in order"}</div>
-          <h2 className="font-display text-[32px] sm:text-[40px]">{t("threads", ui)}</h2>
+          <h2 className="font-display text-[25px] sm:text-[31px]">{t("threads", ui)}</h2>
         </div>
         <Link href="/threads" className="btn btn-ghost h-11 px-4 text-sm">
           {hi ? "सभी" : "See all"} <ArrowRight className="size-4" />

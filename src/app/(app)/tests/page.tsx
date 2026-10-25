@@ -103,7 +103,7 @@ export default function MyTests() {
       <section className="stagger grid grid-cols-2 gap-3 sm:grid-cols-4">
         {stats.map((s) => (
           <div key={s.label} className={cx("rounded-[22px] p-4 sm:p-5", s.cls)}>
-            <div className="font-display text-[44px] leading-none tnum">{s.value}</div>
+            <div className="font-display text-[34px] leading-none tnum">{s.value}</div>
             <div className="mt-2 text-xs font-semibold opacity-80">{s.label}</div>
           </div>
         ))}

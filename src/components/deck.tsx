@@ -26,12 +26,11 @@ import type { DeckStory } from "@/app/(app)/deck-data";
 import { answerQuestion, markRead, useProgress } from "@/lib/progress-store";
 import { t } from "@/lib/i18n";
 import { categoryById, pick, type Lang } from "@/lib/taxonomy";
-import { CategoryGlyph, CategoryIcon, catStyle } from "./category-icon";
-import { InstallBanner } from "./install";
+import { CategoryIcon, catStyle } from "./category-icon";
 import { McqView } from "./mcq";
 import { MiniTimeline, ReaderSheet } from "./reader";
 import { BookmarkButton } from "./story-actions";
-import { Confetti, Count, ProgressRing, RelevanceBadge, cx, fmtDate } from "./ui";
+import { Confetti, Count, RelevanceBadge, cx, fmtDate } from "./ui";
 import { XP, useXp } from "./xp";
 
 type Item = { kind: "story"; s: DeckStory; group: "main" | "more"; n: number; of: number } | { kind: "end" };
@@ -46,7 +45,6 @@ export function Deck({
   more,
   lang,
   date,
-  isLatest,
   picker,
 }: {
   main: DeckStory[];
@@ -59,7 +57,6 @@ export function Deck({
   const ui = lang === "bi" ? "en" : lang;
   const hi = ui === "hi";
   const p = useProgress();
-  const xp = useXp();
   const [topic, setTopic] = useState<string | null>(null);
   const [layers, setLayers] = useState<Record<string, number>>({});
   const [picks, setPicks] = useState<Record<string, number>>({});
@@ -213,21 +210,11 @@ export function Deck({
       {/* Left pane (desktop): the deck queue. */}
       <aside className="hidden min-h-0 flex-col lg:flex" aria-label={hi ? "आज की सूची" : "Today's queue"}>
         <div className="card flex min-h-0 flex-1 flex-col overflow-hidden">
-          <div className="border-b border-line p-4">
-            <div className="flex items-center justify-between gap-2">{picker}</div>
-            <div className="mt-4 flex items-center gap-3">
-              <ProgressRing value={readN} max={mainStories.length || 1} size={46} stroke={5} label={`${readN} of ${mainStories.length} unfolded`}>
-                <span className="font-mono text-[11px] font-semibold">
-                  {readN}/{mainStories.length}
-                </span>
-              </ProgressRing>
-              <div className="min-w-0">
-                <div className="eyebrow text-ink-3">{isLatest ? (hi ? "आज की डेक" : "Today's deck") : fmtDate(date, ui, { day: "numeric", month: "short" })}</div>
-                <div className="text-sm font-semibold">
-                  {right}/{answered.length || 0} {hi ? "सही" : "right"} · <span className="text-signal-ink">+{xp.today} XP</span>
-                </div>
-              </div>
-            </div>
+          <div className="flex items-center justify-between gap-2 border-b border-line p-3">
+            {picker}
+            <span className="font-mono text-[11px] text-ink-3 tnum">
+              {readN}/{mainStories.length} {hi ? "खुलीं" : "read"} · {right}/{answered.length} {hi ? "सही" : "right"}
+            </span>
           </div>
           <ol className="flex-1 overflow-y-auto p-2">
             {items.map((it, i) =>
@@ -329,7 +316,7 @@ export function Deck({
       {/* Right pane (desktop): live context for the active card. */}
       <aside className="hidden min-h-0 lg:block" aria-label={hi ? "संदर्भ" : "Context"}>
         <div className="card h-full overflow-y-auto p-5">
-          {activeStory ? <ContextPanel key={activeStory.id} s={activeStory} lang={lang} onDeep={() => setReader(activeStory.id)} /> : <DayContext lang={lang} />}
+          {activeStory ? <ContextPanel key={activeStory.id} s={activeStory} lang={lang} /> : <DayContext lang={lang} />}
         </div>
       </aside>
 
@@ -419,10 +406,6 @@ function StoryCardDeck({
         if (layer < max) onReveal();
       }}
     >
-      <span aria-hidden className="pointer-events-none absolute -right-10 -bottom-12 text-(--cat-solid) opacity-[0.1]">
-        <CategoryGlyph id={s.category} className="size-72" />
-      </span>
-
       {/* Top row */}
       <div className="relative flex items-center gap-2 px-4 pt-4 sm:px-6 sm:pt-5">
         <span className="inline-flex h-8 shrink-0 items-center rounded-full bg-solid px-3 font-mono text-xs font-semibold text-on-solid tnum">
@@ -446,7 +429,7 @@ function StoryCardDeck({
       <div ref={body} className="relative min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pt-4 pb-2 sm:px-6">
         <h2
           lang={hi ? "hi" : undefined}
-          className={cx("font-display transition-all duration-500", layer === 0 ? "text-[38px] sm:text-[48px] lg:text-[52px]" : "text-[26px] sm:text-[32px]")}
+          className={cx("font-display transition-all duration-500", layer === 0 ? "text-[30px] sm:text-[36px] lg:text-[38px]" : "text-[21px] sm:text-[25px]")}
         >
           {pick(s.content.title, ui)}
         </h2>
@@ -455,8 +438,9 @@ function StoryCardDeck({
             {s.content.title.hi}
           </p>
         )}
-        <p lang={hi ? "hi" : undefined} className={cx("mt-3 text-ink-2 transition-all duration-500", layer === 0 ? "text-[16px] leading-relaxed sm:text-lg" : "line-clamp-2 text-sm")}>
-          {pick(s.hook, ui)}
+        {/* Layer 0 shows the whole short summary; once facts unfold it shrinks to the one-line hook. */}
+        <p lang={hi ? "hi" : undefined} className={cx("mt-3 text-ink-2", layer === 0 ? "text-[16px] leading-relaxed sm:text-[17px]" : "line-clamp-2 text-sm")}>
+          {layer === 0 ? pick(s.content.summary, ui) : pick(s.hook, ui)}
         </p>
 
         <div className="unfold" data-open={layer >= 1}>
@@ -554,8 +538,8 @@ function EndCard({ lang, date, readN, total, right, answered, moreCount, onMore 
         </span>
         <span className="eyebrow text-white/60 dark:text-ink-3">{fmtDate(date, ui, { weekday: "long", day: "numeric", month: "short" })}</span>
       </div>
-      <h2 className="relative mt-5 font-display text-[44px] leading-none sm:text-[56px]">
-        {complete ? (hi ? "सार पूरा!" : <>Brief <span className="italic">complete.</span></>) : hi ? "डेक का अंत" : <>End of the <span className="italic">brief.</span></>}
+      <h2 className="relative mt-5 font-display text-[34px] leading-none sm:text-[44px]">
+        {complete ? (hi ? "सार पूरा!" : <>Brief <span>complete.</span></>) : hi ? "डेक का अंत" : <>End of the <span>brief.</span></>}
       </h2>
       <p className="relative mt-2 text-sm text-white/65 dark:text-ink-2">
         {complete
@@ -569,21 +553,21 @@ function EndCard({ lang, date, readN, total, right, answered, moreCount, onMore 
 
       <div className="relative mt-6 grid grid-cols-3 gap-2">
         <div className="rounded-[18px] bg-white/8 p-3.5 dark:bg-card-2">
-          <div className="font-display text-[34px] leading-none">
+          <div className="font-display text-[27px] leading-none">
             {readN}
             <span className="text-lg opacity-50">/{total}</span>
           </div>
           <div className="mt-1 text-[11px] text-white/60 dark:text-ink-3">{hi ? "पढ़ीं" : "unfolded"}</div>
         </div>
         <div className="rounded-[18px] bg-white/8 p-3.5 dark:bg-card-2">
-          <div className="font-display text-[34px] leading-none">
+          <div className="font-display text-[27px] leading-none">
             {right}
             <span className="text-lg opacity-50">/{answered}</span>
           </div>
           <div className="mt-1 text-[11px] text-white/60 dark:text-ink-3">{hi ? "सही" : "right"}</div>
         </div>
         <div className="rounded-[18px] bg-[#c8f135] p-3.5 text-[#10110e]">
-          <div className="font-display text-[34px] leading-none">
+          <div className="font-display text-[27px] leading-none">
             +<Count to={xp.today} />
           </div>
           <div className="mt-1 text-[11px] opacity-70">XP {hi ? "आज" : "today"}</div>
@@ -606,14 +590,11 @@ function EndCard({ lang, date, readN, total, right, answered, moreCount, onMore 
           </button>
         )}
       </div>
-      <div className="relative mt-4 text-ink [&_.card]:bg-card">
-        <InstallBanner />
-      </div>
     </div>
   );
 }
 
-function ContextPanel({ s, lang, onDeep }: { s: DeckStory; lang: Lang; onDeep: () => void }) {
+function ContextPanel({ s, lang }: { s: DeckStory; lang: Lang }) {
   const ui = lang === "bi" ? "en" : lang;
   const hi = ui === "hi";
   const kinds = [
@@ -623,28 +604,12 @@ function ContextPanel({ s, lang, onDeep }: { s: DeckStory; lang: Lang; onDeep: (
   ] as const;
   return (
     <div className="rise space-y-6">
-      <div>
-        <div className="eyebrow text-ink-3">{hi ? "इस कार्ड का संदर्भ" : "Context for this card"}</div>
-        <button onClick={onDeep} className="btn mt-3 h-11 w-full text-sm">
-          <BookOpenText className="size-4" /> {hi ? "पूरा पढ़ें" : "Open deep dive"} <span className="font-mono text-[11px] opacity-60">D</span>
-        </button>
-      </div>
+      <div className="eyebrow text-ink-3">{hi ? "इस कार्ड का संदर्भ" : "Context for this card"}</div>
       <div className="rounded-[20px] bg-signal-soft p-4 text-sm leading-relaxed">
         <div className="eyebrow mb-2 flex items-center gap-1.5 text-signal-ink">
           <Lightbulb className="size-3.5" /> {t("whyItMatters", ui)}
         </div>
         <p lang={hi ? "hi" : undefined}>{pick(s.content.why_it_matters, ui)}</p>
-      </div>
-      <div>
-        <div className="eyebrow mb-2 text-ink-3">{t("keyFacts", ui)}</div>
-        <ul className="space-y-2 text-sm">
-          {s.content.key_facts.map((f, i) => (
-            <li key={i} className="flex gap-2.5">
-              <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-(--cat-solid)" style={catStyle(s.category)} />
-              <span lang={hi ? "hi" : undefined}>{pick(f, ui)}</span>
-            </li>
-          ))}
-        </ul>
       </div>
       {s.thread && (
         <div>
@@ -679,14 +644,24 @@ function ContextPanel({ s, lang, onDeep }: { s: DeckStory; lang: Lang; onDeep: (
 
 function DayContext({ lang }: { lang: Lang }) {
   const hi = lang === "hi";
-  const xp = useXp();
+  const keys: [string, string][] = [
+    ["↑ ↓", hi ? "कार्ड बदलें" : "Move between cards"],
+    ["→", hi ? "अगली परत खोलें" : "Unfold the next layer"],
+    ["←", hi ? "परत बंद करें" : "Fold a layer"],
+    ["1–4", hi ? "उत्तर चुनें" : "Answer the question"],
+    ["D", hi ? "पूरा पढ़ें" : "Open the deep dive"],
+  ];
   return (
-    <div className="space-y-4">
-      <div className="eyebrow text-ink-3">{hi ? "आज का रास्ता" : "Today's path"}</div>
-      <div className="font-display text-[34px] leading-none">
-        Lv {xp.level} · <span className="italic">{xp.total} XP</span>
-      </div>
-      <p className="text-sm text-ink-2">{hi ? "पढ़ें → क्विज़ → दोहराएँ। हर कदम XP देता है।" : "Read the deck → Daily quiz → Revise. Every step earns XP."}</p>
+    <div>
+      <div className="eyebrow mb-3 text-ink-3">{hi ? "कीबोर्ड" : "Keyboard"}</div>
+      <ul className="space-y-2 text-sm">
+        {keys.map(([k, v]) => (
+          <li key={k} className="flex items-center gap-3">
+            <kbd className="min-w-10 rounded-lg bg-card-2 px-2 py-1 text-center font-mono text-xs shadow-[inset_0_0_0_1px_var(--line-2)]">{k}</kbd>
+            {v}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

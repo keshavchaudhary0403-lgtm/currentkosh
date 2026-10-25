@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ArrowUpRight, CalendarRange, Timer, Zap } from "lucide-react";
-import { DailyPath } from "@/components/daily-path";
 import { RecentAttempts, WeakDrillCard } from "@/components/practice-widgets";
 import { TestBuilder } from "@/components/test-builder";
 import { PageHeader, SectionTitle, fmtDate } from "@/components/ui";
@@ -25,11 +24,8 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
     <div className="space-y-8">
       <PageHeader
         eyebrow={hi ? "परीक्षा-शैली · आधिकारिक स्रोत" : "Exam-style · from official sources"}
-        title={hi ? "अभ्यास" : <>Practice<span className="text-flare italic">.</span></>}
-        sub={hi ? "आधिकारिक स्रोतों से परीक्षा-शैली के प्रश्न।" : "Quick quizzes, timed mocks and your own tests, all built from the day's official sources."}
+        title={hi ? "अभ्यास" : <>Practice<span className="text-flare">.</span></>}
       />
-
-      <DailyPath current="quiz" />
 
       {empty && (
         <div className="pop rounded-[20px] bg-amber-soft p-4 text-sm font-semibold text-amber-ink">
@@ -40,10 +36,7 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
       <div className="space-y-8 lg:grid lg:grid-cols-[minmax(0,1fr)_420px] lg:items-start lg:gap-6 lg:space-y-0">
         <div className="space-y-8">
           <section className="stagger grid grid-cols-2 gap-3">
-            <Link href={`/practice/run?kind=daily&from=${latest}&to=${latest}`} className="lift group relative col-span-2 flex min-h-[220px] flex-col overflow-hidden rounded-[28px] bg-signal p-6 text-on-signal">
-              <span aria-hidden className="absolute -right-4 -bottom-10 font-display text-[200px] leading-none opacity-[0.08] transition duration-700 group-hover:-translate-y-2">
-                10
-              </span>
+            <Link href={`/practice/run?kind=daily&from=${latest}&to=${latest}`} className="lift group relative col-span-2 flex min-h-[180px] flex-col overflow-hidden rounded-[28px] bg-signal p-6 text-on-signal">
               <span className="flex items-center justify-between">
                 <span className="grid size-12 place-items-center rounded-[16px] bg-[#10110e] text-[#c8f135] transition duration-500 group-hover:-rotate-12">
                   <Zap className="size-6" strokeWidth={2} />
@@ -54,7 +47,7 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
               </span>
               <span className="mt-auto pt-6">
                 <span className="eyebrow block opacity-60">{hi ? "ताज़ा दिन" : "Latest day"}</span>
-                <span className="mt-1 block font-display text-[40px] leading-none sm:text-[48px]">{hi ? "डेली क्विज़" : "Daily quiz"}</span>
+                <span className="mt-1 block font-display text-[31px] leading-none sm:text-[37px]">{hi ? "डेली क्विज़" : "Daily quiz"}</span>
                 <span className="mt-1 block text-sm font-medium opacity-70">{hi ? "10 प्रश्न · लगभग 5 मिनट" : "10 questions · about 5 minutes"}</span>
               </span>
             </Link>
@@ -63,7 +56,7 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
                 <CalendarRange className="size-5" />
               </span>
               <span className="mt-auto pt-4">
-                <span className="block font-display text-[28px] leading-none">{hi ? "साप्ताहिक" : "Weekly"}</span>
+                <span className="block font-display text-[22px] leading-none">{hi ? "साप्ताहिक" : "Weekly"}</span>
                 <span className="mt-1 block text-xs font-medium text-ink-2">{hi ? "25 प्रश्न · पिछले 7 दिन" : "25 Qs · last 7 days"}</span>
               </span>
             </Link>
@@ -72,7 +65,7 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
                 <Timer className="size-5" />
               </span>
               <span className="mt-auto pt-4">
-                <span className="block font-display text-[28px] leading-none">{hi ? "टाइम्ड मॉक" : "Timed mock"}</span>
+                <span className="block font-display text-[22px] leading-none">{hi ? "टाइम्ड मॉक" : "Timed mock"}</span>
                 <span className="mt-1 block text-xs font-medium text-white/60 dark:text-ink-2">{hi ? "50 प्रश्न · −⅓ नेगेटिव" : "50 Qs · −⅓ negative"}</span>
               </span>
             </Link>
@@ -86,7 +79,7 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
                 {months.map((m) => (
                   <Link key={m} href={`/practice/run?kind=monthly&from=${m}-01&to=${m}-31`} className="card lift group w-[104px] shrink-0 snap-start p-3.5 text-left">
                     <span className="eyebrow block text-ink-3">{m.slice(0, 4)}</span>
-                    <span className="mt-1 block font-display text-[30px] leading-none group-hover:italic">{fmtDate(`${m}-01`, ui, { month: "short" })}</span>
+                    <span className="mt-1 block font-display text-[23px] leading-none group-hover:text-flare">{fmtDate(`${m}-01`, ui, { month: "short" })}</span>
                     <span className="mt-2 block font-mono text-[11px] text-ink-3">50 {hi ? "प्रश्न" : "Qs"}</span>
                   </Link>
                 ))}
@@ -99,7 +92,7 @@ export default async function Practice({ searchParams }: PageProps<"/practice">)
         <section className="card p-5 sm:p-6 lg:sticky lg:top-24">
           <div className="mb-5">
             <div className="eyebrow mb-1 text-ink-3">{hi ? "अवधि, विषय और मोड चुनें" : "Pick period, topics and mode"}</div>
-            <h2 className="font-display text-[32px] leading-none">{hi ? "अपना टेस्ट बनाएँ" : <>Build your <span className="italic">own</span></>}</h2>
+            <h2 className="font-display text-[25px] leading-none">{hi ? "अपना टेस्ट बनाएँ" : <>Build your <span>own</span></>}</h2>
           </div>
           <TestBuilder latest={latest} lang={profile.lang} />
         </section>

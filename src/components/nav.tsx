@@ -24,8 +24,8 @@ import { InstallSidebarButton } from "./install";
 import { dueCount, useProgress } from "@/lib/progress-store";
 import type { Lang } from "@/lib/taxonomy";
 import { ThemeSwitch } from "./theme-switch";
-import { ProgressRing, cx } from "./ui";
-import { LEVEL_SIZE, useXp } from "./xp";
+import { cx } from "./ui";
+import { useXp } from "./xp";
 
 export type NavLabels = Record<"today" | "revise" | "practice" | "tests" | "threads" | "monthly" | "archive" | "progress" | "saved" | "sources" | "settings" | "you", string>;
 
@@ -88,14 +88,6 @@ export function Sidebar({ labels }: { labels: NavLabels; lang: Lang }) {
       </nav>
       <div className="mt-auto flex flex-col items-center gap-3">
         <InstallSidebarButton />
-        <Link href="/progress" title={`Level ${xp.level} · ${xp.total} XP`} className="lift flex flex-col items-center gap-1 rounded-[18px] p-1.5">
-          <ProgressRing value={xp.into} max={LEVEL_SIZE} size={52} stroke={5} label={`Level ${xp.level}`}>
-            <span className="font-mono text-[11px] font-semibold">L{xp.level}</span>
-          </ProgressRing>
-          <span className="inline-flex items-center gap-0.5 text-xs font-semibold">
-            <Flame className={cx("size-3.5 text-flare", xp.streak > 0 && "flicker")} /> {xp.streak}
-          </span>
-        </Link>
       </div>
     </aside>
   );
@@ -123,7 +115,7 @@ export function XpChip() {
 }
 
 /** Sticky glass top bar: brand (phones), search (desktop), XP, saved, language and the theme switch. */
-export function AppHeader({ lang, chips }: { lang: Lang; chips: React.ReactNode }) {
+export function AppHeader({ lang }: { lang: Lang }) {
   const path = usePathname();
   const router = useRouter();
   const input = useRef<HTMLInputElement>(null);
@@ -158,7 +150,6 @@ export function AppHeader({ lang, chips }: { lang: Lang; chips: React.ReactNode 
             <kbd className="eyebrow rounded-md bg-card-2 px-1.5 py-0.5 text-ink-3">⌘K</kbd>
           </label>
         </form>
-        <div className="no-scrollbar hidden min-w-0 items-center gap-1.5 overflow-x-auto xl:flex">{chips}</div>
         <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
           <XpChip />
           <span className="hidden sm:block">
@@ -357,17 +348,17 @@ export function Logo({ size = 28 }: { size?: number }) {
   );
 }
 
-/** Logo + name: "Current" in the UI face, "Kosh" in serif italic. */
+/** Logo + name in the display face; "Kosh" takes the brand accent. */
 export function Wordmark({ size = 32, text = 21, lang = "en" }: { size?: number; text?: number; lang?: Lang }) {
   return (
     <span className="flex items-center gap-2.5">
       <Logo size={size} />
-      <span className="leading-none font-semibold tracking-[-0.03em]" style={{ fontSize: text }}>
+      <span className="font-display leading-none font-bold tracking-[-0.04em]" style={{ fontSize: text * 0.92 }}>
         Current
         {lang === "en" ? (
-          <span className="font-serif font-normal tracking-[-0.01em] italic">Kosh</span>
+          <span className="text-signal-ink">Kosh</span>
         ) : (
-          <span lang="hi" className="font-serif font-medium">
+          <span lang="hi" className="font-semibold text-signal-ink">
             कोश
           </span>
         )}

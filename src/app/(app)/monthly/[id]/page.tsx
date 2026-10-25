@@ -36,7 +36,7 @@ export default async function MonthlyIssue({ params }: PageProps<"/monthly/[id]"
         <div className="mt-6 flex flex-wrap items-end justify-between gap-5">
           <div className="min-w-0">
             <p className="eyebrow text-mint-ink">{L("Monthly policy review", "मासिक नीति समीक्षा")}</p>
-            <h1 className="mt-2 font-display text-[44px] sm:text-[64px]" lang={ui === "hi" ? "hi" : undefined}>
+            <h1 className="mt-2 font-display text-[34px] sm:text-[50px]" lang={ui === "hi" ? "hi" : undefined}>
               {pick(m.title, ui)}
             </h1>
             <p className="mt-2 font-mono text-xs text-ink-3 uppercase">
@@ -54,7 +54,7 @@ export default async function MonthlyIssue({ params }: PageProps<"/monthly/[id]"
       </section>
 
       <section>
-        <h2 className="mb-4 flex items-center gap-3 font-display text-[34px] sm:text-[42px]">
+        <h2 className="mb-4 flex items-center gap-3 font-display text-[27px] sm:text-[33px]">
           <span className="grid size-11 place-items-center rounded-[14px] bg-signal text-on-signal">
             <Sparkles className="size-5" />
           </span>
@@ -74,7 +74,7 @@ export default async function MonthlyIssue({ params }: PageProps<"/monthly/[id]"
       </section>
 
       <section>
-        <h2 className="mb-4 flex items-center gap-3 font-display text-[34px] sm:text-[42px]">
+        <h2 className="mb-4 flex items-center gap-3 font-display text-[27px] sm:text-[33px]">
           <span className="grid size-11 place-items-center rounded-[14px] bg-mint-soft text-mint-ink">
             <Layers className="size-5" />
           </span>
@@ -129,7 +129,7 @@ export default async function MonthlyIssue({ params }: PageProps<"/monthly/[id]"
 
       {m.cards.length > 0 && (
         <section>
-          <h2 className="mb-4 font-display text-[34px] sm:text-[42px]">{L("Quick recall", "झटपट याद")}</h2>
+          <h2 className="mb-4 font-display text-[27px] sm:text-[33px]">{L("Quick recall", "झटपट याद")}</h2>
           <FlipCards cards={m.cards} lang={lang} />
         </section>
       )}

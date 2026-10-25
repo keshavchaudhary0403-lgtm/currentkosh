@@ -156,9 +156,9 @@ export function QuizRunner({
       <div className="mb-4 flex items-end justify-between gap-3">
         <div className="min-w-0">
           <div className="eyebrow truncate text-ink-3">{title}</div>
-          <div className="mt-1 font-display text-[40px] leading-none sm:text-[52px]">
+          <div className="mt-1 font-display text-[31px] leading-none sm:text-[41px]">
             <span className="tnum">{String(i + 1).padStart(2, "0")}</span>
-            <span className="text-ink-3 italic"> / {questions.length}</span>
+            <span className="text-ink-3"> / {questions.length}</span>
           </div>
         </div>
         <button

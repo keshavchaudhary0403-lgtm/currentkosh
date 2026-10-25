@@ -6,12 +6,12 @@
  * "Signal" design system (2026 redesign).
  *   Paper + ink neutrals, one electric lime "signal" for the brand and primary actions,
  *   cobalt for memory (Revise), flare pink for practice, mint for the library, amber for storylines.
- *   Type: Instrument Serif (display), Instrument Sans (UI), JetBrains Mono (labels and numbers),
- *   Noto Sans / Serif Devanagari for Hindi.
+ *   Type: Sora (display headings and big numbers), Instrument Sans (UI), JetBrains Mono (labels),
+ *   Noto Sans Devanagari for Hindi.
  */
 :root {
   --ck-sans: var(--font-ui), var(--font-deva), ui-sans-serif, system-ui, sans-serif;
-  --ck-serif: var(--font-serif), var(--font-deva-serif), ui-serif, Georgia, serif;
+  --ck-serif: var(--font-display-ui), var(--font-deva), ui-sans-serif, system-ui, sans-serif;
   --ck-mono: var(--font-mono-ui), ui-monospace, SFMono-Regular, monospace;
 
   --bg: #f3f2ec;
@@ -79,7 +79,7 @@
 /* Hindi mode: Devanagari leads; Latin text and digits still use Instrument Sans / Serif. */
 :root[lang="hi"] {
   --ck-sans: var(--font-deva), var(--font-ui), ui-sans-serif, system-ui, sans-serif;
-  --ck-serif: var(--font-deva-serif), var(--font-serif), ui-serif, Georgia, serif;
+  --ck-serif: var(--font-deva), var(--font-display-ui), ui-sans-serif, system-ui, sans-serif;
 }
 
 :root[data-theme="dark"] {
@@ -220,18 +220,19 @@ body {
   border-radius: 10px;
 }
 
-/* Display type: Instrument Serif, set tight. Devanagari display sets a little heavier. */
+/* Display type: Sora semibold, tight tracking; Devanagari headings use Noto Sans Devanagari semibold. */
 .font-display {
   font-family: var(--ck-serif);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.04;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  font-style: normal;
 }
 :root[lang="hi"] .font-display,
 .font-display:lang(hi) {
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0;
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 /* Small mono labels ("eyebrows"). */

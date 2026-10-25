@@ -24,7 +24,7 @@ export default function Sources() {
         eyebrow="Where every fact comes from"
         title={
           <>
-            Sources<span className="text-good italic">.</span>
+            Sources<span className="text-good">.</span>
           </>
         }
         sub="CurrentKosh only uses the sources below. Notes and questions are generated from official text. When no official source covers an event, a short one-liner is written from facts that at least two independent outlets confirm. Newspaper and coaching text is never copied, and their robots.txt is respected."

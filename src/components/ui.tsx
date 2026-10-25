@@ -189,7 +189,7 @@ export function PageHeader({ eyebrow, title, sub, right, className }: { eyebrow?
     <header className={cx("rise flex flex-wrap items-end justify-between gap-4", className)}>
       <div className="min-w-0">
         {eyebrow && <div className="eyebrow mb-2 text-ink-3">{eyebrow}</div>}
-        <h1 className="font-display text-[44px] sm:text-[64px]">{title}</h1>
+        <h1 className="font-display text-[34px] sm:text-[50px]">{title}</h1>
         {sub && <p className="mt-2 max-w-2xl text-[15px] text-ink-2">{sub}</p>}
       </div>
       {right}
@@ -204,7 +204,7 @@ export function SectionTitle({ eyebrow, title, right, icon }: { eyebrow?: string
         {icon}
         <div className="min-w-0">
           {eyebrow && <div className="eyebrow mb-1 text-ink-3">{eyebrow}</div>}
-          <h2 className="font-display text-[28px] sm:text-[34px]">{title}</h2>
+          <h2 className="font-display text-[22px] sm:text-[27px]">{title}</h2>
         </div>
       </div>
       {right}
@@ -216,7 +216,7 @@ export function SectionTitle({ eyebrow, title, right, icon }: { eyebrow?: string
 export function Stat({ value, label, hint, tone = "bg-card", className }: { value: React.ReactNode; label: string; hint?: string; tone?: string; className?: string }) {
   return (
     <div className={cx("rounded-[22px] p-4", tone, className)}>
-      <div className="font-display text-[40px] leading-none tnum">{value}</div>
+      <div className="font-display text-[31px] leading-none tnum">{value}</div>
       <div className="mt-2 text-xs font-semibold">{label}</div>
       {hint && <div className="text-[11px] opacity-70">{hint}</div>}
     </div>

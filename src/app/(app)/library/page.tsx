@@ -38,7 +38,7 @@ export default async function Library({ searchParams }: PageProps<"/library">) {
     <div className="space-y-7">
       <PageHeader
         eyebrow={L("Archive · English + हिंदी", "संग्रह · हिंदी + English")}
-        title={ui === "hi" ? "लाइब्रेरी" : <>Library<span className="text-mint italic">.</span></>}
+        title={ui === "hi" ? "लाइब्रेरी" : <>Library<span className="text-mint">.</span></>}
         sub={L("Every story since April, searchable in English or Hindi.", "अप्रैल से अब तक की हर ख़बर, हिंदी या अंग्रेज़ी में खोजें।")}
       />
 

@@ -108,7 +108,7 @@ export function FeaturedStory({ story, lang, relevance, read, className }: { sto
         <span className="text-xs font-semibold text-(--cat-ink)">{pick(categoryById(story.category)?.label, ui)}</span>
         {read && <ReadBadge read hi={hi} />}
       </div>
-      <h2 lang={hi ? "hi" : undefined} className="relative mt-5 max-w-3xl font-display text-[34px] sm:text-[48px]">
+      <h2 lang={hi ? "hi" : undefined} className="relative mt-5 max-w-3xl font-display text-[27px] sm:text-[37px]">
         {pick(story.content.title, ui)}
       </h2>
       {lang === "bi" && (

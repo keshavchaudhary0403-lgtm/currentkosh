@@ -20,7 +20,7 @@ export default async function MonthlyList() {
     <div className="space-y-7">
       <PageHeader
         eyebrow={L("PRS Monthly Policy Review · CC BY 4.0", "PRS मासिक नीति समीक्षा · CC BY 4.0")}
-        title={ui === "hi" ? "मासिक" : <>Monthly<span className="text-mint italic">.</span></>}
+        title={ui === "hi" ? "मासिक" : <>Monthly<span className="text-mint">.</span></>}
         sub={L(
           "Each month's policy changes in one place: new bills, rules, schemes and regulator decisions, sector by sector, with a 10-question test. Based on PRS Legislative Research's Monthly Policy Review.",
           "हर महीने के नीतिगत बदलाव एक जगह: नए विधेयक, नियम, योजनाएँ और नियामकों के फ़ैसले, क्षेत्रवार, 10 प्रश्नों के टेस्ट के साथ। PRS लेजिस्लेटिव रिसर्च की मासिक नीति समीक्षा पर आधारित।",
@@ -40,7 +40,7 @@ export default async function MonthlyList() {
                 <span className={cx("eyebrow inline-flex h-7 items-center rounded-full px-2.5", i === 0 ? "bg-white/20" : "bg-mint-soft text-mint-ink")}>{i === 0 ? L("Latest · PRS", "ताज़ा · PRS") : "PRS"}</span>
                 <ArrowUpRight className={cx("size-5 transition group-hover:rotate-45", i === 0 ? "text-white/80" : "text-ink-3 group-hover:text-ink")} />
               </div>
-              <h2 className="mt-4 font-display text-[34px] leading-none" lang={ui === "hi" ? "hi" : undefined}>
+              <h2 className="mt-4 font-display text-[27px] leading-none" lang={ui === "hi" ? "hi" : undefined}>
                 {pick(m.title, ui)}
               </h2>
               <p className={cx("mt-3 line-clamp-3 text-sm", i === 0 ? "text-white/80" : "text-ink-2")} lang={ui === "hi" ? "hi" : undefined}>

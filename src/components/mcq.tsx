@@ -97,7 +97,7 @@ export function McqView({
       </div>
       {reveal && (
         <div className={cx("rise mt-4 rounded-[18px] p-4 text-sm leading-relaxed", selected === null ? "bg-card-2" : right ? "bg-good-soft" : "bg-bad-soft")}>
-          <div className={cx("mb-1.5 flex items-center gap-2 font-display text-[22px]", selected === null ? "text-ink-2" : right ? "text-good-ink" : "text-bad-ink")}>
+          <div className={cx("mb-1.5 flex items-center gap-2 font-display text-[17px]", selected === null ? "text-ink-2" : right ? "text-good-ink" : "text-bad-ink")}>
             {hi
               ? selected === null
                 ? "छोड़ा"

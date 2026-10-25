@@ -32,7 +32,7 @@ export function DailyPath({ current }: { current?: "read" | "quiz" | "revise" })
       <div className="relative flex flex-wrap items-end justify-between gap-3">
         <div>
           <div className="eyebrow text-white/55 dark:text-ink-3">{hi ? "आज का रास्ता" : "Today's path"}</div>
-          <div className="mt-1 font-display text-[30px] leading-none sm:text-[36px]">
+          <div className="mt-1 font-display text-[23px] leading-none sm:text-[28px]">
             {doneN === 3 ? (hi ? "सब पूरा!" : "Path complete.") : hi ? `${doneN}/3 कदम` : `${doneN} of 3 steps`}
           </div>
         </div>

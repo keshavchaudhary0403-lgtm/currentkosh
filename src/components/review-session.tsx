@@ -83,16 +83,16 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
         <div aria-hidden className="absolute -top-16 -right-16 size-56 rounded-full bg-white/15 blur-2xl" />
         <PartyPopper className="relative mx-auto mb-4 size-12" strokeWidth={1.8} />
         <div className="eyebrow relative text-white/70">{total} {hi ? "कार्ड" : "cards"}</div>
-        <h2 className="relative mt-1 font-display text-[44px] leading-none italic">{hi ? "सत्र पूरा!" : "Session complete."}</h2>
+        <h2 className="relative mt-1 font-display text-[34px] leading-none">{hi ? "सत्र पूरा!" : "Session complete."}</h2>
         <div className="relative mt-6 grid grid-cols-2 gap-2">
           <div className="rounded-[20px] bg-white/15 p-4">
-            <div className="font-display text-[44px] leading-none">
+            <div className="font-display text-[34px] leading-none">
               <Count to={tally.good} />
             </div>
             <div className="mt-1 text-xs font-semibold text-white/80">{hi ? "याद रहे" : "remembered"}</div>
           </div>
           <div className="rounded-[20px] bg-white/15 p-4">
-            <div className="font-display text-[44px] leading-none">
+            <div className="font-display text-[34px] leading-none">
               <Count to={tally.again} />
             </div>
             <div className="mt-1 text-xs font-semibold text-white/80">{hi ? "कल फिर" : "back tomorrow"}</div>
@@ -174,7 +174,7 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
               <div className={cx("flip-inner min-h-[320px] sm:min-h-[360px]", flipped && "flipped")}>
                 <div className="flip-face card flex min-h-[320px] flex-col items-center justify-center p-8 shadow-float sm:min-h-[360px]">
                   <div className="eyebrow mb-4 text-ink-3">{hi ? "प्रश्न" : "Prompt"}</div>
-                  <BiText v={item.content.front} lang={lang} as="div" className="font-display text-[30px] leading-tight sm:text-[36px]" hiClassName="font-sans text-lg mt-3" />
+                  <BiText v={item.content.front} lang={lang} as="div" className="font-display text-[23px] leading-tight sm:text-[28px]" hiClassName="font-sans text-lg mt-3" />
                   <span className="mt-8 inline-flex h-9 items-center gap-2 rounded-full bg-card-2 px-3.5 text-sm font-semibold text-ink-2">
                     <RotateCw className="size-4" /> {hi ? "पलटने के लिए टैप करें" : "Tap to flip"}
                   </span>
@@ -182,7 +182,7 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
                 <div className="flip-face flip-back flex flex-col items-center justify-center overflow-hidden rounded-[24px] bg-cobalt p-8 text-white shadow-float">
                   <div aria-hidden className="absolute -top-20 -left-20 size-60 rounded-full bg-white/10 blur-2xl" />
                   <div className="eyebrow relative mb-4 text-white/70">{hi ? "उत्तर" : "Answer"}</div>
-                  <BiText v={item.content.back} lang={lang} as="div" className="relative font-display text-[30px] leading-tight sm:text-[36px]" hiClassName="font-sans text-lg font-semibold text-white/85" />
+                  <BiText v={item.content.back} lang={lang} as="div" className="relative font-display text-[23px] leading-tight sm:text-[28px]" hiClassName="font-sans text-lg font-semibold text-white/85" />
                   <span className="relative mt-8 hidden text-xs font-medium text-white/60 sm:block">{hi ? "← फिर से · ठीक →" : "Swipe ← again · good →  ·  keys 1–4"}</span>
                   <span className="relative mt-8 text-xs font-medium text-white/60 sm:hidden">{hi ? "← फिर से · ठीक →" : "Swipe ← again · good →"}</span>
                 </div>

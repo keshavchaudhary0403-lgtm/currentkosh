@@ -33,7 +33,7 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
           <div className="eyebrow text-amber-ink">
             {L("Timeline", "घटनाक्रम")} · {thread.stories.length} {L(thread.stories.length === 1 ? "update" : "updates", "अपडेट")} · {fmtDate(thread.stories[0].date, ui, { day: "numeric", month: "short", year: "numeric" })} →
           </div>
-          <BiText v={thread.title} lang={lang} as="h1" className="mt-3 font-display text-[40px] sm:text-[60px]" hiClassName="font-sans text-xl font-semibold mt-3" />
+          <BiText v={thread.title} lang={lang} as="h1" className="mt-3 font-display text-[31px] sm:text-[47px]" hiClassName="font-sans text-xl font-semibold mt-3" />
           <Link href={testHref} className="btn btn-flare mt-6 px-5 text-[15px] lg:hidden">
             <Target className="size-4" /> {L("Test this timeline", "इस घटनाक्रम का टेस्ट दें")}
           </Link>
@@ -64,11 +64,11 @@ export default async function ThreadPage({ params }: PageProps<"/thread/[key]">)
         <div className="card sticky top-24 space-y-5 p-5">
           <div className="grid grid-cols-2 gap-2">
             <div className="rounded-[18px] bg-amber-soft p-4 text-amber-ink">
-              <div className="font-display text-[40px] leading-none tnum">{thread.stories.length}</div>
+              <div className="font-display text-[31px] leading-none tnum">{thread.stories.length}</div>
               <div className="mt-1 text-xs font-semibold">{L("updates", "अपडेट")}</div>
             </div>
             <div className="rounded-[18px] bg-card-2 p-4 text-ink-2">
-              <div className="font-display text-[26px] leading-none">{fmtDate(thread.stories[0].date, ui, { day: "numeric", month: "short" })}</div>
+              <div className="font-display text-[20px] leading-none">{fmtDate(thread.stories[0].date, ui, { day: "numeric", month: "short" })}</div>
               <div className="mt-1 text-xs font-semibold">{L("first update", "पहला अपडेट")}</div>
             </div>
           </div>

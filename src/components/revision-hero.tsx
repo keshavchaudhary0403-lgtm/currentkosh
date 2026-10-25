@@ -33,7 +33,7 @@ export function RevisionHero({ countdown }: { countdown?: number | null }) {
         </div>
         <div className="relative mt-auto pt-6">
           <div className="flex items-baseline gap-3">
-            <span className="font-display text-[84px] leading-[0.85] sm:text-[104px]">
+            <span className="font-display text-[66px] leading-[0.85] sm:text-[81px]">
               <Count to={due} />
             </span>
             <span className={cx("text-sm", due ? "text-white/80" : "text-ink-2")}>{hi ? "कार्ड आज दोहराने हैं" : due === 1 ? "card due today" : "cards due today"}</span>
@@ -57,7 +57,7 @@ export function RevisionHero({ countdown }: { countdown?: number | null }) {
 
       <div className="card rise flex flex-col p-6 sm:p-7" style={{ animationDelay: "80ms" }}>
         <div className="eyebrow text-ink-3">{hi ? "अगले 7 दिन" : "Next 7 days"}</div>
-        <div className="mt-1 font-display text-[28px] leading-tight">{hi ? "आगे क्या लौटेगा" : <>What&apos;s coming <span className="italic">back</span></>}</div>
+        <div className="mt-1 font-display text-[22px] leading-tight">{hi ? "आगे क्या लौटेगा" : <>What&apos;s coming <span>back</span></>}</div>
         <div className="mt-auto flex h-36 items-end gap-2 pt-6">
           {days.map((f, i) => (
             <div key={f.date} className="flex h-full flex-1 flex-col items-center justify-end gap-1.5">

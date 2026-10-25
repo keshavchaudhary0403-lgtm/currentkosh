@@ -1,16 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Sans, Instrument_Serif, JetBrains_Mono, Noto_Sans_Devanagari, Noto_Serif_Devanagari } from "next/font/google";
+import { Instrument_Sans, JetBrains_Mono, Noto_Sans_Devanagari, Sora } from "next/font/google";
 import { currentProfile } from "@/lib/profile";
 import { PwaSetup } from "@/components/install";
 import "./globals.css";
 
-// Instrument Sans for UI and body, Instrument Serif for display, JetBrains Mono for labels and numbers.
-// Noto Sans / Serif Devanagari carry Hindi in the matching roles.
+// Instrument Sans for UI and body, Sora for headings and big numbers, JetBrains Mono for labels.
+// Noto Sans Devanagari carries Hindi (semibold for headings).
 const ui = Instrument_Sans({ variable: "--font-ui", subsets: ["latin"], axes: ["wdth"] });
-const serif = Instrument_Serif({ variable: "--font-serif", subsets: ["latin"], weight: "400", style: ["normal", "italic"] });
+const display = Sora({ variable: "--font-display-ui", subsets: ["latin"], weight: ["600", "700"] });
 const mono = JetBrains_Mono({ variable: "--font-mono-ui", subsets: ["latin"] });
 const deva = Noto_Sans_Devanagari({ variable: "--font-deva", subsets: ["devanagari"] });
-const devaSerif = Noto_Serif_Devanagari({ variable: "--font-deva-serif", subsets: ["devanagari"], preload: false });
 
 export const metadata: Metadata = {
   title: { default: "CurrentKosh — Current affairs, made exam-ready", template: "%s · CurrentKosh" },
@@ -47,7 +46,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       lang={lang}
       data-theme="light"
       suppressHydrationWarning
-      className={`${ui.variable} ${serif.variable} ${mono.variable} ${deva.variable} ${devaSerif.variable} h-full antialiased`}
+      className={`${ui.variable} ${display.variable} ${mono.variable} ${deva.variable} h-full antialiased`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

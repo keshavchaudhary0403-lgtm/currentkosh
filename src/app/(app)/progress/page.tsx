@@ -1,7 +1,6 @@
 "use client";
 
 import { Flame } from "lucide-react";
-import { DailyPath } from "@/components/daily-path";
 import { useLang } from "@/components/lang-context";
 import { catStyle } from "@/components/category-icon";
 import { Bar, Count, Empty, PageHeader, ProgressRing, SectionTitle, cx } from "@/components/ui";
@@ -30,9 +29,7 @@ export default function Progress() {
 
   return (
     <div className="space-y-8">
-      <PageHeader eyebrow={L("Saved privately in this browser", "इसी ब्राउज़र में निजी रूप से सहेजा")} title={ui === "hi" ? "प्रगति" : <>Progress<span className="text-signal-ink italic">.</span></>} />
-
-      <DailyPath />
+      <PageHeader eyebrow={L("Saved privately in this browser", "इसी ब्राउज़र में निजी रूप से सहेजा")} title={ui === "hi" ? "प्रगति" : <>Progress<span className="text-signal-ink">.</span></>} />
 
       <section className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <div className="rise relative col-span-2 row-span-2 flex min-h-[260px] flex-col overflow-hidden rounded-[28px] bg-[#10110e] p-6 text-[#f3f2ec] dark:bg-card dark:shadow-[inset_0_0_0_1px_var(--line-2)]">
@@ -41,7 +38,7 @@ export default function Progress() {
             <Flame className={cx("size-7", run > 0 && "flicker")} strokeWidth={2.2} />
           </span>
           <div className="relative mt-auto pt-6">
-            <div className="font-display text-[110px] leading-[0.8] sm:text-[140px]">
+            <div className="font-display text-[86px] leading-[0.8] sm:text-[109px]">
               <Count to={run} />
             </div>
             <div className="mt-3 text-sm text-white/70 dark:text-ink-2">{L("day streak · small daily steps add up", "दिन लगातार · रोज़ के छोटे कदम")}</div>
@@ -128,7 +125,7 @@ export default function Progress() {
 function Tile({ value, label, hint, cls }: { value: number; label: string; hint?: string; cls: string }) {
   return (
     <div className={cx("rise flex flex-col justify-end rounded-[24px] p-4 sm:p-5", cls)}>
-      <div className="font-display text-[48px] leading-none">
+      <div className="font-display text-[37px] leading-none">
         <Count to={value} />
       </div>
       <div className="mt-2 text-xs font-semibold">{label}</div>
