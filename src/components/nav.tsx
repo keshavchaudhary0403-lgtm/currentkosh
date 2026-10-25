@@ -11,7 +11,6 @@ import {
   Check,
   ChevronDown,
   ClipboardList,
-  Flame,
   Library,
   Newspaper,
   Search,
@@ -25,7 +24,6 @@ import { dueCount, useProgress } from "@/lib/progress-store";
 import type { Lang } from "@/lib/taxonomy";
 import { ThemeSwitch } from "./theme-switch";
 import { cx } from "./ui";
-import { useXp } from "./xp";
 
 export type NavLabels = Record<"today" | "revise" | "practice" | "tests" | "threads" | "monthly" | "archive" | "progress" | "saved" | "sources" | "settings" | "you", string>;
 
@@ -56,10 +54,10 @@ const isActive = (path: string, href: string) => (href === "/" ? path === "/" ||
 /** Tests and revision sessions are focus mode: no rail, header or dock. */
 export const isFocus = (path: string) => path.startsWith("/practice/run") || path.startsWith("/revise/session") || /^\/monthly\/[^/]+\/test/.test(path);
 
-/** Desktop icon rail with the level ring at the bottom. */
+/** Desktop icon rail. */
 export function Sidebar({ labels }: { labels: NavLabels; lang: Lang }) {
   const path = usePathname();
-  const xp = useXp();
+  const due = dueCount(useProgress());
   if (isFocus(path)) return null;
   return (
     <aside className="sticky top-0 hidden h-dvh w-[88px] shrink-0 flex-col items-center border-r border-line py-4 lg:flex">
@@ -79,8 +77,8 @@ export function Sidebar({ labels }: { labels: NavLabels; lang: Lang }) {
             >
               <Icon className={cx("size-5 transition-transform group-hover:scale-110", active && "text-solid-accent")} strokeWidth={active ? 2.2 : 1.8} />
               <span className="max-w-full truncate px-1 text-[10px] leading-none font-semibold">{labels[key]}</span>
-              {key === "revise" && xp.due > 0 && (
-                <span className="absolute top-1 right-2 grid min-w-[18px] place-items-center rounded-full bg-cobalt px-1 text-[10px] leading-[18px] font-bold text-white tnum">{xp.due > 99 ? "99+" : xp.due}</span>
+              {key === "revise" && due > 0 && (
+                <span className="absolute top-1 right-2 grid min-w-[18px] place-items-center rounded-full bg-cobalt px-1 text-[10px] leading-[18px] font-bold text-white tnum">{due > 99 ? "99+" : due}</span>
               )}
             </Link>
           );
@@ -93,28 +91,7 @@ export function Sidebar({ labels }: { labels: NavLabels; lang: Lang }) {
   );
 }
 
-/** Streak flame and XP, shown in the header on every screen. */
-export function XpChip() {
-  const xp = useXp();
-  return (
-    <Link
-      href="/progress"
-      title={`Level ${xp.level} · ${xp.total} XP · ${xp.streak}-day streak`}
-      className="flex h-11 shrink-0 items-center gap-2 rounded-full bg-card pr-3 pl-1.5 shadow-[inset_0_0_0_1px_var(--line-2)] transition hover:shadow-[inset_0_0_0_1px_var(--ink-3)]"
-    >
-      <span className="flex h-8 items-center gap-1 rounded-full bg-[#10110e] px-2 text-xs font-bold text-[#c8f135] tnum dark:bg-signal dark:text-on-signal">
-        <Flame className={cx("size-4", xp.streak > 0 && "flicker")} /> {xp.streak}
-      </span>
-      <span className="font-mono text-xs font-semibold tnum">
-        {xp.total.toLocaleString("en-IN")}
-        <span className="text-ink-3"> XP</span>
-      </span>
-      <span className="hidden font-mono text-[11px] text-ink-3 xl:inline">· L{xp.level}</span>
-    </Link>
-  );
-}
-
-/** Sticky glass top bar: brand (phones), search (desktop), XP, saved, language and the theme switch. */
+/** Sticky glass top bar: brand (phones), search (desktop), saved, language and the theme switch. */
 export function AppHeader({ lang }: { lang: Lang }) {
   const path = usePathname();
   const router = useRouter();
@@ -151,7 +128,6 @@ export function AppHeader({ lang }: { lang: Lang }) {
           </label>
         </form>
         <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
-          <XpChip />
           <span className="hidden sm:block">
             <SavedLink />
           </span>

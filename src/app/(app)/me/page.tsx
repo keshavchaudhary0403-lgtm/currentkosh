@@ -19,7 +19,7 @@ export default async function Me() {
   const hi = ui === "hi";
   const countdown = profile.examDate ? daysUntil(profile.examDate) : null;
   const links = [
-    { href: "/progress", tone: "bg-signal text-on-signal", icon: BarChart3, label: hi ? "प्रगति" : "Progress", hint: hi ? "स्ट्रीक, सटीकता, कमज़ोर विषय" : "Streak, accuracy, weak topics" },
+    { href: "/progress", tone: "bg-signal text-on-signal", icon: BarChart3, label: hi ? "प्रगति" : "Progress", hint: hi ? "पढ़ी ख़बरें, सटीकता, कमज़ोर विषय" : "Stories read, accuracy, weak topics" },
     { href: "/tests", tone: "bg-flare-soft text-flare-ink", icon: ClipboardList, label: hi ? "मेरे टेस्ट" : "My tests", hint: hi ? "अंक, विश्लेषण, दोबारा प्रयास" : "Scores, analysis and retries" },
     { href: "/saved", tone: "bg-cobalt-soft text-cobalt-ink", icon: Bookmark, label: hi ? "सहेजे गए" : "Saved", hint: hi ? "अंतिम समय के दोहराव के लिए" : "Kept for last-minute revision" },
     { href: "/threads", tone: "bg-amber-soft text-amber-ink", icon: Waypoints, label: hi ? "घटनाक्रम" : "Timelines", hint: hi ? "एक मुद्दे की पूरी कहानी, क्रम से" : "Follow an issue from start to now" },

@@ -815,25 +815,3 @@ body {
 .feed::-webkit-scrollbar {
   display: none;
 }
-/* XP pop */
-.xp-pop {
-  animation: xp-pop 1.1s var(--ease-out) both;
-}
-@keyframes xp-pop {
-  0% {
-    opacity: 0;
-    transform: translateY(8px) scale(0.8);
-  }
-  20% {
-    opacity: 1;
-    transform: translateY(0) scale(1.1);
-  }
-  70% {
-    opacity: 1;
-    transform: translateY(-6px) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-22px);
-  }
-}

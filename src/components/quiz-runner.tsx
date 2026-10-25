@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronDown, Clock, Flag, Flame, LayoutGrid, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronDown, Clock, Flag, LayoutGrid, X } from "lucide-react";
 import type { McqContent } from "@/lib/content";
 import { saveAttempt, type Attempt } from "@/lib/progress-store";
 import { categoryById, pick, type Lang } from "@/lib/taxonomy";
@@ -82,8 +82,6 @@ export function QuizRunner({
   const last = i === questions.length - 1;
   const isRight = (j: number) => answers[j] === questions[j].content.answer;
   // Correct answers in a row, counting back from the current question (practice mode only).
-  let combo = 0;
-  if (!timed) for (let j = i; j >= 0 && revealed[j] && isRight(j); j--) combo++;
 
   const select = (a: number) => {
     setAnswers((xs) => xs.map((x, j) => (j === i ? a : x)));
@@ -129,11 +127,7 @@ export function QuizRunner({
                 {String(Math.floor(remaining / 60)).padStart(2, "0")}:{String(remaining % 60).padStart(2, "0")}
               </span>
             </div>
-          ) : (
-            <span key={combo} className={cx("pop flex h-11 items-center gap-1 rounded-full px-3.5 text-sm font-bold tnum", combo >= 2 ? "bg-signal text-on-signal" : "bg-card text-ink-3 shadow-[inset_0_0_0_1px_var(--line-2)]")}>
-              <Flame className={cx("size-4", combo >= 2 && "flicker")} strokeWidth={2.4} /> {combo}
-            </span>
-          )}
+          ) : null}
           <ThemeSwitch />
         </div>
       </div>
@@ -172,12 +166,6 @@ export function QuizRunner({
           <Flag className={cx("size-4", flags[i] && "fill-current")} strokeWidth={2} /> {flags[i] ? (hi ? "चिह्नित" : "Flagged") : hi ? "चिह्नित करें" : "Flag"}
         </button>
       </div>
-
-      {combo >= 3 && revealed[i] && (
-        <div key={`c${i}`} className="pop mb-4 flex items-center justify-center gap-2 rounded-full bg-[#10110e] px-4 py-2.5 text-sm font-semibold text-[#c8f135]">
-          <Flame className="flicker size-4" /> {hi ? `लगातार ${combo} सही! जारी रखें!` : `${combo} in a row! Keep going!`}
-        </div>
-      )}
 
       <div key={q.id} className="card rise relative p-5 sm:p-7">
         {revealed[i] && isRight(i) && <Confetti key={`f${i}`} pieces={22} />}

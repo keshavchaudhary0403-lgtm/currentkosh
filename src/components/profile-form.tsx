@@ -33,11 +33,11 @@ export function ProfileForm({ initial, submitLabel, wide = false }: { initial?: 
   const li = langs.findIndex(([v]) => v === lang);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <fieldset>
         <legend className="eyebrow mb-1 text-ink-3">01 · Your exams</legend>
-        <p className="mb-3 text-sm text-ink-2">Pick all that apply. Each story is ranked by how much it matters to your exams.</p>
-        <div className="grid grid-cols-2 gap-2 lg:grid-cols-3">
+        <p className="mb-2.5 text-sm text-ink-2 max-sm:hidden">Pick all that apply. Each story is ranked by how much it matters to your exams.</p>
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
           {EXAMS.map((e) => {
             const on = exams.includes(e.id);
             return (
@@ -48,7 +48,7 @@ export function ProfileForm({ initial, submitLabel, wide = false }: { initial?: 
                 aria-pressed={on}
                 title={e.blurb.en}
                 className={cx(
-                  "flex min-h-14 items-center gap-2.5 rounded-[18px] px-3 py-2.5 text-left transition duration-200 active:scale-[.97]",
+                  "flex min-h-12 items-center gap-2.5 rounded-[16px] px-3 py-2 text-left transition duration-200 active:scale-[.97]",
                   on ? "bg-solid text-on-solid shadow-card" : "bg-card shadow-[inset_0_0_0_1px_var(--line-2)] hover:shadow-[inset_0_0_0_1px_var(--ink-3)]",
                 )}
               >
@@ -67,8 +67,8 @@ export function ProfileForm({ initial, submitLabel, wide = false }: { initial?: 
         </div>
       </fieldset>
 
-      <div className="grid gap-4 sm:grid-cols-2">
-        <label className="block">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4">
+        <label className="block min-w-0">
           <span className="eyebrow mb-2 block text-ink-3">02 · Your state</span>
           <Select value={state} onChange={(e) => setState(e.target.value)}>
             <option value="">No state focus</option>
@@ -79,8 +79,8 @@ export function ProfileForm({ initial, submitLabel, wide = false }: { initial?: 
             ))}
           </Select>
         </label>
-        <label className="block">
-          <span className="eyebrow mb-2 block text-ink-3">
+        <label className="block min-w-0">
+          <span className="eyebrow mb-2 block truncate text-ink-3">
             03 · Exam date <span className="normal-case">(optional)</span>
           </span>
           <DateInput value={examDate} onChange={(e) => setExamDate(e.target.value)} />

@@ -1,11 +1,10 @@
 "use client";
 
-import { Flame } from "lucide-react";
 import { useLang } from "@/components/lang-context";
 import { catStyle } from "@/components/category-icon";
 import { Bar, Count, Empty, PageHeader, ProgressRing, SectionTitle, cx } from "@/components/ui";
 import { addDays, istDate } from "@/lib/dates";
-import { accuracyByCategory, activityDays, streak, totals, useProgress } from "@/lib/progress-store";
+import { accuracyByCategory, activityDays, totals, useProgress } from "@/lib/progress-store";
 import { categoryById, pick } from "@/lib/taxonomy";
 
 export default function Progress() {
@@ -16,7 +15,6 @@ export default function Progress() {
   const tot = totals(p);
   const acc = accuracyByCategory(p);
   const days = activityDays(p);
-  const run = streak(p);
   const accuracy = tot.answered ? Math.round((tot.correct / tot.answered) * 100) : 0;
 
   // 18-week activity heatmap, columns = weeks (Mon-Sun)
@@ -31,13 +29,7 @@ export default function Progress() {
     <div className="space-y-8">
       <PageHeader eyebrow={L("Saved privately in this browser", "इसी ब्राउज़र में निजी रूप से सहेजा")} title={ui === "hi" ? "प्रगति" : <>Progress<span className="text-signal-ink">.</span></>} />
 
-      <section className="card rise grid grid-cols-2 divide-line sm:grid-cols-3 lg:grid-cols-5 lg:divide-x">
-        <div className="col-span-2 flex items-center gap-4 p-5 sm:col-span-3 lg:col-span-1">
-          <span className="grid size-12 shrink-0 place-items-center rounded-[16px] bg-signal text-on-signal">
-            <Flame className={cx("size-6", run > 0 && "flicker")} strokeWidth={2.2} />
-          </span>
-          <Stat value={<Count to={run} />} label={L("day streak", "दिन लगातार")} />
-        </div>
+      <section className="card rise grid grid-cols-2 divide-line lg:grid-cols-4 lg:divide-x">
         <div className="p-5">
           <Stat value={<Count to={tot.read} />} label={L("Stories read", "ख़बरें पढ़ीं")} />
         </div>

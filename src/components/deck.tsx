@@ -8,7 +8,6 @@ import {
   BookOpenText,
   Brain,
   Check,
-  Flame,
   Lightbulb,
   Newspaper,
   ShieldCheck,
@@ -20,15 +19,14 @@ import {
   Zap,
 } from "lucide-react";
 import type { DeckStory } from "@/app/(app)/deck-data";
-import { answerQuestion, markRead, useProgress } from "@/lib/progress-store";
+import { answerQuestion, dueCount, markRead, useProgress } from "@/lib/progress-store";
 import { t } from "@/lib/i18n";
 import { categoryById, pick, type Lang } from "@/lib/taxonomy";
 import { CategoryIcon, catStyle } from "./category-icon";
 import { McqView } from "./mcq";
 import { MiniTimeline, ReaderSheet } from "./reader";
 import { BookmarkButton } from "./story-actions";
-import { Confetti, Count, RelevanceBadge, cx, fmtDate } from "./ui";
-import { XP, useXp } from "./xp";
+import { Confetti, RelevanceBadge, cx, fmtDate } from "./ui";
 
 type Item = { kind: "story"; s: DeckStory; group: "main" | "more"; n: number; of: number } | { kind: "end" };
 
@@ -56,8 +54,6 @@ export function Deck({
   const p = useProgress();
   const [topic, setTopic] = useState<string | null>(null);
   const [picks, setPicks] = useState<Record<string, number>>({});
-  const [combo, setCombo] = useState(0);
-  const [pop, setPop] = useState<{ id: string; text: string; key: number } | null>(null);
   const [active, setActive] = useState(0);
   const [seen, setSeen] = useState<Set<string>>(() => new Set());
   const [reader, setReader] = useState<string | null>(null);
@@ -101,9 +97,6 @@ export function Deck({
     setPicks((x) => ({ ...x, [s.id]: i }));
     answerQuestion(m.id, s.category, ok);
     if (!p.reads[s.id]) markRead(s.id, s.cardIds);
-    const c = ok ? combo + 1 : 0;
-    setCombo(c);
-    setPop({ id: s.id, text: ok ? `+${XP.right} XP${c >= 2 ? ` · ×${c} combo` : ""}` : `+${XP.wrong} XP`, key: Date.now() });
   };
 
   // The story crossing a line a third of the way down the feed is the active one.
@@ -263,8 +256,6 @@ export function Deck({
                     read={!!p.reads[it.s.id]}
                     picked={picks[it.s.id] ?? null}
                     earlier={picks[it.s.id] === undefined ? result(it.s) : null}
-                    pop={pop?.id === it.s.id ? pop : null}
-                    combo={combo}
                     onAnswer={(a) => answer(it.s, a)}
                     onDeep={() => setReader(it.s.id)}
                   />
@@ -332,8 +323,6 @@ function StoryBlock({
   read,
   picked,
   earlier,
-  pop,
-  combo,
   onAnswer,
   onDeep,
 }: {
@@ -342,8 +331,6 @@ function StoryBlock({
   read: boolean;
   picked: number | null;
   earlier: "right" | "wrong" | null;
-  pop: { text: string; key: number } | null;
-  combo: number;
   onAnswer: (i: number) => void;
   onDeep: () => void;
 }) {
@@ -404,21 +391,9 @@ function StoryBlock({
 
         {mcq && (
           <div className="relative mt-6 rounded-[22px] bg-card p-4 shadow-[inset_0_0_0_1px_var(--line-2)] sm:p-5">
-            {pop && (
-              <span key={pop.key} className="xp-pop absolute -top-3 right-4 z-10 rounded-full bg-signal px-3 py-1 font-mono text-xs font-semibold text-on-signal shadow-card">
-                {pop.text}
-              </span>
-            )}
-            {picked !== null && picked === mcq.content.answer && <Confetti key={pop?.key} pieces={18} />}
-            <div className="eyebrow mb-2 flex items-center justify-between text-ink-3 lg:mb-3">
-              <span className="inline-flex items-center gap-1.5">
-                <Zap className="size-3.5 text-flare" /> {hi ? "तुरंत प्रश्न" : "Quick question"} · +{XP.right} XP
-              </span>
-              {combo >= 2 && (
-                <span className="inline-flex items-center gap-1 text-flare-ink">
-                  <Flame className="flicker size-3.5" /> ×{combo}
-                </span>
-              )}
+            {picked !== null && picked === mcq.content.answer && <Confetti pieces={18} />}
+            <div className="eyebrow mb-2 flex items-center gap-1.5 text-ink-3 lg:mb-3">
+              <Zap className="size-3.5 text-flare" /> {hi ? "तुरंत प्रश्न" : "Quick question"}
             </div>
             {earlier && picked === null ? (
               <div className={cx("rounded-2xl p-3.5 text-sm", earlier === "right" ? "bg-good-soft text-good-ink" : "bg-bad-soft text-bad-ink")}>
@@ -453,7 +428,7 @@ function StoryBlock({
 function EndCard({ lang, date, readN, total, right, answered, moreCount, onMore }: { lang: Lang; date: string; readN: number; total: number; right: number; answered: number; moreCount: number; onMore: () => void }) {
   const ui = lang === "bi" ? "en" : lang;
   const hi = ui === "hi";
-  const xp = useXp();
+  const due = dueCount(useProgress());
   const complete = total > 0 && readN === total;
   return (
     <div className="relative flex flex-col overflow-hidden rounded-[28px] bg-[#10110e] p-6 text-[#f3f2ec] shadow-card dark:bg-card dark:shadow-[inset_0_0_0_1px_var(--line-2)] sm:p-8">
@@ -478,7 +453,7 @@ function EndCard({ lang, date, readN, total, right, answered, moreCount, onMore 
             : `${total - readN} ${total - readN === 1 ? "story is" : "stories are"} still unread. Scroll back up to finish.`}
       </p>
 
-      <div className="relative mt-6 grid grid-cols-3 gap-2">
+      <div className="relative mt-6 grid grid-cols-2 gap-2">
         <div className="rounded-[18px] bg-white/8 p-3.5 dark:bg-card-2">
           <div className="font-display text-[27px] leading-none">
             {readN}
@@ -493,15 +468,6 @@ function EndCard({ lang, date, readN, total, right, answered, moreCount, onMore 
           </div>
           <div className="mt-1 text-[11px] text-white/60 dark:text-ink-3">{hi ? "सही" : "right"}</div>
         </div>
-        <div className="rounded-[18px] bg-[#c8f135] p-3.5 text-[#10110e]">
-          <div className="font-display text-[27px] leading-none">
-            +<Count to={xp.today} />
-          </div>
-          <div className="mt-1 text-[11px] opacity-70">XP {hi ? "आज" : "today"}</div>
-        </div>
-      </div>
-      <div className="relative mt-3 flex items-center gap-2 text-sm text-white/75 dark:text-ink-2">
-        <Flame className={cx("size-5 text-[#c8f135]", xp.streak > 0 && "flicker")} /> <b className="tnum">{xp.streak}</b> {hi ? "दिन लगातार" : "day streak"} · Lv {xp.level}
       </div>
 
       <div className="relative mt-auto grid gap-2 pt-6 sm:grid-cols-2">
@@ -509,7 +475,7 @@ function EndCard({ lang, date, readN, total, right, answered, moreCount, onMore 
           <Target className="size-4" /> {hi ? "डेली क्विज़" : "Daily quiz"}
         </Link>
         <Link href="/revise" className="btn btn-cobalt h-12 text-[15px]">
-          <Brain className="size-4" /> {hi ? "दोहराएँ" : "Revise"} {xp.due > 0 && <span className="rounded-full bg-white/20 px-2 font-mono text-xs">{xp.due}</span>}
+          <Brain className="size-4" /> {hi ? "दोहराएँ" : "Revise"} {due > 0 && <span className="rounded-full bg-white/20 px-2 font-mono text-xs">{due}</span>}
         </Link>
         {moreCount > 0 && (
           <button onClick={onMore} className="btn btn-glass h-12 text-[15px] text-white sm:col-span-2 dark:text-ink dark:[--b:var(--card-2)]">

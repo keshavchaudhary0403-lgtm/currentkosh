@@ -1,27 +1,27 @@
 "use client";
 
 import Link from "next/link";
-import { Brain, Check, Flame, Newspaper, Target } from "lucide-react";
+import { Brain, Check, Newspaper, Target } from "lucide-react";
 import { istDate } from "@/lib/dates";
+import { dueCount, useProgress } from "@/lib/progress-store";
 import { useLang } from "./lang-context";
 import { cx } from "./ui";
-import { LEVEL_SIZE, useXp } from "./xp";
 
 /**
- * The daily loop as a path: Read the deck → Daily quiz → Revise. Each node lights up when
- * done; the header shows today's XP, the streak and progress to the next level.
+ * The daily loop as a path: Read the deck → Daily quiz → Revise. Each node lights up when done.
  */
 export function DailyPath({ current }: { current?: "read" | "quiz" | "revise" }) {
   const lang = useLang();
   const hi = lang === "hi";
-  const xp = useXp();
+  const p = useProgress();
+  const due = dueCount(p);
   const today = istDate();
-  const readToday = Object.values(xp.p.reads).filter((at) => istDate(new Date(at)) === today).length;
-  const quizDone = xp.p.attempts.some((a) => a.kind === "daily" && istDate(new Date(a.finishedAt)) === today);
+  const readToday = Object.values(p.reads).filter((at) => istDate(new Date(at)) === today).length;
+  const quizDone = p.attempts.some((a) => a.kind === "daily" && istDate(new Date(a.finishedAt)) === today);
   const steps = [
     { id: "read", href: "/", icon: Newspaper, label: hi ? "डेक पढ़ें" : "Read the deck", meta: `${Math.min(readToday, 10)}/10`, done: readToday >= 10 },
     { id: "quiz", href: "/practice/run?kind=daily", icon: Target, label: hi ? "डेली क्विज़" : "Daily quiz", meta: hi ? "10 प्रश्न" : "10 Qs", done: quizDone },
-    { id: "revise", href: xp.due ? "/revise/session" : "/revise", icon: Brain, label: hi ? "दोहराएँ" : "Revise", meta: xp.due ? `${xp.due} ${hi ? "बाकी" : "due"}` : hi ? "पूरा" : "clear", done: xp.due === 0 && readToday > 0 },
+    { id: "revise", href: due ? "/revise/session" : "/revise", icon: Brain, label: hi ? "दोहराएँ" : "Revise", meta: due ? `${due} ${hi ? "बाकी" : "due"}` : hi ? "पूरा" : "clear", done: due === 0 && readToday > 0 },
   ] as const;
   const doneN = steps.filter((s) => s.done).length;
   const lead = steps.findIndex((s) => !s.done) === -1 ? 3 : steps.findIndex((s) => !s.done);
@@ -35,12 +35,6 @@ export function DailyPath({ current }: { current?: "read" | "quiz" | "revise" })
           <div className="mt-1 font-display text-[23px] leading-none sm:text-[28px]">
             {doneN === 3 ? (hi ? "सब पूरा!" : "Path complete.") : hi ? `${doneN}/3 कदम` : `${doneN} of 3 steps`}
           </div>
-        </div>
-        <div className="flex items-center gap-2 text-sm">
-          <span className="inline-flex h-9 items-center gap-1.5 rounded-full bg-white/10 px-3 dark:bg-card-2">
-            <Flame className={cx("size-4 text-[#c8f135]", xp.streak > 0 && "flicker")} /> <b className="tnum">{xp.streak}</b>
-          </span>
-          <span className="inline-flex h-9 items-center rounded-full bg-[#c8f135] px-3 font-mono text-xs font-semibold text-[#10110e]">+{xp.today} XP</span>
         </div>
       </div>
 
@@ -66,15 +60,6 @@ export function DailyPath({ current }: { current?: "read" | "quiz" | "revise" })
         ))}
       </ol>
 
-      <div className="relative mt-4 flex items-center gap-3">
-        <span className="font-mono text-xs text-white/60 dark:text-ink-3">L{xp.level}</span>
-        <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/10 dark:bg-line-2">
-          <span className="grow-x block h-full rounded-full bg-[#c8f135]" style={{ width: `${(xp.into / LEVEL_SIZE) * 100}%` }} />
-        </span>
-        <span className="font-mono text-xs text-white/60 dark:text-ink-3">
-          {xp.into}/{LEVEL_SIZE}
-        </span>
-      </div>
     </section>
   );
 }
