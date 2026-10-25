@@ -19,7 +19,7 @@ import {
   Waypoints,
 } from "lucide-react";
 import { setLang } from "@/app/actions";
-import { InstallSidebarButton } from "./install";
+import { InstallHeaderButton, InstallSidebarButton } from "./install";
 import { dueCount, useProgress } from "@/lib/progress-store";
 import type { Lang } from "@/lib/taxonomy";
 import { ThemeSwitch } from "./theme-switch";
@@ -131,6 +131,7 @@ export function AppHeader({ lang }: { lang: Lang }) {
           <span className="hidden sm:block">
             <SavedLink />
           </span>
+          {path !== "/me" && <InstallHeaderButton />}
           <LangMenu lang={lang} />
           <ThemeSwitch />
         </div>

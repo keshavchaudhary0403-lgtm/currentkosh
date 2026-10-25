@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Download, PlusSquare, Share, Smartphone, X } from "lucide-react";
 import { dismissBanner, initPwa, promptInstall, useBannerDismissed, useInstallState } from "@/lib/pwa";
@@ -43,7 +44,7 @@ export function InstallCard() {
       </div>
     );
   return (
-    <section className="card p-5">
+    <section id="install" className="card scroll-mt-24 p-5">
       <div className="flex items-center gap-3">
         <Logo size={44} />
         <div className="min-w-0 flex-1">
@@ -105,13 +106,37 @@ export function InstallBanner() {
   );
 }
 
-/** Sidebar install button (desktop Chrome/Edge). */
+/** Sidebar install tile (desktop Chrome/Edge), shaped like the rail's other tiles. */
 export function InstallSidebarButton() {
   const state = useInstallState();
   if (state !== "prompt") return null;
   return (
-    <button onClick={() => promptInstall()} className="flex h-11 w-full items-center gap-3 rounded-2xl px-3 text-sm font-semibold text-ink-2 shadow-[inset_0_0_0_1px_var(--line-2)] transition hover:bg-card hover:text-ink">
-      <Download className="size-4" strokeWidth={2} /> Install app
+    <button
+      onClick={() => promptInstall()}
+      title="Install CurrentKosh"
+      className="flex h-[54px] w-[68px] flex-col items-center justify-center gap-1 rounded-[18px] text-ink-2 shadow-[inset_0_0_0_1px_var(--line-2)] transition hover:bg-card hover:text-ink"
+    >
+      <Download className="size-5" strokeWidth={1.8} />
+      <span className="text-[10px] leading-none font-semibold">Install</span>
     </button>
   );
+}
+
+/** Header install button for phones: one tap on Android, or the iPhone steps on the You page. */
+export function InstallHeaderButton() {
+  const state = useInstallState();
+  const cls = "btn btn-ghost size-11 shrink-0 px-0 lg:hidden";
+  if (state === "prompt")
+    return (
+      <button onClick={() => promptInstall()} aria-label="Install the app" title="Install the app" className={cls}>
+        <Download className="size-[18px]" strokeWidth={2} />
+      </button>
+    );
+  if (state === "ios")
+    return (
+      <Link href="/me#install" aria-label="Install the app" title="Install the app" className={cls}>
+        <Download className="size-[18px]" strokeWidth={2} />
+      </Link>
+    );
+  return null;
 }
