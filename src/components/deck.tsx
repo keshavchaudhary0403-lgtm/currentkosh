@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import {
   ArrowDown,
   ArrowRight,
@@ -32,6 +32,19 @@ import { MiniTimeline, ReaderSheet } from "./reader";
 import { BookmarkButton } from "./story-actions";
 import { Confetti, Count, RelevanceBadge, cx, fmtDate } from "./ui";
 import { XP, useXp } from "./xp";
+
+// Phones get a card that never scrolls inside (it would fight the deck swipe); desktop may.
+const DESKTOP = "(min-width: 1024px)";
+const useIsDesktop = () =>
+  useSyncExternalStore(
+    (cb) => {
+      const m = matchMedia(DESKTOP);
+      m.addEventListener("change", cb);
+      return () => m.removeEventListener("change", cb);
+    },
+    () => matchMedia(DESKTOP).matches,
+    () => false,
+  );
 
 type Item = { kind: "story"; s: DeckStory; group: "main" | "more"; n: number; of: number } | { kind: "end" };
 
@@ -386,16 +399,50 @@ function StoryCardDeck({
         ? { label: hi ? "ख़ुद को परखें" : "Test yourself", icon: Zap, go: () => onReveal() }
         : { label: hi ? "छोड़ें" : "Skip", icon: ArrowDown, go: onNext };
   const body = useRef<HTMLDivElement>(null);
-  // Bring each new layer into view as it unfolds.
+  const desktop = useIsDesktop();
+  // Phones: if a layer still overflows the card, tighten in steps. 1: smaller type; 2: fewer facts and
+  // no inner question card; 3: hide the card's top row. Only step 4 lets the body scroll, so nothing is cut off.
+  const fitKey = `${layer}:${picked}:${earlier}`;
+  const [fitState, setFit] = useState({ key: fitKey, level: 0 });
+  const tight = fitState.key === fitKey ? fitState.level : 0;
+  useEffect(() => {
+    if (desktop || layer === 0) return;
+    const id = setTimeout(
+      () => {
+        const el = body.current;
+        if (el && el.scrollHeight - el.clientHeight > 1 && tight < 4) setFit({ key: fitKey, level: tight + 1 });
+      },
+      tight === 0 ? 560 : 40,
+    );
+    return () => clearTimeout(id);
+  }, [desktop, layer, fitKey, tight]);
+  // Phone layer 0: clamp the summary to the lines that fit under the headline; Deep dive has the rest.
+  const sumBox = useRef<HTMLDivElement>(null);
+  const sumText = useRef<HTMLParagraphElement>(null);
+  const [lines, setLines] = useState(0);
+  useLayoutEffect(() => {
+    const box = sumBox.current;
+    const p = sumText.current;
+    if (!box || !p || desktop || layer !== 0) return;
+    const fit = () => {
+      const lh = parseFloat(getComputedStyle(p).lineHeight) || 26;
+      setLines(Math.max(2, Math.floor(box.clientHeight / lh)));
+    };
+    fit();
+    const ro = new ResizeObserver(fit);
+    ro.observe(box);
+    return () => ro.disconnect();
+  }, [desktop, layer]);
+  // Desktop: bring each new layer into view as it unfolds.
   useEffect(() => {
     const el = body.current;
-    if (!el || layer < 2) return;
+    if (!el || layer < 2 || !desktop) return;
     const id = setTimeout(() => {
       const target = el.querySelector<HTMLElement>(`[data-layer="${layer}"]`);
       if (target) el.scrollTo({ top: target.offsetTop - 12, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
     }, 220);
     return () => clearTimeout(id);
-  }, [layer]);
+  }, [layer, desktop]);
 
   return (
     <div
@@ -407,7 +454,7 @@ function StoryCardDeck({
       }}
     >
       {/* Top row */}
-      <div className="relative flex items-center gap-2 px-4 pt-4 sm:px-6 sm:pt-5">
+      <div className={cx("relative flex items-center gap-2 px-4 pt-4 sm:px-6 sm:pt-5 [@media(max-height:720px)]:pt-3", tight >= 3 && "max-lg:hidden")}>
         <span className="inline-flex h-8 shrink-0 items-center rounded-full bg-solid px-3 font-mono text-xs font-semibold text-on-solid tnum">
           {it.group === "more" && <span className="mr-1.5 opacity-70">{hi ? "और" : "MORE"}</span>}
           {String(it.n).padStart(2, "0")}
@@ -426,33 +473,72 @@ function StoryCardDeck({
       </div>
 
       {/* Body: unfolds in place */}
-      <div ref={body} className="relative min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pt-4 pb-2 sm:px-6">
+      <div
+        ref={body}
+        data-tight={tight}
+        className={cx(
+          "relative flex min-h-0 flex-1 flex-col px-4 pt-3 pb-2 sm:px-6 lg:overflow-y-auto lg:overscroll-contain lg:pt-4",
+          tight >= 4 ? "overflow-y-auto overscroll-contain" : "overflow-hidden",
+        )}
+      >
         <h2
           lang={hi ? "hi" : undefined}
-          className={cx("font-display transition-all duration-500", layer === 0 ? "text-[30px] sm:text-[36px] lg:text-[38px]" : "text-[21px] sm:text-[25px]")}
+          className={cx(
+            "shrink-0 font-display transition-all duration-500",
+            layer === 0 ? "text-[28px] sm:text-[34px] lg:text-[38px]" : layer === 1
+              ? "text-[20px] max-lg:line-clamp-2 sm:text-[24px]"
+              : "text-[17px] max-lg:line-clamp-2 max-lg:[@media(max-height:720px)]:hidden sm:text-[22px] lg:text-[24px]",
+            layer >= 2 && tight >= 1 && "max-lg:hidden",
+          )}
         >
           {pick(s.content.title, ui)}
         </h2>
         {lang === "bi" && (
-          <p lang="hi" className="mt-2 text-base font-medium text-ink-2">
+          <p lang="hi" className={cx("mt-2 shrink-0 text-base font-medium text-ink-2", layer >= 2 && "max-lg:hidden")}>
             {s.content.title.hi}
           </p>
         )}
         {/* Layer 0 shows the whole short summary; once facts unfold it shrinks to the one-line hook. */}
-        <p lang={hi ? "hi" : undefined} className={cx("mt-3 text-ink-2", layer === 0 ? "text-[16px] leading-relaxed sm:text-[17px]" : "line-clamp-2 text-sm")}>
-          {layer === 0 ? pick(s.content.summary, ui) : pick(s.hook, ui)}
-        </p>
+        {layer === 0 ? (
+          <div ref={sumBox} className="mt-3 min-h-0 flex-1 overflow-hidden lg:flex-none lg:overflow-visible">
+            <p
+              ref={sumText}
+              lang={hi ? "hi" : undefined}
+              className="text-[16px] leading-relaxed text-ink-2 sm:text-[17px]"
+              style={
+                !desktop && lines
+                  ? { display: "-webkit-box", WebkitBoxOrient: "vertical", WebkitLineClamp: lines, overflow: "hidden", maskImage: "linear-gradient(#000 calc(100% - 1.7em), transparent)" }
+                  : undefined
+              }
+            >
+              {pick(s.content.summary, ui)}
+            </p>
+          </div>
+        ) : (
+          <p lang={hi ? "hi" : undefined} className="mt-2 line-clamp-2 shrink-0 text-sm text-ink-2 max-lg:hidden">
+            {pick(s.hook, ui)}
+          </p>
+        )}
 
-        <div className="unfold" data-open={layer >= 1}>
+        <div className="unfold shrink-0" data-open={layer === 1 || (layer >= 2 && desktop)}>
           <div>
-            <div data-layer="1" className="eyebrow mt-5 mb-2 flex items-center gap-1.5 text-(--cat-ink)">
+            <div data-layer="1" className="eyebrow mt-3 mb-2 flex lg:mt-5 items-center gap-1.5 text-(--cat-ink)">
               <Sparkles className="size-3.5" /> {t("keyFacts", ui)}
             </div>
-            <ol className="space-y-2">
+            <ol className={cx("space-y-1.5 lg:space-y-2 max-lg:[@media(max-height:720px)]:[&>li:nth-child(n+4)]:hidden", tight >= 2 && "max-lg:[&>li:nth-child(n+4)]:hidden")}>
               {s.content.key_facts.slice(0, 4).map((f, i) => (
-                <li key={i} className="flex gap-3 rounded-2xl bg-card/80 px-3.5 py-2.5 text-[15px] leading-snug font-medium shadow-[inset_0_0_0_1px_var(--line)]" style={{ transitionDelay: `${i * 60}ms` }}>
+                <li
+                  key={i}
+                  className={cx(
+                    "flex gap-3 rounded-2xl bg-card/80 px-3 py-2 text-[14px] leading-snug font-medium shadow-[inset_0_0_0_1px_var(--line)] lg:px-3.5 lg:py-2.5 lg:text-[15px]",
+                    tight >= 1 && "max-lg:py-1.5 max-lg:text-[13px]",
+                  )}
+                  style={{ transitionDelay: `${i * 60}ms` }}
+                >
                   <span className="pt-0.5 font-mono text-[11px] text-(--cat-ink)">{String(i + 1).padStart(2, "0")}</span>
-                  <span lang={hi ? "hi" : undefined}>{pick(f, ui)}</span>
+                  <span lang={hi ? "hi" : undefined} className="max-lg:line-clamp-3">
+                    {pick(f, ui)}
+                  </span>
                 </li>
               ))}
             </ol>
@@ -460,16 +546,22 @@ function StoryCardDeck({
         </div>
 
         {mcq && (
-          <div className="unfold" data-open={layer >= 2}>
+          <div className="unfold shrink-0" data-open={layer >= 2}>
             <div>
-              <div data-layer="2" className="relative mt-5 rounded-[22px] bg-card p-4 shadow-[inset_0_0_0_1px_var(--line-2)] sm:p-5">
+              <div
+                data-layer="2"
+                className={cx(
+                  "relative mt-3 rounded-[22px] bg-card p-3 shadow-[inset_0_0_0_1px_var(--line-2)] sm:p-4 lg:mt-5 lg:p-5",
+                  tight >= 2 && "max-lg:mt-1 max-lg:bg-transparent max-lg:p-0 max-lg:shadow-none",
+                )}
+              >
                 {pop && (
                   <span key={pop.key} className="xp-pop absolute -top-3 right-4 z-10 rounded-full bg-signal px-3 py-1 font-mono text-xs font-semibold text-on-signal shadow-card">
                     {pop.text}
                   </span>
                 )}
                 {picked !== null && picked === mcq.content.answer && <Confetti key={pop?.key} pieces={18} />}
-                <div className="eyebrow mb-3 flex items-center justify-between text-ink-3">
+                <div className={cx("eyebrow mb-2 flex items-center justify-between text-ink-3 lg:mb-3", tight >= 1 && "max-lg:hidden")}>
                   <span className="inline-flex items-center gap-1.5">
                     <Zap className="size-3.5 text-flare" /> {hi ? "तुरंत प्रश्न" : "Quick question"} · +{XP.right} XP
                   </span>
@@ -489,7 +581,7 @@ function StoryCardDeck({
                     </div>
                   </div>
                 ) : (
-                  <McqView mcq={mcq.content} lang={lang} selected={picked} reveal={picked !== null} onSelect={picked === null ? onAnswer : undefined} />
+                  <McqView mcq={mcq.content} lang={lang} selected={picked} reveal={picked !== null} onSelect={picked === null ? onAnswer : undefined} compact={!desktop} tight={tight >= 1} />
                 )}
               </div>
             </div>
@@ -498,7 +590,7 @@ function StoryCardDeck({
       </div>
 
       {/* Footer: layer meter + actions */}
-      <div className="relative flex items-center gap-2 border-t border-line bg-card/60 px-3 py-3 backdrop-blur-md sm:px-5">
+      <div className="relative flex items-center gap-2 border-t border-line bg-card/60 px-3 py-3 backdrop-blur-md sm:px-5 [@media(max-height:720px)]:py-2">
         <div className="hidden items-center gap-1 sm:flex" aria-label={`${names[layer]} · ${layer + 1}/${max + 1}`}>
           {Array.from({ length: max + 1 }, (_, i) => (
             <button
