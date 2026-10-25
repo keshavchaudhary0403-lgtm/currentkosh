@@ -5,7 +5,7 @@ import { setTheme, useTheme } from "@/lib/theme";
 import { cx } from "./ui";
 
 /**
- * A sun/moon switch that is always visible; the icons carry the meaning, no text label.
+ * One round button that is always visible: a moon in light mode, a sun in dark mode. Tapping it flips the theme.
  * The first visit follows the system theme (see the script in app/layout.tsx).
  */
 export function ThemeSwitch({ className }: { className?: string }) {
@@ -20,25 +20,16 @@ export function ThemeSwitch({ className }: { className?: string }) {
   return (
     <button
       type="button"
-      role="switch"
-      aria-checked={dark}
-      aria-label={dark ? "Dark theme on. Switch to light" : "Light theme on. Switch to dark"}
+      aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
       title={dark ? "Switch to light theme" : "Switch to dark theme"}
       onClick={flip}
       className={cx(
-        "group flex h-11 shrink-0 items-center rounded-full bg-card px-1.5 shadow-[inset_0_0_0_1px_var(--line-2)] transition hover:shadow-[inset_0_0_0_1px_var(--ink-3)] active:scale-95",
+        "group grid size-11 shrink-0 place-items-center rounded-full bg-card text-ink shadow-[inset_0_0_0_1px_var(--line-2)] transition hover:shadow-[inset_0_0_0_1px_var(--ink-3)] active:scale-90",
         className,
       )}
     >
-      <span className="relative flex h-8 w-[60px] items-center justify-between rounded-full bg-card-2 px-2 shadow-[inset_0_1px_2px_rgb(0_0_0/0.12)]">
-        <Sun className={cx("relative z-10 size-4 transition-colors", dark ? "text-ink-3" : "text-on-signal")} strokeWidth={2.2} />
-        <Moon className={cx("relative z-10 size-4 transition-colors", dark ? "text-on-signal" : "text-ink-3")} strokeWidth={2.2} />
-        <span
-          aria-hidden
-          className="absolute top-1 left-1 size-6 rounded-full bg-signal shadow-card transition-transform duration-500 ease-[cubic-bezier(.34,1.56,.64,1)]"
-          style={{ transform: dark ? "translateX(28px)" : "translateX(0)" }}
-        />
-      </span>
+      {/* One icon: the moon offers dark mode, the sun offers light mode. */}
+      {dark ? <Sun key="sun" className="pop size-[18px]" strokeWidth={2.2} /> : <Moon key="moon" className="pop size-[18px]" strokeWidth={2.2} />}
     </button>
   );
 }

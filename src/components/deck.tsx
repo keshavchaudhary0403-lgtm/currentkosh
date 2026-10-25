@@ -31,8 +31,8 @@ import { Confetti, RelevanceBadge, cx, fmtDate } from "./ui";
 type Item = { kind: "story"; s: DeckStory; group: "main" | "more"; n: number; of: number } | { kind: "end" };
 
 /**
- * Today as one continuous scroll: each story reads top to bottom — headline and summary, key facts,
- * then a quick question — and scrolling on brings the next story. A reader sheet holds the deep dive.
+ * Today as one continuous scroll: each story reads top to bottom — headline, key facts,
+ * then a quick question (the summary lives in the deep dive) — and scrolling on brings the next story. A reader sheet holds the deep dive.
  * On desktop the feed sits between a queue (left) and a live context panel (right).
  */
 export function Deck({
@@ -317,7 +317,7 @@ function StateDot({ state }: { state: "right" | "wrong" | "read" | "seen" | null
   return <span className={cx("mt-1.5 size-2.5 shrink-0 rounded-full", state === "read" ? "bg-ink-2" : state === "seen" ? "bg-ink-3/50" : "shadow-[inset_0_0_0_1.5px_var(--line-2)]")} aria-label={state ?? "Not opened"} />;
 }
 
-/** One story in the feed, read top to bottom: headline and summary → key facts → quick question. */
+/** One story in the feed, read top to bottom: headline → key facts → quick question. */
 function StoryBlock({
   it,
   lang,
@@ -370,13 +370,10 @@ function StoryBlock({
             {s.content.title.hi}
           </p>
         )}
-        <p lang={hi ? "hi" : undefined} className="mt-3 text-[16px] leading-relaxed text-ink-2 sm:text-[17px]">
-          {pick(s.content.summary, ui)}
-        </p>
 
         {s.content.key_facts.length > 0 && (
           <div data-facts={s.id}>
-            <div className="eyebrow mt-6 mb-2.5 flex items-center gap-1.5 text-(--cat-ink)">
+            <div className="eyebrow mt-5 mb-2.5 flex items-center gap-1.5 text-(--cat-ink)">
               <Sparkles className="size-3.5" /> {t("keyFacts", ui)}
             </div>
             <ol className="space-y-2">
