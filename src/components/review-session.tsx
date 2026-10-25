@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Layers, PartyPopper, RotateCw, X } from "lucide-react";
+import { ArrowRight, Layers, PartyPopper, RotateCw, X } from "lucide-react";
 import { gradeReview } from "@/lib/progress-store";
 import type { CardContent, McqContent } from "@/lib/content";
 import type { Grade } from "@/lib/srs";
@@ -171,8 +171,8 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
                 transition: dragging ? "none" : "transform 0.35s cubic-bezier(.2,.8,.2,1)",
               }}
             >
-              <div className={cx("flip-inner min-h-[320px] sm:min-h-[360px]", flipped && "flipped")}>
-                <div className="flip-face card flex min-h-[320px] flex-col items-center justify-center p-8 shadow-float sm:min-h-[360px]">
+              <div className={cx("flip-inner min-h-[260px] sm:min-h-[300px]", flipped && "flipped")}>
+                <div className="flip-face card flex min-h-[260px] flex-col items-center justify-center p-8 shadow-float sm:min-h-[300px]">
                   <div className="eyebrow mb-4 text-ink-3">{hi ? "प्रश्न" : "Prompt"}</div>
                   <BiText v={item.content.front} lang={lang} as="div" className="font-display text-[23px] leading-tight sm:text-[28px]" hiClassName="font-sans text-lg mt-3" />
                   <span className="mt-8 inline-flex h-9 items-center gap-2 rounded-full bg-card-2 px-3.5 text-sm font-semibold text-ink-2">
@@ -197,7 +197,7 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
             </div>
           </div>
           {flipped ? (
-            <div className="rise mt-8">
+            <div className="rise sticky bottom-0 z-10 -mx-4 mt-6 bg-bg/90 px-4 pt-3 pb-[calc(12px+env(safe-area-inset-bottom))] backdrop-blur-md sm:mx-0 sm:px-0">
               <div className="eyebrow mb-3 text-center text-ink-3">{hi ? "कितना याद रहा?" : "How well did you remember?"}</div>
               <div className="grid grid-cols-4 gap-2">
                 {GRADES.map((g) => (
@@ -207,17 +207,12 @@ export function ReviewSession({ items, lang }: { items: SessionItem[]; lang: Lan
                   </button>
                 ))}
               </div>
-              <div className="mt-3 flex justify-center gap-2 sm:hidden">
-                <button onClick={() => fling(-1)} className="btn btn-ghost h-11 px-4 text-sm" aria-label="Again">
-                  <ArrowLeft className="size-4" />
-                </button>
-                <button onClick={() => fling(1)} className="btn btn-ghost h-11 px-4 text-sm" aria-label="Good">
-                  <ArrowRight className="size-4" />
-                </button>
-              </div>
+              <button onClick={() => fling(1)} className="btn btn-ink mt-3 h-12 w-full text-[15px]">
+                {hi ? "अगला कार्ड" : "Next card"} <ArrowRight className="size-4" />
+              </button>
             </div>
           ) : (
-            <button onClick={() => setFlipped(true)} className="btn btn-cobalt mt-8 h-12 w-full text-[15px] sm:mx-auto sm:flex sm:w-auto sm:px-10">
+            <button onClick={() => setFlipped(true)} className="btn btn-cobalt mt-6 h-12 w-full text-[15px] sm:mx-auto sm:flex sm:w-auto sm:px-10">
               {hi ? "उत्तर देखें" : "Show answer"}
             </button>
           )}
