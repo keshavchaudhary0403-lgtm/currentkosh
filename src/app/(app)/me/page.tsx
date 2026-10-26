@@ -4,7 +4,6 @@ import { redirect } from "next/navigation";
 import { ArrowUpRight, BarChart3, BookOpen, Bookmark, CalendarDays, CalendarRange, ClipboardList, Settings, Waypoints } from "lucide-react";
 import { DailyPath } from "@/components/daily-path";
 import { InstallCard } from "@/components/install";
-import { ThemeToggle } from "@/components/nav";
 import { daysUntil } from "@/lib/dates";
 import { currentProfile } from "@/lib/profile";
 import { pick, stateById } from "@/lib/taxonomy";
@@ -51,29 +50,22 @@ export default async function Me() {
 
       <DailyPath />
 
-      <div className="space-y-6 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6 lg:space-y-0">
-        <div className="space-y-6">
-          <section className="card flex items-center justify-between p-5">
-            <span className="text-sm font-semibold">{hi ? "थीम" : "Theme"}</span>
-            <ThemeToggle />
-          </section>
-          <InstallCard />
-        </div>
-        <nav className="card divide-y divide-line overflow-hidden">
-          {links.map(({ href, icon: Icon, label, hint, tone }) => (
-            <Link key={href} href={href} className="group flex items-center gap-4 px-4 py-3 transition hover:bg-card-2 sm:px-5">
-              <span className={`grid size-10 shrink-0 place-items-center rounded-[12px] ${tone}`}>
-                <Icon className="size-5" strokeWidth={2} />
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="block text-[15px] font-semibold">{label}</span>
-                <span className="block truncate text-xs text-ink-3">{hint}</span>
-              </span>
-              <ArrowUpRight className="size-4 shrink-0 text-ink-3 transition group-hover:rotate-45 group-hover:text-ink" />
-            </Link>
-          ))}
-        </nav>
-      </div>
+      <nav className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4 lg:gap-3">
+        {links.map(({ href, icon: Icon, label, hint, tone }) => (
+          <Link key={href} href={href} className="card group flex items-center gap-3 p-3 transition hover:bg-card-2 sm:p-4">
+            <span className={`grid size-10 shrink-0 place-items-center rounded-[12px] ${tone}`}>
+              <Icon className="size-5" strokeWidth={2} />
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block truncate text-[15px] font-semibold">{label}</span>
+              <span className="hidden truncate text-xs text-ink-3 sm:block">{hint}</span>
+            </span>
+            <ArrowUpRight className="hidden size-4 shrink-0 text-ink-3 transition group-hover:rotate-45 group-hover:text-ink sm:block" />
+          </Link>
+        ))}
+      </nav>
+
+      <InstallCard />
     </div>
   );
 }
