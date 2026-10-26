@@ -29,10 +29,11 @@ import { BookmarkButton } from "./story-actions";
 import { Confetti, RelevanceBadge, cx, fmtDate } from "./ui";
 
 type Item = { kind: "story"; s: DeckStory; group: "main" | "more"; n: number; of: number } | { kind: "end" };
+type Mcq = DeckStory["mcqs"][number];
 
 /**
  * Today as one continuous scroll: each story reads top to bottom — headline, key facts,
- * then a quick question (the summary lives in the deep dive) — and scrolling on brings the next story. A reader sheet holds the deep dive.
+ * then its quick questions (the summary lives in the deep dive) — and scrolling on brings the next story. A reader sheet holds the deep dive.
  * On desktop the feed sits between a queue (left) and a live context panel (right).
  */
 export function Deck({
@@ -70,17 +71,20 @@ export function Deck({
       ...r.map((s, i) => ({ kind: "story" as const, s, group: "more" as const, n: i + 1, of: r.length })),
     ];
   }, [main, more, matches]);
-  const mainCount = items.filter((x) => x.kind === "story" && x.group === "main").length;
   const all = useMemo(() => [...main, ...more], [main, more]);
   const byId = useMemo(() => new Map(all.map((s) => [s.id, s])), [all]);
 
-  // Last answer recorded for a story's deck question (this session first, then saved progress).
-  const result = (s: DeckStory): "right" | "wrong" | null => {
-    const m = s.mcqs[0];
-    if (!m) return null;
-    if (picks[s.id] !== undefined) return picks[s.id] === m.content.answer ? "right" : "wrong";
+  // Last answer recorded for a question (this session first, then saved progress).
+  const resultOf = (m: Mcq): "right" | "wrong" | null => {
+    if (picks[m.id] !== undefined) return picks[m.id] === m.content.answer ? "right" : "wrong";
     const log = [...p.answers].reverse().find((a) => a.mcqId === m.id);
     return log ? (log.correct ? "right" : "wrong") : null;
+  };
+  // A story is wrong if any of its questions was missed, right once all are answered correctly.
+  const result = (s: DeckStory): "right" | "wrong" | null => {
+    const rs = s.mcqs.map(resultOf);
+    if (rs.includes("wrong")) return "wrong";
+    return rs.length > 0 && rs.every((r) => r === "right") ? "right" : null;
   };
 
   const goTo = useCallback((i: number) => {
@@ -91,10 +95,9 @@ export function Deck({
     box.scrollTo({ top: el.offsetTop - box.offsetTop, behavior: smooth ? "smooth" : "auto" });
   }, []);
 
-  const answer = (s: DeckStory, i: number) => {
-    const m = s.mcqs[0];
+  const answer = (s: DeckStory, m: Mcq, i: number) => {
     const ok = i === m.content.answer;
-    setPicks((x) => ({ ...x, [s.id]: i }));
+    setPicks((x) => ({ ...x, [m.id]: i }));
     answerQuestion(m.id, s.category, ok);
     if (!p.reads[s.id]) markRead(s.id, s.cardIds);
   };
@@ -140,7 +143,7 @@ export function Deck({
     return () => io.disconnect();
   }, [items, byId]);
 
-  // Keyboard: j/k jump between stories, D opens the deep dive, 1–4 answer the active story's question.
+  // Keyboard: j/k jump between stories, D opens the deep dive, 1–4 answer the active story's next open question.
   const keys = useRef<(e: KeyboardEvent) => void>(() => {});
   useEffect(() => {
     keys.current = (e: KeyboardEvent) => {
@@ -148,10 +151,11 @@ export function Deck({
       if ((e.target as HTMLElement)?.closest?.("input,textarea,select,[role=dialog]")) return;
       const it = items[active];
       const k = e.key;
+      const open = it?.kind === "story" ? it.s.mcqs.find((m) => picks[m.id] === undefined && !resultOf(m)) : undefined;
       if (k === "j") goTo(Math.min(items.length - 1, active + 1));
       else if (k === "k") goTo(Math.max(0, active - 1));
       else if (it?.kind === "story" && (k === "d" || k === "D")) setReader(it.s.id);
-      else if (it?.kind === "story" && it.s.mcqs[0] && picks[it.s.id] === undefined && !result(it.s) && ["1", "2", "3", "4"].includes(k)) answer(it.s, Number(k) - 1);
+      else if (it?.kind === "story" && open && ["1", "2", "3", "4"].includes(k)) answer(it.s, open, Number(k) - 1);
     };
   });
   useEffect(() => {
@@ -167,7 +171,7 @@ export function Deck({
 
   const mainStories = main.filter(matches);
   const readN = mainStories.filter((s) => p.reads[s.id]).length;
-  const answered = mainStories.map(result).filter(Boolean);
+  const answered = mainStories.flatMap((s) => s.mcqs.map(resultOf)).filter(Boolean);
   const right = answered.filter((r) => r === "right").length;
   const activeItem = items[active];
   const activeStory = activeItem?.kind === "story" ? activeItem.s : null;
@@ -255,35 +259,13 @@ export function Deck({
                     it={it}
                     lang={lang}
                     read={!!p.reads[it.s.id]}
-                    picked={picks[it.s.id] ?? null}
-                    earlier={picks[it.s.id] === undefined ? result(it.s) : null}
-                    onAnswer={(a) => answer(it.s, a)}
+                    picks={picks}
+                    resultOf={resultOf}
+                    onAnswer={(m, a) => answer(it.s, m, a)}
                     onDeep={() => setReader(it.s.id)}
                   />
                 )}
               </section>
-            ))}
-          </div>
-          {/* Phone progress rail: seen, answered, remaining. */}
-          <div className="pointer-events-none absolute top-1/2 right-0 flex -translate-y-1/2 flex-col gap-1 lg:hidden" aria-hidden>
-            {items.slice(0, mainCount + 1).map((it, i) => (
-              <span
-                key={i}
-                className={cx(
-                  "w-1 rounded-full transition-all duration-300",
-                  i === active ? "h-6 bg-signal shadow-[0_0_0_1px_var(--ink)]" : "h-2.5",
-                  i !== active &&
-                    (it.kind === "end"
-                      ? "bg-ink-3"
-                      : result(it.s) === "right"
-                        ? "bg-good"
-                        : result(it.s) === "wrong"
-                          ? "bg-bad"
-                          : seen.has(it.s.id) || p.reads[it.s.id]
-                            ? "bg-ink"
-                            : "bg-line-2"),
-                )}
-              />
             ))}
           </div>
         </div>
@@ -317,28 +299,28 @@ function StateDot({ state }: { state: "right" | "wrong" | "read" | "seen" | null
   return <span className={cx("mt-1.5 size-2.5 shrink-0 rounded-full", state === "read" ? "bg-ink-2" : state === "seen" ? "bg-ink-3/50" : "shadow-[inset_0_0_0_1.5px_var(--line-2)]")} aria-label={state ?? "Not opened"} />;
 }
 
-/** One story in the feed, read top to bottom: headline → key facts → quick question. */
+/** One story in the feed, read top to bottom: headline → key facts → quick questions. */
 function StoryBlock({
   it,
   lang,
   read,
-  picked,
-  earlier,
+  picks,
+  resultOf,
   onAnswer,
   onDeep,
 }: {
   it: Extract<Item, { kind: "story" }>;
   lang: Lang;
   read: boolean;
-  picked: number | null;
-  earlier: "right" | "wrong" | null;
-  onAnswer: (i: number) => void;
+  picks: Record<string, number>;
+  resultOf: (m: Mcq) => "right" | "wrong" | null;
+  onAnswer: (m: Mcq, i: number) => void;
   onDeep: () => void;
 }) {
   const s = it.s;
   const ui = lang === "bi" ? "en" : lang;
   const hi = ui === "hi";
-  const mcq = s.mcqs[0];
+  const multi = s.mcqs.length > 1;
 
   return (
     <article className="cat mesh card relative overflow-hidden rounded-[28px] shadow-card" style={catStyle(s.category)}>
@@ -387,24 +369,41 @@ function StoryBlock({
           </div>
         )}
 
-        {mcq && (
+        {s.mcqs.length > 0 && (
           <div className="relative mt-6 rounded-[22px] bg-card p-4 shadow-[inset_0_0_0_1px_var(--line-2)] sm:p-5">
-            {picked !== null && picked === mcq.content.answer && <Confetti pieces={18} />}
             <div className="eyebrow mb-2 flex items-center gap-1.5 text-ink-3 lg:mb-3">
-              <Zap className="size-3.5 text-flare" /> {hi ? "तुरंत प्रश्न" : "Quick question"}
+              <Zap className="size-3.5 text-flare" /> {hi ? "तुरंत प्रश्न" : multi ? "Quick questions" : "Quick question"}
             </div>
-            {earlier && picked === null ? (
-              <div className={cx("rounded-2xl p-3.5 text-sm", earlier === "right" ? "bg-good-soft text-good-ink" : "bg-bad-soft text-bad-ink")}>
-                <div className="font-semibold">
-                  {earlier === "right" ? (hi ? "आपने यह पहले सही किया था" : "You got this right earlier") : hi ? "पहले छूट गया था · अब दोहराव में" : "Missed earlier · now in your Revise queue"}
-                </div>
-                <div className="mt-1 text-ink">
-                  {pick(mcq.content.question, ui).split("\n")[0]} → <b>{lang === "hi" ? mcq.content.options.hi[mcq.content.answer] : mcq.content.options.en[mcq.content.answer]}</b>
-                </div>
-              </div>
-            ) : (
-              <McqView mcq={mcq.content} lang={lang} selected={picked} reveal={picked !== null} onSelect={picked === null ? onAnswer : undefined} />
-            )}
+            <div className="space-y-6">
+              {s.mcqs.map((mcq, qi) => {
+                const picked = picks[mcq.id] ?? null;
+                const earlier = picked === null ? resultOf(mcq) : null;
+                return (
+                  <div key={mcq.id} className={cx("relative", qi > 0 && "border-t border-line pt-5")}>
+                    {picked !== null && picked === mcq.content.answer && <Confetti pieces={18} />}
+                    {earlier ? (
+                      <div className={cx("rounded-2xl p-3.5 text-sm", earlier === "right" ? "bg-good-soft text-good-ink" : "bg-bad-soft text-bad-ink")}>
+                        <div className="font-semibold">
+                          {earlier === "right" ? (hi ? "आपने यह पहले सही किया था" : "You got this right earlier") : hi ? "पहले छूट गया था · अब दोहराव में" : "Missed earlier · now in your Revise queue"}
+                        </div>
+                        <div className="mt-1 text-ink">
+                          {pick(mcq.content.question, ui).split("\n")[0]} → <b>{lang === "hi" ? mcq.content.options.hi[mcq.content.answer] : mcq.content.options.en[mcq.content.answer]}</b>
+                        </div>
+                      </div>
+                    ) : (
+                      <McqView
+                        mcq={mcq.content}
+                        lang={lang}
+                        selected={picked}
+                        reveal={picked !== null}
+                        onSelect={picked === null ? (a) => onAnswer(mcq, a) : undefined}
+                        number={multi ? qi + 1 : undefined}
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         )}
       </div>
