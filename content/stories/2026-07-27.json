@@ -85,24 +85,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Public Examinations (Prevention of Unfair Means) Amendment Bill, 2026:\n1. It was introduced in the Lok Sabha by the Minister of State for Personnel, Dr Jitendra Singh.\n2. It provides for imprisonment of up to ten years and fines of up to ten crore rupees.\n3. Trials must be concluded within six months from the filing of the chargesheet.\nHow many of the above statements are correct?",
-            "hi": "सार्वजनिक परीक्षा (अनुचित साधनों की रोकथाम) संशोधन विधेयक, 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसे कार्मिक राज्य मंत्री डॉ. जितेंद्र सिंह ने लोकसभा में पेश किया।\n2. इसमें दस वर्ष तक के कारावास और दस करोड़ रुपये तक के जुर्माने का प्रावधान है।\n3. आरोपपत्र दाखिल होने के छह माह के भीतर सुनवाई पूरी करनी होगी।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Public Examinations (Prevention of Unfair Means) Amendment Bill, 2026:\n1. It was introduced in the Lok Sabha by the Minister of State for Personnel, Dr Jitendra Singh.\n2. It provides for imprisonment of up to ten years and fines of up to ten crore rupees.\n3. Trials must be concluded within six months from the filing of the chargesheet.\nWhich of the statements given above is/are correct?",
+            "hi": "सार्वजनिक परीक्षा (अनुचित साधनों की रोकथाम) संशोधन विधेयक, 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसे कार्मिक राज्य मंत्री डॉ. जितेंद्र सिंह ने लोकसभा में पेश किया।\n2. इसमें दस वर्ष तक के कारावास और दस करोड़ रुपये तक के जुर्माने का प्रावधान है।\n3. आरोपपत्र दाखिल होने के छह माह के भीतर सुनवाई पूरी करनी होगी।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "3 only",
+              "1 and 2 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 3",
+              "केवल 1 और 2"
             ]
           },
-          "answer": 1,
+          "answer": 3,
           "explanation": {
             "en": "1 and 2 are correct. 3 is wrong: trials must end within three months of the chargesheet.",
             "hi": "1 और 2 सही हैं। 3 गलत है: आरोपपत्र के तीन माह के भीतर सुनवाई पूरी करनी है।"
@@ -316,21 +316,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the task force on examination reforms announced in July 2026:\n1. It is led by technology expert Nandan Nilekani.\n2. Former ISRO Chairman K Sivan is one of its members.\n3. It was announced by the Union Education Minister in Parliament.\nHow many of the above statements are correct?",
-            "hi": "जुलाई 2026 में घोषित परीक्षा सुधार कार्यबल के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसकी अध्यक्षता प्रौद्योगिकी विशेषज्ञ नंदन नीलेकणि करेंगे।\n2. ISRO के पूर्व अध्यक्ष के. सिवन इसके सदस्य हैं।\n3. इसकी घोषणा केंद्रीय शिक्षा मंत्री ने संसद में की।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the task force on examination reforms announced in July 2026:\n1. It is led by technology expert Nandan Nilekani.\n2. Former ISRO Chairman K Sivan is one of its members.\n3. It was announced by the Union Education Minister in Parliament.\nWhich of the statements given above is/are correct?",
+            "hi": "जुलाई 2026 में घोषित परीक्षा सुधार कार्यबल के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसकी अध्यक्षता प्रौद्योगिकी विशेषज्ञ नंदन नीलेकणि करेंगे।\n2. ISRO के पूर्व अध्यक्ष के. सिवन इसके सदस्य हैं।\n3. इसकी घोषणा केंद्रीय शिक्षा मंत्री ने संसद में की।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 0,
@@ -518,24 +518,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements regarding Supreme Court proceedings on 27 July 2026:\n1. Chief Justice Surya Kant observed that the right to peaceful and lawful protest is constitutionally protected.\n2. The NEET-UG held on May 3 had been cancelled over an alleged paper leak.\n3. A bench said it would see what the Nilekani-led task force suggests on online conduct of NEET.\nHow many of the above statements are correct?",
-            "hi": "27 जुलाई 2026 को सर्वोच्च न्यायालय की कार्यवाही के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. मुख्य न्यायाधीश सूर्यकांत ने कहा कि शांतिपूर्ण और विधिसम्मत विरोध का अधिकार संवैधानिक रूप से संरक्षित है।\n2. 3 मई को हुई NEET-UG कथित पेपर लीक के कारण रद्द की गई थी।\n3. एक पीठ ने कहा कि वह ऑनलाइन NEET पर नीलेकणि के नेतृत्व वाले कार्यबल के सुझाव देखेगी।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements regarding Supreme Court proceedings on 27 July 2026:\n1. Chief Justice Surya Kant observed that the right to peaceful and lawful protest is constitutionally protected.\n2. The NEET-UG held on May 3 had been cancelled over an alleged paper leak.\n3. A bench said it would see what the Nilekani-led task force suggests on online conduct of NEET.\nWhich of the statements given above is/are correct?",
+            "hi": "27 जुलाई 2026 को सर्वोच्च न्यायालय की कार्यवाही के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. मुख्य न्यायाधीश सूर्यकांत ने कहा कि शांतिपूर्ण और विधिसम्मत विरोध का अधिकार संवैधानिक रूप से संरक्षित है।\n2. 3 मई को हुई NEET-UG कथित पेपर लीक के कारण रद्द की गई थी।\n3. एक पीठ ने कहा कि वह ऑनलाइन NEET पर नीलेकणि के नेतृत्व वाले कार्यबल के सुझाव देखेगी।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the report of the day's hearings.",
             "hi": "तीनों बातें उस दिन की सुनवाई की रिपोर्ट में दर्ज हैं।"
@@ -716,27 +716,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about India at the 2026 Commonwealth Games:\n1. Mirabai Chanu won gold in the women's 53 kg category.\n2. It was Mirabai Chanu's second consecutive Commonwealth Games gold.\n3. Raja Muthupandi won gold in the men's 65 kg category.\nHow many of the above statements are correct?",
-            "hi": "2026 राष्ट्रमंडल खेलों में भारत के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. मीराबाई चानू ने महिलाओं की 53 किग्रा श्रेणी में स्वर्ण जीता।\n2. यह मीराबाई चानू का लगातार दूसरा राष्ट्रमंडल स्वर्ण था।\n3. राजा मुथुपांडी ने पुरुषों की 65 किग्रा श्रेणी में स्वर्ण जीता।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about India at the 2026 Commonwealth Games:\n1. Mirabai Chanu won gold in the women's 53 kg category.\n2. It was Mirabai Chanu's second consecutive Commonwealth Games gold.\n3. Raja Muthupandi won gold in the men's 65 kg category.\nWhich of the statements given above is/are not correct?",
+            "hi": "2026 राष्ट्रमंडल खेलों में भारत के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. मीराबाई चानू ने महिलाओं की 53 किग्रा श्रेणी में स्वर्ण जीता।\n2. यह मीराबाई चानू का लगातार दूसरा राष्ट्रमंडल स्वर्ण था।\n3. राजा मुथुपांडी ने पुरुषों की 65 किग्रा श्रेणी में स्वर्ण जीता।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: Mirabai won the 48 kg title, her third straight CWG gold, and Muthupandi won silver (gold went to Malaysia's Aznil Bin Bidin).",
-            "hi": "कोई कथन सही नहीं: मीराबाई ने 48 किग्रा में लगातार तीसरा स्वर्ण जीता, और मुथुपांडी को रजत मिला (स्वर्ण मलेशिया के अज़्निल बिन बिदिन को)।"
+            "en": "All three statements are incorrect. Mirabai won the 48 kg title, her third straight CWG gold, and Muthupandi won silver (gold went to Malaysia's Aznil Bin Bidin).",
+            "hi": "तीनों कथन गलत हैं। कोई कथन सही नहीं: मीराबाई ने 48 किग्रा में लगातार तीसरा स्वर्ण जीता, और मुथुपांडी को रजत मिला (स्वर्ण मलेशिया के अज़्निल बिन बिदिन को)।"
           }
         },
         {
@@ -925,24 +925,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the 2026 Commonwealth Games:\n1. Gyaneshwari Yadav won silver in the women's 53 kg with a total of 199 kg.\n2. Para powerlifter Jhandu Kumar received a cash award of 10 lakh rupees from the Sports Minister.\n3. Sajan Prakash topped the qualification standings for the men's 200 m butterfly final.\nHow many of the above statements are correct?",
-            "hi": "2026 राष्ट्रमंडल खेलों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. ज्ञानेश्वरी यादव ने महिलाओं के 53 किग्रा में कुल 199 किग्रा के साथ रजत जीता।\n2. पैरा पावरलिफ्टर झंडू कुमार को खेल मंत्री से 10 लाख रुपये का नकद पुरस्कार मिला।\n3. साजन प्रकाश पुरुषों की 200 मीटर बटरफ्लाई फाइनल की क्वालीफिकेशन में शीर्ष पर रहे।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the 2026 Commonwealth Games:\n1. Gyaneshwari Yadav won silver in the women's 53 kg with a total of 199 kg.\n2. Para powerlifter Jhandu Kumar received a cash award of 10 lakh rupees from the Sports Minister.\n3. Sajan Prakash topped the qualification standings for the men's 200 m butterfly final.\nWhich of the statements given above is/are correct?",
+            "hi": "2026 राष्ट्रमंडल खेलों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. ज्ञानेश्वरी यादव ने महिलाओं के 53 किग्रा में कुल 199 किग्रा के साथ रजत जीता।\n2. पैरा पावरलिफ्टर झंडू कुमार को खेल मंत्री से 10 लाख रुपये का नकद पुरस्कार मिला।\n3. साजन प्रकाश पुरुषों की 200 मीटर बटरफ्लाई फाइनल की क्वालीफिकेशन में शीर्ष पर रहे।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "3 only",
+              "1 and 2 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 3",
+              "केवल 1 और 2",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 2 are correct. 3 is wrong: Sajan was sixth fastest; Australia's Harrison Turner topped qualifying.",
             "hi": "1 और 2 सही हैं। 3 गलत है: साजन छठे सबसे तेज़ थे; क्वालीफिकेशन में शीर्ष पर ऑस्ट्रेलिया के हैरिसन टर्नर रहे।"
@@ -1134,21 +1134,21 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about India's T20I series in Zimbabwe (July 2026):\n1. India won the third T20I by 35 runs.\n2. The series was played in Bulawayo.\n3. After the series India regained the No. 1 T20I ranking from Australia.\nHow many of the above statements are correct?",
-            "hi": "ज़िम्बाब्वे में भारत की T20I श्रृंखला (जुलाई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत ने तीसरा T20I 35 रन से जीता।\n2. श्रृंखला बुलावायो में खेली गई।\n3. श्रृंखला के बाद भारत ने ऑस्ट्रेलिया से नंबर 1 T20I रैंकिंग वापस ली।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about India's T20I series in Zimbabwe (July 2026):\n1. India won the third T20I by 35 runs.\n2. The series was played in Bulawayo.\n3. After the series India regained the No. 1 T20I ranking from Australia.\nWhich of the statements given above is/are correct?",
+            "hi": "ज़िम्बाब्वे में भारत की T20I श्रृंखला (जुलाई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत ने तीसरा T20I 35 रन से जीता।\n2. श्रृंखला बुलावायो में खेली गई।\n3. श्रृंखला के बाद भारत ने ऑस्ट्रेलिया से नंबर 1 T20I रैंकिंग वापस ली।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -1329,24 +1329,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the 57th International Film Festival of India:\n1. It will be held in Goa from November 20 to 28, 2026.\n2. Its Indian Panorama section will showcase 25 feature and 20 non-feature films.\n3. Entries have been invited by the National Film Development Corporation.\nHow many of the above statements are correct?",
-            "hi": "57वें भारतीय अंतरराष्ट्रीय फ़िल्म महोत्सव के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह 20 से 28 नवंबर 2026 तक गोवा में आयोजित होगा।\n2. इसके भारतीय पैनोरमा खंड में 25 फ़ीचर और 20 गैर-फ़ीचर फ़िल्में दिखाई जाएँगी।\n3. प्रविष्टियाँ राष्ट्रीय फ़िल्म विकास निगम ने आमंत्रित की हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the 57th International Film Festival of India:\n1. It will be held in Goa from November 20 to 28, 2026.\n2. Its Indian Panorama section will showcase 25 feature and 20 non-feature films.\n3. Entries have been invited by the National Film Development Corporation.\nWhich of the statements given above is/are correct?",
+            "hi": "57वें भारतीय अंतरराष्ट्रीय फ़िल्म महोत्सव के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह 20 से 28 नवंबर 2026 तक गोवा में आयोजित होगा।\n2. इसके भारतीय पैनोरमा खंड में 25 फ़ीचर और 20 गैर-फ़ीचर फ़िल्में दिखाई जाएँगी।\n3. प्रविष्टियाँ राष्ट्रीय फ़िल्म विकास निगम ने आमंत्रित की हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the NFDC announcement.",
             "hi": "तीनों बातें NFDC की घोषणा में दी गई हैं।"
@@ -1530,27 +1530,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the US–Iran situation in July 2026:\n1. The latest escalation began after Iran targeted ships in the Bab-el-Mandeb strait.\n2. After the pause in strikes, Brent crude fell to above 95 dollars a barrel.\n3. Iran and Qatar held technical talks in Tehran on managing the Strait of Hormuz.\nHow many of the above statements are correct?",
-            "hi": "जुलाई 2026 में अमेरिका–ईरान स्थिति के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. ताज़ा तनाव ईरान द्वारा बाब-अल-मंदेब जलडमरूमध्य में जहाज़ों को निशाना बनाने के बाद शुरू हुआ।\n2. हमले रुकने के बाद ब्रेंट कच्चा तेल गिरकर 95 डॉलर प्रति बैरल से ऊपर रहा।\n3. ईरान और क़तर ने तेहरान में होर्मुज़ जलडमरूमध्य के प्रबंधन पर तकनीकी वार्ता की।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the US–Iran situation in July 2026:\n1. The latest escalation began after Iran targeted ships in the Bab-el-Mandeb strait.\n2. After the pause in strikes, Brent crude fell to above 95 dollars a barrel.\n3. Iran and Qatar held technical talks in Tehran on managing the Strait of Hormuz.\nWhich of the statements given above is/are not correct?",
+            "hi": "जुलाई 2026 में अमेरिका–ईरान स्थिति के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. ताज़ा तनाव ईरान द्वारा बाब-अल-मंदेब जलडमरूमध्य में जहाज़ों को निशाना बनाने के बाद शुरू हुआ।\n2. हमले रुकने के बाद ब्रेंट कच्चा तेल गिरकर 95 डॉलर प्रति बैरल से ऊपर रहा।\n3. ईरान और क़तर ने तेहरान में होर्मुज़ जलडमरूमध्य के प्रबंधन पर तकनीकी वार्ता की।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: ships were targeted in the Strait of Hormuz, Brent fell to 89.74 dollars, and the technical talks were between Iran and Oman.",
-            "hi": "कोई कथन सही नहीं: जहाज़ होर्मुज़ जलडमरूमध्य में निशाना बने, ब्रेंट 89.74 डॉलर पर आया, और तकनीकी वार्ता ईरान व ओमान के बीच हुई।"
+            "en": "All three statements are incorrect. ships were targeted in the Strait of Hormuz, Brent fell to 89.74 dollars, and the technical talks were between Iran and Oman.",
+            "hi": "तीनों कथन गलत हैं। कोई कथन सही नहीं: जहाज़ होर्मुज़ जलडमरूमध्य में निशाना बने, ब्रेंट 89.74 डॉलर पर आया, और तकनीकी वार्ता ईरान व ओमान के बीच हुई।"
           }
         },
         {
@@ -1743,24 +1743,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Central Reserve Police Force (CRPF):\n1. Its Raising Day is observed on 27 July.\n2. It functions under the Ministry of Defence.\n3. On its 2026 Raising Day the Prime Minister highlighted its efforts in eliminating Maoism.\nHow many of the above statements are correct?",
-            "hi": "केंद्रीय रिज़र्व पुलिस बल (CRPF) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसका स्थापना दिवस 27 जुलाई को मनाया जाता है।\n2. यह रक्षा मंत्रालय के अधीन कार्य करता है।\n3. 2026 के स्थापना दिवस पर प्रधानमंत्री ने माओवाद उन्मूलन में इसके प्रयासों का उल्लेख किया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Central Reserve Police Force (CRPF):\n1. Its Raising Day is observed on 27 July.\n2. It functions under the Ministry of Defence.\n3. On its 2026 Raising Day the Prime Minister highlighted its efforts in eliminating Maoism.\nWhich of the statements given above is/are correct?",
+            "hi": "केंद्रीय रिज़र्व पुलिस बल (CRPF) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसका स्थापना दिवस 27 जुलाई को मनाया जाता है।\n2. यह रक्षा मंत्रालय के अधीन कार्य करता है।\n3. 2026 के स्थापना दिवस पर प्रधानमंत्री ने माओवाद उन्मूलन में इसके प्रयासों का उल्लेख किया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 3 are correct. 2 is wrong: the CRPF is a Central Armed Police Force under the Ministry of Home Affairs.",
             "hi": "1 और 3 सही हैं। 2 गलत है: CRPF गृह मंत्रालय के अधीन केंद्रीय सशस्त्र पुलिस बल है।"
@@ -1940,21 +1940,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Viksit Vibrant Village Programme (2026):\n1. Nearly three lakh youth participated in its competition.\n2. About 4,000 participants were selected.\n3. Selected participants came only from the northern border States.\nHow many of the above statements are correct?",
-            "hi": "विकसित वाइब्रेंट विलेज कार्यक्रम (2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसकी प्रतियोगिता में लगभग तीन लाख युवाओं ने भाग लिया।\n2. लगभग 4,000 प्रतिभागियों का चयन हुआ।\n3. चयनित प्रतिभागी केवल उत्तरी सीमा वाले राज्यों से थे।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Viksit Vibrant Village Programme (2026):\n1. Nearly three lakh youth participated in its competition.\n2. About 4,000 participants were selected.\n3. Selected participants came only from the northern border States.\nWhich of the statements given above is/are correct?",
+            "hi": "विकसित वाइब्रेंट विलेज कार्यक्रम (2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसकी प्रतियोगिता में लगभग तीन लाख युवाओं ने भाग लिया।\n2. लगभग 4,000 प्रतिभागियों का चयन हुआ।\n3. चयनित प्रतिभागी केवल उत्तरी सीमा वाले राज्यों से थे।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -2133,24 +2133,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about Dr A P J Abdul Kalam:\n1. He was born at Rameswaram in Tamil Nadu.\n2. He became the 11th President of India in 2002.\n3. He was Project Director of the SLV that placed the Rohini satellite in orbit in 1980.\nHow many of the above statements are correct?",
-            "hi": "डॉ. ए.पी.जे. अब्दुल कलाम के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. उनका जन्म तमिलनाडु के रामेश्वरम में हुआ था।\n2. वे 2002 में भारत के 11वें राष्ट्रपति बने।\n3. वे उस SLV के परियोजना निदेशक थे जिसने 1980 में रोहिणी उपग्रह को कक्षा में स्थापित किया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Dr A P J Abdul Kalam:\n1. He was born at Rameswaram in Tamil Nadu.\n2. He became the 11th President of India in 2002.\n3. He was Project Director of the SLV that placed the Rohini satellite in orbit in 1980.\nWhich of the statements given above is/are correct?",
+            "hi": "डॉ. ए.पी.जे. अब्दुल कलाम के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. उनका जन्म तमिलनाडु के रामेश्वरम में हुआ था।\n2. वे 2002 में भारत के 11वें राष्ट्रपति बने।\n3. वे उस SLV के परियोजना निदेशक थे जिसने 1980 में रोहिणी उपग्रह को कक्षा में स्थापित किया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three facts are given in the tribute report.",
             "hi": "तीनों तथ्य श्रद्धांजलि रिपोर्ट में दिए गए हैं।"
@@ -2341,27 +2341,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the weather situation of 27 July 2026:\n1. The deep depression causing heavy rain formed over the Arabian Sea.\n2. IMD issued only a yellow warning for Odisha for the day.\n3. Rising waters of the Mahanadi entered the Lingaraj Temple in Bhubaneswar.\nHow many of the above statements are correct?",
-            "hi": "27 जुलाई 2026 की मौसम स्थिति के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारी वर्षा लाने वाला गहरा अवदाब अरब सागर में बना।\n2. IMD ने उस दिन ओडिशा के लिए केवल पीली चेतावनी जारी की।\n3. महानदी का बढ़ता पानी भुवनेश्वर के लिंगराज मंदिर में घुस गया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the weather situation of 27 July 2026:\n1. The deep depression causing heavy rain formed over the Arabian Sea.\n2. IMD issued only a yellow warning for Odisha for the day.\n3. Rising waters of the Mahanadi entered the Lingaraj Temple in Bhubaneswar.\nWhich of the statements given above is/are not correct?",
+            "hi": "27 जुलाई 2026 की मौसम स्थिति के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारी वर्षा लाने वाला गहरा अवदाब अरब सागर में बना।\n2. IMD ने उस दिन ओडिशा के लिए केवल पीली चेतावनी जारी की।\n3. महानदी का बढ़ता पानी भुवनेश्वर के लिंगराज मंदिर में घुस गया।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the depression was over the Bay of Bengal, Odisha got a red warning, and the Mahanadi entered the Bhattarika Temple in Cuttack.",
-            "hi": "कोई कथन सही नहीं: अवदाब बंगाल की खाड़ी में था, ओडिशा के लिए रेड चेतावनी थी, और महानदी का पानी कटक के भट्टारिका मंदिर में घुसा।"
+            "en": "All three statements are incorrect. the depression was over the Bay of Bengal, Odisha got a red warning, and the Mahanadi entered the Bhattarika Temple in Cuttack.",
+            "hi": "तीनों कथन गलत हैं। कोई कथन सही नहीं: अवदाब बंगाल की खाड़ी में था, ओडिशा के लिए रेड चेतावनी थी, और महानदी का पानी कटक के भट्टारिका मंदिर में घुसा।"
           }
         },
         {
@@ -2554,24 +2554,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the floods in the Northeast (27 July 2026):\n1. The flood death toll in Assam rose to 68.\n2. The Dhansiri river at Numaligarh was the only major river flowing above danger level.\n3. The IAF evacuated 42 stranded passengers from Kohima district.\nHow many of the above statements are correct?",
-            "hi": "पूर्वोत्तर की बाढ़ (27 जुलाई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. असम में बाढ़ से मृतकों की संख्या 68 हो गई।\n2. नुमालीगढ़ में धनसिरी नदी ही खतरे के निशान से ऊपर बहने वाली एकमात्र प्रमुख नदी थी।\n3. वायुसेना ने कोहिमा ज़िले से 42 फँसे यात्रियों को निकाला।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the floods in the Northeast (27 July 2026):\n1. The flood death toll in Assam rose to 68.\n2. The Dhansiri river at Numaligarh was the only major river flowing above danger level.\n3. The IAF evacuated 42 stranded passengers from Kohima district.\nWhich of the statements given above is/are correct?",
+            "hi": "पूर्वोत्तर की बाढ़ (27 जुलाई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. असम में बाढ़ से मृतकों की संख्या 68 हो गई।\n2. नुमालीगढ़ में धनसिरी नदी ही खतरे के निशान से ऊपर बहने वाली एकमात्र प्रमुख नदी थी।\n3. वायुसेना ने कोहिमा ज़िले से 42 फँसे यात्रियों को निकाला।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 2 are correct. 3 is wrong: the 42 passengers were evacuated from Namsang Circle in Longleng district.",
             "hi": "1 और 2 सही हैं। 3 गलत है: 42 यात्रियों को लोंगलेंग ज़िले के नामसांग सर्कल से निकाला गया।"
@@ -2746,21 +2746,21 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about Sikkim's decisions for Agniveers:\n1. Sikkim has announced 20% reservation for Agniveers in Forest Guard recruitment.\n2. Sikkim has no reservation for Agniveers in police recruitment.\n3. The announcement was made at an event in Namchi.\nHow many of the above statements are correct?",
-            "hi": "अग्निवीरों के लिए सिक्किम के निर्णयों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. सिक्किम ने वनरक्षक भर्ती में अग्निवीरों के लिए 20% आरक्षण की घोषणा की है।\n2. सिक्किम में पुलिस भर्ती में अग्निवीरों के लिए कोई आरक्षण नहीं है।\n3. यह घोषणा नामची में एक कार्यक्रम में की गई।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Sikkim's decisions for Agniveers:\n1. Sikkim has announced 20% reservation for Agniveers in Forest Guard recruitment.\n2. Sikkim has no reservation for Agniveers in police recruitment.\n3. The announcement was made at an event in Namchi.\nWhich of the statements given above is/are correct?",
+            "hi": "अग्निवीरों के लिए सिक्किम के निर्णयों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. सिक्किम ने वनरक्षक भर्ती में अग्निवीरों के लिए 20% आरक्षण की घोषणा की है।\n2. सिक्किम में पुलिस भर्ती में अग्निवीरों के लिए कोई आरक्षण नहीं है।\n3. यह घोषणा नामची में एक कार्यक्रम में की गई।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
           "answer": 0,
@@ -2937,24 +2937,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the 22nd Commonwealth Table Tennis Championships:\n1. They are being held in New Delhi.\n2. Athletes from 25 Commonwealth countries are taking part.\n3. India's men's team beat Zimbabwe 3-0 in its opener.\nHow many of the above statements are correct?",
-            "hi": "22वीं राष्ट्रमंडल टेबल टेनिस चैंपियनशिप के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह नई दिल्ली में आयोजित हो रही है।\n2. इसमें 25 राष्ट्रमंडल देशों के खिलाड़ी भाग ले रहे हैं।\n3. भारतीय पुरुष टीम ने पहले मुकाबले में ज़िम्बाब्वे को 3-0 से हराया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the 22nd Commonwealth Table Tennis Championships:\n1. They are being held in New Delhi.\n2. Athletes from 25 Commonwealth countries are taking part.\n3. India's men's team beat Zimbabwe 3-0 in its opener.\nWhich of the statements given above is/are correct?",
+            "hi": "22वीं राष्ट्रमंडल टेबल टेनिस चैंपियनशिप के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह नई दिल्ली में आयोजित हो रही है।\n2. इसमें 25 राष्ट्रमंडल देशों के खिलाड़ी भाग ले रहे हैं।\n3. भारतीय पुरुष टीम ने पहले मुकाबले में ज़िम्बाब्वे को 3-0 से हराया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the reports on the opening day.",
             "hi": "तीनों बातें उद्घाटन दिवस की रिपोर्टों में दी गई हैं।"
@@ -3137,27 +3137,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about hepatitis control in India:\n1. The National Viral Hepatitis Control Programme was launched in 2014.\n2. Hepatitis A and E are the most common causes of chronic liver disease.\n3. Free treatment under the programme is provided only for hepatitis A.\nHow many of the above statements are correct?",
-            "hi": "भारत में हेपेटाइटिस नियंत्रण के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. राष्ट्रीय वायरल हेपेटाइटिस नियंत्रण कार्यक्रम 2014 में शुरू हुआ।\n2. हेपेटाइटिस A और E दीर्घकालिक यकृत रोग के सबसे आम कारण हैं।\n3. कार्यक्रम के तहत निःशुल्क उपचार केवल हेपेटाइटिस A के लिए है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about hepatitis control in India:\n1. The National Viral Hepatitis Control Programme was launched in 2014.\n2. Hepatitis A and E are the most common causes of chronic liver disease.\n3. Free treatment under the programme is provided only for hepatitis A.\nWhich of the statements given above is/are not correct?",
+            "hi": "भारत में हेपेटाइटिस नियंत्रण के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. राष्ट्रीय वायरल हेपेटाइटिस नियंत्रण कार्यक्रम 2014 में शुरू हुआ।\n2. हेपेटाइटिस A और E दीर्घकालिक यकृत रोग के सबसे आम कारण हैं।\n3. कार्यक्रम के तहत निःशुल्क उपचार केवल हेपेटाइटिस A के लिए है।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the programme began in 2018, B and C are the main causes of chronic liver disease, and free diagnostics and medicines are given for B and C.",
-            "hi": "कोई कथन सही नहीं: कार्यक्रम 2018 में शुरू हुआ, दीर्घकालिक यकृत रोग के मुख्य कारण B और C हैं, और निःशुल्क जाँच व दवाएँ B और C के लिए हैं।"
+            "en": "All three statements are incorrect. the programme began in 2018, B and C are the main causes of chronic liver disease, and free diagnostics and medicines are given for B and C.",
+            "hi": "तीनों कथन गलत हैं। कोई कथन सही नहीं: कार्यक्रम 2018 में शुरू हुआ, दीर्घकालिक यकृत रोग के मुख्य कारण B और C हैं, और निःशुल्क जाँच व दवाएँ B और C के लिए हैं।"
           }
         },
         {
@@ -3335,24 +3335,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the ISSF World Cup (July 2026):\n1. It was held in Hangzhou, China.\n2. Manu Bhaker won bronze in the women's 25 m pistol.\n3. Esha Singh's gold came in the women's 10 m air pistol.\nHow many of the above statements are correct?",
-            "hi": "ISSF विश्व कप (जुलाई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह चीन के हांगझोउ में आयोजित हुआ।\n2. मनु भाकर ने महिलाओं की 25 मीटर पिस्टल में कांस्य जीता।\n3. ईशा सिंह का स्वर्ण महिलाओं की 10 मीटर एयर पिस्टल में आया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the ISSF World Cup (July 2026):\n1. It was held in Hangzhou, China.\n2. Manu Bhaker won bronze in the women's 25 m pistol.\n3. Esha Singh's gold came in the women's 10 m air pistol.\nWhich of the statements given above is/are correct?",
+            "hi": "ISSF विश्व कप (जुलाई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह चीन के हांगझोउ में आयोजित हुआ।\n2. मनु भाकर ने महिलाओं की 25 मीटर पिस्टल में कांस्य जीता।\n3. ईशा सिंह का स्वर्ण महिलाओं की 10 मीटर एयर पिस्टल में आया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 2 are correct. 3 is wrong: Esha Singh won gold in the women's 25 m pistol.",
             "hi": "1 और 2 सही हैं। 3 गलत है: ईशा सिंह ने महिलाओं की 25 मीटर पिस्टल में स्वर्ण जीता।"
@@ -3534,21 +3534,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about India–China border trade through Nathu La:\n1. It had been suspended since 2020 due to the COVID-19 pandemic.\n2. Trade through Nathu La first resumed in 2016 after a gap of over four decades.\n3. Nathu La is located in Arunachal Pradesh.\nHow many of the above statements are correct?",
-            "hi": "नाथू ला से भारत–चीन सीमा व्यापार के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह कोविड-19 महामारी के कारण 2020 से बंद था।\n2. चार दशक से अधिक के अंतराल के बाद नाथू ला से व्यापार 2016 में फिर शुरू हुआ था।\n3. नाथू ला अरुणाचल प्रदेश में स्थित है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about India–China border trade through Nathu La:\n1. It had been suspended since 2020 due to the COVID-19 pandemic.\n2. Trade through Nathu La first resumed in 2016 after a gap of over four decades.\n3. Nathu La is located in Arunachal Pradesh.\nWhich of the statements given above is/are correct?",
+            "hi": "नाथू ला से भारत–चीन सीमा व्यापार के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह कोविड-19 महामारी के कारण 2020 से बंद था।\n2. चार दशक से अधिक के अंतराल के बाद नाथू ला से व्यापार 2016 में फिर शुरू हुआ था।\n3. नाथू ला अरुणाचल प्रदेश में स्थित है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -3730,24 +3730,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about initiatives launched by the Ministry of Panchayati Raj in July 2026:\n1. The SAMARTH Panchayat Portal will facilitate taxation, payments and monitoring of panchayat revenues.\n2. Model Own Source of Revenue Rules for Panchayati Raj Institutions were released.\n3. The Atmanirbhar Panchayat Programme aims to help panchayats convert local assets into revenue-generating projects.\nHow many of the above statements are correct?",
-            "hi": "जुलाई 2026 में पंचायती राज मंत्रालय द्वारा शुरू की गई पहलों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. समर्थ पंचायत पोर्टल पंचायतों के कराधान, भुगतान और राजस्व निगरानी को सुगम बनाएगा।\n2. पंचायती राज संस्थाओं के लिए आदर्श स्वयं के राजस्व स्रोत नियम जारी किए गए।\n3. आत्मनिर्भर पंचायत कार्यक्रम का उद्देश्य पंचायतों को स्थानीय परिसंपत्तियों को राजस्व-सृजक परियोजनाओं में बदलने में मदद करना है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about initiatives launched by the Ministry of Panchayati Raj in July 2026:\n1. The SAMARTH Panchayat Portal will facilitate taxation, payments and monitoring of panchayat revenues.\n2. Model Own Source of Revenue Rules for Panchayati Raj Institutions were released.\n3. The Atmanirbhar Panchayat Programme aims to help panchayats convert local assets into revenue-generating projects.\nWhich of the statements given above is/are correct?",
+            "hi": "जुलाई 2026 में पंचायती राज मंत्रालय द्वारा शुरू की गई पहलों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. समर्थ पंचायत पोर्टल पंचायतों के कराधान, भुगतान और राजस्व निगरानी को सुगम बनाएगा।\n2. पंचायती राज संस्थाओं के लिए आदर्श स्वयं के राजस्व स्रोत नियम जारी किए गए।\n3. आत्मनिर्भर पंचायत कार्यक्रम का उद्देश्य पंचायतों को स्थानीय परिसंपत्तियों को राजस्व-सृजक परियोजनाओं में बदलने में मदद करना है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the Minister's launch announcement.",
             "hi": "तीनों बातें मंत्री की शुभारंभ घोषणा में दी गई हैं।"
@@ -3921,27 +3921,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Niladri Bije:\n1. It marks the beginning of the Puri Rath Yatra.\n2. During it, the deities are taken to the Gundicha Temple.\n3. During it, Lord Jagannath offers Rasagola to Devi Subhadra.\nHow many of the above statements are correct?",
-            "hi": "नीलाद्रि बिजे के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह पुरी रथ यात्रा की शुरुआत का प्रतीक है।\n2. इसमें देवताओं को गुंडिचा मंदिर ले जाया जाता है।\n3. इसमें भगवान जगन्नाथ देवी सुभद्रा को रसगोला अर्पित करते हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Niladri Bije:\n1. It marks the beginning of the Puri Rath Yatra.\n2. During it, the deities are taken to the Gundicha Temple.\n3. During it, Lord Jagannath offers Rasagola to Devi Subhadra.\nWhich of the statements given above is/are not correct?",
+            "hi": "नीलाद्रि बिजे के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह पुरी रथ यात्रा की शुरुआत का प्रतीक है।\n2. इसमें देवताओं को गुंडिचा मंदिर ले जाया जाता है।\n3. इसमें भगवान जगन्नाथ देवी सुभद्रा को रसगोला अर्पित करते हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: Niladri Bije is the concluding ritual, the deities return to the Ratna Singhasana in the main temple, and the Rasagola is offered to Goddess Lakshmi.",
-            "hi": "कोई कथन सही नहीं: नीलाद्रि बिजे समापन अनुष्ठान है, देवता मुख्य मंदिर के रत्न सिंहासन पर लौटते हैं, और रसगोला देवी लक्ष्मी को अर्पित होता है।"
+            "en": "All three statements are incorrect. Niladri Bije is the concluding ritual, the deities return to the Ratna Singhasana in the main temple, and the Rasagola is offered to Goddess Lakshmi.",
+            "hi": "तीनों कथन गलत हैं। कोई कथन सही नहीं: नीलाद्रि बिजे समापन अनुष्ठान है, देवता मुख्य मंदिर के रत्न सिंहासन पर लौटते हैं, और रसगोला देवी लक्ष्मी को अर्पित होता है।"
           }
         },
         {
@@ -4119,24 +4119,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Gujarat Shipbuilding and Repair Policy 2026:\n1. It plans two mega shipbuilding parks.\n2. A Mega Greenfield Shipbuilding Cluster is planned at Kuchhadi in Porbandar district.\n3. It aims to create skill development opportunities for over 50 lakh people.\nHow many of the above statements are correct?",
-            "hi": "गुजरात जहाज़ निर्माण एवं मरम्मत नीति 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसमें दो मेगा जहाज़ निर्माण पार्कों की योजना है।\n2. पोरबंदर ज़िले के कुछड़ी में मेगा ग्रीनफ़ील्ड जहाज़ निर्माण क्लस्टर प्रस्तावित है।\n3. इसका लक्ष्य 50 लाख से अधिक लोगों के लिए कौशल विकास के अवसर बनाना है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Gujarat Shipbuilding and Repair Policy 2026:\n1. It plans two mega shipbuilding parks.\n2. A Mega Greenfield Shipbuilding Cluster is planned at Kuchhadi in Porbandar district.\n3. It aims to create skill development opportunities for over 50 lakh people.\nWhich of the statements given above is/are correct?",
+            "hi": "गुजरात जहाज़ निर्माण एवं मरम्मत नीति 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसमें दो मेगा जहाज़ निर्माण पार्कों की योजना है।\n2. पोरबंदर ज़िले के कुछड़ी में मेगा ग्रीनफ़ील्ड जहाज़ निर्माण क्लस्टर प्रस्तावित है।\n3. इसका लक्ष्य 50 लाख से अधिक लोगों के लिए कौशल विकास के अवसर बनाना है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "3 only",
+              "1 and 2 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 3",
+              "केवल 1 और 2",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 2 are correct. 3 is wrong: the target is skill opportunities for over five lakh people.",
             "hi": "1 और 2 सही हैं। 3 गलत है: लक्ष्य पाँच लाख से अधिक लोगों के लिए कौशल अवसर है।"
@@ -4309,21 +4309,21 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about Madhya Pradesh's transfer to farmers in July 2026:\n1. The money was transferred under the Chief Minister Kisan Kalyan Yojana.\n2. The transfer was made at a Balram Krishi Mahotsav in Indore district.\n3. Over 33,000 crore rupees were transferred.\nHow many of the above statements are correct?",
-            "hi": "जुलाई 2026 में मध्य प्रदेश द्वारा किसानों को किए गए हस्तांतरण के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. राशि मुख्यमंत्री किसान कल्याण योजना के तहत हस्तांतरित की गई।\n2. हस्तांतरण इंदौर ज़िले में बलराम कृषि महोत्सव में किया गया।\n3. 33,000 करोड़ रुपये से अधिक हस्तांतरित किए गए।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Madhya Pradesh's transfer to farmers in July 2026:\n1. The money was transferred under the Chief Minister Kisan Kalyan Yojana.\n2. The transfer was made at a Balram Krishi Mahotsav in Indore district.\n3. Over 33,000 crore rupees were transferred.\nWhich of the statements given above is/are correct?",
+            "hi": "जुलाई 2026 में मध्य प्रदेश द्वारा किसानों को किए गए हस्तांतरण के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. राशि मुख्यमंत्री किसान कल्याण योजना के तहत हस्तांतरित की गई।\n2. हस्तांतरण इंदौर ज़िले में बलराम कृषि महोत्सव में किया गया।\n3. 33,000 करोड़ रुपये से अधिक हस्तांतरित किए गए।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
           "answer": 0,
@@ -4497,24 +4497,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Blue Straggler Stars:\n1. They are found in star clusters.\n2. They appear hotter, brighter and more massive than other stars in the cluster.\n3. The most widely accepted explanation is that they gain mass from a companion or through stellar mergers.\nHow many of the above statements are correct?",
-            "hi": "ब्लू स्ट्रैगलर तारों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. ये तारा-गुच्छों में पाए जाते हैं।\n2. ये गुच्छ के अन्य तारों से अधिक गर्म, चमकीले और भारी दिखते हैं।\n3. सबसे स्वीकृत व्याख्या है कि ये साथी तारे से या तारकीय विलय से द्रव्यमान प्राप्त करते हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Blue Straggler Stars:\n1. They are found in star clusters.\n2. They appear hotter, brighter and more massive than other stars in the cluster.\n3. The most widely accepted explanation is that they gain mass from a companion or through stellar mergers.\nWhich of the statements given above is/are correct?",
+            "hi": "ब्लू स्ट्रैगलर तारों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. ये तारा-गुच्छों में पाए जाते हैं।\n2. ये गुच्छ के अन्य तारों से अधिक गर्म, चमकीले और भारी दिखते हैं।\n3. सबसे स्वीकृत व्याख्या है कि ये साथी तारे से या तारकीय विलय से द्रव्यमान प्राप्त करते हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated by the Ministry of Science and Technology.",
             "hi": "तीनों बातें विज्ञान एवं प्रौद्योगिकी मंत्रालय ने बताई हैं।"
@@ -4684,27 +4684,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the MV OMORFI incident (July 2026):\n1. India summoned the Russian Ambassador over the incident.\n2. MV OMORFI was an Indian Navy vessel.\n3. No Indian national was harmed in the attack.\nHow many of the above statements are correct?",
-            "hi": "MV OMORFI घटना (जुलाई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत ने इस घटना पर रूसी राजदूत को तलब किया।\n2. MV OMORFI भारतीय नौसेना का पोत था।\n3. हमले में किसी भारतीय नागरिक को नुकसान नहीं पहुँचा।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the MV OMORFI incident (July 2026):\n1. India summoned the Russian Ambassador over the incident.\n2. MV OMORFI was an Indian Navy vessel.\n3. No Indian national was harmed in the attack.\nWhich of the statements given above is/are not correct?",
+            "hi": "MV OMORFI घटना (जुलाई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत ने इस घटना पर रूसी राजदूत को तलब किया।\n2. MV OMORFI भारतीय नौसेना का पोत था।\n3. हमले में किसी भारतीय नागरिक को नुकसान नहीं पहुँचा।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: India summoned the Ukrainian Ambassador, MV OMORFI was a commercial vessel, and an Indian national was killed.",
-            "hi": "कोई कथन सही नहीं: भारत ने यूक्रेनी राजदूत को तलब किया, MV OMORFI व्यापारिक जहाज़ था, और एक भारतीय नागरिक की मौत हुई।"
+            "en": "All three statements are incorrect. India summoned the Ukrainian Ambassador, MV OMORFI was a commercial vessel, and an Indian national was killed.",
+            "hi": "तीनों कथन गलत हैं। कोई कथन सही नहीं: भारत ने यूक्रेनी राजदूत को तलब किया, MV OMORFI व्यापारिक जहाज़ था, और एक भारतीय नागरिक की मौत हुई।"
           }
         },
         {
@@ -4877,21 +4877,21 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the BHASHINI workshop of July 2026:\n1. The Digital India BHASHINI Division functions under the Ministry of Electronics and Information Technology.\n2. The workshop was held for officials of the Haryana Vidhan Sabha Secretariat.\n3. The CEO of BHASHINI is Nandan Nilekani.\nHow many of the above statements are correct?",
-            "hi": "जुलाई 2026 की भाषिणी कार्यशाला के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. डिजिटल इंडिया भाषिणी प्रभाग इलेक्ट्रॉनिकी और सूचना प्रौद्योगिकी मंत्रालय के अधीन कार्य करता है।\n2. कार्यशाला हरियाणा विधानसभा सचिवालय के अधिकारियों के लिए थी।\n3. भाषिणी के CEO नंदन नीलेकणि हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the BHASHINI workshop of July 2026:\n1. The Digital India BHASHINI Division functions under the Ministry of Electronics and Information Technology.\n2. The workshop was held for officials of the Haryana Vidhan Sabha Secretariat.\n3. The CEO of BHASHINI is Nandan Nilekani.\nWhich of the statements given above is/are correct?",
+            "hi": "जुलाई 2026 की भाषिणी कार्यशाला के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. डिजिटल इंडिया भाषिणी प्रभाग इलेक्ट्रॉनिकी और सूचना प्रौद्योगिकी मंत्रालय के अधीन कार्य करता है।\n2. कार्यशाला हरियाणा विधानसभा सचिवालय के अधिकारियों के लिए थी।\n3. भाषिणी के CEO नंदन नीलेकणि हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 1,
@@ -5071,21 +5071,21 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the Meghalaya EV Policy 2026:\n1. EV buyers will get an incentive of 25,000 rupees.\n2. The policy covers only four-wheelers.\n3. Meghalaya currently has over 50,000 electric vehicles.\nHow many of the above statements are correct?",
-            "hi": "मेघालय EV नीति 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. EV खरीदारों को 25,000 रुपये का प्रोत्साहन मिलेगा।\n2. नीति केवल चारपहिया वाहनों पर लागू है।\n3. मेघालय में अभी 50,000 से अधिक इलेक्ट्रिक वाहन हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Meghalaya EV Policy 2026:\n1. EV buyers will get an incentive of 25,000 rupees.\n2. The policy covers only four-wheelers.\n3. Meghalaya currently has over 50,000 electric vehicles.\nWhich of the statements given above is/are correct?",
+            "hi": "मेघालय EV नीति 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. EV खरीदारों को 25,000 रुपये का प्रोत्साहन मिलेगा।\n2. नीति केवल चारपहिया वाहनों पर लागू है।\n3. मेघालय में अभी 50,000 से अधिक इलेक्ट्रिक वाहन हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
           "answer": 0,
@@ -5266,24 +5266,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the 6th LG's Cup Horse Polo Tournament:\n1. It was held at Drass in Ladakh.\n2. Eighteen teams, including three women's teams, took part.\n3. The winners' prize money was raised to one lakh rupees this year.\nHow many of the above statements are correct?",
-            "hi": "6वें उपराज्यपाल कप हॉर्स पोलो टूर्नामेंट के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह लद्दाख के द्रास में आयोजित हुआ।\n2. इसमें तीन महिला टीमों सहित अठारह टीमों ने भाग लिया।\n3. इस वर्ष विजेता की पुरस्कार राशि बढ़ाकर एक लाख रुपये की गई।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the 6th LG's Cup Horse Polo Tournament:\n1. It was held at Drass in Ladakh.\n2. Eighteen teams, including three women's teams, took part.\n3. The winners' prize money was raised to one lakh rupees this year.\nWhich of the statements given above is/are correct?",
+            "hi": "6वें उपराज्यपाल कप हॉर्स पोलो टूर्नामेंट के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह लद्दाख के द्रास में आयोजित हुआ।\n2. इसमें तीन महिला टीमों सहित अठारह टीमों ने भाग लिया।\n3. इस वर्ष विजेता की पुरस्कार राशि बढ़ाकर एक लाख रुपये की गई।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the report.",
             "hi": "तीनों बातें रिपोर्ट में दी गई हैं।"
@@ -5456,27 +5456,27 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the commissions constituted by the Delhi government in July 2026:\n1. Nirmal Jain is the Chairperson of the Delhi Commission for Women.\n2. Lata Gupta heads the Delhi Minorities Commission.\n3. The commissions were constituted by the Union Ministry of Home Affairs.\nHow many of the above statements are correct?",
-            "hi": "जुलाई 2026 में दिल्ली सरकार द्वारा गठित आयोगों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. निर्मल जैन दिल्ली महिला आयोग के अध्यक्ष हैं।\n2. लता गुप्ता दिल्ली अल्पसंख्यक आयोग की प्रमुख हैं।\n3. आयोगों का गठन केंद्रीय गृह मंत्रालय ने किया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the commissions constituted by the Delhi government in July 2026:\n1. Nirmal Jain is the Chairperson of the Delhi Commission for Women.\n2. Lata Gupta heads the Delhi Minorities Commission.\n3. The commissions were constituted by the Union Ministry of Home Affairs.\nWhich of the statements given above is/are not correct?",
+            "hi": "जुलाई 2026 में दिल्ली सरकार द्वारा गठित आयोगों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. निर्मल जैन दिल्ली महिला आयोग के अध्यक्ष हैं।\n2. लता गुप्ता दिल्ली अल्पसंख्यक आयोग की प्रमुख हैं।\n3. आयोगों का गठन केंद्रीय गृह मंत्रालय ने किया।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: Lata Gupta heads the Commission for Women, Nirmal Jain heads the Minorities Commission, and both were constituted by the Delhi government.",
-            "hi": "कोई कथन सही नहीं: लता गुप्ता महिला आयोग की और निर्मल जैन अल्पसंख्यक आयोग के अध्यक्ष हैं, तथा दोनों का गठन दिल्ली सरकार ने किया।"
+            "en": "All three statements are incorrect. Lata Gupta heads the Commission for Women, Nirmal Jain heads the Minorities Commission, and both were constituted by the Delhi government.",
+            "hi": "तीनों कथन गलत हैं। कोई कथन सही नहीं: लता गुप्ता महिला आयोग की और निर्मल जैन अल्पसंख्यक आयोग के अध्यक्ष हैं, तथा दोनों का गठन दिल्ली सरकार ने किया।"
           }
         },
         {

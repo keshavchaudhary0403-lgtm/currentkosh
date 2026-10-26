@@ -78,24 +78,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements:\n1. The 12th BRICS Parliamentary Forum is being chaired by the Chairman of the Rajya Sabha.\n2. Eleven BRICS member countries and ten partner countries were invited to the Forum.\n3. The Forum's high-level sessions are based on Resilience, Innovation, Cooperation and Sustainability.\nHow many of the above statements are correct?",
-            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. 12वें ब्रिक्स संसदीय मंच की अध्यक्षता राज्यसभा के सभापति कर रहे हैं।\n2. मंच में 11 ब्रिक्स सदस्य देशों और 10 साझेदार देशों को आमंत्रित किया गया।\n3. मंच के उच्च-स्तरीय सत्र सुदृढ़ता, नवाचार, सहयोग और संधारणीयता पर आधारित हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements:\n1. The 12th BRICS Parliamentary Forum is being chaired by the Chairman of the Rajya Sabha.\n2. Eleven BRICS member countries and ten partner countries were invited to the Forum.\n3. The Forum's high-level sessions are based on Resilience, Innovation, Cooperation and Sustainability.\nWhich of the statements given above is/are correct?",
+            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. 12वें ब्रिक्स संसदीय मंच की अध्यक्षता राज्यसभा के सभापति कर रहे हैं।\n2. मंच में 11 ब्रिक्स सदस्य देशों और 10 साझेदार देशों को आमंत्रित किया गया।\n3. मंच के उच्च-स्तरीय सत्र सुदृढ़ता, नवाचार, सहयोग और संधारणीयता पर आधारित हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "Statements 2 and 3 are correct. The Forum is chaired by Lok Sabha Speaker Om Birla.",
             "hi": "कथन 2 और 3 सही हैं। मंच की अध्यक्षता लोकसभा अध्यक्ष ओम बिरला कर रहे हैं।"
@@ -329,21 +329,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements:\n1. ISRO plans three uncrewed Gaganyaan tests before the crewed mission.\n2. Chandrayaan-5 is a joint lunar mission with the European Space Agency.\n3. ISRO Chairman said four astronaut-designates are undergoing specialised training.\nHow many of the above statements are correct?",
-            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. ISRO मानवयुक्त मिशन से पहले तीन मानवरहित गगनयान परीक्षण करेगा।\n2. चंद्रयान-5 यूरोपीय अंतरिक्ष एजेंसी के साथ संयुक्त चंद्र मिशन है।\n3. ISRO अध्यक्ष ने कहा कि चार अंतरिक्ष यात्री-नामित विशेष प्रशिक्षण ले रहे हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements:\n1. ISRO plans three uncrewed Gaganyaan tests before the crewed mission.\n2. Chandrayaan-5 is a joint lunar mission with the European Space Agency.\n3. ISRO Chairman said four astronaut-designates are undergoing specialised training.\nWhich of the statements given above is/are correct?",
+            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. ISRO मानवयुक्त मिशन से पहले तीन मानवरहित गगनयान परीक्षण करेगा।\n2. चंद्रयान-5 यूरोपीय अंतरिक्ष एजेंसी के साथ संयुक्त चंद्र मिशन है।\n3. ISRO अध्यक्ष ने कहा कि चार अंतरिक्ष यात्री-नामित विशेष प्रशिक्षण ले रहे हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 1,
@@ -563,24 +563,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements:\n1. Maharishi Valmiki composed the Ramayana.\n2. The Ram Mandir complex in Ayodhya includes a temple dedicated to Mata Shabari.\n3. The PM cited Ram's friendship with Nishadraj as an example of inclusiveness.\nHow many of the above statements are correct?",
-            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. महर्षि वाल्मीकि ने रामायण की रचना की।\n2. अयोध्या के राम मंदिर परिसर में माता शबरी को समर्पित मंदिर है।\n3. प्रधानमंत्री ने राम और निषादराज की मित्रता को समावेशिता का उदाहरण बताया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements:\n1. Maharishi Valmiki composed the Ramayana.\n2. The Ram Mandir complex in Ayodhya includes a temple dedicated to Mata Shabari.\n3. The PM cited Ram's friendship with Nishadraj as an example of inclusiveness.\nWhich of the statements given above is/are correct?",
+            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. महर्षि वाल्मीकि ने रामायण की रचना की।\n2. अयोध्या के राम मंदिर परिसर में माता शबरी को समर्पित मंदिर है।\n3. प्रधानमंत्री ने राम और निषादराज की मित्रता को समावेशिता का उदाहरण बताया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the President's greetings and the PM's Mann Ki Baat remarks.",
             "hi": "तीनों बातें राष्ट्रपति के संदेश और प्रधानमंत्री के मन की बात संबोधन में कही गईं।"
@@ -727,21 +727,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements:\n1. Lula's 2026 victory gives him a fourth, non-consecutive term as President of Brazil.\n2. Lula will be sworn in on 1 January 2027.\n3. Lula had led in the first round of the 2026 election.\nHow many of the above statements are correct?",
-            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. 2026 की जीत से लूला को ब्राज़ील के राष्ट्रपति के रूप में चौथा, गैर-लगातार कार्यकाल मिला।\n2. लूला 1 जनवरी 2027 को शपथ लेंगे।\n3. 2026 के चुनाव के पहले दौर में लूला आगे थे।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements:\n1. Lula's 2026 victory gives him a fourth, non-consecutive term as President of Brazil.\n2. Lula will be sworn in on 1 January 2027.\n3. Lula had led in the first round of the 2026 election.\nWhich of the statements given above is/are correct?",
+            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. 2026 की जीत से लूला को ब्राज़ील के राष्ट्रपति के रूप में चौथा, गैर-लगातार कार्यकाल मिला।\n2. लूला 1 जनवरी 2027 को शपथ लेंगे।\n3. 2026 के चुनाव के पहले दौर में लूला आगे थे।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -916,24 +916,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements:\n1. The accession of Jammu and Kashmir became effective on 27 October 1947.\n2. Accession Day 2026 was the 79th such observance.\n3. The accession preceded the attack on the state by tribal invaders from Pakistan.\nHow many of the above statements are correct?",
-            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. जम्मू-कश्मीर का विलय 27 अक्टूबर 1947 से प्रभावी हुआ।\n2. 2026 का विलय दिवस 79वाँ आयोजन था।\n3. विलय पाकिस्तान से आए कबायली आक्रमणकारियों के हमले से पहले हुआ।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements:\n1. The accession of Jammu and Kashmir became effective on 27 October 1947.\n2. Accession Day 2026 was the 79th such observance.\n3. The accession preceded the attack on the state by tribal invaders from Pakistan.\nWhich of the statements given above is/are correct?",
+            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. जम्मू-कश्मीर का विलय 27 अक्टूबर 1947 से प्रभावी हुआ।\n2. 2026 का विलय दिवस 79वाँ आयोजन था।\n3. विलय पाकिस्तान से आए कबायली आक्रमणकारियों के हमले से पहले हुआ।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "3 only",
+              "1 and 2 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 3",
+              "केवल 1 और 2",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "Statements 1 and 2 are correct. The accession came after the tribal invasion from Pakistan had begun, not before it.",
             "hi": "कथन 1 और 2 सही हैं। विलय पाकिस्तान से कबायली आक्रमण शुरू होने के बाद हुआ, पहले नहीं।"
@@ -1117,24 +1117,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements:\n1. Cyclone Arnab is expected to peak as a very severe cyclonic storm.\n2. Odisha has kept 302 rescue teams on standby.\n3. Yanam, mentioned in the cyclone warning, is part of Andhra Pradesh.\nHow many of the above statements are correct?",
-            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. चक्रवात 'अर्नब' के अति प्रचंड चक्रवाती तूफ़ान के रूप में चरम पर पहुँचने का अनुमान है।\n2. ओडिशा ने 302 बचाव दल तैयार रखे हैं।\n3. चक्रवात चेतावनी में उल्लिखित यानम आंध्र प्रदेश का भाग है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements:\n1. Cyclone Arnab is expected to peak as a very severe cyclonic storm.\n2. Odisha has kept 302 rescue teams on standby.\n3. Yanam, mentioned in the cyclone warning, is part of Andhra Pradesh.\nWhich of the statements given above is/are correct?",
+            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. चक्रवात 'अर्नब' के अति प्रचंड चक्रवाती तूफ़ान के रूप में चरम पर पहुँचने का अनुमान है।\n2. ओडिशा ने 302 बचाव दल तैयार रखे हैं।\n3. चक्रवात चेतावनी में उल्लिखित यानम आंध्र प्रदेश का भाग है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "3 only",
+              "1 and 2 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 3",
+              "केवल 1 और 2"
             ]
           },
-          "answer": 1,
+          "answer": 3,
           "explanation": {
             "en": "Statements 1 and 2 are correct. Yanam is part of the Union Territory of Puducherry, though it lies within Andhra Pradesh's geography.",
             "hi": "कथन 1 और 2 सही हैं। यानम भौगोलिक रूप से आंध्र प्रदेश से घिरा है, पर केंद्रशासित प्रदेश पुडुचेरी का भाग है।"
@@ -1286,24 +1286,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the 2026 United States Grand Prix:\n1. Kimi Antonelli won the race starting from pole position.\n2. Charles Leclerc of Ferrari finished third.\n3. Reigning champion Lando Norris finished fifth.\nHow many of the above statements are correct?",
-            "hi": "2026 यूनाइटेड स्टेट्स ग्रां प्री के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. किमी एंटोनेली ने पोल पोज़िशन से शुरुआत कर रेस जीती।\n2. फ़ेरारी के चार्ल्स लेक्लर तीसरे स्थान पर रहे।\n3. मौजूदा चैंपियन लैंडो नॉरिस पाँचवें स्थान पर रहे।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the 2026 United States Grand Prix:\n1. Kimi Antonelli won the race starting from pole position.\n2. Charles Leclerc of Ferrari finished third.\n3. Reigning champion Lando Norris finished fifth.\nWhich of the statements given above is/are correct?",
+            "hi": "2026 यूनाइटेड स्टेट्स ग्रां प्री के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. किमी एंटोनेली ने पोल पोज़िशन से शुरुआत कर रेस जीती।\n2. फ़ेरारी के चार्ल्स लेक्लर तीसरे स्थान पर रहे।\n3. मौजूदा चैंपियन लैंडो नॉरिस पाँचवें स्थान पर रहे।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "3 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 3",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "Statements 1 and 3 are correct. Leclerc finished second, 13.078 seconds behind Antonelli; Max Verstappen was third.",
             "hi": "कथन 1 और 3 सही हैं। लेक्लर एंटोनेली से 13.078 सेकंड पीछे दूसरे स्थान पर रहे; मैक्स वेरस्टापेन तीसरे रहे।"

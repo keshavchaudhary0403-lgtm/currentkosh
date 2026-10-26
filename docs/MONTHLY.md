@@ -45,7 +45,7 @@ Rules
 - `highlights`: the issue's "Highlights of this Issue" (usually 8–10).
 - `sections`: keep PRS's sector order. Include every substantive item (bills, rules, schemes, regulator decisions, reports, data releases, summits). Skip pure tables. 2–4 `key_points` per item.
 - `exams`: any of upsc, state_psc, ssc, banking, railways, defence, teaching that would ask about the item.
-- `mcqs`: exactly 10, mixing direct and UPSC-style statement questions; spread correct answers evenly over 0–3.
+- `mcqs`: exactly 10, mixing direct and UPSC-style statement questions, written in the exam formats in `ROUTINE.md` (statement questions ask which statements are correct, with combinations of statement numbers as options, never "how many"); spread correct answers evenly over 0–3.
 - `cards`: 8–12 flashcards on the most testable facts.
 - Hindi must read natively (standard UPSC/SSC Hindi register: राजकोषीय घाटा, अधिसूचना), not transliteration; keep acronyms/scheme names recognisable, e.g. "कर्मचारी भविष्य निधि संगठन (EPFO)".
 - Write valid JSON (UTF-8). Validate with: `node -e "JSON.parse(require('fs').readFileSync('content/monthly/prs-YYYY-MM.json','utf8'))"`.

@@ -61,7 +61,7 @@ export function McqView({
   split?: boolean;
 }) {
   const right = selected === mcq.answer;
-  // Short options (e.g. "Only one", "All three") sit two-up on a deck card.
+  // Short options (e.g. "1 and 3 only", "1, 2 and 3") sit two-up on a deck card.
   const short = [...mcq.options.en, ...mcq.options.hi].every((o) => o.length <= 26 && !o.includes("\n"));
   const hi = lang === "hi";
   return (

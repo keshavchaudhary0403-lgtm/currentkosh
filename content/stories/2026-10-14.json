@@ -85,24 +85,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Cabinet decision on the National Social Assistance Programme (October 2026):\n1. It has been continued from 2026-27 to 2030-31 with an outlay of ₹53,428 crore.\n2. The benchmark disability criterion for disability pension has been lowered from 80% to 40%.\n3. The rates of assistance under the old-age pension scheme have been revised upward.\nHow many of the above statements are correct?",
-            "hi": "राष्ट्रीय सामाजिक सहायता कार्यक्रम पर मंत्रिमंडल के निर्णय (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसे 53,428 करोड़ रुपये के परिव्यय के साथ 2026-27 से 2030-31 तक जारी रखा गया है।\n2. दिव्यांगजन पेंशन के लिए बेंचमार्क दिव्यांगता की शर्त 80% से घटाकर 40% कर दी गई है।\n3. वृद्धावस्था पेंशन योजना के तहत सहायता की दरें बढ़ा दी गई हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Cabinet decision on the National Social Assistance Programme (October 2026):\n1. It has been continued from 2026-27 to 2030-31 with an outlay of ₹53,428 crore.\n2. The benchmark disability criterion for disability pension has been lowered from 80% to 40%.\n3. The rates of assistance under the old-age pension scheme have been revised upward.\nWhich of the statements given above is/are correct?",
+            "hi": "राष्ट्रीय सामाजिक सहायता कार्यक्रम पर मंत्रिमंडल के निर्णय (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसे 53,428 करोड़ रुपये के परिव्यय के साथ 2026-27 से 2030-31 तक जारी रखा गया है।\n2. दिव्यांगजन पेंशन के लिए बेंचमार्क दिव्यांगता की शर्त 80% से घटाकर 40% कर दी गई है।\n3. वृद्धावस्था पेंशन योजना के तहत सहायता की दरें बढ़ा दी गई हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "3 only",
+              "1 and 2 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 3",
+              "केवल 1 और 2",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 2 are correct. 3 is wrong: old-age, widow and family benefit schemes continue in their existing form; only the divyangjan pension was revised.",
             "hi": "1 और 2 सही हैं। 3 गलत है: वृद्धावस्था, विधवा और पारिवारिक लाभ योजनाएँ मौजूदा स्वरूप में जारी रहेंगी; केवल दिव्यांगजन पेंशन में संशोधन हुआ है।"
@@ -290,24 +290,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the railway Productivity Linked Bonus approved in October 2026:\n1. It is equal to 78 days' wages.\n2. It will be paid to over 11.40 lakh non-gazetted railway employees.\n3. The maximum amount payable per eligible employee is ₹17,951.\nHow many of the above statements are correct?",
-            "hi": "अक्टूबर 2026 में स्वीकृत रेलवे उत्पादकता से जुड़े बोनस के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह 78 दिनों के वेतन के बराबर है।\n2. यह 11.40 लाख से अधिक अराजपत्रित रेलकर्मियों को दिया जाएगा।\n3. प्रति पात्र कर्मचारी अधिकतम देय राशि 17,951 रुपये है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the railway Productivity Linked Bonus approved in October 2026:\n1. It is equal to 78 days' wages.\n2. It will be paid to over 11.40 lakh non-gazetted railway employees.\n3. The maximum amount payable per eligible employee is ₹17,951.\nWhich of the statements given above is/are correct?",
+            "hi": "अक्टूबर 2026 में स्वीकृत रेलवे उत्पादकता से जुड़े बोनस के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह 78 दिनों के वेतन के बराबर है।\n2. यह 11.40 लाख से अधिक अराजपत्रित रेलकर्मियों को दिया जाएगा।\n3. प्रति पात्र कर्मचारी अधिकतम देय राशि 17,951 रुपये है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three facts are stated in the Cabinet briefing.",
             "hi": "तीनों तथ्य मंत्रिमंडल की ब्रीफ़िंग में बताए गए हैं।"
@@ -485,21 +485,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the IDBI Bank decision of October 2026:\n1. It was approved by the Cabinet Committee on Economic Affairs.\n2. The government will retain a majority stake in the bank.\n3. The restructuring rules out any foreign direct investment in the bank.\nHow many of the above statements are correct?",
-            "hi": "अक्टूबर 2026 के IDBI बैंक संबंधी निर्णय के बारे में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसे आर्थिक मामलों की मंत्रिमंडलीय समिति ने मंज़ूरी दी।\n2. सरकार बैंक में बहुलांश हिस्सेदारी बनाए रखेगी।\n3. पुनर्गठन में बैंक में किसी भी प्रत्यक्ष विदेशी निवेश को बाहर रखा गया है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the IDBI Bank decision of October 2026:\n1. It was approved by the Cabinet Committee on Economic Affairs.\n2. The government will retain a majority stake in the bank.\n3. The restructuring rules out any foreign direct investment in the bank.\nWhich of the statements given above is/are correct?",
+            "hi": "अक्टूबर 2026 के IDBI बैंक संबंधी निर्णय के बारे में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसे आर्थिक मामलों की मंत्रिमंडलीय समिति ने मंज़ूरी दी।\n2. सरकार बैंक में बहुलांश हिस्सेदारी बनाए रखेगी।\n3. पुनर्गठन में बैंक में किसी भी प्रत्यक्ष विदेशी निवेश को बाहर रखा गया है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 0,
@@ -684,27 +684,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about WPI data for September 2026:\n1. WPI inflation eased from August to September.\n2. Primary Articles recorded the highest inflation among the major groups.\n3. WPI data are released by the Reserve Bank of India.\nHow many of the above statements are correct?",
-            "hi": "सितंबर 2026 के WPI आँकड़ों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. अगस्त से सितंबर में WPI मुद्रास्फीति घटी।\n2. प्रमुख समूहों में प्राथमिक वस्तुओं की मुद्रास्फीति सर्वाधिक रही।\n3. WPI आँकड़े भारतीय रिज़र्व बैंक जारी करता है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about WPI data for September 2026:\n1. WPI inflation eased from August to September.\n2. Primary Articles recorded the highest inflation among the major groups.\n3. WPI data are released by the Reserve Bank of India.\nWhich of the statements given above is/are not correct?",
+            "hi": "सितंबर 2026 के WPI आँकड़ों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. अगस्त से सितंबर में WPI मुद्रास्फीति घटी।\n2. प्रमुख समूहों में प्राथमिक वस्तुओं की मुद्रास्फीति सर्वाधिक रही।\n3. WPI आँकड़े भारतीय रिज़र्व बैंक जारी करता है।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct. WPI inflation rose from 9.92% to 11.39%; Fuel and Power (25.85%) was highest; data were released by the Ministry of Commerce and Industry.",
-            "hi": "कोई भी सही नहीं। WPI मुद्रास्फीति 9.92% से बढ़कर 11.39% हुई; ईंधन एवं बिजली (25.85%) सर्वाधिक रही; आँकड़े वाणिज्य एवं उद्योग मंत्रालय ने जारी किए।"
+            "en": "All three statements are incorrect. WPI inflation rose from 9.92% to 11.39%; Fuel and Power (25.85%) was highest; data were released by the Ministry of Commerce and Industry.",
+            "hi": "तीनों कथन गलत हैं। WPI मुद्रास्फीति 9.92% से बढ़कर 11.39% हुई; ईंधन एवं बिजली (25.85%) सर्वाधिक रही; आँकड़े वाणिज्य एवं उद्योग मंत्रालय ने जारी किए।"
           }
         },
         {
@@ -889,21 +889,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the amended India-Mauritius DTAA:\n1. It introduces a Principal Purpose Test to curb treaty misuse.\n2. The amending protocol was signed in Port Louis in March 2024.\n3. The amendment ends the treaty's objective of eliminating double taxation.\nHow many of the above statements are correct?",
-            "hi": "संशोधित भारत-मॉरीशस DTAA के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसमें संधि के दुरुपयोग को रोकने के लिए प्रधान उद्देश्य परीक्षण जोड़ा गया है।\n2. संशोधन प्रोटोकॉल पर मार्च 2024 में पोर्ट लुई में हस्ताक्षर हुए।\n3. संशोधन से दोहरे कराधान को समाप्त करने का संधि का उद्देश्य समाप्त हो गया है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the amended India-Mauritius DTAA:\n1. It introduces a Principal Purpose Test to curb treaty misuse.\n2. The amending protocol was signed in Port Louis in March 2024.\n3. The amendment ends the treaty's objective of eliminating double taxation.\nWhich of the statements given above is/are correct?",
+            "hi": "संशोधित भारत-मॉरीशस DTAA के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसमें संधि के दुरुपयोग को रोकने के लिए प्रधान उद्देश्य परीक्षण जोड़ा गया है।\n2. संशोधन प्रोटोकॉल पर मार्च 2024 में पोर्ट लुई में हस्ताक्षर हुए।\n3. संशोधन से दोहरे कराधान को समाप्त करने का संधि का उद्देश्य समाप्त हो गया है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 1,
@@ -1089,24 +1089,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following about the committee on sugarcane farmers' issues (October 2026):\n1. It is chaired by Professor Ramesh Chand.\n2. It will examine revision of the ex-mill Minimum Selling Price of sugar.\n3. It will assess deductions from the weight of mechanically harvested sugarcane.\nHow many of the above statements are correct?",
-            "hi": "गन्ना किसानों के मुद्दों पर समिति (अक्टूबर 2026) के संबंध में निम्नलिखित पर विचार कीजिए:\n1. इसकी अध्यक्षता प्रोफेसर रमेश चंद कर रहे हैं।\n2. यह चीनी के मिल-द्वार न्यूनतम विक्रय मूल्य में संशोधन की जाँच करेगी।\n3. यह मशीन से कटे गन्ने के वज़न में कटौती का आकलन करेगी।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following about the committee on sugarcane farmers' issues (October 2026):\n1. It is chaired by Professor Ramesh Chand.\n2. It will examine revision of the ex-mill Minimum Selling Price of sugar.\n3. It will assess deductions from the weight of mechanically harvested sugarcane.\nWhich of the statements given above is/are correct?",
+            "hi": "गन्ना किसानों के मुद्दों पर समिति (अक्टूबर 2026) के संबंध में निम्नलिखित पर विचार कीजिए:\n1. इसकी अध्यक्षता प्रोफेसर रमेश चंद कर रहे हैं।\n2. यह चीनी के मिल-द्वार न्यूनतम विक्रय मूल्य में संशोधन की जाँच करेगी।\n3. यह मशीन से कटे गन्ने के वज़न में कटौती का आकलन करेगी।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are part of the committee's chair and terms of reference as stated by the ministry.",
             "hi": "तीनों मंत्रालय द्वारा बताए गए समिति के अध्यक्ष और विचारार्थ विषयों का हिस्सा हैं।"
@@ -1289,21 +1289,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the first BIMSTEC Home Ministers' Meeting:\n1. It adopted the Delhi Declaration.\n2. It was held in Colombo, Sri Lanka.\n3. The BIMSTEC Convention on Mutual Legal Assistance in Criminal Matters was signed at this meeting.\nHow many of the above statements are correct?",
-            "hi": "प्रथम BIMSTEC गृह मंत्रियों की बैठक के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसमें दिल्ली घोषणा अंगीकार की गई।\n2. यह कोलंबो, श्रीलंका में आयोजित हुई।\n3. आपराधिक मामलों में पारस्परिक विधिक सहायता पर BIMSTEC अभिसमय पर इसी बैठक में हस्ताक्षर हुए।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the first BIMSTEC Home Ministers' Meeting:\n1. It adopted the Delhi Declaration.\n2. It was held in Colombo, Sri Lanka.\n3. The BIMSTEC Convention on Mutual Legal Assistance in Criminal Matters was signed at this meeting.\nWhich of the statements given above is/are correct?",
+            "hi": "प्रथम BIMSTEC गृह मंत्रियों की बैठक के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसमें दिल्ली घोषणा अंगीकार की गई।\n2. यह कोलंबो, श्रीलंका में आयोजित हुई।\n3. आपराधिक मामलों में पारस्परिक विधिक सहायता पर BIMSTEC अभिसमय पर इसी बैठक में हस्ताक्षर हुए।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
           "answer": 0,
@@ -1489,27 +1489,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about India-Canada engagement in October 2026:\n1. The fifth round of CEPA talks was held in New Delhi.\n2. Canada aims to raise bilateral trade with India to $100 billion by 2030.\n3. Canada's merchandise exports to India exceeded its imports from India in 2025.\nHow many of the above statements are correct?",
-            "hi": "अक्टूबर 2026 में भारत-कनाडा संपर्क के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. CEPA वार्ता का पाँचवाँ दौर नई दिल्ली में हुआ।\n2. कनाडा 2030 तक भारत के साथ द्विपक्षीय व्यापार को 100 अरब डॉलर तक ले जाना चाहता है।\n3. 2025 में भारत को कनाडा का वस्तु निर्यात भारत से उसके आयात से अधिक था।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about India-Canada engagement in October 2026:\n1. The fifth round of CEPA talks was held in New Delhi.\n2. Canada aims to raise bilateral trade with India to $100 billion by 2030.\n3. Canada's merchandise exports to India exceeded its imports from India in 2025.\nWhich of the statements given above is/are not correct?",
+            "hi": "अक्टूबर 2026 में भारत-कनाडा संपर्क के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. CEPA वार्ता का पाँचवाँ दौर नई दिल्ली में हुआ।\n2. कनाडा 2030 तक भारत के साथ द्विपक्षीय व्यापार को 100 अरब डॉलर तक ले जाना चाहता है।\n3. 2025 में भारत को कनाडा का वस्तु निर्यात भारत से उसके आयात से अधिक था।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct. The fifth round was in Ottawa; the target is $70 billion; Canada exported $3.9 billion to India and imported $9.7 billion.",
-            "hi": "कोई भी सही नहीं। पाँचवाँ दौर ओटावा में हुआ; लक्ष्य 70 अरब डॉलर है; कनाडा ने भारत को 3.9 अरब डॉलर का निर्यात और 9.7 अरब डॉलर का आयात किया।"
+            "en": "All three statements are incorrect. The fifth round was in Ottawa; the target is $70 billion; Canada exported $3.9 billion to India and imported $9.7 billion.",
+            "hi": "तीनों कथन गलत हैं। पाँचवाँ दौर ओटावा में हुआ; लक्ष्य 70 अरब डॉलर है; कनाडा ने भारत को 3.9 अरब डॉलर का निर्यात और 9.7 अरब डॉलर का आयात किया।"
           }
         },
         {
@@ -1701,21 +1701,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Marco Rubio's planned travel (October 2026):\n1. He will visit Mumbai and Jamnagar in India.\n2. He will attend the C5+1 Ministerial meeting in Samarkand before arriving in India.\n3. This will be his first visit to India as US Secretary of State.\nHow many of the above statements are correct?",
-            "hi": "मार्को रुबियो की प्रस्तावित यात्रा (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. वे भारत में मुंबई और जामनगर जाएँगे।\n2. भारत पहुँचने से पहले वे समरकंद में C5+1 मंत्रिस्तरीय बैठक में भाग लेंगे।\n3. यह अमेरिकी विदेश मंत्री के रूप में उनकी पहली भारत यात्रा होगी।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Marco Rubio's planned travel (October 2026):\n1. He will visit Mumbai and Jamnagar in India.\n2. He will attend the C5+1 Ministerial meeting in Samarkand before arriving in India.\n3. This will be his first visit to India as US Secretary of State.\nWhich of the statements given above is/are correct?",
+            "hi": "मार्को रुबियो की प्रस्तावित यात्रा (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. वे भारत में मुंबई और जामनगर जाएँगे।\n2. भारत पहुँचने से पहले वे समरकंद में C5+1 मंत्रिस्तरीय बैठक में भाग लेंगे।\n3. यह अमेरिकी विदेश मंत्री के रूप में उनकी पहली भारत यात्रा होगी।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 1,
@@ -1899,24 +1899,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "With reference to EAM S Jaishankar's remarks at the Bloomberg New Economy Forum (October 2026), consider the following statements:\n1. He described India as a 'power in the middle' rather than a 'middle power'.\n2. He said India-China trade is extremely one-sided.\n3. He said the India-US trade negotiations are far advanced.\nHow many of the above statements are correct?",
-            "hi": "ब्लूमबर्ग न्यू इकोनॉमी फ़ोरम (अक्टूबर 2026) में विदेश मंत्री एस. जयशंकर की टिप्पणियों के संदर्भ में निम्नलिखित कथनों पर विचार कीजिए:\n1. उन्होंने भारत को 'मध्यम शक्ति' के बजाय 'बीच की शक्ति' बताया।\n2. उन्होंने कहा कि भारत-चीन व्यापार अत्यंत एकतरफ़ा है।\n3. उन्होंने कहा कि भारत-अमेरिका व्यापार वार्ता काफ़ी आगे बढ़ चुकी है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "With reference to EAM S Jaishankar's remarks at the Bloomberg New Economy Forum (October 2026), consider the following statements:\n1. He described India as a 'power in the middle' rather than a 'middle power'.\n2. He said India-China trade is extremely one-sided.\n3. He said the India-US trade negotiations are far advanced.\nWhich of the statements given above is/are correct?",
+            "hi": "ब्लूमबर्ग न्यू इकोनॉमी फ़ोरम (अक्टूबर 2026) में विदेश मंत्री एस. जयशंकर की टिप्पणियों के संदर्भ में निम्नलिखित कथनों पर विचार कीजिए:\n1. उन्होंने भारत को 'मध्यम शक्ति' के बजाय 'बीच की शक्ति' बताया।\n2. उन्होंने कहा कि भारत-चीन व्यापार अत्यंत एकतरफ़ा है।\n3. उन्होंने कहा कि भारत-अमेरिका व्यापार वार्ता काफ़ी आगे बढ़ चुकी है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three statements reflect Jaishankar's remarks at the forum.",
             "hi": "तीनों कथन फ़ोरम में जयशंकर की टिप्पणियों के अनुरूप हैं।"
@@ -2095,21 +2095,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements based on Piyush Goyal's remarks (October 2026):\n1. India has signed preferential trade agreements with 38 developed nations in the past four years.\n2. Before 2014, India's trade agreements covered economies with a combined GDP of about $70 trillion.\n3. India has concluded its trade agreement with Mercosur.\nHow many of the above statements are correct?",
-            "hi": "पीयूष गोयल की टिप्पणियों (अक्टूबर 2026) के आधार पर निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत ने पिछले चार वर्षों में 38 विकसित देशों के साथ अधिमान्य व्यापार समझौते किए हैं।\n2. 2014 से पहले भारत के व्यापार समझौतों में शामिल अर्थव्यवस्थाओं का संयुक्त GDP लगभग 70 ट्रिलियन डॉलर था।\n3. भारत ने मर्कोसुर के साथ अपना व्यापार समझौता संपन्न कर लिया है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements based on Piyush Goyal's remarks (October 2026):\n1. India has signed preferential trade agreements with 38 developed nations in the past four years.\n2. Before 2014, India's trade agreements covered economies with a combined GDP of about $70 trillion.\n3. India has concluded its trade agreement with Mercosur.\nWhich of the statements given above is/are correct?",
+            "hi": "पीयूष गोयल की टिप्पणियों (अक्टूबर 2026) के आधार पर निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत ने पिछले चार वर्षों में 38 विकसित देशों के साथ अधिमान्य व्यापार समझौते किए हैं।\n2. 2014 से पहले भारत के व्यापार समझौतों में शामिल अर्थव्यवस्थाओं का संयुक्त GDP लगभग 70 ट्रिलियन डॉलर था।\n3. भारत ने मर्कोसुर के साथ अपना व्यापार समझौता संपन्न कर लिया है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -2291,27 +2291,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements based on Ashwini Vaishnaw's remarks (October 2026):\n1. India's public debt-to-GDP ratio has risen from 55% to 61% in five years.\n2. He said cost is now the only consideration in the global semiconductor value chain.\n3. He said India is still limited to assembling mobile phones.\nHow many of the above statements are correct?",
-            "hi": "अश्विनी वैष्णव की टिप्पणियों (अक्टूबर 2026) के आधार पर निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत का सार्वजनिक ऋण-GDP अनुपात पाँच वर्षों में 55% से बढ़कर 61% हो गया है।\n2. उन्होंने कहा कि वैश्विक सेमीकंडक्टर मूल्य श्रृंखला में अब केवल लागत ही विचारणीय है।\n3. उन्होंने कहा कि भारत अब भी केवल मोबाइल फ़ोन की असेंबली तक सीमित है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements based on Ashwini Vaishnaw's remarks (October 2026):\n1. India's public debt-to-GDP ratio has risen from 55% to 61% in five years.\n2. He said cost is now the only consideration in the global semiconductor value chain.\n3. He said India is still limited to assembling mobile phones.\nWhich of the statements given above is/are not correct?",
+            "hi": "अश्विनी वैष्णव की टिप्पणियों (अक्टूबर 2026) के आधार पर निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत का सार्वजनिक ऋण-GDP अनुपात पाँच वर्षों में 55% से बढ़कर 61% हो गया है।\n2. उन्होंने कहा कि वैश्विक सेमीकंडक्टर मूल्य श्रृंखला में अब केवल लागत ही विचारणीय है।\n3. उन्होंने कहा कि भारत अब भी केवल मोबाइल फ़ोन की असेंबली तक सीमित है।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct. The ratio fell from 61% to 55%; trust and cybersecurity matter alongside cost; India now makes and exports components.",
-            "hi": "कोई भी सही नहीं। अनुपात 61% से घटकर 55% हुआ; लागत के साथ भरोसा और साइबर सुरक्षा भी अहम हैं; भारत अब पुर्ज़े बनाता और निर्यात करता है।"
+            "en": "All three statements are incorrect. The ratio fell from 61% to 55%; trust and cybersecurity matter alongside cost; India now makes and exports components.",
+            "hi": "तीनों कथन गलत हैं। अनुपात 61% से घटकर 55% हुआ; लागत के साथ भरोसा और साइबर सुरक्षा भी अहम हैं; भारत अब पुर्ज़े बनाता और निर्यात करता है।"
           }
         },
         {
@@ -2487,24 +2487,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Rajnath Singh's address at the ASEAN-India Defence Think Tank Forum:\n1. He proposed a joint India-ASEAN research agenda including maritime security and cyber threats.\n2. He noted that 2026 is the ASEAN-India Year of Maritime Cooperation.\n3. The forum was held in Jakarta.\nHow many of the above statements are correct?",
-            "hi": "आसियान-भारत रक्षा थिंक टैंक फ़ोरम में राजनाथ सिंह के संबोधन के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. उन्होंने समुद्री सुरक्षा और साइबर खतरों सहित भारत-आसियान संयुक्त अनुसंधान एजेंडा प्रस्तावित किया।\n2. उन्होंने उल्लेख किया कि 2026 आसियान-भारत समुद्री सहयोग वर्ष है।\n3. फ़ोरम जकार्ता में आयोजित हुआ।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Rajnath Singh's address at the ASEAN-India Defence Think Tank Forum:\n1. He proposed a joint India-ASEAN research agenda including maritime security and cyber threats.\n2. He noted that 2026 is the ASEAN-India Year of Maritime Cooperation.\n3. The forum was held in Jakarta.\nWhich of the statements given above is/are correct?",
+            "hi": "आसियान-भारत रक्षा थिंक टैंक फ़ोरम में राजनाथ सिंह के संबोधन के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. उन्होंने समुद्री सुरक्षा और साइबर खतरों सहित भारत-आसियान संयुक्त अनुसंधान एजेंडा प्रस्तावित किया।\n2. उन्होंने उल्लेख किया कि 2026 आसियान-भारत समुद्री सहयोग वर्ष है।\n3. फ़ोरम जकार्ता में आयोजित हुआ।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "3 only",
+              "1 and 2 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 3",
+              "केवल 1 और 2"
             ]
           },
-          "answer": 1,
+          "answer": 3,
           "explanation": {
             "en": "1 and 2 are correct. 3 is wrong: the forum was in New Delhi.",
             "hi": "1 और 2 सही हैं। 3 गलत है: फ़ोरम नई दिल्ली में हुआ।"
@@ -2687,24 +2687,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements based on the WHO Global Tuberculosis Report (2026):\n1. India's new TB cases declined by 21% between 2015 and 2024.\n2. India's TB treatment coverage (92%) is higher than the global average.\n3. India's decline in new TB cases exceeded the global decline.\nHow many of the above statements are correct?",
-            "hi": "WHO वैश्विक क्षय रोग रिपोर्ट (2026) के आधार पर निम्नलिखित कथनों पर विचार कीजिए:\n1. 2015 से 2024 के बीच भारत में नए TB मामलों में 21% गिरावट आई।\n2. भारत का TB उपचार कवरेज (92%) वैश्विक औसत से अधिक है।\n3. नए TB मामलों में भारत की गिरावट वैश्विक गिरावट से अधिक रही।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements based on the WHO Global Tuberculosis Report (2026):\n1. India's new TB cases declined by 21% between 2015 and 2024.\n2. India's TB treatment coverage (92%) is higher than the global average.\n3. India's decline in new TB cases exceeded the global decline.\nWhich of the statements given above is/are correct?",
+            "hi": "WHO वैश्विक क्षय रोग रिपोर्ट (2026) के आधार पर निम्नलिखित कथनों पर विचार कीजिए:\n1. 2015 से 2024 के बीच भारत में नए TB मामलों में 21% गिरावट आई।\n2. भारत का TB उपचार कवरेज (92%) वैश्विक औसत से अधिक है।\n3. नए TB मामलों में भारत की गिरावट वैश्विक गिरावट से अधिक रही।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are correct: 21% vs 12% global decline; 92% coverage vs 78% global average.",
             "hi": "तीनों सही हैं: 21% बनाम 12% वैश्विक गिरावट; 92% कवरेज बनाम 78% वैश्विक औसत।"
@@ -2887,24 +2887,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the 21st Maritime State Development Council meeting:\n1. The Business Credit Shield Policy-Shipbuilders covers export projects.\n2. All ports must integrate with MSW Sagar Setu by March 2027.\n3. The meeting was held in Kochi.\nHow many of the above statements are correct?",
-            "hi": "समुद्री राज्य विकास परिषद की 21वीं बैठक के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. बिज़नेस क्रेडिट शील्ड पॉलिसी-शिपबिल्डर्स निर्यात परियोजनाओं को कवर करती है।\n2. सभी बंदरगाहों को मार्च 2027 तक MSW सागर सेतु से जुड़ना होगा।\n3. बैठक कोच्चि में आयोजित हुई।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the 21st Maritime State Development Council meeting:\n1. The Business Credit Shield Policy-Shipbuilders covers export projects.\n2. All ports must integrate with MSW Sagar Setu by March 2027.\n3. The meeting was held in Kochi.\nWhich of the statements given above is/are correct?",
+            "hi": "समुद्री राज्य विकास परिषद की 21वीं बैठक के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. बिज़नेस क्रेडिट शील्ड पॉलिसी-शिपबिल्डर्स निर्यात परियोजनाओं को कवर करती है।\n2. सभी बंदरगाहों को मार्च 2027 तक MSW सागर सेतु से जुड़ना होगा।\n3. बैठक कोच्चि में आयोजित हुई।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3"
             ]
           },
-          "answer": 0,
+          "answer": 1,
           "explanation": {
             "en": "Only 2 is correct. The Business Credit Shield Policy protects domestic projects (exports are covered by the Shipbuilding Project Credit Risk Insurance Policy), and the meeting was in Mumbai.",
             "hi": "केवल 2 सही है। बिज़नेस क्रेडिट शील्ड पॉलिसी घरेलू परियोजनाओं के लिए है (निर्यात शिपबिल्डिंग प्रोजेक्ट क्रेडिट रिस्क इंश्योरेंस पॉलिसी में), और बैठक मुंबई में हुई।"
@@ -3087,27 +3087,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about India's coir sector (2026 data):\n1. Coir exports rose by 205% between 2014-15 and the last financial year.\n2. India accounts for about one-third of global coir production.\n3. Men made up over 80% of those trained in the sector.\nHow many of the above statements are correct?",
-            "hi": "भारत के कॉयर क्षेत्र (2026 आँकड़े) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. 2014-15 से पिछले वित्त वर्ष के बीच कॉयर निर्यात 205% बढ़ा।\n2. वैश्विक कॉयर उत्पादन में भारत का हिस्सा लगभग एक-तिहाई है।\n3. क्षेत्र में प्रशिक्षित लोगों में 80% से अधिक पुरुष थे।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about India's coir sector (2026 data):\n1. Coir exports rose by 205% between 2014-15 and the last financial year.\n2. India accounts for about one-third of global coir production.\n3. Men made up over 80% of those trained in the sector.\nWhich of the statements given above is/are not correct?",
+            "hi": "भारत के कॉयर क्षेत्र (2026 आँकड़े) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. 2014-15 से पिछले वित्त वर्ष के बीच कॉयर निर्यात 205% बढ़ा।\n2. वैश्विक कॉयर उत्पादन में भारत का हिस्सा लगभग एक-तिहाई है।\n3. क्षेत्र में प्रशिक्षित लोगों में 80% से अधिक पुरुष थे।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: exports rose 305%; India has about two-thirds of global production; women were over 80% of trainees.",
-            "hi": "कोई भी सही नहीं: निर्यात 305% बढ़ा; वैश्विक उत्पादन में भारत का लगभग दो-तिहाई हिस्सा है; प्रशिक्षुओं में 80% से अधिक महिलाएँ थीं।"
+            "en": "All three statements are incorrect. exports rose 305%; India has about two-thirds of global production; women were over 80% of trainees.",
+            "hi": "तीनों कथन गलत हैं। निर्यात 305% बढ़ा; वैश्विक उत्पादन में भारत का लगभग दो-तिहाई हिस्सा है; प्रशिक्षुओं में 80% से अधिक महिलाएँ थीं।"
           }
         },
         {
@@ -3294,24 +3294,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Ladakh projects (October 2026):\n1. The Nimmu-Padum-Darcha Road connects Leh with Darcha in Himachal Pradesh through the Zanskar Valley.\n2. India's first Petroglyph Conservation Park is at Sindhu Ghat, Leh.\n3. The Hanu Small Hydroelectric Project has a capacity of 66 MW.\nHow many of the above statements are correct?",
-            "hi": "लद्दाख परियोजनाओं (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. निम्मू-पदुम-दारचा सड़क ज़ांस्कर घाटी होकर लेह को हिमाचल प्रदेश के दारचा से जोड़ती है।\n2. भारत का पहला पेट्रोग्लिफ़ संरक्षण पार्क सिंधु घाट, लेह में है।\n3. हानु लघु जलविद्युत परियोजना की क्षमता 66 मेगावाट है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Ladakh projects (October 2026):\n1. The Nimmu-Padum-Darcha Road connects Leh with Darcha in Himachal Pradesh through the Zanskar Valley.\n2. India's first Petroglyph Conservation Park is at Sindhu Ghat, Leh.\n3. The Hanu Small Hydroelectric Project has a capacity of 66 MW.\nWhich of the statements given above is/are correct?",
+            "hi": "लद्दाख परियोजनाओं (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. निम्मू-पदुम-दारचा सड़क ज़ांस्कर घाटी होकर लेह को हिमाचल प्रदेश के दारचा से जोड़ती है।\n2. भारत का पहला पेट्रोग्लिफ़ संरक्षण पार्क सिंधु घाट, लेह में है।\n3. हानु लघु जलविद्युत परियोजना की क्षमता 66 मेगावाट है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "3 only",
+              "1 and 2 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 3",
+              "केवल 1 और 2",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 2 are correct. 3 is wrong: Hanu is a 9 MW project; 66 kV refers to the Dah-Hanu-Khaltsi transmission line.",
             "hi": "1 और 2 सही हैं। 3 गलत है: हानु 9 मेगावाट की परियोजना है; 66 kV दाह-हानु-खाल्सी पारेषण लाइन से संबंधित है।"
@@ -3489,24 +3489,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about Exercise Cambrian Patrol 2026:\n1. It was held in Wales, United Kingdom.\n2. The Indian Army's Assam Regiment team won a Gold Medal.\n3. More than 100 teams took part in the exercise.\nHow many of the above statements are correct?",
-            "hi": "कैम्ब्रियन पेट्रोल अभ्यास 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह वेल्स, यूनाइटेड किंगडम में आयोजित हुआ।\n2. भारतीय सेना की असम रेजिमेंट टीम ने स्वर्ण पदक जीता।\n3. अभ्यास में 100 से अधिक टीमों ने भाग लिया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Exercise Cambrian Patrol 2026:\n1. It was held in Wales, United Kingdom.\n2. The Indian Army's Assam Regiment team won a Gold Medal.\n3. More than 100 teams took part in the exercise.\nWhich of the statements given above is/are correct?",
+            "hi": "कैम्ब्रियन पेट्रोल अभ्यास 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह वेल्स, यूनाइटेड किंगडम में आयोजित हुआ।\n2. भारतीय सेना की असम रेजिमेंट टीम ने स्वर्ण पदक जीता।\n3. अभ्यास में 100 से अधिक टीमों ने भाग लिया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated by the Indian Army.",
             "hi": "तीनों भारतीय सेना द्वारा बताए गए तथ्य हैं।"
@@ -3679,21 +3679,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the 2026 Para Asian Games:\n1. The Sports Ministry has approved 166 Indian athletes.\n2. The Games will be held in Hangzhou, China.\n3. India won 27 medals in all at the previous edition.\nHow many of the above statements are correct?",
-            "hi": "2026 पैरा एशियाई खेलों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. खेल मंत्रालय ने 166 भारतीय खिलाड़ियों को मंज़ूरी दी है।\n2. खेल हांगझोउ, चीन में होंगे।\n3. पिछले संस्करण में भारत ने कुल 27 पदक जीते थे।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the 2026 Para Asian Games:\n1. The Sports Ministry has approved 166 Indian athletes.\n2. The Games will be held in Hangzhou, China.\n3. India won 27 medals in all at the previous edition.\nWhich of the statements given above is/are correct?",
+            "hi": "2026 पैरा एशियाई खेलों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. खेल मंत्रालय ने 166 भारतीय खिलाड़ियों को मंज़ूरी दी है।\n2. खेल हांगझोउ, चीन में होंगे।\n3. पिछले संस्करण में भारत ने कुल 27 पदक जीते थे।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 0,
@@ -3863,27 +3863,27 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about Anandkumar Velkumar at the 2026 World Skate Games:\n1. He won gold in the men's 1000-metre sprint.\n2. The Games were held in Argentina.\n3. He won silver in the 500-metre sprint.\nHow many of the above statements are correct?",
-            "hi": "2026 वर्ल्ड स्केट गेम्स में आनंदकुमार वेलकुमार के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. उन्होंने पुरुष 1000 मीटर स्प्रिंट में स्वर्ण जीता।\n2. खेल अर्जेंटीना में आयोजित हुए।\n3. उन्होंने 500 मीटर स्प्रिंट में रजत जीता।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Anandkumar Velkumar at the 2026 World Skate Games:\n1. He won gold in the men's 1000-metre sprint.\n2. The Games were held in Argentina.\n3. He won silver in the 500-metre sprint.\nWhich of the statements given above is/are not correct?",
+            "hi": "2026 वर्ल्ड स्केट गेम्स में आनंदकुमार वेलकुमार के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. उन्होंने पुरुष 1000 मीटर स्प्रिंट में स्वर्ण जीता।\n2. खेल अर्जेंटीना में आयोजित हुए।\n3. उन्होंने 500 मीटर स्प्रिंट में रजत जीता।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: he won silver in the 1000m and bronze in the 500m, and the Games were in Paraguay.",
-            "hi": "कोई भी सही नहीं: उन्होंने 1000 मीटर में रजत और 500 मीटर में कांस्य जीता, और खेल पराग्वे में हुए।"
+            "en": "All three statements are incorrect. he won silver in the 1000m and bronze in the 500m, and the Games were in Paraguay.",
+            "hi": "तीनों कथन गलत हैं। उन्होंने 1000 मीटर में रजत और 500 मीटर में कांस्य जीता, और खेल पराग्वे में हुए।"
           }
         },
         {
@@ -4055,21 +4055,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the West Bengal government's decision (October 2026):\n1. The Madrasah Service Commission has been merged with the School Service Commission.\n2. The state Cabinet approved the decision on 5 October.\n3. Aliah University has been placed under the Madrasah Education Department.\nHow many of the above statements are correct?",
-            "hi": "पश्चिम बंगाल सरकार के निर्णय (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. मदरसा सेवा आयोग का विद्यालय सेवा आयोग में विलय कर दिया गया है।\n2. राज्य मंत्रिमंडल ने 5 अक्टूबर को इस निर्णय को मंज़ूरी दी।\n3. आलिया विश्वविद्यालय को मदरसा शिक्षा विभाग के अधीन रखा गया है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the West Bengal government's decision (October 2026):\n1. The Madrasah Service Commission has been merged with the School Service Commission.\n2. The state Cabinet approved the decision on 5 October.\n3. Aliah University has been placed under the Madrasah Education Department.\nWhich of the statements given above is/are correct?",
+            "hi": "पश्चिम बंगाल सरकार के निर्णय (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. मदरसा सेवा आयोग का विद्यालय सेवा आयोग में विलय कर दिया गया है।\n2. राज्य मंत्रिमंडल ने 5 अक्टूबर को इस निर्णय को मंज़ूरी दी।\n3. आलिया विश्वविद्यालय को मदरसा शिक्षा विभाग के अधीन रखा गया है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 1,
@@ -4256,24 +4256,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Maharashtra's drought response (October 2026):\n1. 305 of the state's 358 talukas have been declared drought-hit.\n2. Farmers will receive initial assistance of ₹5,000 before Diwali.\n3. Water tankers deployed in drought areas will be tracked through GPS.\nHow many of the above statements are correct?",
-            "hi": "महाराष्ट्र की सूखा प्रतिक्रिया (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. राज्य के 358 में से 305 तालुके सूखाग्रस्त घोषित किए गए हैं।\n2. किसानों को दिवाली से पहले 5,000 रुपये की प्रारंभिक सहायता मिलेगी।\n3. सूखा क्षेत्रों में लगाए गए पानी के टैंकरों की GPS से निगरानी होगी।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Maharashtra's drought response (October 2026):\n1. 305 of the state's 358 talukas have been declared drought-hit.\n2. Farmers will receive initial assistance of ₹5,000 before Diwali.\n3. Water tankers deployed in drought areas will be tracked through GPS.\nWhich of the statements given above is/are correct?",
+            "hi": "महाराष्ट्र की सूखा प्रतिक्रिया (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. राज्य के 358 में से 305 तालुके सूखाग्रस्त घोषित किए गए हैं।\n2. किसानों को दिवाली से पहले 5,000 रुपये की प्रारंभिक सहायता मिलेगी।\n3. सूखा क्षेत्रों में लगाए गए पानी के टैंकरों की GPS से निगरानी होगी।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated by Chief Minister Fadnavis.",
             "hi": "तीनों मुख्यमंत्री फडणवीस द्वारा बताए गए हैं।"
@@ -4445,21 +4445,21 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about Uttar Pradesh's sugar sale scheme (October 2026):\n1. Sugar will be sold at a concessional rate of ₹52 per kg.\n2. The sale will be conducted through ration shops under the PDS.\n3. The sale will run only on weekends.\nHow many of the above statements are correct?",
-            "hi": "उत्तर प्रदेश की चीनी बिक्री योजना (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. चीनी 52 रुपये प्रति किलो की रियायती दर पर बेची जाएगी।\n2. बिक्री PDS के तहत राशन दुकानों के माध्यम से होगी।\n3. बिक्री केवल सप्ताहांत पर होगी।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Uttar Pradesh's sugar sale scheme (October 2026):\n1. Sugar will be sold at a concessional rate of ₹52 per kg.\n2. The sale will be conducted through ration shops under the PDS.\n3. The sale will run only on weekends.\nWhich of the statements given above is/are correct?",
+            "hi": "उत्तर प्रदेश की चीनी बिक्री योजना (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. चीनी 52 रुपये प्रति किलो की रियायती दर पर बेची जाएगी।\n2. बिक्री PDS के तहत राशन दुकानों के माध्यम से होगी।\n3. बिक्री केवल सप्ताहांत पर होगी।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -4642,27 +4642,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements based on the MEA briefing of 14 October 2026:\n1. India declined to comment on the attack on the Aramco headquarters.\n2. NSA Ajit Doval spoke to his Saudi counterpart about the safety of Indian seafarers.\n3. India welcomed the OHCHR's remarks on the situation in Delhi.\nHow many of the above statements are correct?",
-            "hi": "14 अक्टूबर 2026 की विदेश मंत्रालय ब्रीफ़िंग के आधार पर निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत ने अरामको मुख्यालय पर हमले पर टिप्पणी करने से इनकार किया।\n2. NSA अजीत डोभाल ने भारतीय नाविकों की सुरक्षा पर अपने सऊदी समकक्ष से बात की।\n3. भारत ने दिल्ली की स्थिति पर OHCHR की टिप्पणी का स्वागत किया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements based on the MEA briefing of 14 October 2026:\n1. India declined to comment on the attack on the Aramco headquarters.\n2. NSA Ajit Doval spoke to his Saudi counterpart about the safety of Indian seafarers.\n3. India welcomed the OHCHR's remarks on the situation in Delhi.\nWhich of the statements given above is/are not correct?",
+            "hi": "14 अक्टूबर 2026 की विदेश मंत्रालय ब्रीफ़िंग के आधार पर निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत ने अरामको मुख्यालय पर हमले पर टिप्पणी करने से इनकार किया।\n2. NSA अजीत डोभाल ने भारतीय नाविकों की सुरक्षा पर अपने सऊदी समकक्ष से बात की।\n3. भारत ने दिल्ली की स्थिति पर OHCHR की टिप्पणी का स्वागत किया।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: India condemned the Aramco attack; Doval spoke to Iran's Mohsen Rezaei; India called the OHCHR remarks unwarranted and unacceptable.",
-            "hi": "कोई भी सही नहीं: भारत ने अरामको हमले की निंदा की; डोभाल ने ईरान के मोहसिन रेज़ाई से बात की; भारत ने OHCHR की टिप्पणी को अनुचित और अस्वीकार्य बताया।"
+            "en": "All three statements are incorrect. India condemned the Aramco attack; Doval spoke to Iran's Mohsen Rezaei; India called the OHCHR remarks unwarranted and unacceptable.",
+            "hi": "तीनों कथन गलत हैं। भारत ने अरामको हमले की निंदा की; डोभाल ने ईरान के मोहसिन रेज़ाई से बात की; भारत ने OHCHR की टिप्पणी को अनुचित और अस्वीकार्य बताया।"
           }
         },
         {
@@ -4841,21 +4841,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements based on the IEA Oil Market Report (October 2026):\n1. Global oil supply is projected to fall by 5.8 million bpd in 2026.\n2. Diesel is expected to account for 25% of the 2026 drop in oil demand.\n3. The IEA has raised its forecast for 2027 oil demand recovery.\nHow many of the above statements are correct?",
-            "hi": "IEA तेल बाज़ार रिपोर्ट (अक्टूबर 2026) के आधार पर निम्नलिखित कथनों पर विचार कीजिए:\n1. 2026 में वैश्विक तेल आपूर्ति 5.8 मिलियन bpd घटने का अनुमान है।\n2. 2026 में तेल माँग की गिरावट में 25% हिस्सा डीज़ल का होने की उम्मीद है।\n3. IEA ने 2027 में तेल माँग बहाली का अनुमान बढ़ा दिया है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements based on the IEA Oil Market Report (October 2026):\n1. Global oil supply is projected to fall by 5.8 million bpd in 2026.\n2. Diesel is expected to account for 25% of the 2026 drop in oil demand.\n3. The IEA has raised its forecast for 2027 oil demand recovery.\nWhich of the statements given above is/are correct?",
+            "hi": "IEA तेल बाज़ार रिपोर्ट (अक्टूबर 2026) के आधार पर निम्नलिखित कथनों पर विचार कीजिए:\n1. 2026 में वैश्विक तेल आपूर्ति 5.8 मिलियन bpd घटने का अनुमान है।\n2. 2026 में तेल माँग की गिरावट में 25% हिस्सा डीज़ल का होने की उम्मीद है।\n3. IEA ने 2027 में तेल माँग बहाली का अनुमान बढ़ा दिया है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 1,
@@ -5030,24 +5030,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements:\n1. World Standards Day is observed on 14 October.\n2. The Bureau of Indian Standards functions under the Department of Consumer Affairs.\n3. B.L. Verma said progress should be measured by quality, safety and reliability, not merely volume of production.\nHow many of the above statements are correct?",
-            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. विश्व मानक दिवस 14 अक्टूबर को मनाया जाता है।\n2. भारतीय मानक ब्यूरो उपभोक्ता मामले विभाग के अधीन कार्य करता है।\n3. बी.एल. वर्मा ने कहा कि प्रगति को केवल उत्पादन की मात्रा से नहीं, बल्कि गुणवत्ता, सुरक्षा और विश्वसनीयता से मापा जाना चाहिए।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements:\n1. World Standards Day is observed on 14 October.\n2. The Bureau of Indian Standards functions under the Department of Consumer Affairs.\n3. B.L. Verma said progress should be measured by quality, safety and reliability, not merely volume of production.\nWhich of the statements given above is/are correct?",
+            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. विश्व मानक दिवस 14 अक्टूबर को मनाया जाता है।\n2. भारतीय मानक ब्यूरो उपभोक्ता मामले विभाग के अधीन कार्य करता है।\n3. बी.एल. वर्मा ने कहा कि प्रगति को केवल उत्पादन की मात्रा से नहीं, बल्कि गुणवत्ता, सुरक्षा और विश्वसनीयता से मापा जाना चाहिए।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are correct: the event was held on 14 October; BIS is under the Department of Consumer Affairs; statement 3 reflects Verma's speech.",
             "hi": "तीनों सही हैं: कार्यक्रम 14 अक्टूबर को हुआ; BIS उपभोक्ता मामले विभाग के अधीन है; कथन 3 वर्मा के भाषण के अनुरूप है।"
@@ -5221,21 +5221,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the international conference on Bharat's global cultural connections (October 2026):\n1. It is being held at Vigyan Bhawan, New Delhi.\n2. PM Modi addressed it in person.\n3. It is a five-day conference.\nHow many of the above statements are correct?",
-            "hi": "भारत के वैश्विक सांस्कृतिक संबंधों पर अंतरराष्ट्रीय सम्मेलन (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह विज्ञान भवन, नई दिल्ली में आयोजित हो रहा है।\n2. PM मोदी ने इसे व्यक्तिगत रूप से संबोधित किया।\n3. यह पाँच दिवसीय सम्मेलन है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the international conference on Bharat's global cultural connections (October 2026):\n1. It is being held at Vigyan Bhawan, New Delhi.\n2. PM Modi addressed it in person.\n3. It is a five-day conference.\nWhich of the statements given above is/are correct?",
+            "hi": "भारत के वैश्विक सांस्कृतिक संबंधों पर अंतरराष्ट्रीय सम्मेलन (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह विज्ञान भवन, नई दिल्ली में आयोजित हो रहा है।\n2. PM मोदी ने इसे व्यक्तिगत रूप से संबोधित किया।\n3. यह पाँच दिवसीय सम्मेलन है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 0,
@@ -5413,27 +5413,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the NMC advisory of October 2026:\n1. It prohibits the use of electronic signatures on medical records.\n2. It was issued under the Digital Personal Data Protection Act, 2023.\n3. It applies only to government hospitals.\nHow many of the above statements are correct?",
-            "hi": "अक्टूबर 2026 के NMC परामर्श के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह चिकित्सा अभिलेखों पर इलेक्ट्रॉनिक हस्ताक्षर के उपयोग पर रोक लगाता है।\n2. यह डिजिटल व्यक्तिगत डेटा संरक्षण अधिनियम, 2023 के तहत जारी हुआ।\n3. यह केवल सरकारी अस्पतालों पर लागू होता है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the NMC advisory of October 2026:\n1. It prohibits the use of electronic signatures on medical records.\n2. It was issued under the Digital Personal Data Protection Act, 2023.\n3. It applies only to government hospitals.\nWhich of the statements given above is/are not correct?",
+            "hi": "अक्टूबर 2026 के NMC परामर्श के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह चिकित्सा अभिलेखों पर इलेक्ट्रॉनिक हस्ताक्षर के उपयोग पर रोक लगाता है।\n2. यह डिजिटल व्यक्तिगत डेटा संरक्षण अधिनियम, 2023 के तहत जारी हुआ।\n3. यह केवल सरकारी अस्पतालों पर लागू होता है।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the advisory facilitates digital/electronic signatures, refers to the IT Act, 2000, and applies to all registered medical practitioners and stakeholders.",
-            "hi": "कोई भी सही नहीं: परामर्श डिजिटल/इलेक्ट्रॉनिक हस्ताक्षरों को सुगम बनाता है, IT अधिनियम, 2000 का संदर्भ देता है और सभी पंजीकृत चिकित्सकों व हितधारकों पर लागू है।"
+            "en": "All three statements are incorrect. the advisory facilitates digital/electronic signatures, refers to the IT Act, 2000, and applies to all registered medical practitioners and stakeholders.",
+            "hi": "तीनों कथन गलत हैं। परामर्श डिजिटल/इलेक्ट्रॉनिक हस्ताक्षरों को सुगम बनाता है, IT अधिनियम, 2000 का संदर्भ देता है और सभी पंजीकृत चिकित्सकों व हितधारकों पर लागू है।"
           }
         },
         {
@@ -5608,24 +5608,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements based on Shivraj Singh Chouhan's address at Agrivision (October 2026):\n1. India's food production increased by 49% between 2014 and 2024.\n2. An Agriculture Council will be set up to check sub-standard private agricultural colleges.\n3. He said India should focus solely on food grain cultivation.\nHow many of the above statements are correct?",
-            "hi": "एग्रीविज़न (अक्टूबर 2026) में शिवराज सिंह चौहान के संबोधन के आधार पर निम्नलिखित कथनों पर विचार कीजिए:\n1. 2014 से 2024 के बीच भारत का खाद्य उत्पादन 49% बढ़ा।\n2. मानकहीन निजी कृषि कॉलेजों पर नियंत्रण के लिए कृषि परिषद बनेगी।\n3. उन्होंने कहा कि भारत को केवल खाद्यान्न खेती पर ध्यान देना चाहिए।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements based on Shivraj Singh Chouhan's address at Agrivision (October 2026):\n1. India's food production increased by 49% between 2014 and 2024.\n2. An Agriculture Council will be set up to check sub-standard private agricultural colleges.\n3. He said India should focus solely on food grain cultivation.\nWhich of the statements given above is/are correct?",
+            "hi": "एग्रीविज़न (अक्टूबर 2026) में शिवराज सिंह चौहान के संबोधन के आधार पर निम्नलिखित कथनों पर विचार कीजिए:\n1. 2014 से 2024 के बीच भारत का खाद्य उत्पादन 49% बढ़ा।\n2. मानकहीन निजी कृषि कॉलेजों पर नियंत्रण के लिए कृषि परिषद बनेगी।\n3. उन्होंने कहा कि भारत को केवल खाद्यान्न खेती पर ध्यान देना चाहिए।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 2 are correct. 3 is wrong: he urged farmers to diversify rather than depend solely on grain cultivation.",
             "hi": "1 और 2 सही हैं। 3 गलत है: उन्होंने केवल अनाज पर निर्भर रहने के बजाय विविधीकरण का आग्रह किया।"
@@ -5799,24 +5799,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the National SARAS Mela 2026:\n1. It is being held in Vijayawada.\n2. It is organised by the Ministry of Rural Development with the Government of Andhra Pradesh.\n3. More than 1,500 women SHG members are participating.\nHow many of the above statements are correct?",
-            "hi": "राष्ट्रीय सरस मेला 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह विजयवाड़ा में आयोजित हो रहा है।\n2. इसका आयोजन ग्रामीण विकास मंत्रालय आंध्र प्रदेश सरकार के साथ कर रहा है।\n3. इसमें 1,500 से अधिक महिला SHG सदस्य भाग ले रही हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the National SARAS Mela 2026:\n1. It is being held in Vijayawada.\n2. It is organised by the Ministry of Rural Development with the Government of Andhra Pradesh.\n3. More than 1,500 women SHG members are participating.\nWhich of the statements given above is/are correct?",
+            "hi": "राष्ट्रीय सरस मेला 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह विजयवाड़ा में आयोजित हो रहा है।\n2. इसका आयोजन ग्रामीण विकास मंत्रालय आंध्र प्रदेश सरकार के साथ कर रहा है।\n3. इसमें 1,500 से अधिक महिला SHG सदस्य भाग ले रही हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the source.",
             "hi": "तीनों स्रोत में बताए गए हैं।"
@@ -5996,21 +5996,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Meghalaya defection matter (October 2026):\n1. The Speaker has formally recognised the eight former UDP MLAs as BJP members.\n2. The UDP has filed a petition seeking disqualification of the eight legislators.\n3. The merger letter was submitted on 14 October.\nHow many of the above statements are correct?",
-            "hi": "मेघालय दलबदल मामले (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. अध्यक्ष ने आठ पूर्व UDP विधायकों को औपचारिक रूप से भाजपा सदस्य मान्यता दे दी है।\n2. UDP ने आठ विधायकों की अयोग्यता की याचिका दायर की है।\n3. विलय पत्र 14 अक्टूबर को सौंपा गया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Meghalaya defection matter (October 2026):\n1. The Speaker has formally recognised the eight former UDP MLAs as BJP members.\n2. The UDP has filed a petition seeking disqualification of the eight legislators.\n3. The merger letter was submitted on 14 October.\nWhich of the statements given above is/are correct?",
+            "hi": "मेघालय दलबदल मामले (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. अध्यक्ष ने आठ पूर्व UDP विधायकों को औपचारिक रूप से भाजपा सदस्य मान्यता दे दी है।\n2. UDP ने आठ विधायकों की अयोग्यता की याचिका दायर की है।\n3. विलय पत्र 14 अक्टूबर को सौंपा गया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 0,

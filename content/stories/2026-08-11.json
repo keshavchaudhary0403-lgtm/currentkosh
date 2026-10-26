@@ -73,21 +73,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the agriculture scholarship release of August 2026:\n1. Funds were released through the PM-KISAN portal.\n2. More than six thousand students received over 21 crore rupees.\n3. Scholarships will now be paid once a year in a lump sum.\nHow many of the above statements are correct?",
-            "hi": "अगस्त 2026 में कृषि छात्रवृत्ति जारी किए जाने के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. राशि PM-KISAN पोर्टल के माध्यम से जारी की गई।\n2. छह हज़ार से अधिक छात्रों को 21 करोड़ रुपये से अधिक मिले।\n3. छात्रवृत्ति अब वर्ष में एक बार एकमुश्त दी जाएगी।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the agriculture scholarship release of August 2026:\n1. Funds were released through the PM-KISAN portal.\n2. More than six thousand students received over 21 crore rupees.\n3. Scholarships will now be paid once a year in a lump sum.\nWhich of the statements given above is/are correct?",
+            "hi": "अगस्त 2026 में कृषि छात्रवृत्ति जारी किए जाने के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. राशि PM-KISAN पोर्टल के माध्यम से जारी की गई।\n2. छह हज़ार से अधिक छात्रों को 21 करोड़ रुपये से अधिक मिले।\n3. छात्रवृत्ति अब वर्ष में एक बार एकमुश्त दी जाएगी।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -268,24 +268,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Government e-Marketplace (GeM):\n1. Cumulative procurement through GeM has crossed twenty lakh crore rupees.\n2. The first ten lakh crore rupees of procurement took two years, and the next ten lakh crore took eight years.\n3. A five-digit short code, 14550, has been launched for the GeM Helpdesk.\nHow many of the above statements are correct?",
-            "hi": "गवर्नमेंट ई-मार्केटप्लेस (GeM) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. GeM के माध्यम से कुल खरीद बीस लाख करोड़ रुपये पार कर गई है।\n2. पहले दस लाख करोड़ रुपये की खरीद में दो वर्ष और अगले दस लाख करोड़ में आठ वर्ष लगे।\n3. GeM हेल्पडेस्क के लिए पाँच अंकों का शॉर्ट कोड 14550 शुरू किया गया है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Government e-Marketplace (GeM):\n1. Cumulative procurement through GeM has crossed twenty lakh crore rupees.\n2. The first ten lakh crore rupees of procurement took two years, and the next ten lakh crore took eight years.\n3. A five-digit short code, 14550, has been launched for the GeM Helpdesk.\nWhich of the statements given above is/are correct?",
+            "hi": "गवर्नमेंट ई-मार्केटप्लेस (GeM) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. GeM के माध्यम से कुल खरीद बीस लाख करोड़ रुपये पार कर गई है।\n2. पहले दस लाख करोड़ रुपये की खरीद में दो वर्ष और अगले दस लाख करोड़ में आठ वर्ष लगे।\n3. GeM हेल्पडेस्क के लिए पाँच अंकों का शॉर्ट कोड 14550 शुरू किया गया है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "3 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 3",
+              "केवल 1 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 3,
           "explanation": {
             "en": "1 and 3 are correct. 2 is reversed: the first ₹10 lakh crore took eight years and the next ₹10 lakh crore only two.",
             "hi": "1 और 3 सही हैं। 2 उलटा है: पहले 10 लाख करोड़ रुपये में आठ वर्ष और अगले 10 लाख करोड़ में केवल दो वर्ष लगे।"
@@ -466,24 +466,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Turkey's pardon legislation for Kurdish militants (2026):\n1. The pardon will take effect only after authorities verify the PKK has fully disarmed.\n2. The PKK's decision to end its armed campaign followed a call by its imprisoned leader Abdullah Ocalan.\n3. Turkey considers the Syrian Democratic Forces to be affiliated with the PKK.\nHow many of the above statements are correct?",
-            "hi": "कुर्द उग्रवादियों के लिए तुर्की के क्षमादान कानून (2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. क्षमादान तभी लागू होगा जब प्राधिकारी PKK के पूर्ण निरस्त्रीकरण का सत्यापन कर लेंगे।\n2. PKK का सशस्त्र अभियान समाप्त करने का निर्णय उसके जेल में बंद नेता अब्दुल्ला ओजलान के आह्वान पर हुआ।\n3. तुर्की सीरियन डेमोक्रेटिक फोर्सेज़ को PKK से संबद्ध मानता है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Turkey's pardon legislation for Kurdish militants (2026):\n1. The pardon will take effect only after authorities verify the PKK has fully disarmed.\n2. The PKK's decision to end its armed campaign followed a call by its imprisoned leader Abdullah Ocalan.\n3. Turkey considers the Syrian Democratic Forces to be affiliated with the PKK.\nWhich of the statements given above is/are correct?",
+            "hi": "कुर्द उग्रवादियों के लिए तुर्की के क्षमादान कानून (2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. क्षमादान तभी लागू होगा जब प्राधिकारी PKK के पूर्ण निरस्त्रीकरण का सत्यापन कर लेंगे।\n2. PKK का सशस्त्र अभियान समाप्त करने का निर्णय उसके जेल में बंद नेता अब्दुल्ला ओजलान के आह्वान पर हुआ।\n3. तुर्की सीरियन डेमोक्रेटिक फोर्सेज़ को PKK से संबद्ध मानता है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the source.",
             "hi": "तीनों कथन स्रोत में दिए गए हैं।"
@@ -658,27 +658,27 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about India's performance on Day 1 of the U-23 Commonwealth Fencing Championship (2026):\n1. The championship is being held in Nairobi, Kenya.\n2. India won 9 gold medals on the opening day.\n3. India failed to win a medal in the women's Sabre event.\nHow many of the above statements are correct?",
-            "hi": "U-23 राष्ट्रमंडल फेंसिंग चैंपियनशिप (2026) के पहले दिन भारत के प्रदर्शन के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. चैंपियनशिप नैरोबी, केन्या में हो रही है।\n2. भारत ने पहले दिन 9 स्वर्ण पदक जीते।\n3. भारत महिला सेबर स्पर्धा में कोई पदक नहीं जीत सका।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about India's performance on Day 1 of the U-23 Commonwealth Fencing Championship (2026):\n1. The championship is being held in Nairobi, Kenya.\n2. India won 9 gold medals on the opening day.\n3. India failed to win a medal in the women's Sabre event.\nWhich of the statements given above is/are not correct?",
+            "hi": "U-23 राष्ट्रमंडल फेंसिंग चैंपियनशिप (2026) के पहले दिन भारत के प्रदर्शन के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. चैंपियनशिप नैरोबी, केन्या में हो रही है।\n2. भारत ने पहले दिन 9 स्वर्ण पदक जीते।\n3. भारत महिला सेबर स्पर्धा में कोई पदक नहीं जीत सका।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the venue is Lagos, Nigeria; India won 4 gold (9 bronze); Jeferlin won gold in women's Sabre.",
-            "hi": "कोई भी सही नहीं: स्थान लागोस, नाइजीरिया है; भारत ने 4 स्वर्ण (9 कांस्य) जीते; महिला सेबर में जेफरलिन ने स्वर्ण जीता।"
+            "en": "All three statements are incorrect. the venue is Lagos, Nigeria; India won 4 gold (9 bronze); Jeferlin won gold in women's Sabre.",
+            "hi": "तीनों कथन गलत हैं। स्थान लागोस, नाइजीरिया है; भारत ने 4 स्वर्ण (9 कांस्य) जीते; महिला सेबर में जेफरलिन ने स्वर्ण जीता।"
           }
         },
         {
@@ -847,21 +847,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about India's e-visa entry ports after the August 2026 notification:\n1. The total number of e-visa entry ports is now 88.\n2. Airports form the largest category among e-visa entry ports.\n3. Most of the 11 newly notified ports are airports.\nHow many of the above statements are correct?",
-            "hi": "अगस्त 2026 की अधिसूचना के बाद भारत के ई-वीज़ा प्रवेश बंदरगाहों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. ई-वीज़ा प्रवेश बंदरगाहों की कुल संख्या अब 88 है।\n2. ई-वीज़ा प्रवेश बंदरगाहों में हवाई अड्डे सबसे बड़ी श्रेणी हैं।\n3. नव-अधिसूचित 11 बंदरगाहों में अधिकांश हवाई अड्डे हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about India's e-visa entry ports after the August 2026 notification:\n1. The total number of e-visa entry ports is now 88.\n2. Airports form the largest category among e-visa entry ports.\n3. Most of the 11 newly notified ports are airports.\nWhich of the statements given above is/are correct?",
+            "hi": "अगस्त 2026 की अधिसूचना के बाद भारत के ई-वीज़ा प्रवेश बंदरगाहों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. ई-वीज़ा प्रवेश बंदरगाहों की कुल संख्या अब 88 है।\n2. ई-वीज़ा प्रवेश बंदरगाहों में हवाई अड्डे सबसे बड़ी श्रेणी हैं।\n3. नव-अधिसूचित 11 बंदरगाहों में अधिकांश हवाई अड्डे हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -1053,21 +1053,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Taxation and Other Laws (Amendment) Bill, 2026:\n1. Being a Money Bill, the Rajya Sabha could only make recommendations on it.\n2. It imposes a transaction charge on UPI payments above a threshold.\n3. The Finance Minister said the government does not intend to impose MDR charges on small merchants.\nHow many of the above statements are correct?",
-            "hi": "कराधान एवं अन्य विधि (संशोधन) विधेयक, 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. धन विधेयक होने के कारण राज्यसभा इस पर केवल सिफ़ारिशें कर सकती थी।\n2. यह एक सीमा से अधिक के UPI भुगतानों पर लेन-देन शुल्क लगाता है।\n3. वित्त मंत्री ने कहा कि सरकार छोटे व्यापारियों पर MDR शुल्क लगाने का इरादा नहीं रखती।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Taxation and Other Laws (Amendment) Bill, 2026:\n1. Being a Money Bill, the Rajya Sabha could only make recommendations on it.\n2. It imposes a transaction charge on UPI payments above a threshold.\n3. The Finance Minister said the government does not intend to impose MDR charges on small merchants.\nWhich of the statements given above is/are correct?",
+            "hi": "कराधान एवं अन्य विधि (संशोधन) विधेयक, 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. धन विधेयक होने के कारण राज्यसभा इस पर केवल सिफ़ारिशें कर सकती थी।\n2. यह एक सीमा से अधिक के UPI भुगतानों पर लेन-देन शुल्क लगाता है।\n3. वित्त मंत्री ने कहा कि सरकार छोटे व्यापारियों पर MDR शुल्क लगाने का इरादा नहीं रखती।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 1,
@@ -1246,24 +1246,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Indian Navy-US Navy EOD Exercise 2026:\n1. It is being held at the Southern Naval Command, Kochi.\n2. It is the 8th edition of the specialised bilateral exercise.\n3. The two navies have conducted joint Salvage and EOD exercises since 2005.\nHow many of the above statements are correct?",
-            "hi": "भारतीय नौसेना-अमेरिकी नौसेना EOD अभ्यास 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह दक्षिणी नौसेना कमान, कोच्चि में आयोजित हो रहा है।\n2. यह इस विशेष द्विपक्षीय अभ्यास का 8वाँ संस्करण है।\n3. दोनों नौसेनाएँ 2005 से संयुक्त साल्वेज और EOD अभ्यास कर रही हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Indian Navy-US Navy EOD Exercise 2026:\n1. It is being held at the Southern Naval Command, Kochi.\n2. It is the 8th edition of the specialised bilateral exercise.\n3. The two navies have conducted joint Salvage and EOD exercises since 2005.\nWhich of the statements given above is/are correct?",
+            "hi": "भारतीय नौसेना-अमेरिकी नौसेना EOD अभ्यास 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह दक्षिणी नौसेना कमान, कोच्चि में आयोजित हो रहा है।\n2. यह इस विशेष द्विपक्षीय अभ्यास का 8वाँ संस्करण है।\n3. दोनों नौसेनाएँ 2005 से संयुक्त साल्वेज और EOD अभ्यास कर रही हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the source.",
             "hi": "तीनों कथन स्रोत में दिए गए हैं।"
@@ -1434,27 +1434,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about MASHAV:\n1. It is Israel's national water utility company.\n2. It functions under Israel's Ministry of Defence.\n3. The August 2026 India-MASHAV talks were held in Tel Aviv.\nHow many of the above statements are correct?",
-            "hi": "MASHAV के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह इज़राइल की राष्ट्रीय जल आपूर्ति कंपनी है।\n2. यह इज़राइल के रक्षा मंत्रालय के अधीन कार्य करती है।\n3. अगस्त 2026 की भारत-MASHAV वार्ता तेल अवीव में हुई।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about MASHAV:\n1. It is Israel's national water utility company.\n2. It functions under Israel's Ministry of Defence.\n3. The August 2026 India-MASHAV talks were held in Tel Aviv.\nWhich of the statements given above is/are not correct?",
+            "hi": "MASHAV के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह इज़राइल की राष्ट्रीय जल आपूर्ति कंपनी है।\n2. यह इज़राइल के रक्षा मंत्रालय के अधीन कार्य करती है।\n3. अगस्त 2026 की भारत-MASHAV वार्ता तेल अवीव में हुई।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: MASHAV is Israel's Agency for International Development Cooperation under the Ministry of Foreign Affairs, and the meeting was in Jerusalem.",
-            "hi": "कोई भी सही नहीं: MASHAV इज़राइल के विदेश मंत्रालय के अधीन अंतरराष्ट्रीय विकास सहयोग एजेंसी है और बैठक यरुशलम में हुई।"
+            "en": "All three statements are incorrect. MASHAV is Israel's Agency for International Development Cooperation under the Ministry of Foreign Affairs, and the meeting was in Jerusalem.",
+            "hi": "तीनों कथन गलत हैं। MASHAV इज़राइल के विदेश मंत्रालय के अधीन अंतरराष्ट्रीय विकास सहयोग एजेंसी है और बैठक यरुशलम में हुई।"
           }
         },
         {
@@ -1631,21 +1631,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Khudiram Bose:\n1. He was hanged at Muzaffarpur Central Jail on 11 August 1908.\n2. The bomb thrown by him and Prafulla Chaki killed magistrate Douglas Kingsford.\n3. Prafulla Chaki was hanged along with him on the same day.\nHow many of the above statements are correct?",
-            "hi": "खुदीराम बोस के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. उन्हें 11 अगस्त 1908 को मुज़फ़्फ़रपुर केंद्रीय कारागार में फाँसी दी गई।\n2. उनके और प्रफुल्ल चाकी द्वारा फेंके गए बम से मजिस्ट्रेट डगलस किंग्सफ़ोर्ड की मृत्यु हुई।\n3. प्रफुल्ल चाकी को उनके साथ उसी दिन फाँसी दी गई।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Khudiram Bose:\n1. He was hanged at Muzaffarpur Central Jail on 11 August 1908.\n2. The bomb thrown by him and Prafulla Chaki killed magistrate Douglas Kingsford.\n3. Prafulla Chaki was hanged along with him on the same day.\nWhich of the statements given above is/are correct?",
+            "hi": "खुदीराम बोस के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. उन्हें 11 अगस्त 1908 को मुज़फ़्फ़रपुर केंद्रीय कारागार में फाँसी दी गई।\n2. उनके और प्रफुल्ल चाकी द्वारा फेंके गए बम से मजिस्ट्रेट डगलस किंग्सफ़ोर्ड की मृत्यु हुई।\n3. प्रफुल्ल चाकी को उनके साथ उसी दिन फाँसी दी गई।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
           "answer": 0,
@@ -1842,21 +1842,21 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the Har Ghar Tiranga campaign in 2026:\n1. The campaign began in 2022.\n2. A 1,200-metre-long National Flag was carried near the LoC in Kupwara district.\n3. The campaign is being held ahead of India's 75th Independence Day.\nHow many of the above statements are correct?",
-            "hi": "2026 में हर घर तिरंगा अभियान के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. अभियान 2022 में शुरू हुआ।\n2. कुपवाड़ा ज़िले में नियंत्रण रेखा के पास 1,200 मीटर लंबा राष्ट्रीय ध्वज ले जाया गया।\n3. यह अभियान भारत के 75वें स्वतंत्रता दिवस से पहले चलाया जा रहा है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Har Ghar Tiranga campaign in 2026:\n1. The campaign began in 2022.\n2. A 1,200-metre-long National Flag was carried near the LoC in Kupwara district.\n3. The campaign is being held ahead of India's 75th Independence Day.\nWhich of the statements given above is/are correct?",
+            "hi": "2026 में हर घर तिरंगा अभियान के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. अभियान 2022 में शुरू हुआ।\n2. कुपवाड़ा ज़िले में नियंत्रण रेखा के पास 1,200 मीटर लंबा राष्ट्रीय ध्वज ले जाया गया।\n3. यह अभियान भारत के 75वें स्वतंत्रता दिवस से पहले चलाया जा रहा है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 1,
@@ -2067,24 +2067,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about affordable housing as discussed at the August 2026 national conference:\n1. Over 1.25 crore houses have been sanctioned under PMAY-Urban.\n2. More than 1 crore PMAY-Urban houses have been completed and delivered.\n3. Land pooling and transferable development rights were suggested as reforms.\nHow many of the above statements are correct?",
-            "hi": "अगस्त 2026 के राष्ट्रीय सम्मेलन में चर्चित किफ़ायती आवास के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. PMAY-शहरी के तहत 1.25 करोड़ से अधिक मकान स्वीकृत किए गए हैं।\n2. PMAY-शहरी के 1 करोड़ से अधिक मकान पूर्ण होकर सौंपे जा चुके हैं।\n3. भूमि पूलिंग और हस्तांतरणीय विकास अधिकारों को सुधार के रूप में सुझाया गया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about affordable housing as discussed at the August 2026 national conference:\n1. Over 1.25 crore houses have been sanctioned under PMAY-Urban.\n2. More than 1 crore PMAY-Urban houses have been completed and delivered.\n3. Land pooling and transferable development rights were suggested as reforms.\nWhich of the statements given above is/are correct?",
+            "hi": "अगस्त 2026 के राष्ट्रीय सम्मेलन में चर्चित किफ़ायती आवास के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. PMAY-शहरी के तहत 1.25 करोड़ से अधिक मकान स्वीकृत किए गए हैं।\n2. PMAY-शहरी के 1 करोड़ से अधिक मकान पूर्ण होकर सौंपे जा चुके हैं।\n3. भूमि पूलिंग और हस्तांतरणीय विकास अधिकारों को सुधार के रूप में सुझाया गया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the source.",
             "hi": "तीनों कथन स्रोत में दिए गए हैं।"
@@ -2258,27 +2258,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the 2026 MoU on Geographical Indication (GI) products:\n1. It was signed between the Ministry of Commerce and the Ministry of Textiles.\n2. GI producers will be onboarded on digital platforms under the 'Brand India Handloom' banner.\n3. The MoU aims to replace the One District One Product scheme.\nHow many of the above statements are correct?",
-            "hi": "भौगोलिक संकेतक (GI) उत्पादों पर 2026 के MoU के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह वाणिज्य मंत्रालय और वस्त्र मंत्रालय के बीच हस्ताक्षरित हुआ।\n2. GI उत्पादकों को 'ब्रांड इंडिया हैंडलूम' बैनर के तहत डिजिटल मंचों से जोड़ा जाएगा।\n3. MoU का उद्देश्य 'एक ज़िला एक उत्पाद' योजना को प्रतिस्थापित करना है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the 2026 MoU on Geographical Indication (GI) products:\n1. It was signed between the Ministry of Commerce and the Ministry of Textiles.\n2. GI producers will be onboarded on digital platforms under the 'Brand India Handloom' banner.\n3. The MoU aims to replace the One District One Product scheme.\nWhich of the statements given above is/are not correct?",
+            "hi": "भौगोलिक संकेतक (GI) उत्पादों पर 2026 के MoU के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह वाणिज्य मंत्रालय और वस्त्र मंत्रालय के बीच हस्ताक्षरित हुआ।\n2. GI उत्पादकों को 'ब्रांड इंडिया हैंडलूम' बैनर के तहत डिजिटल मंचों से जोड़ा जाएगा।\n3. MoU का उद्देश्य 'एक ज़िला एक उत्पाद' योजना को प्रतिस्थापित करना है।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the MoU is between the Ministry of MSME and DPIIT, the banner is 'Bharat GI', and it strengthens ODOP rather than replacing it.",
-            "hi": "कोई भी सही नहीं: MoU MSME मंत्रालय और DPIIT के बीच है, बैनर 'भारत GI' है और यह ODOP को मज़बूत करता है, प्रतिस्थापित नहीं।"
+            "en": "All three statements are incorrect. the MoU is between the Ministry of MSME and DPIIT, the banner is 'Bharat GI', and it strengthens ODOP rather than replacing it.",
+            "hi": "तीनों कथन गलत हैं। MoU MSME मंत्रालय और DPIIT के बीच है, बैनर 'भारत GI' है और यह ODOP को मज़बूत करता है, प्रतिस्थापित नहीं।"
           }
         },
         {
@@ -2449,21 +2449,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Farmer IDs (August 2026):\n1. More than 10.33 crore Farmer IDs have been created.\n2. Farmers can obtain a Farmer ID only through a bank branch.\n3. Farmer IDs are limited to PM-KISAN and cannot be used for crop insurance.\nHow many of the above statements are correct?",
-            "hi": "किसान ID (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. 10.33 करोड़ से अधिक किसान ID बनाई गई हैं।\n2. किसान ID केवल बैंक शाखा के माध्यम से प्राप्त की जा सकती है।\n3. किसान ID केवल PM-KISAN तक सीमित है और फ़सल बीमा के लिए उपयोग नहीं हो सकती।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Farmer IDs (August 2026):\n1. More than 10.33 crore Farmer IDs have been created.\n2. Farmers can obtain a Farmer ID only through a bank branch.\n3. Farmer IDs are limited to PM-KISAN and cannot be used for crop insurance.\nWhich of the statements given above is/are correct?",
+            "hi": "किसान ID (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. 10.33 करोड़ से अधिक किसान ID बनाई गई हैं।\n2. किसान ID केवल बैंक शाखा के माध्यम से प्राप्त की जा सकती है।\n3. किसान ID केवल PM-KISAN तक सीमित है और फ़सल बीमा के लिए उपयोग नहीं हो सकती।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
           "answer": 0,
@@ -2645,24 +2645,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Supreme Court's direction on missing-person cases (August 2026):\n1. The direction for immediate FIR applies only to missing children and women.\n2. Police must register the FIR without a preliminary inquiry.\n3. Chief Secretaries and police chiefs of non-complying states/UTs must explain why contempt action should not be initiated.\nHow many of the above statements are correct?",
-            "hi": "लापता व्यक्ति मामलों पर सर्वोच्च न्यायालय के निर्देश (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. तुरंत FIR का निर्देश केवल लापता बच्चों और महिलाओं पर लागू होता है।\n2. पुलिस को प्रारंभिक जाँच के बिना FIR दर्ज करनी होगी।\n3. अनुपालन न करने वाले राज्यों/UT के मुख्य सचिवों और पुलिस प्रमुखों को बताना होगा कि अवमानना कार्यवाही क्यों न हो।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Supreme Court's direction on missing-person cases (August 2026):\n1. The direction for immediate FIR applies only to missing children and women.\n2. Police must register the FIR without a preliminary inquiry.\n3. Chief Secretaries and police chiefs of non-complying states/UTs must explain why contempt action should not be initiated.\nWhich of the statements given above is/are correct?",
+            "hi": "लापता व्यक्ति मामलों पर सर्वोच्च न्यायालय के निर्देश (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. तुरंत FIR का निर्देश केवल लापता बच्चों और महिलाओं पर लागू होता है।\n2. पुलिस को प्रारंभिक जाँच के बिना FIR दर्ज करनी होगी।\n3. अनुपालन न करने वाले राज्यों/UT के मुख्य सचिवों और पुलिस प्रमुखों को बताना होगा कि अवमानना कार्यवाही क्यों न हो।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "2 and 3 are correct. 1 is wrong: the court clarified the direction applies to everyone, irrespective of age or gender.",
             "hi": "2 और 3 सही हैं। 1 गलत है: न्यायालय ने स्पष्ट किया कि निर्देश आयु या लिंग से परे सभी पर लागू है।"
@@ -2840,24 +2840,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the government's El Niño preparedness for agriculture (2026):\n1. District Agriculture Contingency Plans have been updated for 342 districts in 15 states.\n2. ICAR has issued SOPs for Krishi Vigyan Kendras to mitigate El Niño-related risks.\n3. States have demanded over 172 lakh quintals of seeds.\nHow many of the above statements are correct?",
-            "hi": "कृषि के लिए सरकार की अल नीनो तैयारी (2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. 15 राज्यों के 342 ज़िलों की ज़िला कृषि आकस्मिक योजनाएँ अद्यतन की गई हैं।\n2. ICAR ने अल नीनो जोखिम कम करने हेतु कृषि विज्ञान केंद्रों के लिए SOP जारी की हैं।\n3. राज्यों ने 172 लाख क्विंटल से अधिक बीजों की माँग की है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the government's El Niño preparedness for agriculture (2026):\n1. District Agriculture Contingency Plans have been updated for 342 districts in 15 states.\n2. ICAR has issued SOPs for Krishi Vigyan Kendras to mitigate El Niño-related risks.\n3. States have demanded over 172 lakh quintals of seeds.\nWhich of the statements given above is/are correct?",
+            "hi": "कृषि के लिए सरकार की अल नीनो तैयारी (2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. 15 राज्यों के 342 ज़िलों की ज़िला कृषि आकस्मिक योजनाएँ अद्यतन की गई हैं।\n2. ICAR ने अल नीनो जोखिम कम करने हेतु कृषि विज्ञान केंद्रों के लिए SOP जारी की हैं।\n3. राज्यों ने 172 लाख क्विंटल से अधिक बीजों की माँग की है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the minister's reply.",
             "hi": "तीनों कथन मंत्री के उत्तर में दिए गए हैं।"
@@ -3040,27 +3040,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the PM-Surya Ghar Muft Bijli Yojana (August 2026 update):\n1. The scheme was launched in February 2023.\n2. Its budget has been cut from ₹22,000 crore in 2025-26 to ₹17,000 crore in 2026-27.\n3. Only below-poverty-line households are eligible under the scheme.\nHow many of the above statements are correct?",
-            "hi": "PM-सूर्य घर मुफ़्त बिजली योजना (अगस्त 2026 अद्यतन) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. योजना फ़रवरी 2023 में शुरू की गई थी।\n2. इसका बजट 2025-26 के 22,000 करोड़ रुपये से घटाकर 2026-27 में 17,000 करोड़ रुपये किया गया है।\n3. योजना के तहत केवल गरीबी रेखा से नीचे के परिवार पात्र हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the PM-Surya Ghar Muft Bijli Yojana (August 2026 update):\n1. The scheme was launched in February 2023.\n2. Its budget has been cut from ₹22,000 crore in 2025-26 to ₹17,000 crore in 2026-27.\n3. Only below-poverty-line households are eligible under the scheme.\nWhich of the statements given above is/are not correct?",
+            "hi": "PM-सूर्य घर मुफ़्त बिजली योजना (अगस्त 2026 अद्यतन) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. योजना फ़रवरी 2023 में शुरू की गई थी।\n2. इसका बजट 2025-26 के 22,000 करोड़ रुपये से घटाकर 2026-27 में 17,000 करोड़ रुपये किया गया है।\n3. योजना के तहत केवल गरीबी रेखा से नीचे के परिवार पात्र हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: it was launched in February 2024; the budget was raised from ₹17,000 crore to ₹22,000 crore; all residential consumers with a grid connection can avail it.",
-            "hi": "कोई भी सही नहीं: योजना फ़रवरी 2024 में शुरू हुई; बजट 17,000 से बढ़ाकर 22,000 करोड़ रुपये किया गया; ग्रिड कनेक्शन वाले सभी आवासीय उपभोक्ता लाभ ले सकते हैं।"
+            "en": "All three statements are incorrect. it was launched in February 2024; the budget was raised from ₹17,000 crore to ₹22,000 crore; all residential consumers with a grid connection can avail it.",
+            "hi": "तीनों कथन गलत हैं। योजना फ़रवरी 2024 में शुरू हुई; बजट 17,000 से बढ़ाकर 22,000 करोड़ रुपये किया गया; ग्रिड कनेक्शन वाले सभी आवासीय उपभोक्ता लाभ ले सकते हैं।"
           }
         },
         {
@@ -3235,21 +3235,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the NIFTY 50 reshuffle announced in August 2026:\n1. BSE Limited will replace Wipro Limited in the NIFTY 50.\n2. The changes take effect from 1 September 2026.\n3. The changes are part of an annual review conducted by SEBI.\nHow many of the above statements are correct?",
-            "hi": "अगस्त 2026 में घोषित NIFTY 50 फेरबदल के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. BSE लिमिटेड NIFTY 50 में विप्रो लिमिटेड का स्थान लेगी।\n2. बदलाव 1 सितंबर 2026 से प्रभावी होंगे।\n3. बदलाव SEBI द्वारा की गई वार्षिक समीक्षा का हिस्सा हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the NIFTY 50 reshuffle announced in August 2026:\n1. BSE Limited will replace Wipro Limited in the NIFTY 50.\n2. The changes take effect from 1 September 2026.\n3. The changes are part of an annual review conducted by SEBI.\nWhich of the statements given above is/are correct?",
+            "hi": "अगस्त 2026 में घोषित NIFTY 50 फेरबदल के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. BSE लिमिटेड NIFTY 50 में विप्रो लिमिटेड का स्थान लेगी।\n2. बदलाव 1 सितंबर 2026 से प्रभावी होंगे।\n3. बदलाव SEBI द्वारा की गई वार्षिक समीक्षा का हिस्सा हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
           "answer": 0,
@@ -3427,24 +3427,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about AMFI mutual fund data for July 2026:\n1. Equity mutual fund inflows fell by 14.8 per cent from June.\n2. Large-cap funds attracted the highest inflows among equity categories.\n3. Debt funds recorded net inflows, led by liquid funds.\nHow many of the above statements are correct?",
-            "hi": "जुलाई 2026 के AMFI म्यूचुअल फ़ंड आँकड़ों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इक्विटी म्यूचुअल फ़ंड प्रवाह जून की तुलना में 14.8 प्रतिशत घटा।\n2. इक्विटी श्रेणियों में लार्ज-कैप फ़ंडों ने सर्वाधिक प्रवाह आकर्षित किया।\n3. डेट फ़ंडों में शुद्ध प्रवाह दर्ज हुआ, जिसमें लिक्विड फ़ंड आगे रहे।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about AMFI mutual fund data for July 2026:\n1. Equity mutual fund inflows fell by 14.8 per cent from June.\n2. Large-cap funds attracted the highest inflows among equity categories.\n3. Debt funds recorded net inflows, led by liquid funds.\nWhich of the statements given above is/are correct?",
+            "hi": "जुलाई 2026 के AMFI म्यूचुअल फ़ंड आँकड़ों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इक्विटी म्यूचुअल फ़ंड प्रवाह जून की तुलना में 14.8 प्रतिशत घटा।\n2. इक्विटी श्रेणियों में लार्ज-कैप फ़ंडों ने सर्वाधिक प्रवाह आकर्षित किया।\n3. डेट फ़ंडों में शुद्ध प्रवाह दर्ज हुआ, जिसमें लिक्विड फ़ंड आगे रहे।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "3 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 3",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 3 are correct. 2 is wrong: small-cap funds led, while large-cap funds saw net outflows.",
             "hi": "1 और 3 सही हैं। 2 गलत है: स्मॉल-कैप फ़ंड आगे रहे, जबकि लार्ज-कैप फ़ंडों से शुद्ध निकासी हुई।"
@@ -3614,24 +3614,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the 2026 Ebola outbreak in Congo:\n1. It is caused by the rare Bundibugyo virus.\n2. There is currently no approved vaccine or treatment for the virus causing it.\n3. It is the second-largest Ebola outbreak in history.\nHow many of the above statements are correct?",
-            "hi": "कांगो में 2026 के इबोला प्रकोप के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह दुर्लभ बुंडीबुग्यो वायरस के कारण है।\n2. इसके कारक वायरस के लिए फ़िलहाल कोई स्वीकृत टीका या उपचार नहीं है।\n3. यह इतिहास का दूसरा सबसे बड़ा इबोला प्रकोप है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the 2026 Ebola outbreak in Congo:\n1. It is caused by the rare Bundibugyo virus.\n2. There is currently no approved vaccine or treatment for the virus causing it.\n3. It is the second-largest Ebola outbreak in history.\nWhich of the statements given above is/are correct?",
+            "hi": "कांगो में 2026 के इबोला प्रकोप के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह दुर्लभ बुंडीबुग्यो वायरस के कारण है।\n2. इसके कारक वायरस के लिए फ़िलहाल कोई स्वीकृत टीका या उपचार नहीं है।\n3. यह इतिहास का दूसरा सबसे बड़ा इबोला प्रकोप है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the source.",
             "hi": "तीनों कथन स्रोत में दिए गए हैं।"
@@ -3801,27 +3801,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the 2026 Syrian court verdict against Bashar al-Assad:\n1. Assad was sentenced to life imprisonment.\n2. Assad's government collapsed after a 12-month siege of Damascus.\n3. After his government fell, Assad fled to Tehran.\nHow many of the above statements are correct?",
-            "hi": "बशर अल-असद के विरुद्ध 2026 के सीरियाई अदालत के फ़ैसले के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. असद को आजीवन कारावास की सज़ा दी गई।\n2. दमिश्क की 12 महीने की घेराबंदी के बाद असद सरकार गिरी।\n3. सरकार गिरने के बाद असद तेहरान भाग गए।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the 2026 Syrian court verdict against Bashar al-Assad:\n1. Assad was sentenced to life imprisonment.\n2. Assad's government collapsed after a 12-month siege of Damascus.\n3. After his government fell, Assad fled to Tehran.\nWhich of the statements given above is/are not correct?",
+            "hi": "बशर अल-असद के विरुद्ध 2026 के सीरियाई अदालत के फ़ैसले के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. असद को आजीवन कारावास की सज़ा दी गई।\n2. दमिश्क की 12 महीने की घेराबंदी के बाद असद सरकार गिरी।\n3. सरकार गिरने के बाद असद तेहरान भाग गए।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: he was sentenced to death; the government fell after a 12-day HTS-led offensive; he fled to Moscow.",
-            "hi": "कोई भी सही नहीं: उन्हें मृत्युदंड मिला; सरकार HTS-नेतृत्व वाले 12 दिन के आक्रमण के बाद गिरी; वे मॉस्को भागे।"
+            "en": "All three statements are incorrect. he was sentenced to death; the government fell after a 12-day HTS-led offensive; he fled to Moscow.",
+            "hi": "तीनों कथन गलत हैं। उन्हें मृत्युदंड मिला; सरकार HTS-नेतृत्व वाले 12 दिन के आक्रमण के बाद गिरी; वे मॉस्को भागे।"
           }
         },
         {
@@ -4000,21 +4000,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Fitch's August 2026 rating action on India:\n1. Fitch affirmed India's rating at 'BBB-' with a stable outlook.\n2. Fitch projected India's GDP growth at 7.4 per cent in FY2027.\n3. Fitch expects the RBI to cut its policy rate by 25 basis points later this year.\nHow many of the above statements are correct?",
-            "hi": "भारत पर फ़िच की अगस्त 2026 की रेटिंग कार्रवाई के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. फ़िच ने भारत की रेटिंग 'BBB-' स्थिर परिदृश्य के साथ बरकरार रखी।\n2. फ़िच ने FY2027 में भारत की GDP वृद्धि 7.4 प्रतिशत अनुमानित की।\n3. फ़िच को इस वर्ष के अंत तक RBI द्वारा नीतिगत दर 25 आधार अंक घटाने की अपेक्षा है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Fitch's August 2026 rating action on India:\n1. Fitch affirmed India's rating at 'BBB-' with a stable outlook.\n2. Fitch projected India's GDP growth at 7.4 per cent in FY2027.\n3. Fitch expects the RBI to cut its policy rate by 25 basis points later this year.\nWhich of the statements given above is/are correct?",
+            "hi": "भारत पर फ़िच की अगस्त 2026 की रेटिंग कार्रवाई के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. फ़िच ने भारत की रेटिंग 'BBB-' स्थिर परिदृश्य के साथ बरकरार रखी।\n2. फ़िच ने FY2027 में भारत की GDP वृद्धि 7.4 प्रतिशत अनुमानित की।\n3. फ़िच को इस वर्ष के अंत तक RBI द्वारा नीतिगत दर 25 आधार अंक घटाने की अपेक्षा है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 0,
@@ -4201,24 +4201,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the BRICS Friendship Cities Conclave 2026:\n1. It is being held in Mumbai.\n2. It has been convened by Mumbai First in partnership with the Maharashtra and Union governments.\n3. It is a week-long summit of BRICS heads of state.\nHow many of the above statements are correct?",
-            "hi": "BRICS फ़्रेंडशिप सिटीज़ कॉन्क्लेव 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह मुंबई में आयोजित हो रहा है।\n2. इसे मुंबई फ़र्स्ट ने महाराष्ट्र और केंद्र सरकार की साझेदारी में आयोजित किया है।\n3. यह BRICS राष्ट्राध्यक्षों का एक सप्ताह का शिखर सम्मेलन है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the BRICS Friendship Cities Conclave 2026:\n1. It is being held in Mumbai.\n2. It has been convened by Mumbai First in partnership with the Maharashtra and Union governments.\n3. It is a week-long summit of BRICS heads of state.\nWhich of the statements given above is/are correct?",
+            "hi": "BRICS फ़्रेंडशिप सिटीज़ कॉन्क्लेव 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह मुंबई में आयोजित हो रहा है।\n2. इसे मुंबई फ़र्स्ट ने महाराष्ट्र और केंद्र सरकार की साझेदारी में आयोजित किया है।\n3. यह BRICS राष्ट्राध्यक्षों का एक सप्ताह का शिखर सम्मेलन है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 2 are correct. 3 is wrong: it is a two-day conclave of city representatives, policymakers and urban experts.",
             "hi": "1 और 2 सही हैं। 3 गलत है: यह शहरों के प्रतिनिधियों, नीति-निर्माताओं और शहरी विशेषज्ञों का दो दिवसीय सम्मेलन है।"
@@ -4393,24 +4393,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Lebanon's abolition of the death penalty (2026):\n1. Lebanon is the first Arab country to abolish the death penalty.\n2. It has been replaced with life imprisonment with aggravated hard labour.\n3. Lebanon's parliament has 128 members.\nHow many of the above statements are correct?",
-            "hi": "लेबनान द्वारा मृत्युदंड की समाप्ति (2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. लेबनान मृत्युदंड समाप्त करने वाला पहला अरब देश है।\n2. इसकी जगह कठोर श्रम सहित आजीवन कारावास का प्रावधान किया गया है।\n3. लेबनान की संसद में 128 सदस्य हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Lebanon's abolition of the death penalty (2026):\n1. Lebanon is the first Arab country to abolish the death penalty.\n2. It has been replaced with life imprisonment with aggravated hard labour.\n3. Lebanon's parliament has 128 members.\nWhich of the statements given above is/are correct?",
+            "hi": "लेबनान द्वारा मृत्युदंड की समाप्ति (2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. लेबनान मृत्युदंड समाप्त करने वाला पहला अरब देश है।\n2. इसकी जगह कठोर श्रम सहित आजीवन कारावास का प्रावधान किया गया है।\n3. लेबनान की संसद में 128 सदस्य हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the source.",
             "hi": "तीनों कथन स्रोत में दिए गए हैं।"
@@ -4591,27 +4591,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Centre-Odisha science and technology meeting (August 2026):\n1. The meeting finalised a new IIT campus in Cuttack.\n2. Odisha will provide an additional 100 acres for the Institute of Life Sciences.\n3. The meeting was held in Bhubaneswar.\nHow many of the above statements are correct?",
-            "hi": "केंद्र-ओडिशा विज्ञान एवं प्रौद्योगिकी बैठक (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. बैठक में कटक में नए IIT परिसर को अंतिम रूप दिया गया।\n2. ओडिशा जीवन विज्ञान संस्थान के लिए अतिरिक्त 100 एकड़ भूमि देगा।\n3. बैठक भुवनेश्वर में हुई।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Centre-Odisha science and technology meeting (August 2026):\n1. The meeting finalised a new IIT campus in Cuttack.\n2. Odisha will provide an additional 100 acres for the Institute of Life Sciences.\n3. The meeting was held in Bhubaneswar.\nWhich of the statements given above is/are not correct?",
+            "hi": "केंद्र-ओडिशा विज्ञान एवं प्रौद्योगिकी बैठक (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. बैठक में कटक में नए IIT परिसर को अंतिम रूप दिया गया।\n2. ओडिशा जीवन विज्ञान संस्थान के लिए अतिरिक्त 100 एकड़ भूमि देगा।\n3. बैठक भुवनेश्वर में हुई।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the meeting, held in New Delhi, finalised expansion of the Institute of Life Sciences, Bhubaneswar, with 50 additional acres.",
-            "hi": "कोई भी सही नहीं: नई दिल्ली में हुई बैठक में जीवन विज्ञान संस्थान, भुवनेश्वर के विस्तार को 50 एकड़ अतिरिक्त भूमि के साथ अंतिम रूप दिया गया।"
+            "en": "All three statements are incorrect. the meeting, held in New Delhi, finalised expansion of the Institute of Life Sciences, Bhubaneswar, with 50 additional acres.",
+            "hi": "तीनों कथन गलत हैं। नई दिल्ली में हुई बैठक में जीवन विज्ञान संस्थान, भुवनेश्वर के विस्तार को 50 एकड़ अतिरिक्त भूमि के साथ अंतिम रूप दिया गया।"
           }
         },
         {
@@ -4783,21 +4783,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Kharif sowing progress as of 7 August 2026:\n1. Pulses have been sown over a larger area than cotton.\n2. Oilseeds area is over 180 lakh hectares, higher than last year's corresponding figure.\n3. Total Kharif area has crossed 1,100 lakh hectares.\nHow many of the above statements are correct?",
-            "hi": "7 अगस्त 2026 तक ख़रीफ़ बुवाई की प्रगति के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. दलहन का बुवाई क्षेत्र कपास से अधिक है।\n2. तिलहन क्षेत्र 180 लाख हेक्टेयर से अधिक है, जो पिछले वर्ष की इसी अवधि से अधिक है।\n3. कुल ख़रीफ़ क्षेत्र 1,100 लाख हेक्टेयर पार कर गया है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Kharif sowing progress as of 7 August 2026:\n1. Pulses have been sown over a larger area than cotton.\n2. Oilseeds area is over 180 lakh hectares, higher than last year's corresponding figure.\n3. Total Kharif area has crossed 1,100 lakh hectares.\nWhich of the statements given above is/are correct?",
+            "hi": "7 अगस्त 2026 तक ख़रीफ़ बुवाई की प्रगति के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. दलहन का बुवाई क्षेत्र कपास से अधिक है।\n2. तिलहन क्षेत्र 180 लाख हेक्टेयर से अधिक है, जो पिछले वर्ष की इसी अवधि से अधिक है।\n3. कुल ख़रीफ़ क्षेत्र 1,100 लाख हेक्टेयर पार कर गया है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "3 only",
+              "1 and 2 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -4972,24 +4972,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the August 2026 Air India incident inquiry:\n1. The inquiry is being conducted by the Directorate General of Civil Aviation (DGCA).\n2. The aircraft lost about 300 feet of altitude during cruise but landed safely in Delhi.\n3. The evidence examined includes medical and human-factor evidence.\nHow many of the above statements are correct?",
-            "hi": "अगस्त 2026 की एयर इंडिया घटना की जाँच के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. जाँच नागर विमानन महानिदेशालय (DGCA) द्वारा की जा रही है।\n2. विमान की ऊँचाई क्रूज़ के दौरान लगभग 300 फ़ुट गिरी, परंतु वह दिल्ली में सुरक्षित उतरा।\n3. जाँचे जा रहे साक्ष्यों में चिकित्सीय और मानवीय-कारक साक्ष्य शामिल हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the August 2026 Air India incident inquiry:\n1. The inquiry is being conducted by the Directorate General of Civil Aviation (DGCA).\n2. The aircraft lost about 300 feet of altitude during cruise but landed safely in Delhi.\n3. The evidence examined includes medical and human-factor evidence.\nWhich of the statements given above is/are correct?",
+            "hi": "अगस्त 2026 की एयर इंडिया घटना की जाँच के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. जाँच नागर विमानन महानिदेशालय (DGCA) द्वारा की जा रही है।\n2. विमान की ऊँचाई क्रूज़ के दौरान लगभग 300 फ़ुट गिरी, परंतु वह दिल्ली में सुरक्षित उतरा।\n3. जाँचे जा रहे साक्ष्यों में चिकित्सीय और मानवीय-कारक साक्ष्य शामिल हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "2 and 3 are correct. 1 is wrong: the Aircraft Accident Investigation Bureau (AAIB) is conducting the investigation.",
             "hi": "2 और 3 सही हैं। 1 गलत है: जाँच विमान दुर्घटना जाँच ब्यूरो (AAIB) कर रहा है।"
@@ -5171,24 +5171,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about India-US space cooperation (August 2026):\n1. NASA has invited ISRO to join its Moon Base programme.\n2. The ninth India-US Civil Space Joint Working Group meeting was held at ISRO headquarters in Bengaluru.\n3. The two sides reaffirmed commitment to UN COPUOS guidelines on long-term sustainability of outer space activities.\nHow many of the above statements are correct?",
-            "hi": "भारत-अमेरिका अंतरिक्ष सहयोग (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. NASA ने ISRO को अपने मून बेस कार्यक्रम में शामिल होने के लिए आमंत्रित किया है।\n2. भारत-अमेरिका नागरिक अंतरिक्ष संयुक्त कार्य समूह की नौवीं बैठक बेंगलुरु स्थित ISRO मुख्यालय में हुई।\n3. दोनों पक्षों ने बाह्य अंतरिक्ष गतिविधियों की दीर्घकालिक स्थिरता पर संयुक्त राष्ट्र COPUOS दिशानिर्देशों के प्रति प्रतिबद्धता दोहराई।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about India-US space cooperation (August 2026):\n1. NASA has invited ISRO to join its Moon Base programme.\n2. The ninth India-US Civil Space Joint Working Group meeting was held at ISRO headquarters in Bengaluru.\n3. The two sides reaffirmed commitment to UN COPUOS guidelines on long-term sustainability of outer space activities.\nWhich of the statements given above is/are correct?",
+            "hi": "भारत-अमेरिका अंतरिक्ष सहयोग (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. NASA ने ISRO को अपने मून बेस कार्यक्रम में शामिल होने के लिए आमंत्रित किया है।\n2. भारत-अमेरिका नागरिक अंतरिक्ष संयुक्त कार्य समूह की नौवीं बैठक बेंगलुरु स्थित ISRO मुख्यालय में हुई।\n3. दोनों पक्षों ने बाह्य अंतरिक्ष गतिविधियों की दीर्घकालिक स्थिरता पर संयुक्त राष्ट्र COPUOS दिशानिर्देशों के प्रति प्रतिबद्धता दोहराई।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the source.",
             "hi": "तीनों कथन स्रोत में दिए गए हैं।"
@@ -5379,27 +5379,27 @@
           ],
           "difficulty": 3,
           "question": {
-            "en": "Consider the following statements about the Kerala (Alteration of Name) Bill, 2026:\n1. It amends the Eighth Schedule of the Constitution.\n2. The Kerala Legislative Assembly passed a resolution seeking the change in 2022.\n3. Such a bill must be passed by a special majority under Article 368.\nHow many of the above statements are correct?",
-            "hi": "केरल (नाम परिवर्तन) विधेयक, 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह संविधान की आठवीं अनुसूची में संशोधन करता है।\n2. केरल विधानसभा ने 2022 में नाम परिवर्तन हेतु प्रस्ताव पारित किया था।\n3. ऐसा विधेयक अनुच्छेद 368 के तहत विशेष बहुमत से पारित होना आवश्यक है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Kerala (Alteration of Name) Bill, 2026:\n1. It amends the Eighth Schedule of the Constitution.\n2. The Kerala Legislative Assembly passed a resolution seeking the change in 2022.\n3. Such a bill must be passed by a special majority under Article 368.\nWhich of the statements given above is/are not correct?",
+            "hi": "केरल (नाम परिवर्तन) विधेयक, 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह संविधान की आठवीं अनुसूची में संशोधन करता है।\n2. केरल विधानसभा ने 2022 में नाम परिवर्तन हेतु प्रस्ताव पारित किया था।\n3. ऐसा विधेयक अनुच्छेद 368 के तहत विशेष बहुमत से पारित होना आवश्यक है।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the name is in the First Schedule; the Assembly resolution was in June 2024; under Article 4 it is not an Article 368 amendment and needs only a simple majority.",
-            "hi": "कोई भी सही नहीं: नाम पहली अनुसूची में है; विधानसभा प्रस्ताव जून 2024 में था; अनुच्छेद 4 के अनुसार यह अनुच्छेद 368 का संशोधन नहीं है और साधारण बहुमत पर्याप्त है।"
+            "en": "All three statements are incorrect. the name is in the First Schedule; the Assembly resolution was in June 2024; under Article 4 it is not an Article 368 amendment and needs only a simple majority.",
+            "hi": "तीनों कथन गलत हैं। नाम पहली अनुसूची में है; विधानसभा प्रस्ताव जून 2024 में था; अनुच्छेद 4 के अनुसार यह अनुच्छेद 368 का संशोधन नहीं है और साधारण बहुमत पर्याप्त है।"
           }
         },
         {
@@ -5581,21 +5581,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the National Co-operative Development Corporation (Amendment) Bill, 2026:\n1. It allows NCDC to undertake activities in industrial goods.\n2. It bars NCDC from lending directly to co-operative societies.\n3. It amends the NCDC Act, 1972.\nHow many of the above statements are correct?",
-            "hi": "राष्ट्रीय सहकारी विकास निगम (संशोधन) विधेयक, 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह NCDC को औद्योगिक वस्तुओं से जुड़ी गतिविधियाँ करने की अनुमति देता है।\n2. यह NCDC को सहकारी समितियों को सीधे ऋण देने से रोकता है।\n3. यह NCDC अधिनियम, 1972 में संशोधन करता है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the National Co-operative Development Corporation (Amendment) Bill, 2026:\n1. It allows NCDC to undertake activities in industrial goods.\n2. It bars NCDC from lending directly to co-operative societies.\n3. It amends the NCDC Act, 1972.\nWhich of the statements given above is/are correct?",
+            "hi": "राष्ट्रीय सहकारी विकास निगम (संशोधन) विधेयक, 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह NCDC को औद्योगिक वस्तुओं से जुड़ी गतिविधियाँ करने की अनुमति देता है।\n2. यह NCDC को सहकारी समितियों को सीधे ऋण देने से रोकता है।\n3. यह NCDC अधिनियम, 1972 में संशोधन करता है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
           "answer": 0,
@@ -5779,21 +5779,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the MEA briefing of 11 August 2026:\n1. The 36th meeting of the WMCC on India-China border affairs was recently held.\n2. India said it is examining the implications of a defence pact between Saudi Arabia, Pakistan and Turkiye.\n3. India and China agreed to discontinue local commander-level meetings.\nHow many of the above statements are correct?",
-            "hi": "11 अगस्त 2026 की विदेश मंत्रालय ब्रीफ़िंग के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत-चीन सीमा मामलों पर WMCC की 36वीं बैठक हाल ही में हुई।\n2. भारत ने कहा कि वह सऊदी अरब, पाकिस्तान और तुर्किये के रक्षा समझौते के निहितार्थों का अध्ययन कर रहा है।\n3. भारत और चीन स्थानीय कमांडर-स्तरीय बैठकें बंद करने पर सहमत हुए।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the MEA briefing of 11 August 2026:\n1. The 36th meeting of the WMCC on India-China border affairs was recently held.\n2. India said it is examining the implications of a defence pact between Saudi Arabia, Pakistan and Turkiye.\n3. India and China agreed to discontinue local commander-level meetings.\nWhich of the statements given above is/are correct?",
+            "hi": "11 अगस्त 2026 की विदेश मंत्रालय ब्रीफ़िंग के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत-चीन सीमा मामलों पर WMCC की 36वीं बैठक हाल ही में हुई।\n2. भारत ने कहा कि वह सऊदी अरब, पाकिस्तान और तुर्किये के रक्षा समझौते के निहितार्थों का अध्ययन कर रहा है।\n3. भारत और चीन स्थानीय कमांडर-स्तरीय बैठकें बंद करने पर सहमत हुए।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 1,
@@ -5972,24 +5972,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about direct tax collections in FY 2026-27 (till 10 August):\n1. Net direct tax collection is over ₹8.11 lakh crore.\n2. Non-corporate tax collection exceeds corporate tax collection.\n3. Refunds of over ₹1.43 lakh crore have been issued.\nHow many of the above statements are correct?",
-            "hi": "वित्त वर्ष 2026-27 में प्रत्यक्ष कर संग्रह (10 अगस्त तक) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. शुद्ध प्रत्यक्ष कर संग्रह 8.11 लाख करोड़ रुपये से अधिक है।\n2. गैर-कॉर्पोरेट कर संग्रह कॉर्पोरेट कर संग्रह से अधिक है।\n3. 1.43 लाख करोड़ रुपये से अधिक के रिफ़ंड जारी किए गए हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about direct tax collections in FY 2026-27 (till 10 August):\n1. Net direct tax collection is over ₹8.11 lakh crore.\n2. Non-corporate tax collection exceeds corporate tax collection.\n3. Refunds of over ₹1.43 lakh crore have been issued.\nWhich of the statements given above is/are correct?",
+            "hi": "वित्त वर्ष 2026-27 में प्रत्यक्ष कर संग्रह (10 अगस्त तक) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. शुद्ध प्रत्यक्ष कर संग्रह 8.11 लाख करोड़ रुपये से अधिक है।\n2. गैर-कॉर्पोरेट कर संग्रह कॉर्पोरेट कर संग्रह से अधिक है।\n3. 1.43 लाख करोड़ रुपये से अधिक के रिफ़ंड जारी किए गए हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are correct: non-corporate tax (₹5.07 lakh crore) exceeds corporate tax (₹2.70 lakh crore).",
             "hi": "तीनों सही हैं: गैर-कॉर्पोरेट कर (5.07 लाख करोड़ रुपये) कॉर्पोरेट कर (2.70 लाख करोड़ रुपये) से अधिक है।"
@@ -6172,27 +6172,27 @@
           ],
           "difficulty": 3,
           "question": {
-            "en": "Consider the following statements about the Tribunals Reforms Bill, 2026:\n1. The National Tribunals Commission will be chaired by the Union Law Minister.\n2. The bill amends, but retains, the Tribunals Reforms Act, 2021.\n3. The Rajya Sabha passed the bill before the Lok Sabha.\nHow many of the above statements are correct?",
-            "hi": "अधिकरण सुधार विधेयक, 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. राष्ट्रीय अधिकरण आयोग की अध्यक्षता केंद्रीय विधि मंत्री करेंगे।\n2. विधेयक अधिकरण सुधार अधिनियम, 2021 में संशोधन करता है, परंतु उसे बनाए रखता है।\n3. राज्यसभा ने विधेयक को लोकसभा से पहले पारित किया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Tribunals Reforms Bill, 2026:\n1. The National Tribunals Commission will be chaired by the Union Law Minister.\n2. The bill amends, but retains, the Tribunals Reforms Act, 2021.\n3. The Rajya Sabha passed the bill before the Lok Sabha.\nWhich of the statements given above is/are not correct?",
+            "hi": "अधिकरण सुधार विधेयक, 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. राष्ट्रीय अधिकरण आयोग की अध्यक्षता केंद्रीय विधि मंत्री करेंगे।\n2. विधेयक अधिकरण सुधार अधिनियम, 2021 में संशोधन करता है, परंतु उसे बनाए रखता है।\n3. राज्यसभा ने विधेयक को लोकसभा से पहले पारित किया।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the Commission will be chaired by a former SC judge or former HC Chief Justice; the bill repeals and replaces the 2021 Act; the Lok Sabha passed it first.",
-            "hi": "कोई भी सही नहीं: आयोग की अध्यक्षता सर्वोच्च न्यायालय के पूर्व न्यायाधीश या उच्च न्यायालय के पूर्व मुख्य न्यायाधीश करेंगे; विधेयक 2021 के अधिनियम को निरस्त कर प्रतिस्थापित करता है; लोकसभा ने इसे पहले पारित किया।"
+            "en": "All three statements are incorrect. the Commission will be chaired by a former SC judge or former HC Chief Justice; the bill repeals and replaces the 2021 Act; the Lok Sabha passed it first.",
+            "hi": "तीनों कथन गलत हैं। आयोग की अध्यक्षता सर्वोच्च न्यायालय के पूर्व न्यायाधीश या उच्च न्यायालय के पूर्व मुख्य न्यायाधीश करेंगे; विधेयक 2021 के अधिनियम को निरस्त कर प्रतिस्थापित करता है; लोकसभा ने इसे पहले पारित किया।"
           }
         },
         {
@@ -6375,21 +6375,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the August 2026 Colombia earthquake:\n1. The earthquake had a magnitude of 7.4.\n2. Most deaths occurred in the eastern city of Bogota.\n3. The earthquake struck eastern Colombia near the Venezuelan border.\nHow many of the above statements are correct?",
-            "hi": "अगस्त 2026 के कोलंबिया भूकंप के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भूकंप की तीव्रता 7.4 थी।\n2. अधिकांश मौतें पूर्वी शहर बोगोटा में हुईं।\n3. भूकंप वेनेज़ुएला सीमा के पास पूर्वी कोलंबिया में आया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the August 2026 Colombia earthquake:\n1. The earthquake had a magnitude of 7.4.\n2. Most deaths occurred in the eastern city of Bogota.\n3. The earthquake struck eastern Colombia near the Venezuelan border.\nWhich of the statements given above is/are correct?",
+            "hi": "अगस्त 2026 के कोलंबिया भूकंप के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भूकंप की तीव्रता 7.4 थी।\n2. अधिकांश मौतें पूर्वी शहर बोगोटा में हुईं।\n3. भूकंप वेनेज़ुएला सीमा के पास पूर्वी कोलंबिया में आया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
           "answer": 0,
@@ -6563,24 +6563,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the election of Hungary's new President (2026):\n1. Andras Baka is a former chief of Hungary's Supreme Court.\n2. He was elected with the support of the Fidesz party.\n3. The President's role in Hungary is largely ceremonial.\nHow many of the above statements are correct?",
-            "hi": "हंगरी के नए राष्ट्रपति के चुनाव (2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. आंद्रास बाका हंगरी के सर्वोच्च न्यायालय के पूर्व प्रमुख हैं।\n2. उन्हें फ़िडेज़ पार्टी के समर्थन से चुना गया।\n3. हंगरी में राष्ट्रपति का पद मुख्यतः औपचारिक है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the election of Hungary's new President (2026):\n1. Andras Baka is a former chief of Hungary's Supreme Court.\n2. He was elected with the support of the Fidesz party.\n3. The President's role in Hungary is largely ceremonial.\nWhich of the statements given above is/are correct?",
+            "hi": "हंगरी के नए राष्ट्रपति के चुनाव (2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. आंद्रास बाका हंगरी के सर्वोच्च न्यायालय के पूर्व प्रमुख हैं।\n2. उन्हें फ़िडेज़ पार्टी के समर्थन से चुना गया।\n3. हंगरी में राष्ट्रपति का पद मुख्यतः औपचारिक है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 3 are correct. 2 is wrong: Baka was backed by the governing Tisza party; Fidesz boycotted the vote.",
             "hi": "1 और 3 सही हैं। 2 गलत है: बाका को सत्तारूढ़ टिस्ज़ा पार्टी का समर्थन मिला; फ़िडेज़ ने मतदान का बहिष्कार किया।"
@@ -6760,24 +6760,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Prevention of Insults to National Honour (Amendment) Act, 2026:\n1. It amends the Prevention of Insults to National Honour Act, 1971.\n2. It extends the protections under Section 3 of the Act to Vande Mataram.\n3. Intentionally disturbing an assembly engaged in singing Vande Mataram is now an offence.\nHow many of the above statements are correct?",
-            "hi": "राष्ट्रीय सम्मान अपमान निवारण (संशोधन) अधिनियम, 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह राष्ट्रीय सम्मान अपमान निवारण अधिनियम, 1971 में संशोधन करता है।\n2. यह अधिनियम की धारा 3 के संरक्षण को वंदे मातरम तक विस्तारित करता है।\n3. वंदे मातरम गा रही सभा में जानबूझकर व्यवधान डालना अब अपराध है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Prevention of Insults to National Honour (Amendment) Act, 2026:\n1. It amends the Prevention of Insults to National Honour Act, 1971.\n2. It extends the protections under Section 3 of the Act to Vande Mataram.\n3. Intentionally disturbing an assembly engaged in singing Vande Mataram is now an offence.\nWhich of the statements given above is/are correct?",
+            "hi": "राष्ट्रीय सम्मान अपमान निवारण (संशोधन) अधिनियम, 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह राष्ट्रीय सम्मान अपमान निवारण अधिनियम, 1971 में संशोधन करता है।\n2. यह अधिनियम की धारा 3 के संरक्षण को वंदे मातरम तक विस्तारित करता है।\n3. वंदे मातरम गा रही सभा में जानबूझकर व्यवधान डालना अब अपराध है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the source.",
             "hi": "तीनों कथन स्रोत में दिए गए हैं।"
@@ -6954,27 +6954,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the 4th India-Namibia Joint Trade Committee:\n1. The session was held in Windhoek.\n2. Bilateral merchandise trade declined in 2025-26 compared with 2024-25.\n3. The Indian side was led by the Union Commerce Minister.\nHow many of the above statements are correct?",
-            "hi": "चौथी भारत-नामीबिया संयुक्त व्यापार समिति के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. सत्र विंडहोक में आयोजित हुआ।\n2. 2025-26 में द्विपक्षीय वस्तु व्यापार 2024-25 की तुलना में घटा।\n3. भारतीय पक्ष का नेतृत्व केंद्रीय वाणिज्य मंत्री ने किया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the 4th India-Namibia Joint Trade Committee:\n1. The session was held in Windhoek.\n2. Bilateral merchandise trade declined in 2025-26 compared with 2024-25.\n3. The Indian side was led by the Union Commerce Minister.\nWhich of the statements given above is/are not correct?",
+            "hi": "चौथी भारत-नामीबिया संयुक्त व्यापार समिति के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. सत्र विंडहोक में आयोजित हुआ।\n2. 2025-26 में द्विपक्षीय वस्तु व्यापार 2024-25 की तुलना में घटा।\n3. भारतीय पक्ष का नेतृत्व केंद्रीय वाणिज्य मंत्री ने किया।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the session was in New Delhi; trade rose from $568 million to over $592 million; India was led by Joint Secretary Amit Kumar.",
-            "hi": "कोई भी सही नहीं: सत्र नई दिल्ली में हुआ; व्यापार 568 मिलियन डॉलर से बढ़कर 592 मिलियन डॉलर से अधिक हुआ; भारत का नेतृत्व संयुक्त सचिव अमित कुमार ने किया।"
+            "en": "All three statements are incorrect. the session was in New Delhi; trade rose from $568 million to over $592 million; India was led by Joint Secretary Amit Kumar.",
+            "hi": "तीनों कथन गलत हैं। सत्र नई दिल्ली में हुआ; व्यापार 568 मिलियन डॉलर से बढ़कर 592 मिलियन डॉलर से अधिक हुआ; भारत का नेतृत्व संयुक्त सचिव अमित कुमार ने किया।"
           }
         },
         {
@@ -7148,21 +7148,21 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about Maharashtra's EV plans (August 2026):\n1. MSRTC aims to convert its entire bus fleet to electric by 2036.\n2. Charging stations at flyovers have already been built by the state government alone.\n3. The proposal has been approved by the Union Ministry of Heavy Industries.\nHow many of the above statements are correct?",
-            "hi": "महाराष्ट्र की EV योजनाओं (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. MSRTC का लक्ष्य 2036 तक पूरे बस बेड़े को इलेक्ट्रिक बनाना है।\n2. फ़्लाईओवरों पर चार्जिंग स्टेशन राज्य सरकार अकेले पहले ही बना चुकी है।\n3. प्रस्ताव को केंद्रीय भारी उद्योग मंत्रालय ने मंज़ूरी दे दी है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Maharashtra's EV plans (August 2026):\n1. MSRTC aims to convert its entire bus fleet to electric by 2036.\n2. Charging stations at flyovers have already been built by the state government alone.\n3. The proposal has been approved by the Union Ministry of Heavy Industries.\nWhich of the statements given above is/are correct?",
+            "hi": "महाराष्ट्र की EV योजनाओं (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. MSRTC का लक्ष्य 2036 तक पूरे बस बेड़े को इलेक्ट्रिक बनाना है।\n2. फ़्लाईओवरों पर चार्जिंग स्टेशन राज्य सरकार अकेले पहले ही बना चुकी है।\n3. प्रस्ताव को केंद्रीय भारी उद्योग मंत्रालय ने मंज़ूरी दे दी है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
           "answer": 0,
@@ -7410,27 +7410,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements:\n1. The COSPAR Vikram Sarabhai Medal is awarded every year.\n2. Annapurni Subramaniam received the Vigyan Ratna award in 2024.\n3. The medal is presented jointly by the European Space Agency and COSPAR.\nHow many of the above statements are correct?",
-            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. COSPAR विक्रम साराभाई पदक प्रतिवर्ष दिया जाता है।\n2. अन्नपूर्णी सुब्रमण्यम को 2024 में विज्ञान रत्न पुरस्कार मिला था।\n3. यह पदक यूरोपीय अंतरिक्ष एजेंसी और COSPAR संयुक्त रूप से देते हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements:\n1. The COSPAR Vikram Sarabhai Medal is awarded every year.\n2. Annapurni Subramaniam received the Vigyan Ratna award in 2024.\n3. The medal is presented jointly by the European Space Agency and COSPAR.\nWhich of the statements given above is/are not correct?",
+            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. COSPAR विक्रम साराभाई पदक प्रतिवर्ष दिया जाता है।\n2. अन्नपूर्णी सुब्रमण्यम को 2024 में विज्ञान रत्न पुरस्कार मिला था।\n3. यह पदक यूरोपीय अंतरिक्ष एजेंसी और COSPAR संयुक्त रूप से देते हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the medal is given every two years, jointly by ISRO and COSPAR; her 2024 honour was the Vigyan Shri, not the Vigyan Ratna.",
-            "hi": "कोई भी कथन सही नहीं है: पदक हर दो वर्ष में ISRO और COSPAR द्वारा दिया जाता है; 2024 में उन्हें विज्ञान श्री मिला था, विज्ञान रत्न नहीं।"
+            "en": "All three statements are incorrect. the medal is given every two years, jointly by ISRO and COSPAR; her 2024 honour was the Vigyan Shri, not the Vigyan Ratna.",
+            "hi": "तीनों कथन गलत हैं। पदक हर दो वर्ष में ISRO और COSPAR द्वारा दिया जाता है; 2024 में उन्हें विज्ञान श्री मिला था, विज्ञान रत्न नहीं।"
           }
         }
       ],

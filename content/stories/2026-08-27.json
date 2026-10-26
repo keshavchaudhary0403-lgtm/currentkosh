@@ -85,24 +85,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the August 2026 Nepal–Tibet flash flood:\n1. The flood entered the Trishuli River through the Bhote Koshi at Timure in Rasuwa district.\n2. According to Nepal Police, an avalanche blocked the flow of the Lhende tributary of the Bhotekoshi.\n3. The United Nations allocated an initial tranche of US$20 million for relief.\nHow many of the above statements are correct?",
-            "hi": "अगस्त 2026 की नेपाल–तिब्बत आकस्मिक बाढ़ के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. बाढ़ रसुवा ज़िले के टिमुरे में भोटे कोशी के रास्ते त्रिशूली नदी में पहुँची।\n2. नेपाल पुलिस के अनुसार एक हिमस्खलन ने भोटेकोशी की सहायक नदी लेंदे का प्रवाह रोक दिया।\n3. संयुक्त राष्ट्र ने राहत हेतु 2 करोड़ अमेरिकी डॉलर की प्रारंभिक किस्त आवंटित की।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the August 2026 Nepal–Tibet flash flood:\n1. The flood entered the Trishuli River through the Bhote Koshi at Timure in Rasuwa district.\n2. According to Nepal Police, an avalanche blocked the flow of the Lhende tributary of the Bhotekoshi.\n3. The United Nations allocated an initial tranche of US$20 million for relief.\nWhich of the statements given above is/are correct?",
+            "hi": "अगस्त 2026 की नेपाल–तिब्बत आकस्मिक बाढ़ के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. बाढ़ रसुवा ज़िले के टिमुरे में भोटे कोशी के रास्ते त्रिशूली नदी में पहुँची।\n2. नेपाल पुलिस के अनुसार एक हिमस्खलन ने भोटेकोशी की सहायक नदी लेंदे का प्रवाह रोक दिया।\n3. संयुक्त राष्ट्र ने राहत हेतु 2 करोड़ अमेरिकी डॉलर की प्रारंभिक किस्त आवंटित की।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 2 are correct. 3 is wrong: the UN allocated an initial US$2 million.",
             "hi": "1 और 2 सही हैं। 3 गलत है: संयुक्त राष्ट्र ने प्रारंभिक 20 लाख अमेरिकी डॉलर आवंटित किए।"
@@ -316,24 +316,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about India's response to the Nepal flash flood (August 2026):\n1. India has sent more than 47 tonnes of emergency relief supplies to Nepal.\n2. Among the 84 Indians rescued were 63 workers of the Trishuli-1 project.\n3. Indian embassies in both Kathmandu and Beijing set up 24x7 helplines.\nHow many of the above statements are correct?",
-            "hi": "नेपाल आकस्मिक बाढ़ (अगस्त 2026) पर भारत की प्रतिक्रिया के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत ने नेपाल को 47 टन से अधिक आपातकालीन राहत सामग्री भेजी है।\n2. बचाए गए 84 भारतीयों में त्रिशूली-1 परियोजना के 63 कामगार शामिल थे।\n3. काठमांडू और बीजिंग दोनों स्थित भारतीय दूतावासों ने 24x7 हेल्पलाइन शुरू कीं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about India's response to the Nepal flash flood (August 2026):\n1. India has sent more than 47 tonnes of emergency relief supplies to Nepal.\n2. Among the 84 Indians rescued were 63 workers of the Trishuli-1 project.\n3. Indian embassies in both Kathmandu and Beijing set up 24x7 helplines.\nWhich of the statements given above is/are correct?",
+            "hi": "नेपाल आकस्मिक बाढ़ (अगस्त 2026) पर भारत की प्रतिक्रिया के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत ने नेपाल को 47 टन से अधिक आपातकालीन राहत सामग्री भेजी है।\n2. बचाए गए 84 भारतीयों में त्रिशूली-1 परियोजना के 63 कामगार शामिल थे।\n3. काठमांडू और बीजिंग दोनों स्थित भारतीय दूतावासों ने 24x7 हेल्पलाइन शुरू कीं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated by MEA spokesperson Randhir Jaiswal.",
             "hi": "तीनों बातें विदेश मंत्रालय के प्रवक्ता रणधीर जायसवाल ने बताईं।"
@@ -538,27 +538,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about India's domestic response to the Nepal flash flood (August 2026):\n1. The NDRF deployed 11 teams in Bihar and 9 teams in Uttar Pradesh.\n2. Uttar Pradesh issued the helpline number 112 for its citizens stranded in Nepal.\n3. The Valmikinagar barrage being monitored in Bihar is on the Kosi river.\nHow many of the above statements are correct?",
-            "hi": "नेपाल आकस्मिक बाढ़ (अगस्त 2026) पर भारत की घरेलू प्रतिक्रिया के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. NDRF ने बिहार में 11 और उत्तर प्रदेश में 9 टीमें तैनात कीं।\n2. उत्तर प्रदेश ने नेपाल में फँसे अपने नागरिकों के लिए हेल्पलाइन नंबर 112 जारी किया।\n3. बिहार में जिस वाल्मीकिनगर बैराज की निगरानी हो रही है, वह कोसी नदी पर है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about India's domestic response to the Nepal flash flood (August 2026):\n1. The NDRF deployed 11 teams in Bihar and 9 teams in Uttar Pradesh.\n2. Uttar Pradesh issued the helpline number 112 for its citizens stranded in Nepal.\n3. The Valmikinagar barrage being monitored in Bihar is on the Kosi river.\nWhich of the statements given above is/are not correct?",
+            "hi": "नेपाल आकस्मिक बाढ़ (अगस्त 2026) पर भारत की घरेलू प्रतिक्रिया के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. NDRF ने बिहार में 11 और उत्तर प्रदेश में 9 टीमें तैनात कीं।\n2. उत्तर प्रदेश ने नेपाल में फँसे अपने नागरिकों के लिए हेल्पलाइन नंबर 112 जारी किया।\n3. बिहार में जिस वाल्मीकिनगर बैराज की निगरानी हो रही है, वह कोसी नदी पर है।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "All are wrong: NDRF deployed 9 teams in Bihar and 11 in UP; UP's helpline is 1070; Valmikinagar barrage is on the Gandak.",
-            "hi": "तीनों गलत हैं: NDRF ने बिहार में 9 और उत्तर प्रदेश में 11 टीमें लगाईं; उत्तर प्रदेश की हेल्पलाइन 1070 है; वाल्मीकिनगर बैराज गंडक पर है।"
+            "en": "All three statements are incorrect. All are wrong: NDRF deployed 9 teams in Bihar and 11 in UP; UP's helpline is 1070; Valmikinagar barrage is on the Gandak.",
+            "hi": "तीनों कथन गलत हैं। तीनों गलत हैं: NDRF ने बिहार में 9 और उत्तर प्रदेश में 11 टीमें लगाईं; उत्तर प्रदेश की हेल्पलाइन 1070 है; वाल्मीकिनगर बैराज गंडक पर है।"
           }
         },
         {
@@ -771,21 +771,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the onion buffer release (August 2026):\n1. Onion production in 2025-26 is estimated at over 307 lakh metric tonnes.\n2. The PSF buffer procurement target for 2026-27 is five lakh metric tonnes of kharif onion.\n3. Buffer onions are being sold at ₹25 per kg.\nHow many of the above statements are correct?",
-            "hi": "प्याज़ बफ़र बिक्री (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. 2025-26 में प्याज़ उत्पादन 307 लाख मीट्रिक टन से अधिक अनुमानित है।\n2. 2026-27 के लिए PSF बफ़र खरीद लक्ष्य पाँच लाख मीट्रिक टन खरीफ़ प्याज़ है।\n3. बफ़र प्याज़ ₹25 प्रति किलो पर बेचा जा रहा है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the onion buffer release (August 2026):\n1. Onion production in 2025-26 is estimated at over 307 lakh metric tonnes.\n2. The PSF buffer procurement target for 2026-27 is five lakh metric tonnes of kharif onion.\n3. Buffer onions are being sold at ₹25 per kg.\nWhich of the statements given above is/are correct?",
+            "hi": "प्याज़ बफ़र बिक्री (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. 2025-26 में प्याज़ उत्पादन 307 लाख मीट्रिक टन से अधिक अनुमानित है।\n2. 2026-27 के लिए PSF बफ़र खरीद लक्ष्य पाँच लाख मीट्रिक टन खरीफ़ प्याज़ है।\n3. बफ़र प्याज़ ₹25 प्रति किलो पर बेचा जा रहा है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -984,24 +984,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Pradhan Mantri Jan Dhan Yojana (as of August 2026):\n1. It was launched on 28 August 2014.\n2. More than 59 crore accounts have been opened under it.\n3. About 78 per cent of the accounts are owned by women.\nHow many of the above statements are correct?",
-            "hi": "प्रधानमंत्री जन धन योजना (अगस्त 2026 तक) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसे 28 अगस्त 2014 को शुरू किया गया था।\n2. इसके अंतर्गत 59 करोड़ से अधिक खाते खोले गए हैं।\n3. लगभग 78 प्रतिशत खाते महिलाओं के हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Pradhan Mantri Jan Dhan Yojana (as of August 2026):\n1. It was launched on 28 August 2014.\n2. More than 59 crore accounts have been opened under it.\n3. About 78 per cent of the accounts are owned by women.\nWhich of the statements given above is/are correct?",
+            "hi": "प्रधानमंत्री जन धन योजना (अगस्त 2026 तक) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसे 28 अगस्त 2014 को शुरू किया गया था।\n2. इसके अंतर्गत 59 करोड़ से अधिक खाते खोले गए हैं।\n3. लगभग 78 प्रतिशत खाते महिलाओं के हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "3 only",
+              "1 and 2 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 3",
+              "केवल 1 और 2",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 2 are correct. 3 is wrong: about 56% of accounts are owned by women; 78% are in rural or semi-urban areas.",
             "hi": "1 और 2 सही हैं। 3 गलत है: लगभग 56% खाते महिलाओं के हैं; 78% खाते ग्रामीण या अर्ध-शहरी क्षेत्रों में हैं।"
@@ -1195,24 +1195,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about India's 2026 BRICS Chairship:\n1. The 18th BRICS Summit will be held at Bharat Mandapam, New Delhi.\n2. India earlier held the BRICS Chairship in 2012, 2016 and 2021.\n3. The year 2026 marks 20 years since BRICS was established.\nHow many of the above statements are correct?",
-            "hi": "भारत की 2026 ब्रिक्स अध्यक्षता के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. 18वाँ ब्रिक्स शिखर सम्मेलन नई दिल्ली के भारत मंडपम में होगा।\n2. भारत इससे पहले 2012, 2016 और 2021 में ब्रिक्स अध्यक्ष रहा है।\n3. वर्ष 2026 में ब्रिक्स की स्थापना के 20 वर्ष पूरे हो रहे हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about India's 2026 BRICS Chairship:\n1. The 18th BRICS Summit will be held at Bharat Mandapam, New Delhi.\n2. India earlier held the BRICS Chairship in 2012, 2016 and 2021.\n3. The year 2026 marks 20 years since BRICS was established.\nWhich of the statements given above is/are correct?",
+            "hi": "भारत की 2026 ब्रिक्स अध्यक्षता के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. 18वाँ ब्रिक्स शिखर सम्मेलन नई दिल्ली के भारत मंडपम में होगा।\n2. भारत इससे पहले 2012, 2016 और 2021 में ब्रिक्स अध्यक्ष रहा है।\n3. वर्ष 2026 में ब्रिक्स की स्थापना के 20 वर्ष पूरे हो रहे हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the official announcement of the summit.",
             "hi": "तीनों बातें शिखर सम्मेलन की आधिकारिक घोषणा में बताई गई हैं।"
@@ -1406,27 +1406,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about PM Modi's visit announced in August 2026:\n1. The State Visit to Tashkent is at the invitation of President Sadyr Zhaparov.\n2. The 26th SCO Summit in Bishkek marks the 20th anniversary of the SCO.\n3. India has been a full member of the SCO since 2015.\nHow many of the above statements are correct?",
-            "hi": "अगस्त 2026 में घोषित प्रधानमंत्री मोदी की यात्रा के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. ताशकंद की राजकीय यात्रा राष्ट्रपति सादिर ज़ापारोव के निमंत्रण पर है।\n2. बिश्केक में 26वाँ SCO शिखर सम्मेलन SCO की 20वीं वर्षगाँठ का प्रतीक है।\n3. भारत 2015 से SCO का पूर्ण सदस्य है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about PM Modi's visit announced in August 2026:\n1. The State Visit to Tashkent is at the invitation of President Sadyr Zhaparov.\n2. The 26th SCO Summit in Bishkek marks the 20th anniversary of the SCO.\n3. India has been a full member of the SCO since 2015.\nWhich of the statements given above is/are not correct?",
+            "hi": "अगस्त 2026 में घोषित प्रधानमंत्री मोदी की यात्रा के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. ताशकंद की राजकीय यात्रा राष्ट्रपति सादिर ज़ापारोव के निमंत्रण पर है।\n2. बिश्केक में 26वाँ SCO शिखर सम्मेलन SCO की 20वीं वर्षगाँठ का प्रतीक है।\n3. भारत 2015 से SCO का पूर्ण सदस्य है।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "All are wrong: the Tashkent visit is at the invitation of President Shavkat Mirziyoyev (Zhaparov is Kyrgyz President); the summit marks the 25th anniversary; India became a full member in 2017.",
-            "hi": "तीनों गलत हैं: ताशकंद यात्रा राष्ट्रपति शवकत मिर्ज़ियोयेव के निमंत्रण पर है (ज़ापारोव किर्गिज़ राष्ट्रपति हैं); शिखर सम्मेलन 25वीं वर्षगाँठ पर है; भारत 2017 में पूर्ण सदस्य बना।"
+            "en": "All three statements are incorrect. All are wrong: the Tashkent visit is at the invitation of President Shavkat Mirziyoyev (Zhaparov is Kyrgyz President); the summit marks the 25th anniversary; India became a full member in 2017.",
+            "hi": "तीनों कथन गलत हैं। तीनों गलत हैं: ताशकंद यात्रा राष्ट्रपति शवकत मिर्ज़ियोयेव के निमंत्रण पर है (ज़ापारोव किर्गिज़ राष्ट्रपति हैं); शिखर सम्मेलन 25वीं वर्षगाँठ पर है; भारत 2017 में पूर्ण सदस्य बना।"
           }
         },
         {
@@ -1598,21 +1598,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Jawaharlal Nehru Port (August 2026):\n1. It has risen to the 21st position among the world's container ports.\n2. It recorded 13.6 per cent growth in container throughput in the full year 2025.\n3. The port is located in Gujarat.\nHow many of the above statements are correct?",
-            "hi": "जवाहरलाल नेहरू पोर्ट (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह विश्व के कंटेनर बंदरगाहों में 21वें स्थान पर पहुँच गया है।\n2. इसने पूरे वर्ष 2025 में कंटेनर थ्रूपुट में 13.6 प्रतिशत वृद्धि दर्ज की।\n3. यह बंदरगाह गुजरात में स्थित है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Jawaharlal Nehru Port (August 2026):\n1. It has risen to the 21st position among the world's container ports.\n2. It recorded 13.6 per cent growth in container throughput in the full year 2025.\n3. The port is located in Gujarat.\nWhich of the statements given above is/are correct?",
+            "hi": "जवाहरलाल नेहरू पोर्ट (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह विश्व के कंटेनर बंदरगाहों में 21वें स्थान पर पहुँच गया है।\n2. इसने पूरे वर्ष 2025 में कंटेनर थ्रूपुट में 13.6 प्रतिशत वृद्धि दर्ज की।\n3. यह बंदरगाह गुजरात में स्थित है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -1801,24 +1801,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements made by the Defence Minister at Jabalpur (August 2026):\n1. The new facility at Vehicle Factory Jabalpur will overhaul 80 T-72 and T-90 tanks annually.\n2. The Indian Army requires the overhaul of around 230 such tanks every year.\n3. The government has set a target of ₹50,000 crore defence exports by 2030-31.\nHow many of the above statements are correct?",
-            "hi": "जबलपुर में रक्षा मंत्री द्वारा बताए गए निम्नलिखित कथनों पर विचार कीजिए (अगस्त 2026):\n1. व्हीकल फैक्ट्री जबलपुर की नई सुविधा प्रतिवर्ष 80 T-72 और T-90 टैंकों का ओवरहॉल करेगी।\n2. भारतीय सेना को हर वर्ष लगभग 230 ऐसे टैंकों के ओवरहॉल की आवश्यकता होती है।\n3. सरकार ने 2030-31 तक ₹50,000 करोड़ के रक्षा निर्यात का लक्ष्य रखा है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements made by the Defence Minister at Jabalpur (August 2026):\n1. The new facility at Vehicle Factory Jabalpur will overhaul 80 T-72 and T-90 tanks annually.\n2. The Indian Army requires the overhaul of around 230 such tanks every year.\n3. The government has set a target of ₹50,000 crore defence exports by 2030-31.\nWhich of the statements given above is/are correct?",
+            "hi": "जबलपुर में रक्षा मंत्री द्वारा बताए गए निम्नलिखित कथनों पर विचार कीजिए (अगस्त 2026):\n1. व्हीकल फैक्ट्री जबलपुर की नई सुविधा प्रतिवर्ष 80 T-72 और T-90 टैंकों का ओवरहॉल करेगी।\n2. भारतीय सेना को हर वर्ष लगभग 230 ऐसे टैंकों के ओवरहॉल की आवश्यकता होती है।\n3. सरकार ने 2030-31 तक ₹50,000 करोड़ के रक्षा निर्यात का लक्ष्य रखा है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "3 only",
+              "1 and 2 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 3",
+              "केवल 1 और 2",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 2 are correct. 3 is wrong: the ₹50,000 crore export target is for 2028-29.",
             "hi": "1 और 2 सही हैं। 3 गलत है: ₹50,000 करोड़ निर्यात का लक्ष्य 2028-29 के लिए है।"
@@ -2018,24 +2018,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the 'Khelo India Dialogue' (August 2026):\n1. It was organised by Mera Yuva Bharat as part of National Sports Day 2026 celebrations.\n2. The PM referred to a talent hunt to identify children aged 5 to 15 years.\n3. The Sports Minister said the Centre has sanctioned ₹36,000 crore to build a sports ecosystem.\nHow many of the above statements are correct?",
-            "hi": "'खेलो इंडिया संवाद' (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसका आयोजन मेरा युवा भारत ने राष्ट्रीय खेल दिवस 2026 समारोह के अंतर्गत किया।\n2. प्रधानमंत्री ने 5 से 15 वर्ष के बच्चों की पहचान हेतु प्रतिभा खोज का उल्लेख किया।\n3. खेल मंत्री ने कहा कि केंद्र ने खेल तंत्र के निर्माण हेतु ₹36,000 करोड़ स्वीकृत किए हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the 'Khelo India Dialogue' (August 2026):\n1. It was organised by Mera Yuva Bharat as part of National Sports Day 2026 celebrations.\n2. The PM referred to a talent hunt to identify children aged 5 to 15 years.\n3. The Sports Minister said the Centre has sanctioned ₹36,000 crore to build a sports ecosystem.\nWhich of the statements given above is/are correct?",
+            "hi": "'खेलो इंडिया संवाद' (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसका आयोजन मेरा युवा भारत ने राष्ट्रीय खेल दिवस 2026 समारोह के अंतर्गत किया।\n2. प्रधानमंत्री ने 5 से 15 वर्ष के बच्चों की पहचान हेतु प्रतिभा खोज का उल्लेख किया।\n3. खेल मंत्री ने कहा कि केंद्र ने खेल तंत्र के निर्माण हेतु ₹36,000 करोड़ स्वीकृत किए हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the reports on the Khelo India Dialogue.",
             "hi": "तीनों बातें खेलो इंडिया संवाद संबंधी रिपोर्टों में कही गई हैं।"
@@ -2243,27 +2243,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Amit Shah's address at Gujarat Vidyapith (August 2026):\n1. It was the 75th Convocation of Gujarat Vidyapith.\n2. Khadi sales rose from ₹31,000 crore in 2014 to over ₹2.87 lakh crore.\n3. The Chancellor of Gujarat Vidyapith is the Chief Minister of Gujarat.\nHow many of the above statements are correct?",
-            "hi": "गुजरात विद्यापीठ में अमित शाह के संबोधन (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह गुजरात विद्यापीठ का 75वाँ दीक्षांत समारोह था।\n2. खादी बिक्री 2014 के ₹31,000 करोड़ से बढ़कर ₹2.87 लाख करोड़ से अधिक हो गई।\n3. गुजरात विद्यापीठ के कुलाधिपति गुजरात के मुख्यमंत्री हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Amit Shah's address at Gujarat Vidyapith (August 2026):\n1. It was the 75th Convocation of Gujarat Vidyapith.\n2. Khadi sales rose from ₹31,000 crore in 2014 to over ₹2.87 lakh crore.\n3. The Chancellor of Gujarat Vidyapith is the Chief Minister of Gujarat.\nWhich of the statements given above is/are not correct?",
+            "hi": "गुजरात विद्यापीठ में अमित शाह के संबोधन (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह गुजरात विद्यापीठ का 75वाँ दीक्षांत समारोह था।\n2. खादी बिक्री 2014 के ₹31,000 करोड़ से बढ़कर ₹2.87 लाख करोड़ से अधिक हो गई।\n3. गुजरात विद्यापीठ के कुलाधिपति गुजरात के मुख्यमंत्री हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "All are wrong: it was the 72nd Convocation; Khadi sales are over ₹1.87 lakh crore; the Chancellor is Governor Acharya Devvrat.",
-            "hi": "तीनों गलत हैं: यह 72वाँ दीक्षांत समारोह था; खादी बिक्री ₹1.87 लाख करोड़ से अधिक है; कुलाधिपति राज्यपाल आचार्य देवव्रत हैं।"
+            "en": "All three statements are incorrect. All are wrong: it was the 72nd Convocation; Khadi sales are over ₹1.87 lakh crore; the Chancellor is Governor Acharya Devvrat.",
+            "hi": "तीनों कथन गलत हैं। तीनों गलत हैं: यह 72वाँ दीक्षांत समारोह था; खादी बिक्री ₹1.87 लाख करोड़ से अधिक है; कुलाधिपति राज्यपाल आचार्य देवव्रत हैं।"
           }
         },
         {
@@ -2461,21 +2461,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the North Eastern Regional Power Committee (NERPC):\n1. It was constituted under the Ministry of Power in accordance with the Electricity Act, 2003.\n2. Its chairmanship is held permanently by Assam.\n3. Union ministries earmark 20 per cent of their Gross Budgetary Support for the Northeast.\nHow many of the above statements are correct?",
-            "hi": "उत्तर पूर्वी क्षेत्रीय विद्युत समिति (NERPC) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसका गठन विद्युत मंत्रालय के अधीन विद्युत अधिनियम, 2003 के अनुसार किया गया।\n2. इसकी अध्यक्षता स्थायी रूप से असम के पास रहती है।\n3. केंद्रीय मंत्रालय अपनी सकल बजटीय सहायता का 20 प्रतिशत पूर्वोत्तर के लिए निर्धारित करते हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the North Eastern Regional Power Committee (NERPC):\n1. It was constituted under the Ministry of Power in accordance with the Electricity Act, 2003.\n2. Its chairmanship is held permanently by Assam.\n3. Union ministries earmark 20 per cent of their Gross Budgetary Support for the Northeast.\nWhich of the statements given above is/are correct?",
+            "hi": "उत्तर पूर्वी क्षेत्रीय विद्युत समिति (NERPC) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसका गठन विद्युत मंत्रालय के अधीन विद्युत अधिनियम, 2003 के अनुसार किया गया।\n2. इसकी अध्यक्षता स्थायी रूप से असम के पास रहती है।\n3. केंद्रीय मंत्रालय अपनी सकल बजटीय सहायता का 20 प्रतिशत पूर्वोत्तर के लिए निर्धारित करते हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
           "answer": 0,
@@ -2658,21 +2658,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements made by Pralhad Joshi (August 2026):\n1. The Bharat Renewable Energy Summit and Expo 2026 will be held in New Delhi from 2 to 5 November.\n2. Around 8 to 10 countries will take part as partner countries.\n3. Solar systems have been installed on one crore houses under PM Surya Ghar.\nHow many of the above statements are correct?",
-            "hi": "प्रल्हाद जोशी (अगस्त 2026) के निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत नवीकरणीय ऊर्जा शिखर सम्मेलन एवं एक्सपो 2026 नई दिल्ली में 2 से 5 नवंबर तक होगा।\n2. लगभग 8 से 10 देश साझेदार देश के रूप में भाग लेंगे।\n3. पीएम सूर्य घर के तहत एक करोड़ घरों पर सौर प्रणाली स्थापित हो चुकी है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements made by Pralhad Joshi (August 2026):\n1. The Bharat Renewable Energy Summit and Expo 2026 will be held in New Delhi from 2 to 5 November.\n2. Around 8 to 10 countries will take part as partner countries.\n3. Solar systems have been installed on one crore houses under PM Surya Ghar.\nWhich of the statements given above is/are correct?",
+            "hi": "प्रल्हाद जोशी (अगस्त 2026) के निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत नवीकरणीय ऊर्जा शिखर सम्मेलन एवं एक्सपो 2026 नई दिल्ली में 2 से 5 नवंबर तक होगा।\n2. लगभग 8 से 10 देश साझेदार देश के रूप में भाग लेंगे।\n3. पीएम सूर्य घर के तहत एक करोड़ घरों पर सौर प्रणाली स्थापित हो चुकी है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 1,
@@ -2844,24 +2844,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements in the context of India–Vietnam relations (August 2026):\n1. Pabitra Margherita, who called on Vietnam's Prime Minister, is the Minister of State for External Affairs.\n2. India–Vietnam ties have been elevated to an Enhanced Comprehensive Strategic Partnership.\n3. To Lam is the General Secretary and President of Vietnam.\nHow many of the above statements are correct?",
-            "hi": "भारत–वियतनाम संबंधों (अगस्त 2026) के संदर्भ में निम्नलिखित कथनों पर विचार कीजिए:\n1. वियतनाम के प्रधानमंत्री से भेंट करने वाले पबित्र मार्गेरिटा विदेश राज्य मंत्री हैं।\n2. भारत–वियतनाम संबंधों को संवर्धित व्यापक रणनीतिक साझेदारी तक उन्नत किया गया है।\n3. तो लाम वियतनाम के महासचिव एवं राष्ट्रपति हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements in the context of India–Vietnam relations (August 2026):\n1. Pabitra Margherita, who called on Vietnam's Prime Minister, is the Minister of State for External Affairs.\n2. India–Vietnam ties have been elevated to an Enhanced Comprehensive Strategic Partnership.\n3. To Lam is the General Secretary and President of Vietnam.\nWhich of the statements given above is/are correct?",
+            "hi": "भारत–वियतनाम संबंधों (अगस्त 2026) के संदर्भ में निम्नलिखित कथनों पर विचार कीजिए:\n1. वियतनाम के प्रधानमंत्री से भेंट करने वाले पबित्र मार्गेरिटा विदेश राज्य मंत्री हैं।\n2. भारत–वियतनाम संबंधों को संवर्धित व्यापक रणनीतिक साझेदारी तक उन्नत किया गया है।\n3. तो लाम वियतनाम के महासचिव एवं राष्ट्रपति हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the report of the Hanoi meeting.",
             "hi": "तीनों बातें हनोई बैठक की रिपोर्ट में बताई गई हैं।"
@@ -3041,27 +3041,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about US visa measures (August 2026):\n1. The US paused all non-immigrant visa applications across the world.\n2. The Trump administration proposed a new H-1B application fee of US$10,326.\n3. The H-1B is an immigrant visa that grants permanent residence.\nHow many of the above statements are correct?",
-            "hi": "अमेरिकी वीज़ा उपायों (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. अमेरिका ने विश्वभर में सभी गैर-आप्रवासी वीज़ा आवेदन रोक दिए।\n2. ट्रंप प्रशासन ने H-1B के लिए 10,326 अमेरिकी डॉलर के नए आवेदन शुल्क का प्रस्ताव रखा।\n3. H-1B एक आप्रवासी वीज़ा है जो स्थायी निवास प्रदान करता है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about US visa measures (August 2026):\n1. The US paused all non-immigrant visa applications across the world.\n2. The Trump administration proposed a new H-1B application fee of US$10,326.\n3. The H-1B is an immigrant visa that grants permanent residence.\nWhich of the statements given above is/are not correct?",
+            "hi": "अमेरिकी वीज़ा उपायों (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. अमेरिका ने विश्वभर में सभी गैर-आप्रवासी वीज़ा आवेदन रोक दिए।\n2. ट्रंप प्रशासन ने H-1B के लिए 10,326 अमेरिकी डॉलर के नए आवेदन शुल्क का प्रस्ताव रखा।\n3. H-1B एक आप्रवासी वीज़ा है जो स्थायी निवास प्रदान करता है।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "All are wrong: the pause covers immigrant visa applications; the proposed H-1B fee is US$103,265; H-1B is a non-immigrant visa.",
-            "hi": "तीनों गलत हैं: रोक आप्रवासी वीज़ा आवेदनों पर है; प्रस्तावित H-1B शुल्क 1,03,265 डॉलर है; H-1B गैर-आप्रवासी वीज़ा है।"
+            "en": "All three statements are incorrect. All are wrong: the pause covers immigrant visa applications; the proposed H-1B fee is US$103,265; H-1B is a non-immigrant visa.",
+            "hi": "तीनों कथन गलत हैं। तीनों गलत हैं: रोक आप्रवासी वीज़ा आवेदनों पर है; प्रस्तावित H-1B शुल्क 1,03,265 डॉलर है; H-1B गैर-आप्रवासी वीज़ा है।"
           }
         },
         {
@@ -3238,21 +3238,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Meta's settlement in the US (August 2026):\n1. Meta agreed to pay US$18 billion and add stronger child-safety measures.\n2. The settlement resolves claims filed by 29 US states.\n3. The lawsuit alleged that Meta collected data on children under 16 without parental consent.\nHow many of the above statements are correct?",
-            "hi": "अमेरिका में मेटा के समझौते (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. मेटा 18 अरब अमेरिकी डॉलर देने और कड़े बाल-सुरक्षा उपाय जोड़ने पर सहमत हुआ।\n2. यह समझौता 29 अमेरिकी राज्यों के दावों का निपटारा करता है।\n3. मुकदमे में आरोप था कि मेटा ने 16 वर्ष से कम आयु के बच्चों का डेटा बिना अभिभावक सहमति एकत्र किया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Meta's settlement in the US (August 2026):\n1. Meta agreed to pay US$18 billion and add stronger child-safety measures.\n2. The settlement resolves claims filed by 29 US states.\n3. The lawsuit alleged that Meta collected data on children under 16 without parental consent.\nWhich of the statements given above is/are correct?",
+            "hi": "अमेरिका में मेटा के समझौते (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. मेटा 18 अरब अमेरिकी डॉलर देने और कड़े बाल-सुरक्षा उपाय जोड़ने पर सहमत हुआ।\n2. यह समझौता 29 अमेरिकी राज्यों के दावों का निपटारा करता है।\n3. मुकदमे में आरोप था कि मेटा ने 16 वर्ष से कम आयु के बच्चों का डेटा बिना अभिभावक सहमति एकत्र किया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
           "answer": 0,
@@ -3437,24 +3437,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Karnataka's Cabinet Sub-Committee on student issues (August 2026):\n1. It is chaired by Health and Family Welfare Minister U T Khadar.\n2. Its mandate includes the integrity of examinations and recruitment and student mental health.\n3. The Chief Minister is the Chairman of the sub-committee.\nHow many of the above statements are correct?",
-            "hi": "छात्र मुद्दों पर कर्नाटक की मंत्रिमंडलीय उप-समिति (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसकी अध्यक्षता स्वास्थ्य एवं परिवार कल्याण मंत्री यू. टी. खादर कर रहे हैं।\n2. इसके दायित्व में परीक्षा व भर्ती की शुचिता और छात्र मानसिक स्वास्थ्य शामिल हैं।\n3. मुख्यमंत्री इस उप-समिति के अध्यक्ष हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Karnataka's Cabinet Sub-Committee on student issues (August 2026):\n1. It is chaired by Health and Family Welfare Minister U T Khadar.\n2. Its mandate includes the integrity of examinations and recruitment and student mental health.\n3. The Chief Minister is the Chairman of the sub-committee.\nWhich of the statements given above is/are correct?",
+            "hi": "छात्र मुद्दों पर कर्नाटक की मंत्रिमंडलीय उप-समिति (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसकी अध्यक्षता स्वास्थ्य एवं परिवार कल्याण मंत्री यू. टी. खादर कर रहे हैं।\n2. इसके दायित्व में परीक्षा व भर्ती की शुचिता और छात्र मानसिक स्वास्थ्य शामिल हैं।\n3. मुख्यमंत्री इस उप-समिति के अध्यक्ष हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "3 only",
+              "1 and 2 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 3",
+              "केवल 1 और 2",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 2 are correct. 3 is wrong: U T Khadar, not the Chief Minister, is Chairman.",
             "hi": "1 और 2 सही हैं। 3 गलत है: अध्यक्ष यू. टी. खादर हैं, मुख्यमंत्री नहीं।"
@@ -3636,24 +3636,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about seasonal disease outbreaks reported in August 2026:\n1. Tamil Nadu reported seven deaths due to dengue.\n2. Over 12,000 people in Tamil Nadu were affected by dengue fever.\n3. Delhi's total H1N1 case count reached 2,612.\nHow many of the above statements are correct?",
-            "hi": "अगस्त 2026 में दर्ज मौसमी रोग प्रकोप के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. तमिलनाडु में डेंगू से सात मौतें दर्ज हुईं।\n2. तमिलनाडु में 12,000 से अधिक लोग डेंगू बुखार से प्रभावित हुए।\n3. दिल्ली में H1N1 के कुल मामले 2,612 तक पहुँचे।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about seasonal disease outbreaks reported in August 2026:\n1. Tamil Nadu reported seven deaths due to dengue.\n2. Over 12,000 people in Tamil Nadu were affected by dengue fever.\n3. Delhi's total H1N1 case count reached 2,612.\nWhich of the statements given above is/are correct?",
+            "hi": "अगस्त 2026 में दर्ज मौसमी रोग प्रकोप के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. तमिलनाडु में डेंगू से सात मौतें दर्ज हुईं।\n2. तमिलनाडु में 12,000 से अधिक लोग डेंगू बुखार से प्रभावित हुए।\n3. दिल्ली में H1N1 के कुल मामले 2,612 तक पहुँचे।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three figures were stated by the Tamil Nadu and Delhi Health Ministers.",
             "hi": "तीनों आँकड़े तमिलनाडु और दिल्ली के स्वास्थ्य मंत्रियों ने बताए।"
@@ -3839,27 +3839,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the NHRC notice to Maharashtra (August 2026):\n1. The NHRC acted on a complaint filed by the victims' families.\n2. The Commission sought a detailed report within four weeks.\n3. The fire occurred at a hospital in Nagpur.\nHow many of the above statements are correct?",
-            "hi": "महाराष्ट्र को NHRC के नोटिस (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. NHRC ने पीड़ित परिवारों की शिकायत पर कार्रवाई की।\n2. आयोग ने चार सप्ताह में विस्तृत रिपोर्ट माँगी।\n3. आग नागपुर के एक अस्पताल में लगी थी।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the NHRC notice to Maharashtra (August 2026):\n1. The NHRC acted on a complaint filed by the victims' families.\n2. The Commission sought a detailed report within four weeks.\n3. The fire occurred at a hospital in Nagpur.\nWhich of the statements given above is/are not correct?",
+            "hi": "महाराष्ट्र को NHRC के नोटिस (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. NHRC ने पीड़ित परिवारों की शिकायत पर कार्रवाई की।\n2. आयोग ने चार सप्ताह में विस्तृत रिपोर्ट माँगी।\n3. आग नागपुर के एक अस्पताल में लगी थी।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "All are wrong: NHRC took suo motu cognizance of a media report, sought a report within two weeks, and the hospital is in Amravati.",
-            "hi": "तीनों गलत हैं: NHRC ने मीडिया रिपोर्ट पर स्वतः संज्ञान लिया, दो सप्ताह में रिपोर्ट माँगी, और अस्पताल अमरावती में है।"
+            "en": "All three statements are incorrect. All are wrong: NHRC took suo motu cognizance of a media report, sought a report within two weeks, and the hospital is in Amravati.",
+            "hi": "तीनों कथन गलत हैं। तीनों गलत हैं: NHRC ने मीडिया रिपोर्ट पर स्वतः संज्ञान लिया, दो सप्ताह में रिपोर्ट माँगी, और अस्पताल अमरावती में है।"
           }
         },
         {
@@ -4030,21 +4030,21 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about Haryana's Raksha Bandhan bus scheme (August 2026):\n1. Women can travel free on Haryana State Transport's ordinary buses.\n2. Children up to the age of 12 can accompany women without fare.\n3. The facility is not valid for travel to Delhi and Chandigarh.\nHow many of the above statements are correct?",
-            "hi": "हरियाणा की रक्षाबंधन बस योजना (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. महिलाएँ हरियाणा राज्य परिवहन की साधारण बसों में निःशुल्क यात्रा कर सकती हैं।\n2. 12 वर्ष तक के बच्चे महिलाओं के साथ बिना किराया यात्रा कर सकते हैं।\n3. यह सुविधा दिल्ली और चंडीगढ़ की यात्रा के लिए मान्य नहीं है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Haryana's Raksha Bandhan bus scheme (August 2026):\n1. Women can travel free on Haryana State Transport's ordinary buses.\n2. Children up to the age of 12 can accompany women without fare.\n3. The facility is not valid for travel to Delhi and Chandigarh.\nWhich of the statements given above is/are correct?",
+            "hi": "हरियाणा की रक्षाबंधन बस योजना (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. महिलाएँ हरियाणा राज्य परिवहन की साधारण बसों में निःशुल्क यात्रा कर सकती हैं।\n2. 12 वर्ष तक के बच्चे महिलाओं के साथ बिना किराया यात्रा कर सकते हैं।\n3. यह सुविधा दिल्ली और चंडीगढ़ की यात्रा के लिए मान्य नहीं है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 0,
@@ -4218,21 +4218,21 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about India's Test tour of Sri Lanka (August 2026):\n1. India won the two-match series 1-0.\n2. India declared their first innings of the second Test at 503 for 9.\n3. The second Test was played in Galle.\nHow many of the above statements are correct?",
-            "hi": "भारत के श्रीलंका टेस्ट दौरे (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत ने दो मैचों की शृंखला 1-0 से जीती।\n2. भारत ने दूसरे टेस्ट की पहली पारी 9 विकेट पर 503 रन पर घोषित की।\n3. दूसरा टेस्ट गॉल में खेला गया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about India's Test tour of Sri Lanka (August 2026):\n1. India won the two-match series 1-0.\n2. India declared their first innings of the second Test at 503 for 9.\n3. The second Test was played in Galle.\nWhich of the statements given above is/are correct?",
+            "hi": "भारत के श्रीलंका टेस्ट दौरे (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत ने दो मैचों की शृंखला 1-0 से जीती।\n2. भारत ने दूसरे टेस्ट की पहली पारी 9 विकेट पर 503 रन पर घोषित की।\n3. दूसरा टेस्ट गॉल में खेला गया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 1,
@@ -4409,24 +4409,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about Grand Master Trilok Subba (August 2026):\n1. He is from Sikkim.\n2. He will compete at the World Taekwondo Poomsae Championship in Chuncheon, South Korea.\n3. The Championship is scheduled from 16 to 20 September.\nHow many of the above statements are correct?",
-            "hi": "ग्रैंड मास्टर त्रिलोक सुब्बा (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. वे सिक्किम से हैं।\n2. वे दक्षिण कोरिया के चुनचियोन में विश्व ताइक्वांडो पूमसे चैंपियनशिप में भाग लेंगे।\n3. चैंपियनशिप 16 से 20 सितंबर तक निर्धारित है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Grand Master Trilok Subba (August 2026):\n1. He is from Sikkim.\n2. He will compete at the World Taekwondo Poomsae Championship in Chuncheon, South Korea.\n3. The Championship is scheduled from 16 to 20 September.\nWhich of the statements given above is/are correct?",
+            "hi": "ग्रैंड मास्टर त्रिलोक सुब्बा (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. वे सिक्किम से हैं।\n2. वे दक्षिण कोरिया के चुनचियोन में विश्व ताइक्वांडो पूमसे चैंपियनशिप में भाग लेंगे।\n3. चैंपियनशिप 16 से 20 सितंबर तक निर्धारित है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the AIR report.",
             "hi": "तीनों बातें आकाशवाणी की रिपोर्ट में बताई गई हैं।"
@@ -4603,27 +4603,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about NITI Aayog's review in J&K (August 2026):\n1. The review was conducted by the Vice-Chairman of NITI Aayog.\n2. The review meeting was held in Jammu.\n3. It was said that the focus in J&K has shifted from growth to safety and security.\nHow many of the above statements are correct?",
-            "hi": "जम्मू-कश्मीर में नीति आयोग की समीक्षा (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. समीक्षा नीति आयोग के उपाध्यक्ष ने की।\n2. समीक्षा बैठक जम्मू में हुई।\n3. कहा गया कि जम्मू-कश्मीर में ध्यान विकास से हटकर सुरक्षा पर केंद्रित हो गया है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about NITI Aayog's review in J&K (August 2026):\n1. The review was conducted by the Vice-Chairman of NITI Aayog.\n2. The review meeting was held in Jammu.\n3. It was said that the focus in J&K has shifted from growth to safety and security.\nWhich of the statements given above is/are not correct?",
+            "hi": "जम्मू-कश्मीर में नीति आयोग की समीक्षा (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. समीक्षा नीति आयोग के उपाध्यक्ष ने की।\n2. समीक्षा बैठक जम्मू में हुई।\n3. कहा गया कि जम्मू-कश्मीर में ध्यान विकास से हटकर सुरक्षा पर केंद्रित हो गया है।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "All are wrong: the review was by NITI Aayog Member Dr M. Srinivas, in Srinagar, and he said the focus has shifted from security to growth and development.",
-            "hi": "तीनों गलत हैं: समीक्षा नीति आयोग सदस्य डॉ. एम. श्रीनिवास ने श्रीनगर में की, और उन्होंने कहा कि ध्यान सुरक्षा से हटकर विकास पर गया है।"
+            "en": "All three statements are incorrect. All are wrong: the review was by NITI Aayog Member Dr M. Srinivas, in Srinagar, and he said the focus has shifted from security to growth and development.",
+            "hi": "तीनों कथन गलत हैं। तीनों गलत हैं: समीक्षा नीति आयोग सदस्य डॉ. एम. श्रीनिवास ने श्रीनगर में की, और उन्होंने कहा कि ध्यान सुरक्षा से हटकर विकास पर गया है।"
           }
         },
         {
@@ -4799,21 +4799,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about President Murmu's address to IFS officer trainees (August 2026):\n1. She urged that Indian Missions always remain accessible to nationals in times of need.\n2. She said the officers represent the aspirations of 120 crore countrymen.\n3. The interaction took place at the Sushma Swaraj Bhawan.\nHow many of the above statements are correct?",
-            "hi": "IFS अधिकारी प्रशिक्षुओं को राष्ट्रपति मुर्मु के संबोधन (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. उन्होंने आग्रह किया कि भारतीय मिशन संकट के समय नागरिकों के लिए सदैव सुलभ रहें।\n2. उन्होंने कहा कि ये अधिकारी 120 करोड़ देशवासियों की आकांक्षाओं का प्रतिनिधित्व करते हैं।\n3. यह संवाद सुषमा स्वराज भवन में हुआ।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about President Murmu's address to IFS officer trainees (August 2026):\n1. She urged that Indian Missions always remain accessible to nationals in times of need.\n2. She said the officers represent the aspirations of 120 crore countrymen.\n3. The interaction took place at the Sushma Swaraj Bhawan.\nWhich of the statements given above is/are correct?",
+            "hi": "IFS अधिकारी प्रशिक्षुओं को राष्ट्रपति मुर्मु के संबोधन (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. उन्होंने आग्रह किया कि भारतीय मिशन संकट के समय नागरिकों के लिए सदैव सुलभ रहें।\n2. उन्होंने कहा कि ये अधिकारी 120 करोड़ देशवासियों की आकांक्षाओं का प्रतिनिधित्व करते हैं।\n3. यह संवाद सुषमा स्वराज भवन में हुआ।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 0,
@@ -4995,21 +4995,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about FM Sitharaman's engagement in Canada (August 2026):\n1. She addressed a high-level Business Roundtable in Toronto.\n2. She highlighted opportunities for Canadian companies in GIFT IFSC.\n3. India and Canada aim to raise two-way trade to US$100 billion annually by 2030.\nHow many of the above statements are correct?",
-            "hi": "कनाडा में वित्त मंत्री सीतारमण के कार्यक्रम (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. उन्होंने टोरंटो में उच्चस्तरीय व्यापार गोलमेज़ बैठक को संबोधित किया।\n2. उन्होंने GIFT IFSC में कनाडाई कंपनियों के अवसरों को रेखांकित किया।\n3. भारत और कनाडा का लक्ष्य 2030 तक द्विपक्षीय व्यापार 100 अरब डॉलर प्रतिवर्ष करना है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about FM Sitharaman's engagement in Canada (August 2026):\n1. She addressed a high-level Business Roundtable in Toronto.\n2. She highlighted opportunities for Canadian companies in GIFT IFSC.\n3. India and Canada aim to raise two-way trade to US$100 billion annually by 2030.\nWhich of the statements given above is/are correct?",
+            "hi": "कनाडा में वित्त मंत्री सीतारमण के कार्यक्रम (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. उन्होंने टोरंटो में उच्चस्तरीय व्यापार गोलमेज़ बैठक को संबोधित किया।\n2. उन्होंने GIFT IFSC में कनाडाई कंपनियों के अवसरों को रेखांकित किया।\n3. भारत और कनाडा का लक्ष्य 2030 तक द्विपक्षीय व्यापार 100 अरब डॉलर प्रतिवर्ष करना है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 1,
@@ -5196,24 +5196,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Piyush Goyal's remarks in Japan (August 2026):\n1. India will seek greater market access for basmati rice in Japan during the CEPA review.\n2. He addressed an Investors and Business Roadshow in Osaka.\n3. He noted that rice is a sensitive sector in Japan.\nHow many of the above statements are correct?",
-            "hi": "जापान में पीयूष गोयल के वक्तव्यों (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. CEPA समीक्षा में भारत जापान में बासमती चावल के लिए अधिक बाज़ार पहुँच माँगेगा।\n2. उन्होंने ओसाका में निवेशक एवं व्यापार रोडशो को संबोधित किया।\n3. उन्होंने कहा कि जापान में चावल संवेदनशील क्षेत्र है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Piyush Goyal's remarks in Japan (August 2026):\n1. India will seek greater market access for basmati rice in Japan during the CEPA review.\n2. He addressed an Investors and Business Roadshow in Osaka.\n3. He noted that rice is a sensitive sector in Japan.\nWhich of the statements given above is/are correct?",
+            "hi": "जापान में पीयूष गोयल के वक्तव्यों (अगस्त 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. CEPA समीक्षा में भारत जापान में बासमती चावल के लिए अधिक बाज़ार पहुँच माँगेगा।\n2. उन्होंने ओसाका में निवेशक एवं व्यापार रोडशो को संबोधित किया।\n3. उन्होंने कहा कि जापान में चावल संवेदनशील क्षेत्र है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the report of Goyal's Osaka address.",
             "hi": "तीनों बातें गोयल के ओसाका संबोधन की रिपोर्ट में बताई गई हैं।"
@@ -5382,27 +5382,27 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about A. Balakrishnan, who passed away in August 2026:\n1. He served as the All India President of the Ramakrishna Mission.\n2. He devoted more than three decades to the ideals of Swami Vivekananda.\n3. The PM noted his particularly deep association with Ladakh.\nHow many of the above statements are correct?",
-            "hi": "अगस्त 2026 में दिवंगत ए. बालकृष्णन के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. वे रामकृष्ण मिशन के अखिल भारतीय अध्यक्ष रहे।\n2. उन्होंने तीन दशक से अधिक समय स्वामी विवेकानंद के आदर्शों को समर्पित किया।\n3. प्रधानमंत्री ने लद्दाख से उनके विशेष गहरे जुड़ाव का उल्लेख किया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about A. Balakrishnan, who passed away in August 2026:\n1. He served as the All India President of the Ramakrishna Mission.\n2. He devoted more than three decades to the ideals of Swami Vivekananda.\n3. The PM noted his particularly deep association with Ladakh.\nWhich of the statements given above is/are not correct?",
+            "hi": "अगस्त 2026 में दिवंगत ए. बालकृष्णन के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. वे रामकृष्ण मिशन के अखिल भारतीय अध्यक्ष रहे।\n2. उन्होंने तीन दशक से अधिक समय स्वामी विवेकानंद के आदर्शों को समर्पित किया।\n3. प्रधानमंत्री ने लद्दाख से उनके विशेष गहरे जुड़ाव का उल्लेख किया।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "All are wrong: he headed Vivekananda Kendra, served for more than five decades, and had a deep association with the Northeast.",
-            "hi": "तीनों गलत हैं: वे विवेकानंद केंद्र के अध्यक्ष थे, पाँच दशक से अधिक सेवा की, और उनका पूर्वोत्तर से गहरा जुड़ाव था।"
+            "en": "All three statements are incorrect. All are wrong: he headed Vivekananda Kendra, served for more than five decades, and had a deep association with the Northeast.",
+            "hi": "तीनों कथन गलत हैं। तीनों गलत हैं: वे विवेकानंद केंद्र के अध्यक्ष थे, पाँच दशक से अधिक सेवा की, और उनका पूर्वोत्तर से गहरा जुड़ाव था।"
           }
         },
         {

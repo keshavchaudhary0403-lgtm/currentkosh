@@ -81,24 +81,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about India's response to the West Asia situation (May 2026):\n1. MT Sarv Shakti, carrying India-bound LPG, is an Indian-flagged vessel.\n2. MT Sarv Shakti is expected to arrive at Visakhapatnam.\n3. The Indian embassy in Tehran has facilitated the movement of over 2,500 Indians out of Iran through land routes.\nHow many of the above statements are correct?",
-            "hi": "पश्चिम एशिया स्थिति पर भारत की प्रतिक्रिया (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत के लिए LPG ले जा रहा MT सर्व शक्ति भारतीय ध्वज वाला पोत है।\n2. MT सर्व शक्ति के विशाखापत्तनम पहुँचने की संभावना है।\n3. तेहरान स्थित भारतीय दूतावास ने 2,500 से अधिक भारतीयों को स्थल मार्ग से ईरान से बाहर निकलने में सहायता की है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about India's response to the West Asia situation (May 2026):\n1. MT Sarv Shakti, carrying India-bound LPG, is an Indian-flagged vessel.\n2. MT Sarv Shakti is expected to arrive at Visakhapatnam.\n3. The Indian embassy in Tehran has facilitated the movement of over 2,500 Indians out of Iran through land routes.\nWhich of the statements given above is/are correct?",
+            "hi": "पश्चिम एशिया स्थिति पर भारत की प्रतिक्रिया (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत के लिए LPG ले जा रहा MT सर्व शक्ति भारतीय ध्वज वाला पोत है।\n2. MT सर्व शक्ति के विशाखापत्तनम पहुँचने की संभावना है।\n3. तेहरान स्थित भारतीय दूतावास ने 2,500 से अधिक भारतीयों को स्थल मार्ग से ईरान से बाहर निकलने में सहायता की है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "2 and 3 are correct. 1 is wrong: the vessel is Marshall Islands-flagged.",
             "hi": "2 और 3 सही हैं। 1 गलत है: यह पोत मार्शल द्वीप के ध्वज वाला है।"
@@ -300,27 +300,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Iran's peace proposal to the US (May 2026):\n1. The proposal links any easing in the Strait of Hormuz to prior agreement on the nuclear issue.\n2. Iran has rejected any limits on uranium enrichment under any circumstances.\n3. President Trump welcomed the proposal as a sufficient basis for a deal.\nHow many of the above statements are correct?",
-            "hi": "अमेरिका को ईरान के शांति प्रस्ताव (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. प्रस्ताव होर्मुज़ में किसी भी ढील को पहले परमाणु मुद्दे पर सहमति से जोड़ता है।\n2. ईरान ने किसी भी परिस्थिति में यूरेनियम संवर्धन पर सीमा को अस्वीकार किया है।\n3. राष्ट्रपति ट्रंप ने प्रस्ताव का समझौते के पर्याप्त आधार के रूप में स्वागत किया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Iran's peace proposal to the US (May 2026):\n1. The proposal links any easing in the Strait of Hormuz to prior agreement on the nuclear issue.\n2. Iran has rejected any limits on uranium enrichment under any circumstances.\n3. President Trump welcomed the proposal as a sufficient basis for a deal.\nWhich of the statements given above is/are not correct?",
+            "hi": "अमेरिका को ईरान के शांति प्रस्ताव (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. प्रस्ताव होर्मुज़ में किसी भी ढील को पहले परमाणु मुद्दे पर सहमति से जोड़ता है।\n2. ईरान ने किसी भी परिस्थिति में यूरेनियम संवर्धन पर सीमा को अस्वीकार किया है।\n3. राष्ट्रपति ट्रंप ने प्रस्ताव का समझौते के पर्याप्त आधार के रूप में स्वागत किया।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the plan separates conflict management from the nuclear dispute, Iran may consider enrichment limits with sanctions relief, and Trump said he was not satisfied.",
-            "hi": "कोई सही नहीं: योजना संघर्ष प्रबंधन को परमाणु विवाद से अलग करती है, ईरान प्रतिबंध-राहत के साथ संवर्धन सीमा पर विचार कर सकता है, और ट्रंप ने असंतोष जताया।"
+            "en": "All three statements are incorrect. the plan separates conflict management from the nuclear dispute, Iran may consider enrichment limits with sanctions relief, and Trump said he was not satisfied.",
+            "hi": "तीनों कथन गलत हैं। कोई सही नहीं: योजना संघर्ष प्रबंधन को परमाणु विवाद से अलग करती है, ईरान प्रतिबंध-राहत के साथ संवर्धन सीमा पर विचार कर सकता है, और ट्रंप ने असंतोष जताया।"
           }
         },
         {
@@ -509,24 +509,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the OPEC+ decision of May 2026:\n1. Seven OPEC+ countries agreed in principle to raise June output targets by about 1,88,000 barrels per day.\n2. It is the third consecutive monthly increase.\n3. After the UAE's exit, OPEC+ has 21 members, including Iran.\nHow many of the above statements are correct?",
-            "hi": "मई 2026 के OPEC+ निर्णय के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. सात OPEC+ देशों ने जून के उत्पादन लक्ष्य लगभग 1,88,000 बैरल प्रतिदिन बढ़ाने पर सैद्धांतिक सहमति दी।\n2. यह लगातार तीसरी मासिक वृद्धि है।\n3. UAE के बाहर होने के बाद OPEC+ में ईरान सहित 21 सदस्य हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the OPEC+ decision of May 2026:\n1. Seven OPEC+ countries agreed in principle to raise June output targets by about 1,88,000 barrels per day.\n2. It is the third consecutive monthly increase.\n3. After the UAE's exit, OPEC+ has 21 members, including Iran.\nWhich of the statements given above is/are correct?",
+            "hi": "मई 2026 के OPEC+ निर्णय के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. सात OPEC+ देशों ने जून के उत्पादन लक्ष्य लगभग 1,88,000 बैरल प्रतिदिन बढ़ाने पर सैद्धांतिक सहमति दी।\n2. यह लगातार तीसरी मासिक वृद्धि है।\n3. UAE के बाहर होने के बाद OPEC+ में ईरान सहित 21 सदस्य हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the cartel's statement as reported by AIR.",
             "hi": "AIR द्वारा रिपोर्ट किए गए कार्टेल के बयान में तीनों तथ्य दिए गए हैं।"
@@ -710,24 +710,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Mission Drishti:\n1. It was launched by ISRO's PSLV from Sriharikota.\n2. It weighs 190 kg and is the largest Earth observation satellite built by a private Indian company.\n3. It is described as the world's first OptoSAR satellite.\nHow many of the above statements are correct?",
-            "hi": "मिशन दृष्टि के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसे ISRO के PSLV द्वारा श्रीहरिकोटा से प्रक्षेपित किया गया।\n2. इसका भार 190 किग्रा है और यह निजी भारतीय कंपनी द्वारा निर्मित सबसे बड़ा पृथ्वी अवलोकन उपग्रह है।\n3. इसे विश्व का पहला OptoSAR उपग्रह बताया गया है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Mission Drishti:\n1. It was launched by ISRO's PSLV from Sriharikota.\n2. It weighs 190 kg and is the largest Earth observation satellite built by a private Indian company.\n3. It is described as the world's first OptoSAR satellite.\nWhich of the statements given above is/are correct?",
+            "hi": "मिशन दृष्टि के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसे ISRO के PSLV द्वारा श्रीहरिकोटा से प्रक्षेपित किया गया।\n2. इसका भार 190 किग्रा है और यह निजी भारतीय कंपनी द्वारा निर्मित सबसे बड़ा पृथ्वी अवलोकन उपग्रह है।\n3. इसे विश्व का पहला OptoSAR उपग्रह बताया गया है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "2 and 3 are correct. 1 is wrong: it was launched on SpaceX's Falcon 9 from California.",
             "hi": "2 और 3 सही हैं। 1 गलत है: इसे कैलिफ़ोर्निया से SpaceX के फ़ाल्कन 9 द्वारा प्रक्षेपित किया गया।"
@@ -927,24 +927,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Falta repoll (May 2026):\n1. Falta Assembly constituency lies in South 24 Parganas district of West Bengal.\n2. Fresh polling was ordered at only a few affected booths.\n3. Counting of votes for Falta will be held on 24 May.\nHow many of the above statements are correct?",
-            "hi": "फलता पुनर्मतदान (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. फलता विधानसभा क्षेत्र पश्चिम बंगाल के दक्षिण 24 परगना ज़िले में है।\n2. पुनर्मतदान केवल कुछ प्रभावित बूथों पर कराने का आदेश दिया गया।\n3. फलता की मतगणना 24 मई को होगी।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Falta repoll (May 2026):\n1. Falta Assembly constituency lies in South 24 Parganas district of West Bengal.\n2. Fresh polling was ordered at only a few affected booths.\n3. Counting of votes for Falta will be held on 24 May.\nWhich of the statements given above is/are correct?",
+            "hi": "फलता पुनर्मतदान (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. फलता विधानसभा क्षेत्र पश्चिम बंगाल के दक्षिण 24 परगना ज़िले में है।\n2. पुनर्मतदान केवल कुछ प्रभावित बूथों पर कराने का आदेश दिया गया।\n3. फलता की मतगणना 24 मई को होगी।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 3 are correct. 2 is wrong: the entire poll was cancelled and repolling ordered at all 285 polling stations.",
             "hi": "1 और 3 सही हैं। 2 गलत है: पूरा मतदान रद्द कर सभी 285 मतदान केंद्रों पर पुनर्मतदान का आदेश दिया गया।"
@@ -1129,24 +1129,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the 2026 Assembly elections:\n1. Assam's 126 seats will be counted at 40 centres across 35 districts.\n2. Tamil Nadu has 234 counting observers, one for each Assembly constituency.\n3. Puducherry has 30 Assembly constituencies.\nHow many of the above statements are correct?",
-            "hi": "2026 के विधानसभा चुनावों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. असम की 126 सीटों की मतगणना 35 ज़िलों के 40 केंद्रों पर होगी।\n2. तमिलनाडु में प्रत्येक विधानसभा क्षेत्र के लिए एक, यानी 234 मतगणना प्रेक्षक हैं।\n3. पुदुचेरी में 30 विधानसभा क्षेत्र हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the 2026 Assembly elections:\n1. Assam's 126 seats will be counted at 40 centres across 35 districts.\n2. Tamil Nadu has 234 counting observers, one for each Assembly constituency.\n3. Puducherry has 30 Assembly constituencies.\nWhich of the statements given above is/are correct?",
+            "hi": "2026 के विधानसभा चुनावों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. असम की 126 सीटों की मतगणना 35 ज़िलों के 40 केंद्रों पर होगी।\n2. तमिलनाडु में प्रत्येक विधानसभा क्षेत्र के लिए एक, यानी 234 मतगणना प्रेक्षक हैं।\n3. पुदुचेरी में 30 विधानसभा क्षेत्र हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the AIR reports on counting arrangements.",
             "hi": "मतगणना व्यवस्था पर AIR की रिपोर्टों में तीनों तथ्य दिए गए हैं।"
@@ -1329,21 +1329,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about NITI Aayog:\n1. NITI Aayog is a constitutional body created under Article 280.\n2. The Prime Minister is the ex-officio Chairperson of NITI Aayog.\n3. The May 2026 appointments of its full-time members were notified by the Election Commission.\nHow many of the above statements are correct?",
-            "hi": "नीति आयोग के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. नीति आयोग अनुच्छेद 280 के अंतर्गत गठित संवैधानिक निकाय है।\n2. प्रधानमंत्री नीति आयोग के पदेन अध्यक्ष हैं।\n3. मई 2026 में इसके पूर्णकालिक सदस्यों की नियुक्तियाँ निर्वाचन आयोग ने अधिसूचित कीं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about NITI Aayog:\n1. NITI Aayog is a constitutional body created under Article 280.\n2. The Prime Minister is the ex-officio Chairperson of NITI Aayog.\n3. The May 2026 appointments of its full-time members were notified by the Election Commission.\nWhich of the statements given above is/are correct?",
+            "hi": "नीति आयोग के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. नीति आयोग अनुच्छेद 280 के अंतर्गत गठित संवैधानिक निकाय है।\n2. प्रधानमंत्री नीति आयोग के पदेन अध्यक्ष हैं।\n3. मई 2026 में इसके पूर्णकालिक सदस्यों की नियुक्तियाँ निर्वाचन आयोग ने अधिसूचित कीं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 0,
@@ -1525,27 +1525,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about EAM Jaishankar's visit (May 2026):\n1. The visit covers Jamaica, Guyana and Barbados.\n2. He was received in Kingston by Jamaica's Prime Minister.\n3. The visit is scheduled to end on 4 May.\nHow many of the above statements are correct?",
-            "hi": "विदेश मंत्री जयशंकर के दौरे (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. दौरे में जमैका, गयाना और बारबाडोस शामिल हैं।\n2. किंग्स्टन में जमैका के प्रधानमंत्री ने उनका स्वागत किया।\n3. दौरा 4 मई को समाप्त होना निर्धारित है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about EAM Jaishankar's visit (May 2026):\n1. The visit covers Jamaica, Guyana and Barbados.\n2. He was received in Kingston by Jamaica's Prime Minister.\n3. The visit is scheduled to end on 4 May.\nWhich of the statements given above is/are not correct?",
+            "hi": "विदेश मंत्री जयशंकर के दौरे (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. दौरे में जमैका, गयाना और बारबाडोस शामिल हैं।\n2. किंग्स्टन में जमैका के प्रधानमंत्री ने उनका स्वागत किया।\n3. दौरा 4 मई को समाप्त होना निर्धारित है।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the visit covers Jamaica, Suriname and Trinidad and Tobago; he was received by his counterpart Kamina J. Smith; it runs till 10 May.",
-            "hi": "कोई सही नहीं: दौरा जमैका, सूरीनाम तथा त्रिनिदाद और टोबैगो का है; स्वागत समकक्ष कमीना जे. स्मिथ ने किया; यह 10 मई तक है।"
+            "en": "All three statements are incorrect. the visit covers Jamaica, Suriname and Trinidad and Tobago; he was received by his counterpart Kamina J. Smith; it runs till 10 May.",
+            "hi": "तीनों कथन गलत हैं। कोई सही नहीं: दौरा जमैका, सूरीनाम तथा त्रिनिदाद और टोबैगो का है; स्वागत समकक्ष कमीना जे. स्मिथ ने किया; यह 10 मई तक है।"
           }
         },
         {
@@ -1712,21 +1712,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about diplomatic practice and India's mission in China:\n1. Vikram Doraiswami arrived in Beijing in May 2026 as India's Ambassador-designate to China.\n2. A Charge d'Affaires is senior in rank to an Ambassador.\n3. Diplomatic relations between states are governed by the Vienna Convention of 1969.\nHow many of the above statements are correct?",
-            "hi": "राजनयिक प्रथा और चीन में भारतीय मिशन के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. विक्रम दोरैस्वामी मई 2026 में चीन में भारत के नामित राजदूत के रूप में बीजिंग पहुँचे।\n2. शार्ज द अफ़ेयर्स का पद राजदूत से वरिष्ठ होता है।\n3. राज्यों के बीच राजनयिक संबंध 1969 के वियना अभिसमय द्वारा शासित होते हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about diplomatic practice and India's mission in China:\n1. Vikram Doraiswami arrived in Beijing in May 2026 as India's Ambassador-designate to China.\n2. A Charge d'Affaires is senior in rank to an Ambassador.\n3. Diplomatic relations between states are governed by the Vienna Convention of 1969.\nWhich of the statements given above is/are correct?",
+            "hi": "राजनयिक प्रथा और चीन में भारतीय मिशन के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. विक्रम दोरैस्वामी मई 2026 में चीन में भारत के नामित राजदूत के रूप में बीजिंग पहुँचे।\n2. शार्ज द अफ़ेयर्स का पद राजदूत से वरिष्ठ होता है।\n3. राज्यों के बीच राजनयिक संबंध 1969 के वियना अभिसमय द्वारा शासित होते हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 0,
@@ -1904,27 +1904,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about exercise CINBAX-II:\n1. It is a trilateral exercise between India, Cambodia and Vietnam.\n2. It is being held in Arunachal Pradesh, India.\n3. The Indian contingent is larger than the Cambodian contingent.\nHow many of the above statements are correct?",
-            "hi": "अभ्यास CINBAX-II के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह भारत, कंबोडिया और वियतनाम के बीच त्रिपक्षीय अभ्यास है।\n2. यह भारत के अरुणाचल प्रदेश में आयोजित हो रहा है।\n3. भारतीय दल कंबोडियाई दल से बड़ा है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about exercise CINBAX-II:\n1. It is a trilateral exercise between India, Cambodia and Vietnam.\n2. It is being held in Arunachal Pradesh, India.\n3. The Indian contingent is larger than the Cambodian contingent.\nWhich of the statements given above is/are not correct?",
+            "hi": "अभ्यास CINBAX-II के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह भारत, कंबोडिया और वियतनाम के बीच त्रिपक्षीय अभ्यास है।\n2. यह भारत के अरुणाचल प्रदेश में आयोजित हो रहा है।\n3. भारतीय दल कंबोडियाई दल से बड़ा है।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: it is bilateral (India-Cambodia), held at Camp Basil in Cambodia, and India sent 120 personnel against Cambodia's 160.",
-            "hi": "कोई सही नहीं: यह द्विपक्षीय (भारत-कंबोडिया) है, कंबोडिया के कैंप बेसिल में हो रहा है, और भारत के 120 के मुक़ाबले कंबोडिया के 160 कर्मी हैं।"
+            "en": "All three statements are incorrect. it is bilateral (India-Cambodia), held at Camp Basil in Cambodia, and India sent 120 personnel against Cambodia's 160.",
+            "hi": "तीनों कथन गलत हैं। कोई सही नहीं: यह द्विपक्षीय (भारत-कंबोडिया) है, कंबोडिया के कैंप बेसिल में हो रहा है, और भारत के 120 के मुक़ाबले कंबोडिया के 160 कर्मी हैं।"
           }
         },
         {
@@ -2106,21 +2106,21 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about Operation Sindoor:\n1. It was launched on 7 May 2025.\n2. It was a response to the Uri attack.\n3. It targeted military airbases inside mainland China.\nHow many of the above statements are correct?",
-            "hi": "ऑपरेशन सिंदूर के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसे 7 मई 2025 को शुरू किया गया था।\n2. यह उरी हमले का जवाब था।\n3. इसमें मुख्यभूमि चीन के सैन्य हवाई अड्डों को निशाना बनाया गया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Operation Sindoor:\n1. It was launched on 7 May 2025.\n2. It was a response to the Uri attack.\n3. It targeted military airbases inside mainland China.\nWhich of the statements given above is/are correct?",
+            "hi": "ऑपरेशन सिंदूर के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसे 7 मई 2025 को शुरू किया गया था।\n2. यह उरी हमले का जवाब था।\n3. इसमें मुख्यभूमि चीन के सैन्य हवाई अड्डों को निशाना बनाया गया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -2305,24 +2305,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about US military presence in Europe (May 2026):\n1. Germany hosts the largest US troop deployment in Europe.\n2. The Pentagon initially announced the withdrawal of about 5,000 troops from Germany.\n3. US troop presence in Germany peaked during the Cold War in the 1960s.\nHow many of the above statements are correct?",
-            "hi": "यूरोप में अमेरिकी सैन्य उपस्थिति (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. जर्मनी में यूरोप की सबसे बड़ी अमेरिकी सैन्य तैनाती है।\n2. पेंटागन ने पहले जर्मनी से लगभग 5,000 सैनिक हटाने की घोषणा की थी।\n3. जर्मनी में अमेरिकी सैन्य उपस्थिति शीत युद्ध के दौरान 1960 के दशक में चरम पर थी।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about US military presence in Europe (May 2026):\n1. Germany hosts the largest US troop deployment in Europe.\n2. The Pentagon initially announced the withdrawal of about 5,000 troops from Germany.\n3. US troop presence in Germany peaked during the Cold War in the 1960s.\nWhich of the statements given above is/are correct?",
+            "hi": "यूरोप में अमेरिकी सैन्य उपस्थिति (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. जर्मनी में यूरोप की सबसे बड़ी अमेरिकी सैन्य तैनाती है।\n2. पेंटागन ने पहले जर्मनी से लगभग 5,000 सैनिक हटाने की घोषणा की थी।\n3. जर्मनी में अमेरिकी सैन्य उपस्थिति शीत युद्ध के दौरान 1960 के दशक में चरम पर थी।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the report: 36,000+ troops in Germany, a 5,000 initial cut, and a 1960s peak.",
             "hi": "तीनों रिपोर्ट में हैं: जर्मनी में 36,000+ सैनिक, शुरुआती 5,000 की कटौती, और 1960 के दशक में चरम।"
@@ -2494,24 +2494,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about NEET-UG 2026:\n1. NEET-UG has been conducted by the National Testing Agency since 2019.\n2. The 2026 exam was conducted in computer-based mode.\n3. In the UAE, exam centres were set up in Dubai and Sharjah.\nHow many of the above statements are correct?",
-            "hi": "NEET-UG 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. NEET-UG का आयोजन 2019 से राष्ट्रीय परीक्षण एजेंसी कर रही है।\n2. 2026 की परीक्षा कंप्यूटर-आधारित पद्धति में हुई।\n3. UAE में परीक्षा केंद्र दुबई और शारजाह में बनाए गए।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about NEET-UG 2026:\n1. NEET-UG has been conducted by the National Testing Agency since 2019.\n2. The 2026 exam was conducted in computer-based mode.\n3. In the UAE, exam centres were set up in Dubai and Sharjah.\nWhich of the statements given above is/are correct?",
+            "hi": "NEET-UG 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. NEET-UG का आयोजन 2019 से राष्ट्रीय परीक्षण एजेंसी कर रही है।\n2. 2026 की परीक्षा कंप्यूटर-आधारित पद्धति में हुई।\n3. UAE में परीक्षा केंद्र दुबई और शारजाह में बनाए गए।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 3 are correct. 2 is wrong: it was a pen-and-paper test.",
             "hi": "1 और 3 सही हैं। 2 गलत है: यह पेन-और-पेपर परीक्षा थी।"
@@ -2694,21 +2694,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about rooftop solar in India (May 2026):\n1. About 45 lakh households in India are now powered by solar energy.\n2. Uttar Pradesh is the first state to cross 5 lakh rooftop solar installations.\n3. About 31 lakh households benefited under PM Surya Ghar in the last month.\nHow many of the above statements are correct?",
-            "hi": "भारत में रूफ़टॉप सौर (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत में अब लगभग 45 लाख घर सौर ऊर्जा से संचालित हैं।\n2. उत्तर प्रदेश 5 लाख रूफ़टॉप सौर स्थापनाएँ पार करने वाला पहला राज्य है।\n3. पिछले महीने PM सूर्य घर के तहत लगभग 31 लाख घर लाभान्वित हुए।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about rooftop solar in India (May 2026):\n1. About 45 lakh households in India are now powered by solar energy.\n2. Uttar Pradesh is the first state to cross 5 lakh rooftop solar installations.\n3. About 31 lakh households benefited under PM Surya Ghar in the last month.\nWhich of the statements given above is/are correct?",
+            "hi": "भारत में रूफ़टॉप सौर (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत में अब लगभग 45 लाख घर सौर ऊर्जा से संचालित हैं।\n2. उत्तर प्रदेश 5 लाख रूफ़टॉप सौर स्थापनाएँ पार करने वाला पहला राज्य है।\n3. पिछले महीने PM सूर्य घर के तहत लगभग 31 लाख घर लाभान्वित हुए।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 0,
@@ -2894,24 +2894,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about RBSK 2.0:\n1. It covers children from birth up to 18 years.\n2. It adds mental health and behavioural concerns to the 4Ds framework.\n3. It introduces digital health cards.\nHow many of the above statements are correct?",
-            "hi": "RBSK 2.0 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह जन्म से 18 वर्ष तक के बच्चों को शामिल करता है।\n2. यह 4D ढाँचे में मानसिक स्वास्थ्य और व्यवहार संबंधी समस्याओं को जोड़ता है।\n3. यह डिजिटल स्वास्थ्य कार्ड की शुरुआत करता है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about RBSK 2.0:\n1. It covers children from birth up to 18 years.\n2. It adds mental health and behavioural concerns to the 4Ds framework.\n3. It introduces digital health cards.\nWhich of the statements given above is/are correct?",
+            "hi": "RBSK 2.0 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह जन्म से 18 वर्ष तक के बच्चों को शामिल करता है।\n2. यह 4D ढाँचे में मानसिक स्वास्थ्य और व्यवहार संबंधी समस्याओं को जोड़ता है।\n3. यह डिजिटल स्वास्थ्य कार्ड की शुरुआत करता है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the Health Ministry's description of RBSK 2.0.",
             "hi": "तीनों RBSK 2.0 के बारे में स्वास्थ्य मंत्रालय के विवरण में हैं।"
@@ -3089,27 +3089,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Guidance Document on Diabetes Mellitus in Children:\n1. It provides for screening only of school children aged 10 to 18 years.\n2. Insulin under the package will be provided at subsidised rates for up to five years.\n3. It was released at the World Health Assembly in Geneva.\nHow many of the above statements are correct?",
-            "hi": "बच्चों में मधुमेह पर मार्गदर्शन दस्तावेज़ के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसमें केवल 10 से 18 वर्ष के स्कूली बच्चों की जाँच का प्रावधान है।\n2. पैकेज के तहत इंसुलिन पाँच वर्ष तक रियायती दर पर मिलेगा।\n3. इसे जिनेवा में विश्व स्वास्थ्य सभा में जारी किया गया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Guidance Document on Diabetes Mellitus in Children:\n1. It provides for screening only of school children aged 10 to 18 years.\n2. Insulin under the package will be provided at subsidised rates for up to five years.\n3. It was released at the World Health Assembly in Geneva.\nWhich of the statements given above is/are not correct?",
+            "hi": "बच्चों में मधुमेह पर मार्गदर्शन दस्तावेज़ के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसमें केवल 10 से 18 वर्ष के स्कूली बच्चों की जाँच का प्रावधान है।\n2. पैकेज के तहत इंसुलिन पाँच वर्ष तक रियायती दर पर मिलेगा।\n3. इसे जिनेवा में विश्व स्वास्थ्य सभा में जारी किया गया।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: screening covers all children from birth to 18 years; insulin is lifelong and free; it was released at the National Summit on Best Practices in Public Healthcare Service Delivery.",
-            "hi": "कोई सही नहीं: जाँच जन्म से 18 वर्ष तक के सभी बच्चों की होगी; इंसुलिन आजीवन व निःशुल्क है; दस्तावेज़ सार्वजनिक स्वास्थ्य सेवा वितरण पर राष्ट्रीय शिखर सम्मेलन में जारी हुआ।"
+            "en": "All three statements are incorrect. screening covers all children from birth to 18 years; insulin is lifelong and free; it was released at the National Summit on Best Practices in Public Healthcare Service Delivery.",
+            "hi": "तीनों कथन गलत हैं। कोई सही नहीं: जाँच जन्म से 18 वर्ष तक के सभी बच्चों की होगी; इंसुलिन आजीवन व निःशुल्क है; दस्तावेज़ सार्वजनिक स्वास्थ्य सेवा वितरण पर राष्ट्रीय शिखर सम्मेलन में जारी हुआ।"
           }
         },
         {
@@ -3273,21 +3273,21 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the Fire Safety Week in healthcare facilities (May 2026):\n1. It is being organised by the Ministry of Home Affairs.\n2. Its pledge will be led at Kartavya Bhawan, New Delhi.\n3. It is limited to hospitals in the national capital.\nHow many of the above statements are correct?",
-            "hi": "स्वास्थ्य संस्थानों में अग्नि सुरक्षा सप्ताह (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसका आयोजन गृह मंत्रालय कर रहा है।\n2. इसकी शपथ नई दिल्ली के कर्तव्य भवन में दिलाई जाएगी।\n3. यह केवल राष्ट्रीय राजधानी के अस्पतालों तक सीमित है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Fire Safety Week in healthcare facilities (May 2026):\n1. It is being organised by the Ministry of Home Affairs.\n2. Its pledge will be led at Kartavya Bhawan, New Delhi.\n3. It is limited to hospitals in the national capital.\nWhich of the statements given above is/are correct?",
+            "hi": "स्वास्थ्य संस्थानों में अग्नि सुरक्षा सप्ताह (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसका आयोजन गृह मंत्रालय कर रहा है।\n2. इसकी शपथ नई दिल्ली के कर्तव्य भवन में दिलाई जाएगी।\n3. यह केवल राष्ट्रीय राजधानी के अस्पतालों तक सीमित है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -3456,24 +3456,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about Aadhaar and UIDAI:\n1. In May 2026 MeitY announced that the Aadhaar card will show only a photo and QR code from 2027.\n2. UIDAI is a statutory body established under the Aadhaar Act, 2016.\n3. MeitY advised people to rely on UIDAI's official handles and PIB releases.\nHow many of the above statements are correct?",
-            "hi": "आधार और UIDAI के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. मई 2026 में MeitY ने घोषणा की कि 2027 से आधार कार्ड पर केवल फ़ोटो और QR कोड होगा।\n2. UIDAI आधार अधिनियम, 2016 के तहत स्थापित वैधानिक निकाय है।\n3. MeitY ने लोगों को UIDAI के आधिकारिक हैंडल और PIB विज्ञप्तियों पर भरोसा करने की सलाह दी।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Aadhaar and UIDAI:\n1. In May 2026 MeitY announced that the Aadhaar card will show only a photo and QR code from 2027.\n2. UIDAI is a statutory body established under the Aadhaar Act, 2016.\n3. MeitY advised people to rely on UIDAI's official handles and PIB releases.\nWhich of the statements given above is/are correct?",
+            "hi": "आधार और UIDAI के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. मई 2026 में MeitY ने घोषणा की कि 2027 से आधार कार्ड पर केवल फ़ोटो और QR कोड होगा।\n2. UIDAI आधार अधिनियम, 2016 के तहत स्थापित वैधानिक निकाय है।\n3. MeitY ने लोगों को UIDAI के आधिकारिक हैंडल और PIB विज्ञप्तियों पर भरोसा करने की सलाह दी।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 3",
+              "केवल 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 3,
           "explanation": {
             "en": "2 and 3 are correct. 1 is wrong: MeitY said there is no plan for any such change.",
             "hi": "2 और 3 सही हैं। 1 गलत है: MeitY ने कहा कि ऐसे किसी बदलाव की योजना नहीं है।"
@@ -3648,24 +3648,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about World Press Freedom Day:\n1. It was proclaimed by the UN General Assembly in 1993.\n2. It followed a recommendation of UNESCO's General Conference in 1991.\n3. The 2026 theme is 'Shaping a Future of Peace'.\nHow many of the above statements are correct?",
-            "hi": "विश्व प्रेस स्वतंत्रता दिवस के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसकी घोषणा संयुक्त राष्ट्र महासभा ने 1993 में की थी।\n2. यह 1991 में यूनेस्को के सामान्य सम्मेलन की अनुशंसा के बाद हुआ।\n3. 2026 की थीम 'शेपिंग अ फ़्यूचर ऑफ़ पीस' है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about World Press Freedom Day:\n1. It was proclaimed by the UN General Assembly in 1993.\n2. It followed a recommendation of UNESCO's General Conference in 1991.\n3. The 2026 theme is 'Shaping a Future of Peace'.\nWhich of the statements given above is/are correct?",
+            "hi": "विश्व प्रेस स्वतंत्रता दिवस के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसकी घोषणा संयुक्त राष्ट्र महासभा ने 1993 में की थी।\n2. यह 1991 में यूनेस्को के सामान्य सम्मेलन की अनुशंसा के बाद हुआ।\n3. 2026 की थीम 'शेपिंग अ फ़्यूचर ऑफ़ पीस' है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the AIR report on the day.",
             "hi": "तीनों AIR की रिपोर्ट में दिए गए हैं।"
@@ -3847,27 +3847,27 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about Delhi's heatwave measures (May 2026):\n1. The mandatory afternoon break applies only to government-sector labourers.\n2. The break period is from 11 am to 2 pm.\n3. The measures were announced by the Lieutenant Governor of Delhi.\nHow many of the above statements are correct?",
-            "hi": "दिल्ली के लू संबंधी उपायों (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. दोपहर का अनिवार्य विश्राम केवल सरकारी क्षेत्र के मज़दूरों पर लागू है।\n2. विश्राम अवधि सुबह 11 बजे से दोपहर 2 बजे तक है।\n3. उपायों की घोषणा दिल्ली के उपराज्यपाल ने की।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Delhi's heatwave measures (May 2026):\n1. The mandatory afternoon break applies only to government-sector labourers.\n2. The break period is from 11 am to 2 pm.\n3. The measures were announced by the Lieutenant Governor of Delhi.\nWhich of the statements given above is/are not correct?",
+            "hi": "दिल्ली के लू संबंधी उपायों (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. दोपहर का अनिवार्य विश्राम केवल सरकारी क्षेत्र के मज़दूरों पर लागू है।\n2. विश्राम अवधि सुबह 11 बजे से दोपहर 2 बजे तक है।\n3. उपायों की घोषणा दिल्ली के उपराज्यपाल ने की।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the break covers both government and private sectors, runs from 1 pm to 4 pm, and was announced by Chief Minister Rekha Gupta.",
-            "hi": "कोई सही नहीं: विश्राम सरकारी और निजी दोनों क्षेत्रों पर लागू है, दोपहर 1 से 4 बजे तक है, और घोषणा मुख्यमंत्री रेखा गुप्ता ने की।"
+            "en": "All three statements are incorrect. the break covers both government and private sectors, runs from 1 pm to 4 pm, and was announced by Chief Minister Rekha Gupta.",
+            "hi": "तीनों कथन गलत हैं। कोई सही नहीं: विश्राम सरकारी और निजी दोनों क्षेत्रों पर लागू है, दोपहर 1 से 4 बजे तक है, और घोषणा मुख्यमंत्री रेखा गुप्ता ने की।"
           }
         },
         {
@@ -4040,21 +4040,21 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about Andhra Pradesh's canal works (May 2026):\n1. The state released 397 crore rupees for canal repairs and desilting.\n2. The works are timed ahead of the Rabi season.\n3. 1,100 crore rupees were allocated for irrigation O&M in the last 20 years.\nHow many of the above statements are correct?",
-            "hi": "आंध्र प्रदेश के नहर कार्यों (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. राज्य ने नहर मरम्मत और गाद निकासी के लिए 397 करोड़ रुपये जारी किए।\n2. ये कार्य रबी मौसम से पहले के लिए नियोजित हैं।\n3. पिछले 20 वर्षों में सिंचाई संचालन व रखरखाव के लिए 1,100 करोड़ रुपये आवंटित हुए।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Andhra Pradesh's canal works (May 2026):\n1. The state released 397 crore rupees for canal repairs and desilting.\n2. The works are timed ahead of the Rabi season.\n3. 1,100 crore rupees were allocated for irrigation O&M in the last 20 years.\nWhich of the statements given above is/are correct?",
+            "hi": "आंध्र प्रदेश के नहर कार्यों (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. राज्य ने नहर मरम्मत और गाद निकासी के लिए 397 करोड़ रुपये जारी किए।\n2. ये कार्य रबी मौसम से पहले के लिए नियोजित हैं।\n3. पिछले 20 वर्षों में सिंचाई संचालन व रखरखाव के लिए 1,100 करोड़ रुपये आवंटित हुए।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -4226,21 +4226,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about fisheries development in Srikakulam (May 2026):\n1. The Uday Aqua industry is located at Mulapalem village in Srikakulam district.\n2. Projects at the site are being implemented under the National Fisheries Development Board.\n3. The visiting Union Minister holds the Fisheries portfolio.\nHow many of the above statements are correct?",
-            "hi": "श्रीकाकुलम में मत्स्य विकास (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. उदय एक्वा उद्योग श्रीकाकुलम ज़िले के मुलापालेम गाँव में स्थित है।\n2. इस स्थल पर परियोजनाएँ राष्ट्रीय मात्स्यिकी विकास बोर्ड के अंतर्गत चल रही हैं।\n3. दौरा करने वाले केंद्रीय मंत्री के पास मत्स्यपालन विभाग है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about fisheries development in Srikakulam (May 2026):\n1. The Uday Aqua industry is located at Mulapalem village in Srikakulam district.\n2. Projects at the site are being implemented under the National Fisheries Development Board.\n3. The visiting Union Minister holds the Fisheries portfolio.\nWhich of the statements given above is/are correct?",
+            "hi": "श्रीकाकुलम में मत्स्य विकास (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. उदय एक्वा उद्योग श्रीकाकुलम ज़िले के मुलापालेम गाँव में स्थित है।\n2. इस स्थल पर परियोजनाएँ राष्ट्रीय मात्स्यिकी विकास बोर्ड के अंतर्गत चल रही हैं।\n3. दौरा करने वाले केंद्रीय मंत्री के पास मत्स्यपालन विभाग है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 1,
@@ -4415,24 +4415,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about IMD's weather warnings:\n1. An orange alert in IMD's system means 'be prepared'.\n2. IMD functions under the Ministry of Earth Sciences.\n3. In May 2026, Dehradun and Nainital districts were placed under an orange alert for hail and heavy rain.\nHow many of the above statements are correct?",
-            "hi": "IMD की मौसम चेतावनियों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. IMD प्रणाली में ऑरेंज अलर्ट का अर्थ 'तैयार रहें' है।\n2. IMD पृथ्वी विज्ञान मंत्रालय के अधीन कार्य करता है।\n3. मई 2026 में देहरादून और नैनीताल ज़िलों को ओलावृष्टि व भारी वर्षा के लिए ऑरेंज अलर्ट में रखा गया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about IMD's weather warnings:\n1. An orange alert in IMD's system means 'be prepared'.\n2. IMD functions under the Ministry of Earth Sciences.\n3. In May 2026, Dehradun and Nainital districts were placed under an orange alert for hail and heavy rain.\nWhich of the statements given above is/are correct?",
+            "hi": "IMD की मौसम चेतावनियों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. IMD प्रणाली में ऑरेंज अलर्ट का अर्थ 'तैयार रहें' है।\n2. IMD पृथ्वी विज्ञान मंत्रालय के अधीन कार्य करता है।\n3. मई 2026 में देहरादून और नैनीताल ज़िलों को ओलावृष्टि व भारी वर्षा के लिए ऑरेंज अलर्ट में रखा गया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are correct: 1 and 2 are static facts, and the Dehradun Met Centre issued an orange alert for both districts.",
             "hi": "तीनों सही हैं: 1 और 2 स्थैतिक तथ्य हैं, और देहरादून मौसम केंद्र ने दोनों ज़िलों में ऑरेंज अलर्ट जारी किया।"
@@ -4616,24 +4616,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Panchayat Development Plans:\n1. The 2026-27 plans are to be aligned with the Sixteenth Finance Commission's conditionalities.\n2. Model plans at the workshop will cover ten thematic areas.\n3. Article 243G empowers panchayats to prepare plans for economic development and social justice.\nHow many of the above statements are correct?",
-            "hi": "पंचायत विकास योजनाओं के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. 2026-27 की योजनाएँ सोलहवें वित्त आयोग की शर्तों के अनुरूप बनाई जानी हैं।\n2. कार्यशाला में आदर्श योजनाएँ दस विषयगत क्षेत्रों को समाहित करेंगी।\n3. अनुच्छेद 243G पंचायतों को आर्थिक विकास और सामाजिक न्याय की योजनाएँ बनाने का अधिकार देता है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Panchayat Development Plans:\n1. The 2026-27 plans are to be aligned with the Sixteenth Finance Commission's conditionalities.\n2. Model plans at the workshop will cover ten thematic areas.\n3. Article 243G empowers panchayats to prepare plans for economic development and social justice.\nWhich of the statements given above is/are correct?",
+            "hi": "पंचायत विकास योजनाओं के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. 2026-27 की योजनाएँ सोलहवें वित्त आयोग की शर्तों के अनुरूप बनाई जानी हैं।\n2. कार्यशाला में आदर्श योजनाएँ दस विषयगत क्षेत्रों को समाहित करेंगी।\n3. अनुच्छेद 243G पंचायतों को आर्थिक विकास और सामाजिक न्याय की योजनाएँ बनाने का अधिकार देता है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are correct: 1 and 2 are from the Ministry's statement; 3 is a constitutional provision.",
             "hi": "तीनों सही हैं: 1 और 2 मंत्रालय के बयान से हैं; 3 संवैधानिक प्रावधान है।"
@@ -4803,27 +4803,27 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the 2026 Thomas Cup:\n1. The tournament was held in Bangkok, Thailand.\n2. India lost to China in the semi-finals.\n3. The Thomas Cup is the women's world team badminton championship.\nHow many of the above statements are correct?",
-            "hi": "2026 थॉमस कप के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. प्रतियोगिता बैंकॉक, थाईलैंड में आयोजित हुई।\n2. भारत सेमीफ़ाइनल में चीन से हारा।\n3. थॉमस कप महिलाओं की विश्व टीम बैडमिंटन चैंपियनशिप है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the 2026 Thomas Cup:\n1. The tournament was held in Bangkok, Thailand.\n2. India lost to China in the semi-finals.\n3. The Thomas Cup is the women's world team badminton championship.\nWhich of the statements given above is/are not correct?",
+            "hi": "2026 थॉमस कप के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. प्रतियोगिता बैंकॉक, थाईलैंड में आयोजित हुई।\n2. भारत सेमीफ़ाइनल में चीन से हारा।\n3. थॉमस कप महिलाओं की विश्व टीम बैडमिंटन चैंपियनशिप है।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: it was held at Horsens, Denmark; India lost to France; the Thomas Cup is the men's event (Uber Cup is the women's).",
-            "hi": "कोई सही नहीं: यह डेनमार्क के हॉर्सेन्स में हुआ; भारत फ़्रांस से हारा; थॉमस कप पुरुषों का है (उबर कप महिलाओं का)।"
+            "en": "All three statements are incorrect. it was held at Horsens, Denmark; India lost to France; the Thomas Cup is the men's event (Uber Cup is the women's).",
+            "hi": "तीनों कथन गलत हैं। कोई सही नहीं: यह डेनमार्क के हॉर्सेन्स में हुआ; भारत फ़्रांस से हारा; थॉमस कप पुरुषों का है (उबर कप महिलाओं का)।"
           }
         },
         {
@@ -4994,21 +4994,21 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the new men's pole vault national record (May 2026):\n1. Kuldeep Kumar cleared 5.41 m in his first attempt.\n2. Kuldeep Kumar represents Tamil Nadu.\n3. The record was set at an outdoor meet in New Delhi.\nHow many of the above statements are correct?",
-            "hi": "पुरुष पोल वॉल्ट के नए राष्ट्रीय रिकॉर्ड (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. कुलदीप कुमार ने पहले ही प्रयास में 5.41 मीटर पार किया।\n2. कुलदीप कुमार तमिलनाडु का प्रतिनिधित्व करते हैं।\n3. रिकॉर्ड नई दिल्ली की आउटडोर प्रतियोगिता में बना।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the new men's pole vault national record (May 2026):\n1. Kuldeep Kumar cleared 5.41 m in his first attempt.\n2. Kuldeep Kumar represents Tamil Nadu.\n3. The record was set at an outdoor meet in New Delhi.\nWhich of the statements given above is/are correct?",
+            "hi": "पुरुष पोल वॉल्ट के नए राष्ट्रीय रिकॉर्ड (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. कुलदीप कुमार ने पहले ही प्रयास में 5.41 मीटर पार किया।\n2. कुलदीप कुमार तमिलनाडु का प्रतिनिधित्व करते हैं।\n3. रिकॉर्ड नई दिल्ली की आउटडोर प्रतियोगिता में बना।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -5183,24 +5183,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the Madrid Open 2026:\n1. Marta Kostyuk of Ukraine won the women's singles title.\n2. It was Kostyuk's first WTA 1000 title.\n3. The Madrid Open is played on clay courts.\nHow many of the above statements are correct?",
-            "hi": "मैड्रिड ओपन 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यूक्रेन की मार्टा कोस्त्युक ने महिला एकल ख़िताब जीता।\n2. यह कोस्त्युक का पहला WTA 1000 ख़िताब था।\n3. मैड्रिड ओपन क्ले कोर्ट पर खेला जाता है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Madrid Open 2026:\n1. Marta Kostyuk of Ukraine won the women's singles title.\n2. It was Kostyuk's first WTA 1000 title.\n3. The Madrid Open is played on clay courts.\nWhich of the statements given above is/are correct?",
+            "hi": "मैड्रिड ओपन 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यूक्रेन की मार्टा कोस्त्युक ने महिला एकल ख़िताब जीता।\n2. यह कोस्त्युक का पहला WTA 1000 ख़िताब था।\n3. मैड्रिड ओपन क्ले कोर्ट पर खेला जाता है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "3 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 3",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 3 are correct. 2 is wrong: AIR said the WTA 1000 title is her third.",
             "hi": "1 और 3 सही हैं। 2 गलत है: AIR के अनुसार यह उनका तीसरा WTA 1000 ख़िताब है।"
@@ -5376,27 +5376,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the security situation in Mali (April-May 2026):\n1. Mali's Defence Minister was killed in an attack in the capital Bamako.\n2. India declined to comment on the April attacks in Mali.\n3. The 26 April operation that killed over 100 terrorists took place in the Timbuktu region.\nHow many of the above statements are correct?",
-            "hi": "माली की सुरक्षा स्थिति (अप्रैल-मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. माली के रक्षा मंत्री राजधानी बमाको में एक हमले में मारे गए।\n2. भारत ने माली में अप्रैल के हमलों पर टिप्पणी करने से इनकार किया।\n3. 100 से अधिक आतंकवादियों को मारने वाला 26 अप्रैल का अभियान टिम्बकटू क्षेत्र में हुआ।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the security situation in Mali (April-May 2026):\n1. Mali's Defence Minister was killed in an attack in the capital Bamako.\n2. India declined to comment on the April attacks in Mali.\n3. The 26 April operation that killed over 100 terrorists took place in the Timbuktu region.\nWhich of the statements given above is/are not correct?",
+            "hi": "माली की सुरक्षा स्थिति (अप्रैल-मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. माली के रक्षा मंत्री राजधानी बमाको में एक हमले में मारे गए।\n2. भारत ने माली में अप्रैल के हमलों पर टिप्पणी करने से इनकार किया।\n3. 100 से अधिक आतंकवादियों को मारने वाला 26 अप्रैल का अभियान टिम्बकटू क्षेत्र में हुआ।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the minister's residence was in Kati near Bamako; India condemned the attacks on 28 April; the 26 April operation was in Koulikoro.",
-            "hi": "कोई सही नहीं: मंत्री का आवास बमाको के पास काटी में था; भारत ने 28 अप्रैल को हमलों की निंदा की; 26 अप्रैल का अभियान कूलिकोरो में हुआ।"
+            "en": "All three statements are incorrect. the minister's residence was in Kati near Bamako; India condemned the attacks on 28 April; the 26 April operation was in Koulikoro.",
+            "hi": "तीनों कथन गलत हैं। कोई सही नहीं: मंत्री का आवास बमाको के पास काटी में था; भारत ने 28 अप्रैल को हमलों की निंदा की; 26 अप्रैल का अभियान कूलिकोरो में हुआ।"
           }
         },
         {
@@ -5566,21 +5566,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the South China Sea and UNCLOS:\n1. The Philippine Coast Guard said four Chinese research vessels were operating near the Spratly Islands.\n2. Under UNCLOS, a coastal state's Exclusive Economic Zone extends up to 12 nautical miles.\n3. The 2016 arbitral award under UNCLOS upheld China's nine-dash line claims.\nHow many of the above statements are correct?",
-            "hi": "दक्षिण चीन सागर और UNCLOS के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. फ़िलीपींस तटरक्षक बल ने कहा कि चार चीनी अनुसंधान पोत स्प्रैटली द्वीपों के पास सक्रिय थे।\n2. UNCLOS के तहत तटीय राज्य का अनन्य आर्थिक क्षेत्र 12 समुद्री मील तक होता है।\n3. UNCLOS के तहत 2016 के मध्यस्थता निर्णय ने चीन के नाइन-डैश लाइन दावों को सही ठहराया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the South China Sea and UNCLOS:\n1. The Philippine Coast Guard said four Chinese research vessels were operating near the Spratly Islands.\n2. Under UNCLOS, a coastal state's Exclusive Economic Zone extends up to 12 nautical miles.\n3. The 2016 arbitral award under UNCLOS upheld China's nine-dash line claims.\nWhich of the statements given above is/are correct?",
+            "hi": "दक्षिण चीन सागर और UNCLOS के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. फ़िलीपींस तटरक्षक बल ने कहा कि चार चीनी अनुसंधान पोत स्प्रैटली द्वीपों के पास सक्रिय थे।\n2. UNCLOS के तहत तटीय राज्य का अनन्य आर्थिक क्षेत्र 12 समुद्री मील तक होता है।\n3. UNCLOS के तहत 2016 के मध्यस्थता निर्णय ने चीन के नाइन-डैश लाइन दावों को सही ठहराया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
           "answer": 0,
@@ -5758,21 +5758,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Mayon volcano:\n1. It is located in Albay province of the Philippines.\n2. The Philippines raised the alert to the highest level on its five-step scale.\n3. It is a shield volcano like those of Hawaii.\nHow many of the above statements are correct?",
-            "hi": "मायोन ज्वालामुखी के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह फ़िलीपींस के अल्बे प्रांत में स्थित है।\n2. फ़िलीपींस ने अपने पाँच-स्तरीय पैमाने पर अलर्ट को उच्चतम स्तर पर पहुँचाया।\n3. यह हवाई जैसे ढाल ज्वालामुखियों की तरह है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Mayon volcano:\n1. It is located in Albay province of the Philippines.\n2. The Philippines raised the alert to the highest level on its five-step scale.\n3. It is a shield volcano like those of Hawaii.\nWhich of the statements given above is/are correct?",
+            "hi": "मायोन ज्वालामुखी के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह फ़िलीपींस के अल्बे प्रांत में स्थित है।\n2. फ़िलीपींस ने अपने पाँच-स्तरीय पैमाने पर अलर्ट को उच्चतम स्तर पर पहुँचाया।\n3. यह हवाई जैसे ढाल ज्वालामुखियों की तरह है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -5952,27 +5952,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Russia-Ukraine war (May 2026):\n1. Zelensky said two Russian tankers were struck near the Caspian Sea port of Astrakhan.\n2. Russia said Ukraine launched about 100 drones, mainly at Moscow.\n3. All deaths from the Russian strikes were reported from the Kharkiv region.\nHow many of the above statements are correct?",
-            "hi": "रूस-यूक्रेन युद्ध (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. ज़ेलेंस्की ने कहा कि कैस्पियन सागर के अस्त्राख़ान बंदरगाह के पास दो रूसी टैंकरों पर हमला हुआ।\n2. रूस ने कहा कि यूक्रेन ने लगभग 100 ड्रोन मुख्यतः मॉस्को पर दाग़े।\n3. रूसी हमलों से सभी मौतें ख़ार्किव क्षेत्र से दर्ज हुईं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Russia-Ukraine war (May 2026):\n1. Zelensky said two Russian tankers were struck near the Caspian Sea port of Astrakhan.\n2. Russia said Ukraine launched about 100 drones, mainly at Moscow.\n3. All deaths from the Russian strikes were reported from the Kharkiv region.\nWhich of the statements given above is/are not correct?",
+            "hi": "रूस-यूक्रेन युद्ध (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. ज़ेलेंस्की ने कहा कि कैस्पियन सागर के अस्त्राख़ान बंदरगाह के पास दो रूसी टैंकरों पर हमला हुआ।\n2. रूस ने कहा कि यूक्रेन ने लगभग 100 ड्रोन मुख्यतः मॉस्को पर दाग़े।\n3. रूसी हमलों से सभी मौतें ख़ार्किव क्षेत्र से दर्ज हुईं।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the tankers were hit near the Black Sea port of Novorossiysk; Russia reported at least 334 drones with Leningrad region heavily targeted; deaths were spread over Kherson, Odesa, Donetsk, Zaporizhzhia and Sumy.",
-            "hi": "कोई सही नहीं: टैंकरों पर काला सागर के नोवोरोस्सियस्क बंदरगाह के पास हमला हुआ; रूस ने कम से कम 334 ड्रोन बताए जिनमें लेनिनग्राद क्षेत्र मुख्य निशाना था; मौतें ख़ेरसॉन, ओडेसा, दोनेत्स्क, ज़ापोरिज़्ज़िया और सूमी में हुईं।"
+            "en": "All three statements are incorrect. the tankers were hit near the Black Sea port of Novorossiysk; Russia reported at least 334 drones with Leningrad region heavily targeted; deaths were spread over Kherson, Odesa, Donetsk, Zaporizhzhia and Sumy.",
+            "hi": "तीनों कथन गलत हैं। कोई सही नहीं: टैंकरों पर काला सागर के नोवोरोस्सियस्क बंदरगाह के पास हमला हुआ; रूस ने कम से कम 334 ड्रोन बताए जिनमें लेनिनग्राद क्षेत्र मुख्य निशाना था; मौतें ख़ेरसॉन, ओडेसा, दोनेत्स्क, ज़ापोरिज़्ज़िया और सूमी में हुईं।"
           }
         },
         {
@@ -6144,24 +6144,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the AIIMS spinal surgery technique (May 2026):\n1. It is a modified form of posterior vertebral column resection.\n2. It was first described in an international scientific publication in 2020.\n3. It improves stability during surgery by preserving parts of the spine until later stages.\nHow many of the above statements are correct?",
-            "hi": "AIIMS की रीढ़ सर्जरी तकनीक (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह पोस्टीरियर वर्टेब्रल कॉलम रिसेक्शन का संशोधित रूप है।\n2. यह पहली बार 2020 में एक अंतरराष्ट्रीय वैज्ञानिक प्रकाशन में वर्णित हुई।\n3. यह रीढ़ के हिस्सों को बाद के चरणों तक सुरक्षित रखकर सर्जरी के दौरान स्थिरता बढ़ाती है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the AIIMS spinal surgery technique (May 2026):\n1. It is a modified form of posterior vertebral column resection.\n2. It was first described in an international scientific publication in 2020.\n3. It improves stability during surgery by preserving parts of the spine until later stages.\nWhich of the statements given above is/are correct?",
+            "hi": "AIIMS की रीढ़ सर्जरी तकनीक (मई 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह पोस्टीरियर वर्टेब्रल कॉलम रिसेक्शन का संशोधित रूप है।\n2. यह पहली बार 2020 में एक अंतरराष्ट्रीय वैज्ञानिक प्रकाशन में वर्णित हुई।\n3. यह रीढ़ के हिस्सों को बाद के चरणों तक सुरक्षित रखकर सर्जरी के दौरान स्थिरता बढ़ाती है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in AIIMS's statement.",
             "hi": "तीनों AIIMS के बयान में दिए गए हैं।"

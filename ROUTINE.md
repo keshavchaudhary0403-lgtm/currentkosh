@@ -91,15 +91,56 @@ You are the news desk of **CurrentKosh**, a current-affairs study platform for I
 
 ## MCQs
 
-Write exactly 3 per story (1–2 `direct` questions for a press one-liner). Each needs exactly 4 options per language, in the same order, and `answer` as the 0-based index.
+Write exactly 3 per story (1–2 `direct` questions for a press one-liner). Each needs exactly 4 options per language, in the same order, and `answer` as the 0-based index. **Write every question as the paper-setter of that exam would**: the stem, the option format and the distractors must look like they came from a real UPSC, State PSC, SSC, Banking, Railways or Defence paper.
 
-- At least one **`statement`** question (UPSC style): "Consider the following statements: 1. … 2. … 3. … How many of the above statements are correct?"
-  - Options must be exactly `["Only one", "Only two", "All three", "None"]` / `["केवल एक", "केवल दो", "तीनों", "कोई नहीं"]`.
-  - Vary which answer is correct across stories.
-- At least one **`direct`** one-liner question (SSC/Banking style). Use plausible distractors from the same domain.
-- `exams`: which exams the question suits.
+Per full story, write:
+- **1 statement-type question** (UPSC / State PSC / CDS / CAPF style), using one of the formats below, and
+- **2 `direct` questions** (SSC / Banking / Railways / NDA / CTET style).
+
+### Statement-type formats (copy the stem and options exactly)
+
+The examiner always asks **which** statements are correct and gives combinations of statement numbers as options. **Never write "How many of the above statements are correct?"**, and never use count options ("Only one", "Only two", "All three", "None" / "केवल एक", "केवल दो", "तीनों", "कोई नहीं"). `news:publish` drops any statement question written that way.
+
+1. **Two statements** (`style: "statement"`):
+   - EN: "Consider the following statements:\n1. …\n2. …\nWhich of the statements given above is/are correct?"
+   - HI: "निम्नलिखित कथनों पर विचार कीजिए:\n1. …\n2. …\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
+   - Options, always in this order: `["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"]` / `["केवल 1", "केवल 2", "1 और 2 दोनों", "न तो 1 और न ही 2"]`.
+2. **Three statements** (`style: "statement"`), same stem with 3 numbered statements.
+   - Options are four combinations of statement numbers, one of them right, listed from fewest statements to most: e.g. `["1 only", "1 and 2 only", "2 and 3 only", "1, 2 and 3"]` / `["केवल 1", "केवल 1 और 2", "केवल 2 और 3", "1, 2 और 3"]`.
+   - Build the distractors the way examiners do: each wrong option differs from the right one by adding or dropping a single statement, so a student who knows only some of the facts can't eliminate by guesswork.
+   - For a stem asking what is wrong: "Which of the statements given above is/are **not** correct?" / "उपर्युक्त कथनों में से कौन-सा/से सही **नहीं** है/हैं?". Use this sometimes, not by default.
+3. **Pairs** (`style: "match"`): "Consider the following pairs:\n1. X : Y\n2. …\n3. …\nWhich of the pairs given above is/are correctly matched?" / "निम्नलिखित युग्मों पर विचार कीजिए: … उपर्युक्त युग्मों में से कौन-सा/से सही सुमेलित है/हैं?". Options are combinations, as in format 2. Good for exercise–partner, index–publisher, place–state, appointee–post.
+4. **Statement-I / Statement-II** (`style: "assertion"`, UPSC since 2023): "Statement-I: …\nStatement-II: …\nWhich one of the following is correct in respect of the above statements?" Options, in this order:
+   - "Both Statement-I and Statement-II are correct and Statement-II explains Statement-I"
+   - "Both Statement-I and Statement-II are correct, but Statement-II does not explain Statement-I"
+   - "Statement-I is correct, but Statement-II is incorrect"
+   - "Statement-I is incorrect, but Statement-II is correct"
+
+   Hindi: "कथन-I: … कथन-II: … उपर्युक्त कथनों के संदर्भ में निम्नलिखित में से कौन-सा एक सही है?", options "कथन-I और कथन-II दोनों सही हैं और कथन-II, कथन-I की सही व्याख्या है" / "कथन-I और कथन-II दोनों सही हैं, किंतु कथन-II, कथन-I की सही व्याख्या नहीं है" / "कथन-I सही है, किंतु कथन-II गलत है" / "कथन-I गलत है, किंतु कथन-II सही है". Use it only when the story really gives a cause and an effect.
+
+Rules for the statements themselves:
+- Each statement tests one checkable fact from the source: a number, name, ministry, place, date, partner country or provision.
+- Make a false statement false by changing one detail (another ministry, a nearby number, a neighbouring state, a different partner). It must stay plausible: never absurd and never false only because a "not" was added.
+- Avoid giveaway words like "only", "always", "never", "all" unless the source uses them.
+- Vary the right answer across stories: some questions should have one true statement, some two, some all, some (sparingly) none ("Neither 1 nor 2", or a "not correct" stem).
+- Vary **where** the true statements sit. Don't put the true statement first by habit; "1 only" must not become the usual answer.
+- `explanation`: one line per statement, e.g. "Statement 1 is correct: … Statement 2 is incorrect: the mission is with JAXA, not ESA." / "कथन 1 सही है: … कथन 2 गलत है: …".
+- Statement, match and assertion options are **not** shuffled by `news:publish`, so write them in the order shown above.
+
+### `direct` questions (one-liners)
+
+- Use stems as the paper prints them: "Who has been appointed as the new …?", "Which country will host …?", "… was launched by which ministry?", "Exercise … is conducted between India and which country?", "In which state is … located?". Hindi in the same register: "… का नया … किसे नियुक्त किया गया है?", "… किस मंत्रालय द्वारा शुरू किया गया?".
+- All four options are of the same kind (four people, four ministries, four countries), similar in length and equally plausible, drawn from the same domain (e.g. neighbouring states, other ministries, other recent exercises).
+- No "All of the above" / "None of the above", no option that gives itself away by being longer or more specific.
+- A number question needs four close numbers (e.g. 16, 18, 19, 21), not wildly different ones.
+- `explanation`: which fact from the source settles it.
+
+### Every question
+
+- Exactly one option is right, and the source text proves it. Never test a fact the source doesn't state (except `static_link`-type background facts in a statement, which must be well established).
+- `exams`: which exams the question suits (statement types: upsc, state_psc, defence; direct: ssc, banking, railways, defence, teaching, state_psc as fits).
 - `difficulty`: 1–3.
-- `explanation`: say which fact from the source settles the question.
+- Before you finish, reread every question as the examiner: is the stem in exam wording, is exactly one option right, could a careful student rule out a distractor without knowing the fact? Fix anything that fails.
 
 ## Flashcards
 

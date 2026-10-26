@@ -85,24 +85,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the India-New Zealand FTA that came into force in October 2026:\n1. It provides duty-free access for 100 per cent of Indian exports to New Zealand.\n2. India has opened its dairy sector to New Zealand under the agreement.\n3. Indian professionals will get a quota of 5,000 Temporary Employment Entry visas every year.\nHow many of the above statements are correct?",
-            "hi": "अक्टूबर 2026 में लागू हुए भारत-न्यूज़ीलैंड FTA के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह न्यूज़ीलैंड को भारत के 100 प्रतिशत निर्यात को शुल्क-मुक्त पहुँच देता है।\n2. समझौते के तहत भारत ने अपना डेयरी क्षेत्र न्यूज़ीलैंड के लिए खोल दिया है।\n3. भारतीय पेशेवरों को हर वर्ष 5,000 अस्थायी रोज़गार प्रवेश वीज़ा का कोटा मिलेगा।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the India-New Zealand FTA that came into force in October 2026:\n1. It provides duty-free access for 100 per cent of Indian exports to New Zealand.\n2. India has opened its dairy sector to New Zealand under the agreement.\n3. Indian professionals will get a quota of 5,000 Temporary Employment Entry visas every year.\nWhich of the statements given above is/are correct?",
+            "hi": "अक्टूबर 2026 में लागू हुए भारत-न्यूज़ीलैंड FTA के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह न्यूज़ीलैंड को भारत के 100 प्रतिशत निर्यात को शुल्क-मुक्त पहुँच देता है।\n2. समझौते के तहत भारत ने अपना डेयरी क्षेत्र न्यूज़ीलैंड के लिए खोल दिया है।\n3. भारतीय पेशेवरों को हर वर्ष 5,000 अस्थायी रोज़गार प्रवेश वीज़ा का कोटा मिलेगा।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 3 are correct. 2 is wrong: Goyal said sensitive sectors, including dairy, remain protected.",
             "hi": "1 और 3 सही हैं। 2 गलत है: गोयल ने कहा कि डेयरी सहित संवेदनशील क्षेत्र संरक्षित रहेंगे।"
@@ -297,21 +297,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about US Secretary of State Marco Rubio's October 2026 visit to India:\n1. It was his first visit to India as Secretary of State.\n2. He laid a wreath at the Taj Memorial inside the Hotel Taj Mahal Palace in Mumbai.\n3. From Mumbai he was scheduled to travel to Ahmedabad.\nHow many of the above statements are correct?",
-            "hi": "अमेरिकी विदेश मंत्री मार्को रुबियो की अक्टूबर 2026 की भारत यात्रा के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. विदेश मंत्री के रूप में यह उनकी पहली भारत यात्रा थी।\n2. उन्होंने मुंबई के होटल ताज महल पैलेस स्थित ताज स्मारक पर पुष्पचक्र अर्पित किया।\n3. मुंबई से उनका अगला पड़ाव अहमदाबाद था।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about US Secretary of State Marco Rubio's October 2026 visit to India:\n1. It was his first visit to India as Secretary of State.\n2. He laid a wreath at the Taj Memorial inside the Hotel Taj Mahal Palace in Mumbai.\n3. From Mumbai he was scheduled to travel to Ahmedabad.\nWhich of the statements given above is/are correct?",
+            "hi": "अमेरिकी विदेश मंत्री मार्को रुबियो की अक्टूबर 2026 की भारत यात्रा के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. विदेश मंत्री के रूप में यह उनकी पहली भारत यात्रा थी।\n2. उन्होंने मुंबई के होटल ताज महल पैलेस स्थित ताज स्मारक पर पुष्पचक्र अर्पित किया।\n3. मुंबई से उनका अगला पड़ाव अहमदाबाद था।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "3 only",
+              "1 and 2 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -524,24 +524,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about EAM S Jaishankar's remarks in Mumbai on 20 October 2026:\n1. He attended the celebration of the 250th anniversary of US independence as the Guest of Honour.\n2. He cited the Quad and Pax Silica as notable examples of the India-US partnership.\n3. He said six Americans lost their lives in the 26/11 Mumbai attack.\nHow many of the above statements are correct?",
-            "hi": "20 अक्टूबर 2026 को मुंबई में विदेश मंत्री एस. जयशंकर की टिप्पणियों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. वे अमेरिकी स्वतंत्रता की 250वीं वर्षगाँठ के समारोह में विशिष्ट अतिथि के रूप में शामिल हुए।\n2. उन्होंने भारत-अमेरिका साझेदारी के उल्लेखनीय उदाहरणों के रूप में क्वाड और पैक्स सिलिका का उल्लेख किया।\n3. उन्होंने कहा कि 26/11 मुंबई हमले में छह अमेरिकियों की जान गई थी।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about EAM S Jaishankar's remarks in Mumbai on 20 October 2026:\n1. He attended the celebration of the 250th anniversary of US independence as the Guest of Honour.\n2. He cited the Quad and Pax Silica as notable examples of the India-US partnership.\n3. He said six Americans lost their lives in the 26/11 Mumbai attack.\nWhich of the statements given above is/are correct?",
+            "hi": "20 अक्टूबर 2026 को मुंबई में विदेश मंत्री एस. जयशंकर की टिप्पणियों के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. वे अमेरिकी स्वतंत्रता की 250वीं वर्षगाँठ के समारोह में विशिष्ट अतिथि के रूप में शामिल हुए।\n2. उन्होंने भारत-अमेरिका साझेदारी के उल्लेखनीय उदाहरणों के रूप में क्वाड और पैक्स सिलिका का उल्लेख किया।\n3. उन्होंने कहा कि 26/11 मुंबई हमले में छह अमेरिकियों की जान गई थी।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the report of Jaishankar's address.",
             "hi": "तीनों बातें जयशंकर के संबोधन की रिपोर्ट में कही गई हैं।"
@@ -716,27 +716,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements:\n1. The India-UAE-US trilateral meeting of 20 October 2026 was held in New Delhi.\n2. Jaishankar said India-UAE bilateral trade has crossed USD 50 billion but not yet USD 100 billion since CEPA.\n3. Sheikh Abdullah bin Zayed Al Nahyan is the Prime Minister of the UAE.\nHow many of the above statements are correct?",
-            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. 20 अक्टूबर 2026 की भारत-UAE-अमेरिका त्रिपक्षीय बैठक नई दिल्ली में हुई।\n2. जयशंकर ने कहा कि CEPA के बाद भारत-UAE द्विपक्षीय व्यापार 50 अरब डॉलर पार कर गया है, पर अभी 100 अरब डॉलर तक नहीं पहुँचा।\n3. शेख अब्दुल्ला बिन ज़ायेद अल नाहयान UAE के प्रधानमंत्री हैं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements:\n1. The India-UAE-US trilateral meeting of 20 October 2026 was held in New Delhi.\n2. Jaishankar said India-UAE bilateral trade has crossed USD 50 billion but not yet USD 100 billion since CEPA.\n3. Sheikh Abdullah bin Zayed Al Nahyan is the Prime Minister of the UAE.\nWhich of the statements given above is/are not correct?",
+            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. 20 अक्टूबर 2026 की भारत-UAE-अमेरिका त्रिपक्षीय बैठक नई दिल्ली में हुई।\n2. जयशंकर ने कहा कि CEPA के बाद भारत-UAE द्विपक्षीय व्यापार 50 अरब डॉलर पार कर गया है, पर अभी 100 अरब डॉलर तक नहीं पहुँचा।\n3. शेख अब्दुल्ला बिन ज़ायेद अल नाहयान UAE के प्रधानमंत्री हैं।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the meeting was in Mumbai, trade has crossed USD 100 billion, and Sheikh Abdullah is Deputy PM and Foreign Minister.",
-            "hi": "कोई भी सही नहीं: बैठक मुंबई में हुई, व्यापार 100 अरब डॉलर पार कर चुका है, और शेख अब्दुल्ला उप प्रधानमंत्री एवं विदेश मंत्री हैं।"
+            "en": "All three statements are incorrect. the meeting was in Mumbai, trade has crossed USD 100 billion, and Sheikh Abdullah is Deputy PM and Foreign Minister.",
+            "hi": "तीनों कथन गलत हैं। बैठक मुंबई में हुई, व्यापार 100 अरब डॉलर पार कर चुका है, और शेख अब्दुल्ला उप प्रधानमंत्री एवं विदेश मंत्री हैं।"
           }
         },
         {
@@ -917,24 +917,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the SCO meeting in Dushanbe (October 2026):\n1. It was the 25th meeting of the SCO Council of Heads of Government.\n2. Rajnath Singh cited the International North-South Transport Corridor and Chabahar Port as links between Central Asia and broader markets.\n3. India opposed the adoption of an Action Plan for the Multilateral Trade and Economic Cooperation Programme for 2026-2030.\nHow many of the above statements are correct?",
-            "hi": "दुशांबे में SCO बैठक (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह SCO शासनाध्यक्ष परिषद की 25वीं बैठक थी।\n2. राजनाथ सिंह ने अंतरराष्ट्रीय उत्तर-दक्षिण परिवहन गलियारे और चाबहार बंदरगाह को मध्य एशिया और व्यापक बाज़ारों के बीच कड़ी बताया।\n3. भारत ने 2026-2030 के लिए बहुपक्षीय व्यापार और आर्थिक सहयोग कार्यक्रम की कार्ययोजना अपनाने का विरोध किया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the SCO meeting in Dushanbe (October 2026):\n1. It was the 25th meeting of the SCO Council of Heads of Government.\n2. Rajnath Singh cited the International North-South Transport Corridor and Chabahar Port as links between Central Asia and broader markets.\n3. India opposed the adoption of an Action Plan for the Multilateral Trade and Economic Cooperation Programme for 2026-2030.\nWhich of the statements given above is/are correct?",
+            "hi": "दुशांबे में SCO बैठक (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह SCO शासनाध्यक्ष परिषद की 25वीं बैठक थी।\n2. राजनाथ सिंह ने अंतरराष्ट्रीय उत्तर-दक्षिण परिवहन गलियारे और चाबहार बंदरगाह को मध्य एशिया और व्यापक बाज़ारों के बीच कड़ी बताया।\n3. भारत ने 2026-2030 के लिए बहुपक्षीय व्यापार और आर्थिक सहयोग कार्यक्रम की कार्ययोजना अपनाने का विरोध किया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "3 only",
+              "1 and 2 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 3",
+              "केवल 1 और 2",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 2 are correct. 3 is wrong: Rajnath Singh reaffirmed India's support for adopting the 2026-2030 Action Plan.",
             "hi": "1 और 2 सही हैं। 3 गलत है: राजनाथ सिंह ने 2026-2030 कार्ययोजना अपनाने के लिए भारत के समर्थन की पुष्टि की।"
@@ -1133,24 +1133,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about India's address at the UNGA First Committee in October 2026:\n1. India reiterated its offer to make its No First Use commitment part of a multilateral legal agreement.\n2. India reiterated its voluntary moratorium on nuclear testing.\n3. India stressed that decisions on the use of nuclear weapons must remain under human control.\nHow many of the above statements are correct?",
-            "hi": "अक्टूबर 2026 में UNGA प्रथम समिति में भारत के संबोधन के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत ने अपनी 'पहले उपयोग नहीं' प्रतिबद्धता को बहुपक्षीय कानूनी समझौते का हिस्सा बनाने की पेशकश दोहराई।\n2. भारत ने परमाणु परीक्षण पर अपनी स्वैच्छिक रोक दोहराई।\n3. भारत ने ज़ोर दिया कि परमाणु हथियारों के उपयोग के निर्णय मानवीय नियंत्रण में ही रहने चाहिए।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about India's address at the UNGA First Committee in October 2026:\n1. India reiterated its offer to make its No First Use commitment part of a multilateral legal agreement.\n2. India reiterated its voluntary moratorium on nuclear testing.\n3. India stressed that decisions on the use of nuclear weapons must remain under human control.\nWhich of the statements given above is/are correct?",
+            "hi": "अक्टूबर 2026 में UNGA प्रथम समिति में भारत के संबोधन के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत ने अपनी 'पहले उपयोग नहीं' प्रतिबद्धता को बहुपक्षीय कानूनी समझौते का हिस्सा बनाने की पेशकश दोहराई।\n2. भारत ने परमाणु परीक्षण पर अपनी स्वैच्छिक रोक दोहराई।\n3. भारत ने ज़ोर दिया कि परमाणु हथियारों के उपयोग के निर्णय मानवीय नियंत्रण में ही रहने चाहिए।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three were stated by Manish Tewari in India's address.",
             "hi": "तीनों बातें भारत के संबोधन में मनीष तिवारी ने कहीं।"
@@ -1329,21 +1329,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements based on Dr Jitendra Singh's remarks in October 2026:\n1. He spoke on the sidelines of the Bloomberg Economy Forum 2026 in Mumbai.\n2. India has set a target of 100 GW of nuclear power capacity by 2047.\n3. India's Net Zero emissions target year is 2060.\nHow many of the above statements are correct?",
-            "hi": "अक्टूबर 2026 में डॉ. जितेंद्र सिंह की टिप्पणियों के आधार पर निम्नलिखित कथनों पर विचार कीजिए:\n1. उन्होंने मुंबई में ब्लूमबर्ग इकोनॉमी फ़ोरम 2026 से इतर यह बात कही।\n2. भारत ने 2047 तक 100 गीगावाट परमाणु ऊर्जा क्षमता का लक्ष्य रखा है।\n3. भारत का नेट ज़ीरो उत्सर्जन लक्ष्य वर्ष 2060 है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements based on Dr Jitendra Singh's remarks in October 2026:\n1. He spoke on the sidelines of the Bloomberg Economy Forum 2026 in Mumbai.\n2. India has set a target of 100 GW of nuclear power capacity by 2047.\n3. India's Net Zero emissions target year is 2060.\nWhich of the statements given above is/are correct?",
+            "hi": "अक्टूबर 2026 में डॉ. जितेंद्र सिंह की टिप्पणियों के आधार पर निम्नलिखित कथनों पर विचार कीजिए:\n1. उन्होंने मुंबई में ब्लूमबर्ग इकोनॉमी फ़ोरम 2026 से इतर यह बात कही।\n2. भारत ने 2047 तक 100 गीगावाट परमाणु ऊर्जा क्षमता का लक्ष्य रखा है।\n3. भारत का नेट ज़ीरो उत्सर्जन लक्ष्य वर्ष 2060 है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "3 only",
+              "1 and 2 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -1525,27 +1525,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about Exercise AUSTRAHIND 2026:\n1. It is the fourth edition of the exercise.\n2. An observer delegation from Japan is participating for the first time.\n3. The previous edition was held at Darwin, Australia.\nHow many of the above statements are correct?",
-            "hi": "अभ्यास AUSTRAHIND 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह अभ्यास का चौथा संस्करण है।\n2. पहली बार जापान का एक पर्यवेक्षक प्रतिनिधिमंडल भाग ले रहा है।\n3. पिछला संस्करण ऑस्ट्रेलिया के डार्विन में हुआ था।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Exercise AUSTRAHIND 2026:\n1. It is the fourth edition of the exercise.\n2. An observer delegation from Japan is participating for the first time.\n3. The previous edition was held at Darwin, Australia.\nWhich of the statements given above is/are not correct?",
+            "hi": "अभ्यास AUSTRAHIND 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह अभ्यास का चौथा संस्करण है।\n2. पहली बार जापान का एक पर्यवेक्षक प्रतिनिधिमंडल भाग ले रहा है।\n3. पिछला संस्करण ऑस्ट्रेलिया के डार्विन में हुआ था।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: it is the fifth edition, the first-time observer is New Zealand, and the fourth edition was at Irwin Barracks, Perth.",
-            "hi": "कोई भी सही नहीं: यह पाँचवाँ संस्करण है, पहली बार पर्यवेक्षक न्यूज़ीलैंड है, और चौथा संस्करण पर्थ के इरविन बैरक्स में हुआ था।"
+            "en": "All three statements are incorrect. it is the fifth edition, the first-time observer is New Zealand, and the fourth edition was at Irwin Barracks, Perth.",
+            "hi": "तीनों कथन गलत हैं। यह पाँचवाँ संस्करण है, पहली बार पर्यवेक्षक न्यूज़ीलैंड है, और चौथा संस्करण पर्थ के इरविन बैरक्स में हुआ था।"
           }
         },
         {
@@ -1737,21 +1737,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about India's performance at the Asian Para Games 2026 on 20 October:\n1. Deepthi Jeevanji won the women's 400m T20 gold in a Games record time of 56.36 seconds.\n2. Simran won gold in the women's 200m T12.\n3. Pranav Soorma set an Asian record in the javelin throw.\nHow many of the above statements are correct?",
-            "hi": "20 अक्टूबर को एशियाई पैरा खेल 2026 में भारत के प्रदर्शन के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. दीप्ति जीवनजी ने 56.36 सेकंड के खेल रिकॉर्ड समय के साथ महिला 400 मीटर T20 में स्वर्ण जीता।\n2. सिमरन ने महिला 200 मीटर T12 में स्वर्ण जीता।\n3. प्रणव सूरमा ने भाला फेंक में एशियाई रिकॉर्ड बनाया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about India's performance at the Asian Para Games 2026 on 20 October:\n1. Deepthi Jeevanji won the women's 400m T20 gold in a Games record time of 56.36 seconds.\n2. Simran won gold in the women's 200m T12.\n3. Pranav Soorma set an Asian record in the javelin throw.\nWhich of the statements given above is/are correct?",
+            "hi": "20 अक्टूबर को एशियाई पैरा खेल 2026 में भारत के प्रदर्शन के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. दीप्ति जीवनजी ने 56.36 सेकंड के खेल रिकॉर्ड समय के साथ महिला 400 मीटर T20 में स्वर्ण जीता।\n2. सिमरन ने महिला 200 मीटर T12 में स्वर्ण जीता।\n3. प्रणव सूरमा ने भाला फेंक में एशियाई रिकॉर्ड बनाया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 1,
@@ -1952,24 +1952,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about India at the Asian Para Games 2026 (20 October):\n1. Baby Sahana Ravi's bronze in women's singles Class 9 was India's first-ever medal in the standing category at the Games.\n2. India won five bronze medals in para table tennis on the day.\n3. Pradeep Kumar won his second consecutive Asian Para Games silver in the javelin throw F53/54.\nHow many of the above statements are correct?",
-            "hi": "एशियाई पैरा खेल 2026 (20 अक्टूबर) में भारत के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. महिला एकल वर्ग 9 में बेबी सहाना रवि का कांस्य इन खेलों में स्टैंडिंग वर्ग में भारत का पहला पदक था।\n2. भारत ने उस दिन पैरा टेबल टेनिस में पाँच कांस्य पदक जीते।\n3. प्रदीप कुमार ने भाला फेंक F53/54 में लगातार दूसरा एशियाई पैरा खेल रजत जीता।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about India at the Asian Para Games 2026 (20 October):\n1. Baby Sahana Ravi's bronze in women's singles Class 9 was India's first-ever medal in the standing category at the Games.\n2. India won five bronze medals in para table tennis on the day.\n3. Pradeep Kumar won his second consecutive Asian Para Games silver in the javelin throw F53/54.\nWhich of the statements given above is/are correct?",
+            "hi": "एशियाई पैरा खेल 2026 (20 अक्टूबर) में भारत के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. महिला एकल वर्ग 9 में बेबी सहाना रवि का कांस्य इन खेलों में स्टैंडिंग वर्ग में भारत का पहला पदक था।\n2. भारत ने उस दिन पैरा टेबल टेनिस में पाँच कांस्य पदक जीते।\n3. प्रदीप कुमार ने भाला फेंक F53/54 में लगातार दूसरा एशियाई पैरा खेल रजत जीता।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are correct as per the President's and PM's messages and the day's medal report.",
             "hi": "राष्ट्रपति और प्रधानमंत्री के संदेशों तथा उस दिन की पदक रिपोर्ट के अनुसार तीनों कथन सही हैं।"
@@ -2155,21 +2155,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the rail projects opened in Chhattisgarh on 20 October 2026:\n1. The Dalli-Rajhara-Rowghat line is 95 km long.\n2. The Tadoki-Rowghat stretch is 35 km long.\n3. The foundation stone of a coach factory was laid in Bilaspur.\nHow many of the above statements are correct?",
-            "hi": "20 अक्टूबर 2026 को छत्तीसगढ़ में शुरू हुई रेल परियोजनाओं के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. दल्ली-राजहरा-रावघाट लाइन 95 किलोमीटर लंबी है।\n2. ताडोकी-रावघाट खंड 35 किलोमीटर लंबा है।\n3. बिलासपुर में एक कोच फ़ैक्टरी की आधारशिला रखी गई।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the rail projects opened in Chhattisgarh on 20 October 2026:\n1. The Dalli-Rajhara-Rowghat line is 95 km long.\n2. The Tadoki-Rowghat stretch is 35 km long.\n3. The foundation stone of a coach factory was laid in Bilaspur.\nWhich of the statements given above is/are correct?",
+            "hi": "20 अक्टूबर 2026 को छत्तीसगढ़ में शुरू हुई रेल परियोजनाओं के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. दल्ली-राजहरा-रावघाट लाइन 95 किलोमीटर लंबी है।\n2. ताडोकी-रावघाट खंड 35 किलोमीटर लंबा है।\n3. बिलासपुर में एक कोच फ़ैक्टरी की आधारशिला रखी गई।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
           "answer": 0,
@@ -2349,27 +2349,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements based on the Civil Aviation Minister's message of 20 October 2026:\n1. India aims to reach 100 crore air passengers by 2047.\n2. AAI has earmarked a total of ₹1,532 crore for modernising airport infrastructure.\n3. The minister's message was for Air Traffic Control personnel gathered in Hyderabad.\nHow many of the above statements are correct?",
-            "hi": "20 अक्टूबर 2026 को नागर विमानन मंत्री के संदेश के आधार पर निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत का लक्ष्य 2047 तक 100 करोड़ हवाई यात्रियों तक पहुँचना है।\n2. AAI ने हवाई अड्डा अवसंरचना के आधुनिकीकरण के लिए कुल ₹1,532 करोड़ निर्धारित किए हैं।\n3. मंत्री का संदेश हैदराबाद में एकत्रित वायु यातायात नियंत्रण कर्मियों के लिए था।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements based on the Civil Aviation Minister's message of 20 October 2026:\n1. India aims to reach 100 crore air passengers by 2047.\n2. AAI has earmarked a total of ₹1,532 crore for modernising airport infrastructure.\n3. The minister's message was for Air Traffic Control personnel gathered in Hyderabad.\nWhich of the statements given above is/are not correct?",
+            "hi": "20 अक्टूबर 2026 को नागर विमानन मंत्री के संदेश के आधार पर निम्नलिखित कथनों पर विचार कीजिए:\n1. भारत का लक्ष्य 2047 तक 100 करोड़ हवाई यात्रियों तक पहुँचना है।\n2. AAI ने हवाई अड्डा अवसंरचना के आधुनिकीकरण के लिए कुल ₹1,532 करोड़ निर्धारित किए हैं।\n3. मंत्री का संदेश हैदराबाद में एकत्रित वायु यातायात नियंत्रण कर्मियों के लिए था।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: the 2047 target is 130 crore passengers; AAI earmarked ₹3,490 crore in total (₹1,532 crore is for ATM automation); the personnel were gathered in Chennai.",
-            "hi": "कोई भी सही नहीं: 2047 का लक्ष्य 130 करोड़ यात्री है; AAI ने कुल ₹3,490 करोड़ निर्धारित किए (₹1,532 करोड़ ATM स्वचालन हेतु हैं); कर्मी चेन्नई में एकत्रित थे।"
+            "en": "All three statements are incorrect. the 2047 target is 130 crore passengers; AAI earmarked ₹3,490 crore in total (₹1,532 crore is for ATM automation); the personnel were gathered in Chennai.",
+            "hi": "तीनों कथन गलत हैं। 2047 का लक्ष्य 130 करोड़ यात्री है; AAI ने कुल ₹3,490 करोड़ निर्धारित किए (₹1,532 करोड़ ATM स्वचालन हेतु हैं); कर्मी चेन्नई में एकत्रित थे।"
           }
         },
         {
@@ -2545,21 +2545,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the World Bank Group's digital strategy (October 2026):\n1. It was announced in Seoul.\n2. The World Bank said more than two billion people remained offline globally in 2025.\n3. It is the World Bank Group's third digital strategy.\nHow many of the above statements are correct?",
-            "hi": "विश्व बैंक समूह की डिजिटल रणनीति (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसकी घोषणा सियोल में की गई।\n2. विश्व बैंक के अनुसार 2025 में विश्व में दो अरब से अधिक लोग ऑफ़लाइन थे।\n3. यह विश्व बैंक समूह की तीसरी डिजिटल रणनीति है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the World Bank Group's digital strategy (October 2026):\n1. It was announced in Seoul.\n2. The World Bank said more than two billion people remained offline globally in 2025.\n3. It is the World Bank Group's third digital strategy.\nWhich of the statements given above is/are correct?",
+            "hi": "विश्व बैंक समूह की डिजिटल रणनीति (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसकी घोषणा सियोल में की गई।\n2. विश्व बैंक के अनुसार 2025 में विश्व में दो अरब से अधिक लोग ऑफ़लाइन थे।\n3. यह विश्व बैंक समूह की तीसरी डिजिटल रणनीति है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 1,
@@ -2746,24 +2746,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the Green Diwali Campaign launched in October 2026:\n1. It is in line with Mission LiFE (Lifestyle for Environment).\n2. It has a special focus on the 130 cities covered under the National Clean Air Programme.\n3. It will run until 8 November.\nHow many of the above statements are correct?",
-            "hi": "अक्टूबर 2026 में शुरू हुए ग्रीन दिवाली अभियान के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह मिशन LiFE (पर्यावरण के लिए जीवनशैली) के अनुरूप है।\n2. इसमें राष्ट्रीय स्वच्छ वायु कार्यक्रम के अंतर्गत आने वाले 130 शहरों पर विशेष ध्यान है।\n3. यह 8 नवंबर तक चलेगा।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Green Diwali Campaign launched in October 2026:\n1. It is in line with Mission LiFE (Lifestyle for Environment).\n2. It has a special focus on the 130 cities covered under the National Clean Air Programme.\n3. It will run until 8 November.\nWhich of the statements given above is/are correct?",
+            "hi": "अक्टूबर 2026 में शुरू हुए ग्रीन दिवाली अभियान के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह मिशन LiFE (पर्यावरण के लिए जीवनशैली) के अनुरूप है।\n2. इसमें राष्ट्रीय स्वच्छ वायु कार्यक्रम के अंतर्गत आने वाले 130 शहरों पर विशेष ध्यान है।\n3. यह 8 नवंबर तक चलेगा।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are correct as per the Environment Ministry's statement.",
             "hi": "पर्यावरण मंत्रालय के वक्तव्य के अनुसार तीनों कथन सही हैं।"
@@ -2945,21 +2945,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements:\n1. Dr B R Ambedkar embraced Buddhism at Nagpur on 14 October 1956, on the occasion of Vijayadashami.\n2. The observance at Deekshabhoomi in October 2026 was the 75th Dhammachakra Pravartan Day.\n3. The main ceremony at Deekshabhoomi in 2026 was addressed by a monk from Sri Lanka.\nHow many of the above statements are correct?",
-            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. डॉ. बी.आर. आंबेडकर ने 14 अक्टूबर 1956 को विजयादशमी के अवसर पर नागपुर में बौद्ध धर्म ग्रहण किया।\n2. अक्टूबर 2026 में दीक्षाभूमि का आयोजन 75वाँ धम्मचक्र प्रवर्तन दिवस था।\n3. 2026 में दीक्षाभूमि के मुख्य समारोह को श्रीलंका के एक भिक्षु ने संबोधित किया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements:\n1. Dr B R Ambedkar embraced Buddhism at Nagpur on 14 October 1956, on the occasion of Vijayadashami.\n2. The observance at Deekshabhoomi in October 2026 was the 75th Dhammachakra Pravartan Day.\n3. The main ceremony at Deekshabhoomi in 2026 was addressed by a monk from Sri Lanka.\nWhich of the statements given above is/are correct?",
+            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. डॉ. बी.आर. आंबेडकर ने 14 अक्टूबर 1956 को विजयादशमी के अवसर पर नागपुर में बौद्ध धर्म ग्रहण किया।\n2. अक्टूबर 2026 में दीक्षाभूमि का आयोजन 75वाँ धम्मचक्र प्रवर्तन दिवस था।\n3. 2026 में दीक्षाभूमि के मुख्य समारोह को श्रीलंका के एक भिक्षु ने संबोधित किया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -3135,27 +3135,27 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about Vijayadashami 2026:\n1. It marks the beginning of the nine-day Navratri festival.\n2. PM Narendra Modi attended Dussehra celebrations at Dwarka in Delhi.\n3. Durga Puja festivities conclude on Vijayadashami with Ayudha Puja.\nHow many of the above statements are correct?",
-            "hi": "विजयादशमी 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह नौ दिवसीय नवरात्रि उत्सव की शुरुआत का प्रतीक है।\n2. प्रधानमंत्री नरेंद्र मोदी दिल्ली के द्वारका में दशहरा समारोह में शामिल हुए।\n3. दुर्गा पूजा उत्सव विजयादशमी पर आयुध पूजा के साथ संपन्न होता है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about Vijayadashami 2026:\n1. It marks the beginning of the nine-day Navratri festival.\n2. PM Narendra Modi attended Dussehra celebrations at Dwarka in Delhi.\n3. Durga Puja festivities conclude on Vijayadashami with Ayudha Puja.\nWhich of the statements given above is/are not correct?",
+            "hi": "विजयादशमी 2026 के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह नौ दिवसीय नवरात्रि उत्सव की शुरुआत का प्रतीक है।\n2. प्रधानमंत्री नरेंद्र मोदी दिल्ली के द्वारका में दशहरा समारोह में शामिल हुए।\n3. दुर्गा पूजा उत्सव विजयादशमी पर आयुध पूजा के साथ संपन्न होता है।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: Vijayadashami marks the culmination of Navratri; the PM was at IP Extension (the President was at Dwarka); Durga Puja concludes with Durga Visarjan.",
-            "hi": "कोई भी सही नहीं: विजयादशमी नवरात्रि का समापन है; प्रधानमंत्री आईपी एक्सटेंशन में थे (राष्ट्रपति द्वारका में); दुर्गा पूजा का समापन दुर्गा विसर्जन से होता है।"
+            "en": "All three statements are incorrect. Vijayadashami marks the culmination of Navratri; the PM was at IP Extension (the President was at Dwarka); Durga Puja concludes with Durga Visarjan.",
+            "hi": "तीनों कथन गलत हैं। विजयादशमी नवरात्रि का समापन है; प्रधानमंत्री आईपी एक्सटेंशन में थे (राष्ट्रपति द्वारका में); दुर्गा पूजा का समापन दुर्गा विसर्जन से होता है।"
           }
         },
         {
@@ -3340,24 +3340,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the Rashtriya Swayamsevak Sangh (RSS):\n1. It was founded in Nagpur in 1925.\n2. Its first Sarsanghchalak was Dr Keshav Hedgewar.\n3. Its annual Vijayadashami celebration in 2026 was held at Deekshabhoomi, Nagpur.\nHow many of the above statements are correct?",
-            "hi": "राष्ट्रीय स्वयंसेवक संघ (RSS) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसकी स्थापना 1925 में नागपुर में हुई।\n2. इसके प्रथम सरसंघचालक डॉ. केशव हेडगेवार थे।\n3. 2026 में इसका वार्षिक विजयादशमी उत्सव नागपुर की दीक्षाभूमि में हुआ।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Rashtriya Swayamsevak Sangh (RSS):\n1. It was founded in Nagpur in 1925.\n2. Its first Sarsanghchalak was Dr Keshav Hedgewar.\n3. Its annual Vijayadashami celebration in 2026 was held at Deekshabhoomi, Nagpur.\nWhich of the statements given above is/are correct?",
+            "hi": "राष्ट्रीय स्वयंसेवक संघ (RSS) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसकी स्थापना 1925 में नागपुर में हुई।\n2. इसके प्रथम सरसंघचालक डॉ. केशव हेडगेवार थे।\n3. 2026 में इसका वार्षिक विजयादशमी उत्सव नागपुर की दीक्षाभूमि में हुआ।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "3 only",
+              "1 and 2 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 3",
+              "केवल 1 और 2",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "1 and 2 are correct. 3 is wrong: the RSS event was at Reshimbagh ground; Deekshabhoomi hosted the Dhammachakra Pravartan Day observance.",
             "hi": "1 और 2 सही हैं। 3 गलत है: RSS का कार्यक्रम रेशिमबाग मैदान में हुआ; दीक्षाभूमि में धम्मचक्र प्रवर्तन दिवस मनाया गया।"
@@ -3543,21 +3543,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about developments in Punjab on 20 October 2026:\n1. The murder case of anti-drug activist Parvinder Singh Jhota was handed over to the National Investigation Agency.\n2. Union Home Minister Amit Shah assured that Punjab will be drug-free by December 2029.\n3. The Ravana effigy at Ludhiana's Dussehra was themed 'Ravan of Smack'.\nHow many of the above statements are correct?",
-            "hi": "20 अक्टूबर 2026 को पंजाब के घटनाक्रम के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. नशा-विरोधी कार्यकर्ता परविंदर सिंह झोटा की हत्या का मामला राष्ट्रीय अन्वेषण अभिकरण (NIA) को सौंपा गया।\n2. केंद्रीय गृह मंत्री अमित शाह ने आश्वासन दिया कि दिसंबर 2029 तक पंजाब नशा-मुक्त होगा।\n3. लुधियाना दशहरे में रावण के पुतले का विषय 'स्मैक का रावण' था।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about developments in Punjab on 20 October 2026:\n1. The murder case of anti-drug activist Parvinder Singh Jhota was handed over to the National Investigation Agency.\n2. Union Home Minister Amit Shah assured that Punjab will be drug-free by December 2029.\n3. The Ravana effigy at Ludhiana's Dussehra was themed 'Ravan of Smack'.\nWhich of the statements given above is/are correct?",
+            "hi": "20 अक्टूबर 2026 को पंजाब के घटनाक्रम के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. नशा-विरोधी कार्यकर्ता परविंदर सिंह झोटा की हत्या का मामला राष्ट्रीय अन्वेषण अभिकरण (NIA) को सौंपा गया।\n2. केंद्रीय गृह मंत्री अमित शाह ने आश्वासन दिया कि दिसंबर 2029 तक पंजाब नशा-मुक्त होगा।\n3. लुधियाना दशहरे में रावण के पुतले का विषय 'स्मैक का रावण' था।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "2 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "केवल 2 और 3"
             ]
           },
           "answer": 0,
@@ -3743,24 +3743,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the Living Museum at the Mizo Typical Village in Falkawn:\n1. It was set up by Mizoram's Art and Culture Department.\n2. Live demonstrations are held there every Saturday.\n3. The entry fee for the demonstrations is ₹100.\nHow many of the above statements are correct?",
-            "hi": "फालकॉन के मिज़ो पारंपरिक गाँव स्थित जीवंत संग्रहालय के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसे मिज़ोरम के कला एवं संस्कृति विभाग ने स्थापित किया है।\n2. वहाँ हर शनिवार सजीव प्रदर्शन होते हैं।\n3. प्रदर्शनों के लिए प्रवेश शुल्क ₹100 है।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Living Museum at the Mizo Typical Village in Falkawn:\n1. It was set up by Mizoram's Art and Culture Department.\n2. Live demonstrations are held there every Saturday.\n3. The entry fee for the demonstrations is ₹100.\nWhich of the statements given above is/are correct?",
+            "hi": "फालकॉन के मिज़ो पारंपरिक गाँव स्थित जीवंत संग्रहालय के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसे मिज़ोरम के कला एवं संस्कृति विभाग ने स्थापित किया है।\n2. वहाँ हर शनिवार सजीव प्रदर्शन होते हैं।\n3. प्रदर्शनों के लिए प्रवेश शुल्क ₹100 है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the report.",
             "hi": "तीनों बातें रिपोर्ट में कही गई हैं।"
@@ -3934,27 +3934,27 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Taleju Bhawani Temple in Kathmandu:\n1. It opens to the general public only on Vijaya Dashami.\n2. It is located within the Patan Durbar Square complex.\n3. Taleju Bhawani was the tutelary deity of Nepal's Shah kings.\nHow many of the above statements are correct?",
-            "hi": "काठमांडू के तलेजु भवानी मंदिर के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह आम जनता के लिए केवल विजया दशमी पर खुलता है।\n2. यह पाटन दरबार स्क्वायर परिसर में स्थित है।\n3. तलेजु भवानी नेपाल के शाह राजाओं की कुलदेवी थीं।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Taleju Bhawani Temple in Kathmandu:\n1. It opens to the general public only on Vijaya Dashami.\n2. It is located within the Patan Durbar Square complex.\n3. Taleju Bhawani was the tutelary deity of Nepal's Shah kings.\nWhich of the statements given above is/are not correct?",
+            "hi": "काठमांडू के तलेजु भवानी मंदिर के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह आम जनता के लिए केवल विजया दशमी पर खुलता है।\n2. यह पाटन दरबार स्क्वायर परिसर में स्थित है।\n3. तलेजु भवानी नेपाल के शाह राजाओं की कुलदेवी थीं।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: it opens only on Maha Navami, lies in the Hanuman Dhoka Durbar complex, and was the tutelary deity of the Malla kings.",
-            "hi": "कोई भी सही नहीं: यह केवल महानवमी पर खुलता है, हनुमान ढोका दरबार परिसर में स्थित है और मल्ल राजाओं की कुलदेवी थीं।"
+            "en": "All three statements are incorrect. it opens only on Maha Navami, lies in the Hanuman Dhoka Durbar complex, and was the tutelary deity of the Malla kings.",
+            "hi": "तीनों कथन गलत हैं। यह केवल महानवमी पर खुलता है, हनुमान ढोका दरबार परिसर में स्थित है और मल्ल राजाओं की कुलदेवी थीं।"
           }
         },
         {
@@ -4125,21 +4125,21 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the proposed US-Russia-China trilateral (October 2026):\n1. Trump said he was willing to meet even if Ukraine's President Zelenskyy is excluded.\n2. The proposed talks were limited to Ukraine and did not cover nuclear issues.\n3. According to an American newspaper, the trilateral summit was proposed by Xi Jinping.\nHow many of the above statements are correct?",
-            "hi": "प्रस्तावित अमेरिका-रूस-चीन त्रिपक्षीय बैठक (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. ट्रंप ने कहा कि वे यूक्रेन के राष्ट्रपति ज़ेलेंस्की को बाहर रखे जाने पर भी मिलने को तैयार हैं।\n2. प्रस्तावित वार्ता केवल यूक्रेन तक सीमित थी और इसमें परमाणु मुद्दे शामिल नहीं थे।\n3. एक अमेरिकी समाचार पत्र के अनुसार त्रिपक्षीय शिखर बैठक का प्रस्ताव शी जिनपिंग ने रखा था।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the proposed US-Russia-China trilateral (October 2026):\n1. Trump said he was willing to meet even if Ukraine's President Zelenskyy is excluded.\n2. The proposed talks were limited to Ukraine and did not cover nuclear issues.\n3. According to an American newspaper, the trilateral summit was proposed by Xi Jinping.\nWhich of the statements given above is/are correct?",
+            "hi": "प्रस्तावित अमेरिका-रूस-चीन त्रिपक्षीय बैठक (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. ट्रंप ने कहा कि वे यूक्रेन के राष्ट्रपति ज़ेलेंस्की को बाहर रखे जाने पर भी मिलने को तैयार हैं।\n2. प्रस्तावित वार्ता केवल यूक्रेन तक सीमित थी और इसमें परमाणु मुद्दे शामिल नहीं थे।\n3. एक अमेरिकी समाचार पत्र के अनुसार त्रिपक्षीय शिखर बैठक का प्रस्ताव शी जिनपिंग ने रखा था।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "1 and 2 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 1 और 2",
+              "केवल 1 और 3"
             ]
           },
           "answer": 0,
@@ -4320,24 +4320,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Yemen conflict (October 2026):\n1. The Houthi missile strike hit the al-Alam training camp in Shabwa province.\n2. Britain announced that RAF Typhoon jets would carry out strikes on Houthi targets.\n3. The recent surge in fighting followed airstrikes in July on Sanaa International Airport that shattered a 2022 ceasefire.\nHow many of the above statements are correct?",
-            "hi": "यमन संघर्ष (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. हूती मिसाइल हमला शबवा प्रांत के अल-आलम प्रशिक्षण शिविर पर हुआ।\n2. ब्रिटेन ने घोषणा की कि RAF के टाइफ़ून जेट हूती ठिकानों पर हमले करेंगे।\n3. लड़ाई में हालिया तेज़ी जुलाई में सना अंतरराष्ट्रीय हवाई अड्डे पर हुए उन हवाई हमलों के बाद आई जिन्होंने 2022 का युद्धविराम तोड़ दिया।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Yemen conflict (October 2026):\n1. The Houthi missile strike hit the al-Alam training camp in Shabwa province.\n2. Britain announced that RAF Typhoon jets would carry out strikes on Houthi targets.\n3. The recent surge in fighting followed airstrikes in July on Sanaa International Airport that shattered a 2022 ceasefire.\nWhich of the statements given above is/are correct?",
+            "hi": "यमन संघर्ष (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. हूती मिसाइल हमला शबवा प्रांत के अल-आलम प्रशिक्षण शिविर पर हुआ।\n2. ब्रिटेन ने घोषणा की कि RAF के टाइफ़ून जेट हूती ठिकानों पर हमले करेंगे।\n3. लड़ाई में हालिया तेज़ी जुलाई में सना अंतरराष्ट्रीय हवाई अड्डे पर हुए उन हवाई हमलों के बाद आई जिन्होंने 2022 का युद्धविराम तोड़ दिया।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "3 only",
+              "1 and 3 only"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 3",
+              "केवल 1 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 3,
           "explanation": {
             "en": "1 and 3 are correct. 2 is wrong: Streeting stressed the RAF jets would fly defensive patrols and would not strike Houthi targets.",
             "hi": "1 और 3 सही हैं। 2 गलत है: स्ट्रीटिंग ने स्पष्ट किया कि RAF जेट रक्षात्मक गश्त करेंगे और हूती ठिकानों पर हमले नहीं करेंगे।"
@@ -4524,24 +4524,24 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the India-Zimbabwe women's T20I series (October 2026):\n1. It is the first bilateral women's cricket series between the two countries.\n2. India are led by full-time captain Smriti Mandhana.\n3. The ODI series that follows will be played in Vadodara.\nHow many of the above statements are correct?",
-            "hi": "भारत-ज़िम्बाब्वे महिला T20I श्रृंखला (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह दोनों देशों के बीच पहली द्विपक्षीय महिला क्रिकेट श्रृंखला है।\n2. भारत का नेतृत्व पूर्णकालिक कप्तान स्मृति मंधाना कर रही हैं।\n3. इसके बाद होने वाली ODI श्रृंखला वडोदरा में खेली जाएगी।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the India-Zimbabwe women's T20I series (October 2026):\n1. It is the first bilateral women's cricket series between the two countries.\n2. India are led by full-time captain Smriti Mandhana.\n3. The ODI series that follows will be played in Vadodara.\nWhich of the statements given above is/are correct?",
+            "hi": "भारत-ज़िम्बाब्वे महिला T20I श्रृंखला (अक्टूबर 2026) के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. यह दोनों देशों के बीच पहली द्विपक्षीय महिला क्रिकेट श्रृंखला है।\n2. भारत का नेतृत्व पूर्णकालिक कप्तान स्मृति मंधाना कर रही हैं।\n3. इसके बाद होने वाली ODI श्रृंखला वडोदरा में खेली जाएगी।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "3 only",
+              "1 and 2 only",
+              "1 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 3",
+              "केवल 1 और 2",
+              "केवल 1 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 2,
+          "answer": 3,
           "explanation": {
             "en": "All three are stated in the report.",
             "hi": "तीनों बातें रिपोर्ट में कही गई हैं।"
@@ -4712,27 +4712,27 @@
           ],
           "difficulty": 1,
           "question": {
-            "en": "Consider the following statements about the Diwali Muhurat Trading session of 2026:\n1. Only the NSE will hold the session; BSE will remain closed.\n2. The session will run from 6:15 PM to 7:15 PM.\n3. Trades executed during the session will not carry any settlement obligations.\nHow many of the above statements are correct?",
-            "hi": "2026 के दिवाली मुहूर्त ट्रेडिंग सत्र के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. केवल NSE सत्र आयोजित करेगा; BSE बंद रहेगा।\n2. सत्र शाम 6:15 से 7:15 बजे तक चलेगा।\n3. सत्र में किए गए सौदों पर कोई निपटान दायित्व लागू नहीं होगा।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Diwali Muhurat Trading session of 2026:\n1. Only the NSE will hold the session; BSE will remain closed.\n2. The session will run from 6:15 PM to 7:15 PM.\n3. Trades executed during the session will not carry any settlement obligations.\nWhich of the statements given above is/are not correct?",
+            "hi": "2026 के दिवाली मुहूर्त ट्रेडिंग सत्र के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. केवल NSE सत्र आयोजित करेगा; BSE बंद रहेगा।\n2. सत्र शाम 6:15 से 7:15 बजे तक चलेगा।\n3. सत्र में किए गए सौदों पर कोई निपटान दायित्व लागू नहीं होगा।\nउपर्युक्त कथनों में से कौन-सा/से सही नहीं है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "1 and 3 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 1 और 3",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
           "answer": 3,
           "explanation": {
-            "en": "None is correct: both NSE and BSE will hold it, from 2:20 PM to 3:30 PM, and trades carry normal settlement obligations.",
-            "hi": "कोई भी सही नहीं: NSE और BSE दोनों इसे दोपहर 2:20 से 3:30 बजे तक आयोजित करेंगे, और सौदों पर सामान्य निपटान दायित्व लागू होंगे।"
+            "en": "All three statements are incorrect. both NSE and BSE will hold it, from 2:20 PM to 3:30 PM, and trades carry normal settlement obligations.",
+            "hi": "तीनों कथन गलत हैं। NSE और BSE दोनों इसे दोपहर 2:20 से 3:30 बजे तक आयोजित करेंगे, और सौदों पर सामान्य निपटान दायित्व लागू होंगे।"
           }
         },
         {
@@ -4949,24 +4949,24 @@
           ],
           "difficulty": 2,
           "question": {
-            "en": "Consider the following statements about the Martian Moons eXploration (MMX) mission:\n1. It was launched on an H-IIA rocket from the Uchinoura Space Center.\n2. It aims to be the first spacecraft to return to Earth from the Mars system.\n3. It is due to arrive at Mars in August 2027.\nHow many of the above statements are correct?",
-            "hi": "मार्शियन मून्स एक्सप्लोरेशन (MMX) मिशन के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसे उचिनौरा अंतरिक्ष केंद्र से H-IIA रॉकेट द्वारा प्रक्षेपित किया गया।\n2. इसका लक्ष्य मंगल प्रणाली से पृथ्वी पर लौटने वाला पहला अंतरिक्ष यान बनना है।\n3. यह अगस्त 2027 में मंगल पहुँचेगा।\nउपर्युक्त में से कितने कथन सही हैं?"
+            "en": "Consider the following statements about the Martian Moons eXploration (MMX) mission:\n1. It was launched on an H-IIA rocket from the Uchinoura Space Center.\n2. It aims to be the first spacecraft to return to Earth from the Mars system.\n3. It is due to arrive at Mars in August 2027.\nWhich of the statements given above is/are correct?",
+            "hi": "मार्शियन मून्स एक्सप्लोरेशन (MMX) मिशन के संबंध में निम्नलिखित कथनों पर विचार कीजिए:\n1. इसे उचिनौरा अंतरिक्ष केंद्र से H-IIA रॉकेट द्वारा प्रक्षेपित किया गया।\n2. इसका लक्ष्य मंगल प्रणाली से पृथ्वी पर लौटने वाला पहला अंतरिक्ष यान बनना है।\n3. यह अगस्त 2027 में मंगल पहुँचेगा।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
           },
           "options": {
             "en": [
-              "Only one",
-              "Only two",
-              "All three",
-              "None"
+              "1 only",
+              "2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
             ],
             "hi": [
-              "केवल एक",
-              "केवल दो",
-              "तीनों",
-              "कोई नहीं"
+              "केवल 1",
+              "केवल 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
             ]
           },
-          "answer": 1,
+          "answer": 2,
           "explanation": {
             "en": "Statement 1 is wrong: MMX flew on the tenth H3 rocket from Tanegashima. Statements 2 and 3 match ESA's description and timeline.",
             "hi": "कथन 1 गलत है: MMX तानेगाशिमा से H3 रॉकेट की दसवीं उड़ान से गया। कथन 2 और 3 ESA के विवरण और समय-सारणी के अनुरूप हैं।"

@@ -43,6 +43,8 @@ export function seenUrls(): Set<string> {
   return urls;
 }
 
+const COUNT_OPTIONS = ["Only one", "Only two", "All three", "None"];
+
 const clamp = (n: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, Math.round(n)));
 
 function slugify(s: string): string {
@@ -73,6 +75,11 @@ function toStored(n: NewStory, takenIds: Set<string>): { story: StoredStory; war
     const answer = Math.round(m.answer);
     if (m.options.en.length !== 4 || m.options.hi.length !== 4 || answer < 0 || answer > 3) {
       warnings.push(`MCQ ${i + 1} dropped: needs 4 options per language and answer 0-3`);
+      return [];
+    }
+    // Examiners ask which statements are correct, with combinations as options, never how many.
+    if (m.style !== "direct" && (/how many/i.test(m.question.en) || /कितने/.test(m.question.hi) || COUNT_OPTIONS.some((o) => m.options.en.includes(o)))) {
+      warnings.push(`MCQ ${i + 1} dropped: statement questions must ask which statements are correct, not how many (see ROUTINE.md)`);
       return [];
     }
     return [shuffleOptions({ ...m, answer, difficulty: clamp(m.difficulty, 1, 3) })];
