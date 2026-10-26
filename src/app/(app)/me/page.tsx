@@ -4,11 +4,10 @@ import { redirect } from "next/navigation";
 import { ArrowUpRight, BarChart3, BookOpen, Bookmark, CalendarDays, CalendarRange, ClipboardList, Settings, Waypoints } from "lucide-react";
 import { DailyPath } from "@/components/daily-path";
 import { InstallCard } from "@/components/install";
-import { ResetProgress } from "@/components/reset-progress";
-import { LangPicker, ThemeToggle } from "@/components/nav";
+import { ThemeToggle } from "@/components/nav";
 import { daysUntil } from "@/lib/dates";
 import { currentProfile } from "@/lib/profile";
-import { examById, pick, stateById } from "@/lib/taxonomy";
+import { pick, stateById } from "@/lib/taxonomy";
 
 export const metadata: Metadata = { title: "You" };
 
@@ -25,7 +24,7 @@ export default async function Me() {
     { href: "/threads", tone: "bg-amber-soft text-amber-ink", icon: Waypoints, label: hi ? "घटनाक्रम" : "Timelines", hint: hi ? "एक मुद्दे की पूरी कहानी, क्रम से" : "Follow an issue from start to now" },
     { href: "/monthly", tone: "bg-mint-soft text-mint-ink", icon: CalendarRange, label: hi ? "मासिक" : "Monthly", hint: hi ? "हर महीने के नीतिगत बदलाव और टेस्ट" : "Each month's policy changes, with a test" },
     { href: "/sources", tone: "bg-good-soft text-good-ink", icon: BookOpen, label: hi ? "स्रोत" : "Sources", hint: hi ? "हम कहाँ से पढ़ते हैं" : "Where our news comes from" },
-    { href: "/settings", tone: "bg-card-2 text-ink-2", icon: Settings, label: hi ? "सेटिंग्स" : "Settings", hint: hi ? "परीक्षा, राज्य, परीक्षा तिथि" : "Exams, state, exam date" },
+    { href: "/settings", tone: "bg-card-2 text-ink-2", icon: Settings, label: hi ? "सेटिंग्स" : "Settings", hint: hi ? "परीक्षा, राज्य, परीक्षा तिथि, इस डिवाइस की प्रगति" : "Exams, state, exam date, progress on this device" },
   ];
 
   return (
@@ -36,11 +35,6 @@ export default async function Me() {
           <h1 className="font-display text-[30px] leading-none sm:text-[40px]">{hi ? "आप" : "Hello, aspirant."}</h1>
         </div>
         <div className="flex flex-wrap gap-2">
-          {profile.exams.map((e) => (
-            <span key={e} className="inline-flex h-8 items-center rounded-full bg-card px-3 text-xs font-semibold shadow-[inset_0_0_0_1px_var(--line-2)]">
-              {pick(examById(e)?.label, ui)}
-            </span>
-          ))}
           {profile.state && (
             <span className="inline-flex h-8 items-center gap-1.5 rounded-full bg-card px-3 text-xs font-semibold shadow-[inset_0_0_0_1px_var(--line-2)]">
               <span className="size-1.5 rounded-full bg-mint" />
@@ -59,18 +53,11 @@ export default async function Me() {
 
       <div className="space-y-6 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6 lg:space-y-0">
         <div className="space-y-6">
-          <section className="card space-y-4 p-5">
-            <div>
-              <div className="eyebrow mb-2 text-ink-3">{hi ? "पढ़ने की भाषा" : "Reading language"}</div>
-              <LangPicker lang={profile.lang} />
-            </div>
-            <div className="flex items-center justify-between border-t border-line pt-4">
-              <span className="text-sm font-semibold">{hi ? "थीम" : "Theme"}</span>
-              <ThemeToggle />
-            </div>
+          <section className="card flex items-center justify-between p-5">
+            <span className="text-sm font-semibold">{hi ? "थीम" : "Theme"}</span>
+            <ThemeToggle />
           </section>
           <InstallCard />
-          <ResetProgress />
         </div>
         <nav className="card divide-y divide-line overflow-hidden">
           {links.map(({ href, icon: Icon, label, hint, tone }) => (
