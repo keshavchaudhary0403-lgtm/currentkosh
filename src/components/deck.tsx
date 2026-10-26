@@ -31,6 +31,10 @@ import { Confetti, RelevanceBadge, cx, fmtDate } from "./ui";
 type Item = { kind: "story"; s: DeckStory; group: "main" | "more"; n: number; of: number } | { kind: "end" };
 type Mcq = DeckStory["mcqs"][number];
 
+// Statement questions were rewritten from "how many are correct" to "which are correct" on 26 Oct 2026;
+// answers given before then were to the old wording, so they don't count as answering the new one.
+const STATEMENT_REWRITE = "2026-10-26T17:05:00Z";
+
 /**
  * Today as one continuous scroll: each story reads top to bottom — headline, key facts,
  * then its quick questions (the summary lives in the deep dive) — and scrolling on brings the next story. A reader sheet holds the deep dive.
@@ -77,7 +81,7 @@ export function Deck({
   // Last answer recorded for a question (this session first, then saved progress).
   const resultOf = (m: Mcq): "right" | "wrong" | null => {
     if (picks[m.id] !== undefined) return picks[m.id] === m.content.answer ? "right" : "wrong";
-    const log = [...p.answers].reverse().find((a) => a.mcqId === m.id);
+    const log = [...p.answers].reverse().find((a) => a.mcqId === m.id && (m.content.style === "direct" || a.at >= STATEMENT_REWRITE));
     return log ? (log.correct ? "right" : "wrong") : null;
   };
   // A story is wrong if any of its questions was missed, right once all are answered correctly.
@@ -387,7 +391,7 @@ function StoryBlock({
                           {earlier === "right" ? (hi ? "आपने यह पहले सही किया था" : "You got this right earlier") : hi ? "पहले छूट गया था · अब दोहराव में" : "Missed earlier · now in your Revise queue"}
                         </div>
                         <div className="mt-1 text-ink">
-                          {pick(mcq.content.question, ui).split("\n")[0]} → <b>{lang === "hi" ? mcq.content.options.hi[mcq.content.answer] : mcq.content.options.en[mcq.content.answer]}</b>
+                          {mcq.content.style === "direct" ? `${pick(mcq.content.question, ui)} → ` : hi ? "उत्तर: " : "Answer: "}<b>{lang === "hi" ? mcq.content.options.hi[mcq.content.answer] : mcq.content.options.en[mcq.content.answer]}</b>
                         </div>
                       </div>
                     ) : (
