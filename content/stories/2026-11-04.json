@@ -1,0 +1,205 @@
+{
+  "date": "2026-11-04",
+  "stories": [
+    {
+      "title": {
+        "en": "IndiaAI Mission: Government releases three indigenous foundation models — Soket Labs' EKA-1 and ZenteiQ's Dhīr 2B and Dhīr 5B",
+        "hi": "इंडियाAI मिशन: सरकार ने तीन स्वदेशी फाउंडेशन मॉडल जारी किए — सोकेट लैब्स का EKA-1 तथा ZenteiQ के धीर 2B और धीर 5B"
+      },
+      "summary": {
+        "en": "The Government has publicly released three indigenous AI foundation models under the IndiaAI Mission: EKA-1, built by Soket Labs, and Dhīr 2B and Dhīr 5B, built by ZenteiQ. EKA-1 has 26.3 billion parameters, was trained on about 7.5 trillion tokens and works across all 22 scheduled Indian languages and English. It is an open, sparse hybrid language model designed for mathematics, coding, reasoning and agentic tasks. The Dhīr models support offline, document-grounded automation and knowledge retrieval for defence, government, industry and education, especially in low-connectivity or sensitive settings. MeitY Secretary S. Krishnan said the models can run in air-gapped environments and have uses in cybersecurity.",
+        "hi": "सरकार ने इंडियाAI मिशन के अंतर्गत तीन स्वदेशी AI फाउंडेशन मॉडल सार्वजनिक रूप से जारी किए हैं: सोकेट लैब्स द्वारा विकसित EKA-1 तथा ZenteiQ द्वारा विकसित धीर 2B और धीर 5B। EKA-1 में 26.3 अरब पैरामीटर हैं; इसे लगभग 7.5 ट्रिलियन टोकन पर प्रशिक्षित किया गया है और यह संविधान की आठवीं अनुसूची की सभी 22 भाषाओं के साथ अंग्रेज़ी में काम करता है। यह एक ओपन, स्पार्स हाइब्रिड भाषा मॉडल है, जो गणित, कोडिंग, तर्क और एजेंटिक कार्यों के लिए बनाया गया है। धीर मॉडल रक्षा, सरकार, उद्योग और शिक्षा क्षेत्रों में ऑफ़लाइन, दस्तावेज़-आधारित स्वचालन और ज्ञान-पुनर्प्राप्ति में सहायक हैं, विशेषकर कम कनेक्टिविटी या संवेदनशील परिस्थितियों में। इलेक्ट्रॉनिकी एवं सूचना प्रौद्योगिकी मंत्रालय (MeitY) के सचिव एस. कृष्णन ने कहा कि इन मॉडलों को एयर-गैप्ड परिवेश में भी चलाया जा सकता है और साइबर सुरक्षा में इनका उपयोग संभव है।"
+      },
+      "key_facts": [
+        {
+          "en": "Models released: EKA-1 (Soket Labs), Dhīr 2B and Dhīr 5B (ZenteiQ), under the IndiaAI Mission.",
+          "hi": "जारी मॉडल: EKA-1 (सोकेट लैब्स), धीर 2B और धीर 5B (ZenteiQ) — इंडियाAI मिशन के अंतर्गत।"
+        },
+        {
+          "en": "EKA-1: 26.3 billion parameters, trained on ~7.5 trillion tokens.",
+          "hi": "EKA-1: 26.3 अरब पैरामीटर, लगभग 7.5 ट्रिलियन टोकन पर प्रशिक्षित।"
+        },
+        {
+          "en": "EKA-1 covers all 22 scheduled Indian languages plus English.",
+          "hi": "EKA-1 सभी 22 अनुसूचित भारतीय भाषाओं और अंग्रेज़ी को कवर करता है।"
+        },
+        {
+          "en": "The models can be deployed in air-gapped environments — useful for secure and enterprise applications.",
+          "hi": "इन मॉडलों को एयर-गैप्ड परिवेश में तैनात किया जा सकता है — सुरक्षित व उद्यम उपयोग के लिए उपयोगी।"
+        }
+      ],
+      "why_it_matters": {
+        "en": "Home-grown foundation models reduce dependence on foreign AI systems and support sovereign, multilingual AI for government and defence use.",
+        "hi": "स्वदेशी फाउंडेशन मॉडल विदेशी AI प्रणालियों पर निर्भरता घटाते हैं और सरकारी व रक्षा उपयोग के लिए संप्रभु, बहुभाषी AI को बढ़ावा देते हैं।"
+      },
+      "mains_angle": {
+        "en": "Sovereign AI: role of indigenous foundation models in strategic autonomy, data security and linguistic inclusion (GS3 – Science & Technology).",
+        "hi": "संप्रभु AI: सामरिक स्वायत्तता, डेटा सुरक्षा और भाषाई समावेशन में स्वदेशी फाउंडेशन मॉडलों की भूमिका (GS3 – विज्ञान एवं प्रौद्योगिकी)।"
+      },
+      "static_link": {
+        "en": "The IndiaAI Mission, approved in March 2024 and implemented by MeitY, aims to build national AI compute capacity and indigenous foundation models. The Eighth Schedule of the Constitution lists 22 languages.",
+        "hi": "मार्च 2024 में स्वीकृत और MeitY द्वारा कार्यान्वित इंडियाAI मिशन का उद्देश्य राष्ट्रीय AI कंप्यूट क्षमता और स्वदेशी फाउंडेशन मॉडल विकसित करना है। संविधान की आठवीं अनुसूची में 22 भाषाएँ सूचीबद्ध हैं।"
+      },
+      "glossary": [
+        {
+          "en": "Foundation model",
+          "hi": "आधार (फाउंडेशन) मॉडल"
+        },
+        {
+          "en": "Air-gapped environment",
+          "hi": "एयर-गैप्ड (नेटवर्क से पृथक) परिवेश"
+        },
+        {
+          "en": "Parameters",
+          "hi": "पैरामीटर (मॉडल के प्राचल)"
+        }
+      ],
+      "category": "science_tech",
+      "gs_paper": "GS3",
+      "scope": "national",
+      "states": [],
+      "relevance": {
+        "upsc": 3,
+        "state_psc": 2,
+        "ssc": 3,
+        "banking": 2,
+        "railways": 3,
+        "defence": 2,
+        "teaching": 2
+      },
+      "importance": 4,
+      "thread_key": "ai-and-digital-india",
+      "mcqs": [
+        {
+          "style": "statement",
+          "exams": [
+            "upsc",
+            "state_psc",
+            "defence"
+          ],
+          "difficulty": 2,
+          "question": {
+            "en": "Consider the following statements:\n1. EKA-1, released under the IndiaAI Mission, has been developed by Soket Labs.\n2. EKA-1 supports all 22 scheduled Indian languages along with English.\nWhich of the statements given above is/are correct?",
+            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. इंडियाAI मिशन के अंतर्गत जारी EKA-1 को सोकेट लैब्स ने विकसित किया है।\n2. EKA-1 अंग्रेज़ी के साथ सभी 22 अनुसूचित भारतीय भाषाओं का समर्थन करता है।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
+          },
+          "options": {
+            "en": [
+              "1 only",
+              "2 only",
+              "Both 1 and 2",
+              "Neither 1 nor 2"
+            ],
+            "hi": [
+              "केवल 1",
+              "केवल 2",
+              "1 और 2 दोनों",
+              "न तो 1 और न ही 2"
+            ]
+          },
+          "answer": 2,
+          "explanation": {
+            "en": "Statement 1 is correct: EKA-1 is by Soket Labs. Statement 2 is correct: it spans all 22 scheduled languages and English.",
+            "hi": "कथन 1 सही है: EKA-1 सोकेट लैब्स का है। कथन 2 सही है: यह सभी 22 अनुसूचित भाषाओं और अंग्रेज़ी में काम करता है।"
+          }
+        },
+        {
+          "style": "direct",
+          "exams": [
+            "ssc",
+            "banking",
+            "railways",
+            "state_psc"
+          ],
+          "difficulty": 1,
+          "question": {
+            "en": "The AI foundation models 'Dhīr 2B' and 'Dhīr 5B', launched under the IndiaAI Mission, have been developed by which entity?",
+            "hi": "इंडियाAI मिशन के अंतर्गत जारी AI फाउंडेशन मॉडल 'धीर 2B' और 'धीर 5B' किस संस्था ने विकसित किए हैं?"
+          },
+          "options": {
+            "en": [
+              "ZenteiQ",
+              "Sarvam AI",
+              "Soket Labs",
+              "BharatGen"
+            ],
+            "hi": [
+              "ZenteiQ",
+              "सर्वम AI",
+              "सोकेट लैब्स",
+              "भारतजेन"
+            ]
+          },
+          "answer": 0,
+          "explanation": {
+            "en": "The Dhīr 2B and Dhīr 5B models are by ZenteiQ; EKA-1 is by Soket Labs.",
+            "hi": "धीर 2B और धीर 5B मॉडल ZenteiQ के हैं; EKA-1 सोकेट लैब्स का है।"
+          }
+        },
+        {
+          "style": "direct",
+          "exams": [
+            "ssc",
+            "railways",
+            "banking"
+          ],
+          "difficulty": 2,
+          "question": {
+            "en": "How many parameters does the indigenous AI foundation model EKA-1 have?",
+            "hi": "स्वदेशी AI फाउंडेशन मॉडल EKA-1 में कितने पैरामीटर हैं?"
+          },
+          "options": {
+            "en": [
+              "28.1 billion",
+              "24.6 billion",
+              "22.5 billion",
+              "26.3 billion"
+            ],
+            "hi": [
+              "28.1 अरब",
+              "24.6 अरब",
+              "22.5 अरब",
+              "26.3 अरब"
+            ]
+          },
+          "answer": 3,
+          "explanation": {
+            "en": "EKA-1 features 26.3 billion parameters and was trained on about 7.5 trillion tokens.",
+            "hi": "EKA-1 में 26.3 अरब पैरामीटर हैं और इसे लगभग 7.5 ट्रिलियन टोकन पर प्रशिक्षित किया गया है।"
+          }
+        }
+      ],
+      "cards": [
+        {
+          "front": {
+            "en": "Which company built the EKA-1 foundation model?",
+            "hi": "EKA-1 फाउंडेशन मॉडल किस कंपनी ने बनाया?"
+          },
+          "back": {
+            "en": "Soket Labs (26.3 billion parameters)",
+            "hi": "सोकेट लैब्स (26.3 अरब पैरामीटर)"
+          }
+        },
+        {
+          "front": {
+            "en": "Dhīr 2B and Dhīr 5B are AI models from which firm?",
+            "hi": "धीर 2B और धीर 5B किस कंपनी के AI मॉडल हैं?"
+          },
+          "back": {
+            "en": "ZenteiQ",
+            "hi": "ZenteiQ"
+          }
+        }
+      ],
+      "id": "2026-11-04-indiaai-mission-government-releases-three-indigenous",
+      "date": "2026-11-04",
+      "createdAt": "2026-11-04T03:07:40.499Z",
+      "sources": [
+        {
+          "sourceId": "air",
+          "url": "https://newsonair.gov.in/govt-launches-3-new-indigenous-ai-foundation-models-under-indiaai-mission-to-strengthen-homegrown-ai-capabilities/",
+          "title": "Govt launches 3 new indigenous AI foundation models under IndiaAI Mission to strengthen homegrown AI capabilities"
+        }
+      ]
+    }
+  ]
+}
