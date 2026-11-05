@@ -586,6 +586,412 @@
           "title": "UP Board to introduce new answer sheets for 2027 exams to curb malpractices"
         }
       ]
+    },
+    {
+      "title": {
+        "en": "I4C warns banks, NBFCs and fintechs of AI-agent cyberattacks; incidents to be reported to CERT-In and RBI's DAKSH portal within six hours",
+        "hi": "I4C ने बैंकों, NBFC और फिनटेक कंपनियों को AI एजेंट आधारित साइबर हमलों के प्रति आगाह किया; घटनाओं की सूचना छह घंटे में CERT-In और RBI के DAKSH पोर्टल पर देनी होगी"
+      },
+      "summary": {
+        "en": "The Indian Cyber Crime Coordination Centre (I4C), which functions under the Union Ministry of Home Affairs, has issued an advisory cautioning banks, non-banking financial companies (NBFCs) and fintech firms about a growing trend of financially motivated cyberattacks involving artificial intelligence agents. The trend was observed by I4C's National Cybercrime Threat Analysis Unit and CERT-In, which works under the Ministry of Electronics and Information Technology. Institutions have been asked to urgently implement CERT-In's advisories and align their security controls with CERT-In's May 2026 blueprint against AI-assisted vulnerability exploitation, as well as their sectoral regulators' cybersecurity frameworks. Incidents must be reported to CERT-In within six hours of detection; banks and NBFCs must also report them to the RBI through its DAKSH portal within the same time.",
+        "hi": "केंद्रीय गृह मंत्रालय के अधीन कार्यरत भारतीय साइबर अपराध समन्वय केंद्र (I4C) ने एक परामर्श (एडवाइजरी) जारी कर बैंकों, गैर-बैंकिंग वित्तीय कंपनियों (NBFC) और फिनटेक कंपनियों को कृत्रिम बुद्धिमत्ता (AI) एजेंटों के माध्यम से किए जा रहे वित्तीय लाभ-प्रेरित साइबर हमलों की बढ़ती प्रवृत्ति के प्रति सचेत किया है। यह प्रवृत्ति I4C की राष्ट्रीय साइबर अपराध खतरा विश्लेषण इकाई और इलेक्ट्रॉनिकी एवं सूचना प्रौद्योगिकी मंत्रालय के अधीन CERT-In ने देखी। संस्थाओं से कहा गया है कि वे CERT-In के परामर्शों को तुरंत लागू करें तथा अपने सुरक्षा नियंत्रणों को AI-सहायित भेद्यता-दोहन से बचाव हेतु CERT-In के मई 2026 के ब्लूप्रिंट और अपने क्षेत्रीय नियामकों के साइबर सुरक्षा ढाँचों के अनुरूप बनाएँ। ऐसी घटनाओं की सूचना पता चलने के छह घंटे के भीतर CERT-In को देनी होगी; बैंकों और NBFC को इसी समय-सीमा में RBI के DAKSH पोर्टल पर भी सूचना देनी होगी।"
+      },
+      "key_facts": [
+        {
+          "en": "Advisory issued by I4C (Ministry of Home Affairs) to banks, NBFCs and fintech firms",
+          "hi": "परामर्श I4C (गृह मंत्रालय) द्वारा बैंकों, NBFC और फिनटेक कंपनियों को जारी"
+        },
+        {
+          "en": "Threat: financially motivated cyberattacks involving AI agents",
+          "hi": "खतरा: AI एजेंटों से जुड़े वित्तीय लाभ-प्रेरित साइबर हमले"
+        },
+        {
+          "en": "Trend flagged by I4C's National Cybercrime Threat Analysis Unit and CERT-In (MeitY)",
+          "hi": "प्रवृत्ति की पहचान I4C की राष्ट्रीय साइबर अपराध खतरा विश्लेषण इकाई और CERT-In (MeitY) ने की"
+        },
+        {
+          "en": "Controls to align with CERT-In's May 2026 blueprint against AI-assisted vulnerability exploitation",
+          "hi": "सुरक्षा नियंत्रण AI-सहायित भेद्यता-दोहन के विरुद्ध CERT-In के मई 2026 के ब्लूप्रिंट के अनुरूप हों"
+        },
+        {
+          "en": "Incidents to be reported within 6 hours to CERT-In; banks and NBFCs also to RBI's DAKSH portal",
+          "hi": "घटनाओं की सूचना 6 घंटे के भीतर CERT-In को; बैंक और NBFC RBI के DAKSH पोर्टल पर भी दें"
+        }
+      ],
+      "why_it_matters": {
+        "en": "AI agents lower the cost and raise the speed of attacks on financial institutions, making fast reporting and coordinated defence vital for depositors' money and financial stability.",
+        "hi": "AI एजेंट वित्तीय संस्थानों पर हमलों को सस्ता और तेज़ बना देते हैं, इसलिए जमाकर्ताओं के धन और वित्तीय स्थिरता की रक्षा के लिए त्वरित सूचना और समन्वित बचाव अनिवार्य है।"
+      },
+      "mains_angle": {
+        "en": "GS3 (cyber security, internal security): the advisory shows India's layered response to AI-enabled cybercrime — MHA's I4C for threat analysis, CERT-In as the technical nodal agency and sectoral regulators such as the RBI for compliance — and raises questions on capacity of smaller fintechs and NBFCs to meet these standards.",
+        "hi": "GS3 (साइबर सुरक्षा, आंतरिक सुरक्षा): यह परामर्श AI-सक्षम साइबर अपराध के प्रति भारत की बहुस्तरीय व्यवस्था दर्शाता है — खतरा विश्लेषण के लिए गृह मंत्रालय का I4C, तकनीकी नोडल एजेंसी के रूप में CERT-In और अनुपालन के लिए RBI जैसे क्षेत्रीय नियामक — तथा छोटी फिनटेक कंपनियों और NBFC की इन मानकों को पूरा करने की क्षमता पर प्रश्न उठाता है।"
+      },
+      "static_link": {
+        "en": "CERT-In is the national nodal agency for responding to cyber security incidents under Section 70B of the Information Technology Act, 2000. I4C was set up by the Ministry of Home Affairs to tackle cybercrime in a coordinated manner and runs the National Cyber Crime Reporting Portal and the 1930 helpline.",
+        "hi": "CERT-In सूचना प्रौद्योगिकी अधिनियम, 2000 की धारा 70B के अंतर्गत साइबर सुरक्षा घटनाओं से निपटने वाली राष्ट्रीय नोडल एजेंसी है। I4C की स्थापना गृह मंत्रालय ने साइबर अपराध से समन्वित रूप से निपटने के लिए की थी; यह राष्ट्रीय साइबर अपराध रिपोर्टिंग पोर्टल और 1930 हेल्पलाइन संचालित करता है।"
+      },
+      "glossary": [
+        {
+          "en": "Advisory",
+          "hi": "परामर्श (एडवाइजरी)"
+        },
+        {
+          "en": "Vulnerability exploitation",
+          "hi": "भेद्यता-दोहन"
+        },
+        {
+          "en": "Non-banking financial company (NBFC)",
+          "hi": "गैर-बैंकिंग वित्तीय कंपनी (NBFC)"
+        }
+      ],
+      "category": "science_tech",
+      "gs_paper": "GS3",
+      "scope": "national",
+      "states": [],
+      "relevance": {
+        "upsc": 2,
+        "state_psc": 1,
+        "ssc": 2,
+        "banking": 3,
+        "railways": 1,
+        "defence": 1,
+        "teaching": 1
+      },
+      "importance": 3,
+      "thread_key": "cyber-crime-india",
+      "mcqs": [
+        {
+          "style": "statement",
+          "exams": [
+            "upsc",
+            "state_psc",
+            "defence"
+          ],
+          "difficulty": 2,
+          "question": {
+            "en": "Consider the following statements:\n1. The Indian Cyber Crime Coordination Centre (I4C) functions under the Ministry of Home Affairs.\n2. CERT-In functions under the Ministry of Electronics and Information Technology.\n3. Under I4C's recent advisory, financial institutions must report AI-driven cyber incidents to CERT-In within six hours of detecting them.\nWhich of the statements given above is/are correct?",
+            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. भारतीय साइबर अपराध समन्वय केंद्र (I4C) गृह मंत्रालय के अधीन कार्य करता है।\n2. CERT-In इलेक्ट्रॉनिकी एवं सूचना प्रौद्योगिकी मंत्रालय के अधीन कार्य करता है।\n3. I4C के हालिया परामर्श के अनुसार वित्तीय संस्थानों को AI-चालित साइबर घटनाओं की सूचना पता चलने के छह घंटे के भीतर CERT-In को देनी होगी।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
+          },
+          "options": {
+            "en": [
+              "1 only",
+              "1 and 2 only",
+              "2 and 3 only",
+              "1, 2 and 3"
+            ],
+            "hi": [
+              "केवल 1",
+              "केवल 1 और 2",
+              "केवल 2 और 3",
+              "1, 2 और 3"
+            ]
+          },
+          "answer": 3,
+          "explanation": {
+            "en": "Statement 1 is correct: I4C functions under the Union Ministry of Home Affairs. Statement 2 is correct: CERT-In is under MeitY. Statement 3 is correct: incidents must be reported to CERT-In within six hours of detection.",
+            "hi": "कथन 1 सही है: I4C केंद्रीय गृह मंत्रालय के अधीन है। कथन 2 सही है: CERT-In इलेक्ट्रॉनिकी एवं सूचना प्रौद्योगिकी मंत्रालय के अधीन है। कथन 3 सही है: घटनाओं की सूचना पता चलने के छह घंटे के भीतर CERT-In को देनी होगी।"
+          }
+        },
+        {
+          "style": "direct",
+          "exams": [
+            "ssc",
+            "banking",
+            "railways"
+          ],
+          "difficulty": 2,
+          "question": {
+            "en": "Through which portal of the Reserve Bank of India must banks and NBFCs report cyber incidents, as per the recent I4C advisory?",
+            "hi": "I4C के हालिया परामर्श के अनुसार बैंकों और NBFC को साइबर घटनाओं की सूचना भारतीय रिज़र्व बैंक के किस पोर्टल के माध्यम से देनी होगी?"
+          },
+          "options": {
+            "en": [
+              "SACHET",
+              "PRAVAAH",
+              "DAKSH",
+              "UDGAM"
+            ],
+            "hi": [
+              "SACHET (सचेत)",
+              "PRAVAAH (प्रवाह)",
+              "DAKSH (दक्ष)",
+              "UDGAM (उद्गम)"
+            ]
+          },
+          "answer": 2,
+          "explanation": {
+            "en": "The advisory requires banks and NBFCs to report incidents to the RBI through its DAKSH portal.",
+            "hi": "परामर्श के अनुसार बैंकों और NBFC को घटनाओं की सूचना RBI के DAKSH पोर्टल पर देनी होगी।"
+          }
+        },
+        {
+          "style": "direct",
+          "exams": [
+            "ssc",
+            "banking",
+            "railways",
+            "state_psc"
+          ],
+          "difficulty": 1,
+          "question": {
+            "en": "Within how many hours of detection must financial institutions report AI-driven cyber incidents to CERT-In under the I4C advisory?",
+            "hi": "I4C के परामर्श के अंतर्गत वित्तीय संस्थानों को AI-चालित साइबर घटनाओं की सूचना पता चलने के कितने घंटे के भीतर CERT-In को देनी होगी?"
+          },
+          "options": {
+            "en": [
+              "6 hours",
+              "4 hours",
+              "24 hours",
+              "12 hours"
+            ],
+            "hi": [
+              "6 घंटे",
+              "4 घंटे",
+              "24 घंटे",
+              "12 घंटे"
+            ]
+          },
+          "answer": 0,
+          "explanation": {
+            "en": "Institutions have been urged to report such incidents to CERT-In within six hours of detecting them.",
+            "hi": "संस्थानों से ऐसी घटनाओं की सूचना पता चलने के छह घंटे के भीतर CERT-In को देने को कहा गया है।"
+          }
+        }
+      ],
+      "cards": [
+        {
+          "front": {
+            "en": "I4C works under which ministry?",
+            "hi": "I4C किस मंत्रालय के अधीन कार्य करता है?"
+          },
+          "back": {
+            "en": "Ministry of Home Affairs",
+            "hi": "गृह मंत्रालय"
+          }
+        },
+        {
+          "front": {
+            "en": "Deadline to report AI-driven cyber incidents to CERT-In (I4C advisory, Nov 2026)?",
+            "hi": "AI-चालित साइबर घटनाओं की सूचना CERT-In को देने की समय-सीमा (I4C परामर्श, नवंबर 2026)?"
+          },
+          "back": {
+            "en": "Within 6 hours of detection",
+            "hi": "पता चलने के 6 घंटे के भीतर"
+          }
+        },
+        {
+          "front": {
+            "en": "RBI portal for banks/NBFCs to report cyber incidents?",
+            "hi": "बैंकों/NBFC द्वारा साइबर घटनाओं की सूचना देने हेतु RBI का पोर्टल?"
+          },
+          "back": {
+            "en": "DAKSH",
+            "hi": "DAKSH (दक्ष)"
+          }
+        }
+      ],
+      "id": "2026-11-05-i4c-warns-banks-nbfcs-and-fintechs-of-ai-agent-cyberattacks",
+      "date": "2026-11-05",
+      "createdAt": "2026-11-05T05:13:51.752Z",
+      "sources": [
+        {
+          "sourceId": "air",
+          "url": "https://newsonair.gov.in/i4c-cautions-banks-and-fintech-firms-against-ai-driven-cyberattacks/",
+          "title": "I4C cautions banks and fintech firms against AI-driven cyberattacks"
+        }
+      ]
+    },
+    {
+      "title": {
+        "en": "17-year-old Maaya Rajeshwaran reaches Chennai Open quarter-final — first Indian woman in a WTA singles quarter-final since Sania Mirza in 2012",
+        "hi": "17 वर्षीय माया राजेश्वरन चेन्नई ओपन के क्वार्टर फ़ाइनल में — 2012 में सानिया मिर्ज़ा के बाद WTA एकल क्वार्टर फ़ाइनल में पहुँचने वाली पहली भारतीय महिला"
+      },
+      "summary": {
+        "en": "India's 17-year-old Maaya Rajeshwaran Revathi has become the first Indian woman since Sania Mirza in 2012 to reach the quarter-finals of a WTA Tour-level singles event. Ranked 669th in the world, she beat Polish qualifier Weronika Falkowska, ranked 277th, 6-4, 6-3 in the second round of the Chennai Open. No Indian had gone beyond the second round in the tournament's previous two editions. Sania Mirza last reached a WTA singles quarter-final at the Pattaya Open in February 2012. In October, Maaya won her maiden W35 singles title in Lagos, Portugal, as a qualifier without dropping a set, and also took the doubles title with Ukraine's Yelyzaveta Kotliar.",
+        "hi": "भारत की 17 वर्षीय माया राजेश्वरन रेवती 2012 में सानिया मिर्ज़ा के बाद WTA टूर स्तर की किसी एकल प्रतियोगिता के क्वार्टर फ़ाइनल में पहुँचने वाली पहली भारतीय महिला बन गई हैं। विश्व रैंकिंग में 669वें स्थान पर मौजूद माया ने चेन्नई ओपन के दूसरे दौर में पोलैंड की क्वालीफ़ायर और 277वीं रैंकिंग वाली वेरोनिका फ़ाल्कोव्स्का को सीधे सेटों में 6-4, 6-3 से हराया। पिछले दो संस्करणों में कोई भी भारतीय खिलाड़ी इस टूर्नामेंट के दूसरे दौर से आगे नहीं बढ़ सका था। सानिया मिर्ज़ा फ़रवरी 2012 में पटाया ओपन के क्वार्टर फ़ाइनल में पहुँची थीं। अक्टूबर में माया ने पुर्तगाल के लागोस में क्वालीफ़ायर के रूप में बिना एक भी सेट गँवाए अपना पहला W35 एकल ख़िताब जीता था और यूक्रेन की येलिज़ावेता कोतलियार के साथ युगल ख़िताब भी अपने नाम किया।"
+      },
+      "key_facts": [
+        {
+          "en": "Maaya Rajeshwaran Revathi, 17, world No. 669, reached the Chennai Open quarter-final",
+          "hi": "17 वर्षीय माया राजेश्वरन रेवती (विश्व रैंकिंग 669) चेन्नई ओपन के क्वार्टर फ़ाइनल में पहुँचीं"
+        },
+        {
+          "en": "Beat Poland's Weronika Falkowska (No. 277) 6-4, 6-3 in the second round",
+          "hi": "दूसरे दौर में पोलैंड की वेरोनिका फ़ाल्कोव्स्का (रैंक 277) को 6-4, 6-3 से हराया"
+        },
+        {
+          "en": "First Indian woman in a WTA singles quarter-final since Sania Mirza (Pattaya Open, February 2012)",
+          "hi": "सानिया मिर्ज़ा (पटाया ओपन, फ़रवरी 2012) के बाद WTA एकल क्वार्टर फ़ाइनल में पहुँचने वाली पहली भारतीय महिला"
+        },
+        {
+          "en": "Won maiden W35 singles title in Lagos, Portugal, in October 2026",
+          "hi": "अक्टूबर 2026 में लागोस (पुर्तगाल) में पहला W35 एकल ख़िताब जीता"
+        }
+      ],
+      "why_it_matters": {
+        "en": "It ends a nearly 15-year gap for Indian women in the last eight of WTA Tour singles events.",
+        "hi": "इससे WTA टूर एकल प्रतियोगिताओं के अंतिम आठ में भारतीय महिलाओं की लगभग 15 वर्ष लंबी अनुपस्थिति समाप्त हुई।"
+      },
+      "mains_angle": null,
+      "static_link": {
+        "en": "The WTA (Women's Tennis Association) runs the professional women's tennis tour. Sania Mirza is India's most successful woman tennis player, with six Grand Slam doubles and mixed-doubles titles.",
+        "hi": "WTA (महिला टेनिस संघ) पेशेवर महिला टेनिस टूर का संचालन करता है। सानिया मिर्ज़ा भारत की सबसे सफल महिला टेनिस खिलाड़ी हैं, जिनके नाम छह ग्रैंड स्लैम युगल और मिश्रित युगल ख़िताब हैं।"
+      },
+      "glossary": [
+        {
+          "en": "Qualifier",
+          "hi": "क्वालीफ़ायर (योग्यता दौर से आई खिलाड़ी)"
+        },
+        {
+          "en": "Straight sets",
+          "hi": "सीधे सेट"
+        }
+      ],
+      "category": "sports",
+      "gs_paper": "none",
+      "scope": "national",
+      "states": [],
+      "relevance": {
+        "upsc": 0,
+        "state_psc": 1,
+        "ssc": 3,
+        "banking": 2,
+        "railways": 3,
+        "defence": 2,
+        "teaching": 2
+      },
+      "importance": 3,
+      "thread_key": "tennis",
+      "mcqs": [
+        {
+          "style": "statement",
+          "exams": [
+            "state_psc",
+            "defence"
+          ],
+          "difficulty": 2,
+          "question": {
+            "en": "Consider the following statements:\n1. Before Maaya Rajeshwaran, the last Indian woman to reach a WTA Tour singles quarter-final was Sania Mirza at the Pattaya Open in 2012.\n2. Maaya Rajeshwaran won her maiden W35 singles title in Lagos, Nigeria.\nWhich of the statements given above is/are correct?",
+            "hi": "निम्नलिखित कथनों पर विचार कीजिए:\n1. माया राजेश्वरन से पहले WTA टूर एकल क्वार्टर फ़ाइनल में पहुँचने वाली अंतिम भारतीय महिला सानिया मिर्ज़ा थीं, जो 2012 में पटाया ओपन में यहाँ तक पहुँची थीं।\n2. माया राजेश्वरन ने अपना पहला W35 एकल ख़िताब नाइजीरिया के लागोस में जीता।\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?"
+          },
+          "options": {
+            "en": [
+              "1 only",
+              "2 only",
+              "Both 1 and 2",
+              "Neither 1 nor 2"
+            ],
+            "hi": [
+              "केवल 1",
+              "केवल 2",
+              "1 और 2 दोनों",
+              "न तो 1 और न ही 2"
+            ]
+          },
+          "answer": 0,
+          "explanation": {
+            "en": "Statement 1 is correct: Sania Mirza last reached a WTA singles quarter-final at the Pattaya Open in February 2012. Statement 2 is incorrect: Maaya's W35 title came in Lagos, Portugal, not Nigeria.",
+            "hi": "कथन 1 सही है: सानिया मिर्ज़ा फ़रवरी 2012 में पटाया ओपन के क्वार्टर फ़ाइनल में पहुँची थीं। कथन 2 गलत है: माया का W35 ख़िताब पुर्तगाल के लागोस में आया, नाइजीरिया में नहीं।"
+          }
+        },
+        {
+          "style": "direct",
+          "exams": [
+            "ssc",
+            "railways",
+            "banking",
+            "teaching"
+          ],
+          "difficulty": 1,
+          "question": {
+            "en": "At which tournament did Maaya Rajeshwaran become the first Indian woman since 2012 to reach a WTA singles quarter-final?",
+            "hi": "माया राजेश्वरन किस टूर्नामेंट में 2012 के बाद WTA एकल क्वार्टर फ़ाइनल में पहुँचने वाली पहली भारतीय महिला बनीं?"
+          },
+          "options": {
+            "en": [
+              "Bengaluru Open",
+              "Chennai Open",
+              "Pune Open",
+              "Mumbai Open"
+            ],
+            "hi": [
+              "बेंगलुरु ओपन",
+              "चेन्नई ओपन",
+              "पुणे ओपन",
+              "मुंबई ओपन"
+            ]
+          },
+          "answer": 1,
+          "explanation": {
+            "en": "She beat Weronika Falkowska in the second round of the Chennai Open to reach the quarter-finals.",
+            "hi": "उन्होंने चेन्नई ओपन के दूसरे दौर में वेरोनिका फ़ाल्कोव्स्का को हराकर क्वार्टर फ़ाइनल में प्रवेश किया।"
+          }
+        },
+        {
+          "style": "direct",
+          "exams": [
+            "ssc",
+            "railways",
+            "defence"
+          ],
+          "difficulty": 1,
+          "question": {
+            "en": "Maaya Rajeshwaran defeated Weronika Falkowska in the Chennai Open second round. Which country does Falkowska represent?",
+            "hi": "माया राजेश्वरन ने चेन्नई ओपन के दूसरे दौर में वेरोनिका फ़ाल्कोव्स्का को हराया। फ़ाल्कोव्स्का किस देश का प्रतिनिधित्व करती हैं?"
+          },
+          "options": {
+            "en": [
+              "Poland",
+              "Czech Republic",
+              "Ukraine",
+              "Slovakia"
+            ],
+            "hi": [
+              "पोलैंड",
+              "चेक गणराज्य",
+              "यूक्रेन",
+              "स्लोवाकिया"
+            ]
+          },
+          "answer": 0,
+          "explanation": {
+            "en": "The source describes Falkowska as a Polish qualifier ranked 277th.",
+            "hi": "स्रोत के अनुसार फ़ाल्कोव्स्का 277वीं रैंकिंग वाली पोलैंड की क्वालीफ़ायर हैं।"
+          }
+        }
+      ],
+      "cards": [
+        {
+          "front": {
+            "en": "First Indian woman since Sania Mirza (2012) to reach a WTA singles quarter-final?",
+            "hi": "सानिया मिर्ज़ा (2012) के बाद WTA एकल क्वार्टर फ़ाइनल में पहुँचने वाली पहली भारतीय महिला?"
+          },
+          "back": {
+            "en": "Maaya Rajeshwaran Revathi (Chennai Open 2026)",
+            "hi": "माया राजेश्वरन रेवती (चेन्नई ओपन 2026)"
+          }
+        },
+        {
+          "front": {
+            "en": "Sania Mirza's last WTA singles quarter-final came at?",
+            "hi": "सानिया मिर्ज़ा अंतिम बार WTA एकल क्वार्टर फ़ाइनल में कहाँ पहुँची थीं?"
+          },
+          "back": {
+            "en": "Pattaya Open, February 2012",
+            "hi": "पटाया ओपन, फ़रवरी 2012"
+          }
+        }
+      ],
+      "id": "2026-11-05-17-year-old-maaya-rajeshwaran-reaches-chennai-open-quarter",
+      "date": "2026-11-05",
+      "createdAt": "2026-11-05T05:13:51.753Z",
+      "sources": [
+        {
+          "sourceId": "air",
+          "url": "https://newsonair.gov.in/maaya-rajeshwaran-becomes-first-indian-woman-since-sania-mirza-to-reach-wta-quarter-final/",
+          "title": "Maaya Rajeshwaran becomes first Indian woman since Sania Mirza to reach WTA quarter-final"
+        }
+      ]
     }
   ]
 }
