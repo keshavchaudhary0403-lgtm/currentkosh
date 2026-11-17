@@ -397,7 +397,7 @@
       "en": "Census 2027",
       "hi": "जनगणना 2027"
     },
-    "updatedAt": "2026-11-06T02:58:18.460Z"
+    "updatedAt": "2026-11-17T02:59:59.031Z"
   },
   {
     "key": "central-govt-employees-da",
@@ -573,7 +573,7 @@
       "en": "Culture and heritage",
       "hi": "संस्कृति और विरासत"
     },
-    "updatedAt": "2026-11-13T03:05:02.239Z"
+    "updatedAt": "2026-11-17T02:59:59.031Z"
   },
   {
     "key": "customs-duty-changes",
@@ -669,7 +669,7 @@
       "en": "Disasters and relief",
       "hi": "आपदाएँ और राहत"
     },
-    "updatedAt": "2026-11-16T05:12:07.385Z"
+    "updatedAt": "2026-11-17T02:59:59.031Z"
   },
   {
     "key": "disease-outbreaks-india",
@@ -810,10 +810,10 @@
   {
     "key": "environment-climate",
     "title": {
-      "en": "Environment and climate",
-      "hi": "पर्यावरण और जलवायु"
+      "en": "Climate change and environment",
+      "hi": "जलवायु परिवर्तन और पर्यावरण"
     },
-    "updatedAt": "2026-11-11T03:02:39.862Z"
+    "updatedAt": "2026-11-17T02:59:59.031Z"
   },
   {
     "key": "environmental-performance-index",
@@ -1322,10 +1322,10 @@
   {
     "key": "higher-education-aishe",
     "title": {
-      "en": "AISHE higher education survey",
-      "hi": "AISHE उच्च शिक्षा सर्वेक्षण"
+      "en": "Higher education and AISHE",
+      "hi": "उच्च शिक्षा और AISHE"
     },
-    "updatedAt": "2026-10-24T10:28:40.503Z"
+    "updatedAt": "2026-11-17T02:59:59.031Z"
   },
   {
     "key": "himachal-pradesh-governance",
@@ -1430,6 +1430,14 @@
       "hi": "भारत–बांग्लादेश संबंध"
     },
     "updatedAt": "2026-10-24T00:18:53.003Z"
+  },
+  {
+    "key": "india-belarus-relations",
+    "title": {
+      "en": "India–Belarus relations",
+      "hi": "भारत–बेलारूस संबंध"
+    },
+    "updatedAt": "2026-11-17T02:59:59.031Z"
   },
   {
     "key": "india-belgium-relations",
@@ -1808,6 +1816,14 @@
     "updatedAt": "2026-10-23T19:40:36.182Z"
   },
   {
+    "key": "india-thailand-relations",
+    "title": {
+      "en": "India–Thailand relations",
+      "hi": "भारत–थाईलैंड संबंध"
+    },
+    "updatedAt": "2026-11-17T02:59:59.031Z"
+  },
+  {
     "key": "india-trade-data",
     "title": {
       "en": "India's trade data",
@@ -1818,10 +1834,10 @@
   {
     "key": "india-uk-relations",
     "title": {
-      "en": "India-UK relations",
-      "hi": "भारत-ब्रिटेन संबंध"
+      "en": "India–UK relations",
+      "hi": "भारत–ब्रिटेन संबंध"
     },
-    "updatedAt": "2026-10-24T00:28:02.169Z"
+    "updatedAt": "2026-11-17T02:59:59.031Z"
   },
   {
     "key": "india-us-relations",
@@ -1829,7 +1845,7 @@
       "en": "India–US relations",
       "hi": "भारत–अमेरिका संबंध"
     },
-    "updatedAt": "2026-11-11T03:02:39.862Z"
+    "updatedAt": "2026-11-17T02:59:59.031Z"
   },
   {
     "key": "india-vietnam-relations",
@@ -1914,10 +1930,10 @@
   {
     "key": "inflation-cpi-wpi",
     "title": {
-      "en": "Inflation: CPI and WPI",
-      "hi": "महँगाई: CPI और WPI"
+      "en": "Inflation (CPI and WPI)",
+      "hi": "मुद्रास्फीति (CPI और WPI)"
     },
-    "updatedAt": "2026-10-23T23:52:28.316Z"
+    "updatedAt": "2026-11-17T02:59:59.031Z"
   },
   {
     "key": "infrastructure-financing",
@@ -1933,15 +1949,15 @@
       "en": "Railway infrastructure",
       "hi": "रेलवे अवसंरचना"
     },
-    "updatedAt": "2026-11-13T03:05:02.239Z"
+    "updatedAt": "2026-11-17T02:59:59.031Z"
   },
   {
     "key": "infrastructure-roads-ports",
     "title": {
-      "en": "Roads, ports and waterways infrastructure",
-      "hi": "सड़क, पत्तन और जलमार्ग अवसंरचना"
+      "en": "Roads, ports and shipping infrastructure",
+      "hi": "सड़क, बंदरगाह और पोत परिवहन अवसंरचना"
     },
-    "updatedAt": "2026-11-07T05:13:08.115Z"
+    "updatedAt": "2026-11-17T02:59:59.031Z"
   },
   {
     "key": "innovation-ip-reports",
@@ -1973,7 +1989,7 @@
       "en": "Internal security",
       "hi": "आंतरिक सुरक्षा"
     },
-    "updatedAt": "2026-11-14T03:02:08.693Z"
+    "updatedAt": "2026-11-17T02:59:59.031Z"
   },
   {
     "key": "international-film-festival-of-india",
@@ -2170,10 +2186,10 @@
   {
     "key": "labour-statistics",
     "title": {
-      "en": "Labour statistics",
-      "hi": "श्रम सांख्यिकी"
+      "en": "Labour and employment statistics",
+      "hi": "श्रम एवं रोज़गार आँकड़े"
     },
-    "updatedAt": "2026-11-11T03:02:39.861Z"
+    "updatedAt": "2026-11-17T02:59:59.031Z"
   },
   {
     "key": "ladakh-governance",
@@ -2963,9 +2979,9 @@
     "key": "red-sea-horn-of-africa",
     "title": {
       "en": "Red Sea and Horn of Africa",
-      "hi": "लाल सागर और हॉर्न ऑफ़ अफ़्रीका"
+      "hi": "लाल सागर और हॉर्न ऑफ़ अफ्रीका"
     },
-    "updatedAt": "2026-10-23T20:23:02.153Z"
+    "updatedAt": "2026-11-17T02:59:59.031Z"
   },
   {
     "key": "right-to-protest",
@@ -3157,7 +3173,7 @@
       "en": "Social welfare schemes",
       "hi": "सामाजिक कल्याण योजनाएँ"
     },
-    "updatedAt": "2026-11-04T03:07:40.501Z"
+    "updatedAt": "2026-11-17T02:59:59.031Z"
   },
   {
     "key": "south-china-sea-disputes",
@@ -3365,7 +3381,7 @@
       "en": "Telecom sector in India",
       "hi": "भारत का दूरसंचार क्षेत्र"
     },
-    "updatedAt": "2026-10-30T03:04:28.583Z"
+    "updatedAt": "2026-11-17T02:59:59.030Z"
   },
   {
     "key": "tennis",
@@ -3488,6 +3504,14 @@
     "updatedAt": "2026-10-24T00:17:03.779Z"
   },
   {
+    "key": "union-budget-2027-28",
+    "title": {
+      "en": "Union Budget 2027-28",
+      "hi": "केंद्रीय बजट 2027-28"
+    },
+    "updatedAt": "2026-11-17T02:59:59.031Z"
+  },
+  {
     "key": "upsc-civil-services-exam",
     "title": {
       "en": "UPSC and civil services",
@@ -3573,7 +3597,7 @@
       "en": "Uttarakhand governance",
       "hi": "उत्तराखंड शासन"
     },
-    "updatedAt": "2026-11-11T03:02:39.862Z"
+    "updatedAt": "2026-11-17T02:59:59.031Z"
   },
   {
     "key": "vande-mataram-150",
